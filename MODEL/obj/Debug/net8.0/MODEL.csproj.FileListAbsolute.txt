@@ -1,0 +1,4 @@
+C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.AssemblyInfoInputs.cache
+C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.AssemblyInfo.cs
+C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.csproj.CoreCompileInputs.cache
