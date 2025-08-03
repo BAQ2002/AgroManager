@@ -18,7 +18,7 @@ namespace MODEL
 
     #region CLASSE ANIMAL --------------------------------------
 
-    public abstract class Animal : BaseEntity
+    public abstract class AnimalEntity : BaseEntity
     {
         #region Private Propeties --------------------------------------
         private string? _name = null; //Nome ou apelido do animal (opcional)
@@ -82,7 +82,7 @@ namespace MODEL
                     (DateTime.Today - BirthDate.Value.ToDateTime(TimeOnly.MinValue))
                     .TotalDays / 365.25);
 
-        public Animal(string name,Gender gender = Gender.None,
+        public AnimalEntity(string name,Gender gender = Gender.None,
                       DateOnly? birthDate = null, DateOnly? purchaseDate = null, Filiation? filiation = null)         
         {   
             Name = name;
