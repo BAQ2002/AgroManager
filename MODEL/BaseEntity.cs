@@ -6,7 +6,6 @@ namespace MODEL
         private DateTimeOffset _createdAt = DateTimeOffset.UtcNow;
         private DateTimeOffset? _updatedAt = DateTimeOffset.UtcNow;
 
-
         public Guid Id 
         {
             get => _id;

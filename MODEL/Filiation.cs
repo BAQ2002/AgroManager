@@ -2,22 +2,7 @@ using System;
 
 namespace MODEL
 {
-    #region ---------FILIATION-------------
-    // Informações de filiação (Parentesco entre animais)
-    public enum BreedingType     // Tipo de cruza
-    {
-        Unknown = 0,             // desconhecido   
-        Natural,                 // monta natural
-        ArtificialInsemination   // sêmen utilizado Inseminação Artificial
-    }
-
-    public enum ParentFlag
-    {
-        Unknown = 0,
-        Internal,
-        External
-    }
-    #endregion
+       
     /// Informações de parentesco do animal.
     public class Filiation
     {
