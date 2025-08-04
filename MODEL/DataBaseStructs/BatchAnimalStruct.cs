@@ -12,8 +12,8 @@ namespace MODEL
         public DateTimeOffset CreatedAt { get; set; }
         public DateTimeOffset? UpdatedAt { get; set; }
         
-        public Guid BatchId { get; set; }
         public Guid AnimalId { get; set; }
+        public Guid BatchId { get; set; }
         public DateTimeOffset BatchEntryDate { get; set; }
         public DateTimeOffset? BatchExitDate { get; set; }
         public string? ExitReason { get; set; }

@@ -19,7 +19,7 @@ namespace MODEL.DataBaseStructs
         public DateOnly? BirthDate { get; set; }
         public DateOnly? PurchaseDate { get; set; }
         public DateOnly? DeathDate { get; set; }
-        public Filiation? Filiation { get; set; }
+        public Guid? FiliationId { get; set; }
 
     }
 }

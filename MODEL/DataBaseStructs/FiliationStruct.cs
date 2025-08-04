@@ -8,11 +8,11 @@ namespace MODEL.DataBaseStructs
 {
     public struct FiliationStruct
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } //Mesmo Id de AnimalEntity
         public DateTimeOffset CreatedAt {get; set; }
         public DateTimeOffset? UpdatedAt { get; set; }
 
-        public Guid AnimalId { get; set; }
+
         public Guid FatherId { get; set; }
         public Guid MotherId { get; set; }
         public Guid SurrogateMotherId { get; set; }
