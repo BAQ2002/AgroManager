@@ -1,5 +1,8 @@
 namespace MODEL
 {
+    /// <summary>
+    /// Classe que qualquer entidade registravel deve ser derivada
+    /// </summary>
     public abstract class BaseEntity
     {
         private Guid _id;

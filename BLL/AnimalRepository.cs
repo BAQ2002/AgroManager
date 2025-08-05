@@ -30,7 +30,7 @@ namespace BLL
                 };
 
                 private string? _name = null; //Nome ou apelido do animal (opcional)
-        private Origin _origin = Origin.Unknown;
+        private AcquisitionOrigin _origin = AcquisitionOrigin.Unknown;
         private Gender _gender = Gender.None;
         private DateOnly? _birthDate = null;
         private DateOnly? _purchaseDate = null;

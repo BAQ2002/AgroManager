@@ -8,8 +8,8 @@ namespace MODEL
     {
         #region Private Propeties --------------------------------------
         private string? _name = null; //Nome ou apelido do animal (opcional)
-        private Origin _origin = Origin.Unknown; 
-        private Gender _gender = Gender.None;
+        private AcquisitionOrigin _origin = AcquisitionOrigin.Unknown; 
+        private Gender _gender = Gender.Unknown;
         private DateOnly? _birthDate = null;
         private DateOnly? _purchaseDate = null;
         private DateOnly? _deathDate = null;
@@ -24,7 +24,7 @@ namespace MODEL
             protected set { _name = value; } 
         } 
 
-        public Origin Origin 
+        public AcquisitionOrigin Origin 
         {
             get => _origin;
             protected set { _origin = value; }
@@ -62,13 +62,13 @@ namespace MODEL
         #endregion
         /// Refatorar Age para entregar a idade em valor mais granular (Anos e Meses)
         public int? Age =>
-            BirthDate is null
-                ? null
+            BirthDate is null ? null
                 : (int)Math.Floor(
-                    (DateTime.Today - BirthDate.Value.ToDateTime(TimeOnly.MinValue))
-                    .TotalDays / 365.25);
+                    (DateTime.Today - BirthDate.Value.ToDateTime(TimeOnly.MinValue)).TotalDays / 365.25);
 
-        public AnimalEntity(string name,Gender gender = Gender.None,
+        public AnimalEntity() { }
+
+        public AnimalEntity(string name,Gender gender = Gender.Unknown,
                       DateOnly? birthDate = null, DateOnly? purchaseDate = null, Filiation? filiation = null)         
         {   
             Name = name;

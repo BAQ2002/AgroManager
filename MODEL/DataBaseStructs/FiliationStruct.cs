@@ -15,7 +15,7 @@ namespace MODEL.DataBaseStructs
 
         public Guid FatherId { get; set; }
         public Guid MotherId { get; set; }
-        public Guid SurrogateMotherId { get; set; }
+        public Guid? SurrogateMotherId { get; set; }
         public int FatherFlag { get; set; }
         public int MotherFlag { get; set; }
         public int SurrogateMotherFlag { get; set; }

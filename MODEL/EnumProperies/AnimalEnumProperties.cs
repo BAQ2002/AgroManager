@@ -8,15 +8,30 @@ namespace MODEL
 {
     public enum Gender
     {
-        None = 0,
+        Unknown = 0,
         Male = 1,
         Female = 2
     }
 
-    public enum Origin
+    /// <summary>
+    /// Define se o animal foi comprado ou nascido ou se nao pertence a fazenda
+    /// </summary>
+    public enum AcquisitionOrigin
+    {
+        Unknown = 0, //Desconhecido 
+        Born = 1, //Nascido na fazenda 
+        Purchased = 2, //Comprado
+        External = 3 //Nao faz parte da fazenda
+    }
+
+    /// <summary>
+    /// Define o estado de maternidade atual de uma vaca
+    /// </summary>
+    public enum MaritalStatus
     {
         Unknown = 0,
-        Born = 1,
-        Purchased = 2
+        Single = 1, //Vaca que nao esta com bezerro e nem gravida
+        Pregnant = 2, //Vaca gravida
+        Mother = 3 //Vaca com bezerro
     }
 }
