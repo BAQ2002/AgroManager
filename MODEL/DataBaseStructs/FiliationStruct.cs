@@ -12,7 +12,6 @@ namespace MODEL.DataBaseStructs
         public DateTimeOffset CreatedAt {get; set; }
         public DateTimeOffset? UpdatedAt { get; set; }
 
-
         public Guid FatherId { get; set; }
         public Guid MotherId { get; set; }
         public Guid? SurrogateMotherId { get; set; }
