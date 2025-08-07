@@ -29,15 +29,7 @@ namespace BLL
                     UpdatedAt = null
                 };
 
-                private string? _name = null; //Nome ou apelido do animal (opcional)
-        private AcquisitionOrigin _origin = AcquisitionOrigin.Unknown;
-        private Gender _gender = Gender.None;
-        private DateOnly? _birthDate = null;
-        private DateOnly? _purchaseDate = null;
-        private DateOnly? _deathDate = null;
-        private Filiation? _filiation; // Informações sobre pai/mãe.
-
-        dbContext.Add(batchStruct);        
+                dbContext.Add(batchStruct);        
                 dbContext.SaveChanges();
             }
         }

@@ -24,14 +24,5 @@ namespace MODEL
         External = 3 //Nao faz parte da fazenda
     }
 
-    /// <summary>
-    /// Define o estado de maternidade atual de uma vaca
-    /// </summary>
-    public enum MaritalStatus
-    {
-        Unknown = 0,
-        Single = 1, //Vaca que nao esta com bezerro e nem gravida
-        Pregnant = 2, //Vaca gravida
-        Mother = 3 //Vaca com bezerro
-    }
+
 }

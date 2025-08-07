@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MODEL.BovineEnumProperties;
 
 namespace MODEL
 {
@@ -10,14 +11,18 @@ namespace MODEL
     public class BovineAnimalEntity : AnimalEntity
     {
         private MaritalStatus? _matrialStatus = null;
-
-        public MaritalStatus? MatrialStatus 
+        private CattleType? _cattleType = null;
+        public MaritalStatus? MaritalStatus 
         {  
             get =>_matrialStatus;  
             set { _matrialStatus = value; } 
         }
 
-        private float? _milkProduction = null;
+        public CattleType? CattleType
+        {
+            get => _cattleType;
+            set { _cattleType = value; }
+        }
         public BovineAnimalEntity() 
         {
             
