@@ -34,13 +34,13 @@ namespace MODEL
             protected set { _name = value; } 
         } 
 
-        public AcquisitionOrigin Origin 
+        public virtual AcquisitionOrigin Origin 
         {
             get => _origin;
             protected set { _origin = value; }
         }
 
-        public Gender Gender 
+        public virtual Gender Gender 
         { 
             get => _gender; 
             protected set { _gender = value; }

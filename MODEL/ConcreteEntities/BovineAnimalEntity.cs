@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MODEL.BovineEnumProperties;
 
 namespace MODEL
 {
@@ -17,7 +16,7 @@ namespace MODEL
             get =>_matrialStatus;  
             set { _matrialStatus = value; } 
         }
-
+     
         public CattleType? CattleType
         {
             get => _cattleType;

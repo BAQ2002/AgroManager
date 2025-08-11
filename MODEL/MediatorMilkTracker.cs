@@ -6,71 +6,69 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public class Milk : BaseEntity
+    public class MilkItem
     {
-        private Guid _animalId;
-        private DateTimeOffset _occurrenceDate;
-        private float _liters;
-        
-        public Guid AnimalId
+        public float Liters { get; set; }
+        public string TestProp { get; set; }
+        public MilkItem(MilkEntity milkEntity) 
         {
-            get => _animalId;
-            set { _animalId = value; }
+            Liters = milkEntity.Liters;
+            TestProp = milkEntity.TestProp;
         }
-        public DateTimeOffset CccurrenceDate
-        {
-            get => _occurrenceDate;
-            set { _occurrenceDate = value; }
+
+        public MilkItem(float liters, string testProp) 
+        {         
+            Liters = liters;
+            TestProp = testProp;
         }
-        public float Liters 
-        {
-            get => _liters;
-            set { _liters = value; } 
-        }
-        //public string? propriedade1 { get; set; }
-        //public string? propriedade2 { get; set; }
-        //public string? propriedadeETC { get; set; }
+
     }
-    public class MilkTrack
-    {       
+    public class MediatorMilkTracker
+    {
         private Guid _cowId;
+        private Dictionary<DateOnly, MilkItem> _milkHistory = new();
 
-        public MilkTrack(Guid cowId)
+        public MediatorMilkTracker(BovineAnimalEntity animalEntity, MilkEntity[] milkEntity)
         {
-            _cowId = cowId;
+            _cowId = animalEntity.Id;
+
+            for (int i = 0; i < milkEntity.Length; i++)
+            {
+                _milkHistory[milkEntity[i].OccurrenceDate] = new MilkItem(milkEntity[i]);
+            }
         }
-
-        private Dictionary<DateOnly, Milk> _history = new();
-        public void addRecord(DateOnly dateOnly, Milk milk)
+        /// <summary>
+        /// Retorna a media de producao de leite entre a DateOnly passada como parametro e o registro anterior a ela
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public float GetDailyAverageLiters(DateOnly date)
         {
-            _history [dateOnly] = milk;
-        }
-
-
-        
-        public float CalcularMediaDiariaEntreDatas(Dictionary<DateOnly, float> historico, DateOnly data)
-        {
-            if (!historico.ContainsKey(data))
+            if (!_milkHistory.ContainsKey(date))
                 return 0f;
 
             // Ordena as datas
-            var datasOrdenadas = historico.Keys.OrderBy(d => d).ToList();
-            int index = datasOrdenadas.IndexOf(data);
+            var datasOrdenadas = _milkHistory.Keys.OrderBy(d => d).ToList();
+            int index = datasOrdenadas.IndexOf(date); //indice da date de parametro           
 
-            // Se não há data anterior, retorna apenas o valor da data atual
+            // Se não há date anterior, retorna apenas o valor da date atual
             if (index <= 0)
-                return historico[data];
+                return _milkHistory[date].Liters;
 
-            var dataAnterior = datasOrdenadas[index - 1];
-            var diasIntervalo = data.DayNumber - dataAnterior.DayNumber;
+            var previousDate = datasOrdenadas[index - 1];
+            var diasIntervalo = date.DayNumber - previousDate.DayNumber;
 
             if (diasIntervalo <= 0)
-                return historico[data]; // proteção contra erro de dados
+                return _milkHistory[date].Liters; // proteção contra erro de dados
 
-            float valorAnterior = historico[dataAnterior];
-            float valorAtual = historico[data];
+            float currentValue = _milkHistory[date].Liters;
+            float previousValue = _milkHistory[previousDate].Liters;
 
-            float somaPonderada = (valorAnterior * diasIntervalo); // assume constante até a nova data
+            float previousValueWeight = (previousValue - currentValue) / diasIntervalo;
+            for(int i =0; i <= diasIntervalo; i++)
+            float currentValueWeight =
+
+            float somaPonderada = (previousValue * diasIntervalo); // assume constante até a nova date
             return somaPonderada / diasIntervalo;
         }
         public float CalcularMediaSemanalEntreDatas(Dictionary<DateOnly, float> historico, DateOnly data)
