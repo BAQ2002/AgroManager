@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MODEL
 {
     
-    public class BovineAnimalEntity : AnimalEntity
+    public class BovineEntity : AnimalEntity
     {
         private MaritalStatus? _matrialStatus = null;
         private CattleType? _cattleType = null;
@@ -22,7 +22,7 @@ namespace MODEL
             get => _cattleType;
             set { _cattleType = value; }
         }
-        public BovineAnimalEntity() 
+        public BovineEntity() 
         {
             
         }

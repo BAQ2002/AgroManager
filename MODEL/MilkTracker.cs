@@ -23,12 +23,12 @@ namespace MODEL
         }
 
     }
-    public class MediatorMilkTracker
+    public class MilkTracker
     {
         private Guid _cowId;
         private Dictionary<DateOnly, MilkItem> _milkHistory = new();
 
-        public MediatorMilkTracker(BovineAnimalEntity animalEntity, MilkEntity[] milkEntity)
+        public MilkTracker(BovineEntity animalEntity, MilkEntity[] milkEntity)
         {
             _cowId = animalEntity.Id;
 

@@ -21,7 +21,6 @@ namespace MODEL
         private DateOnly? _birthDate = null;
         private DateOnly? _purchaseDate = null;
         private DateOnly? _deathDate = null;
-        private Filiation? _filiation; // Informações sobre pai/mãe.
         private IHealthTracker HealthTracker;
         private IWeightTracker weightTracker;
         private IFoodTracker foodTracker;
@@ -31,43 +30,39 @@ namespace MODEL
         public string? Name 
         { 
             get => _name; 
-            protected set { _name = value; } 
+            set { _name = value; } 
         } 
 
         public virtual AcquisitionOrigin Origin 
         {
             get => _origin;
-            protected set { _origin = value; }
+            set { _origin = value; }
         }
 
         public virtual Gender Gender 
         { 
             get => _gender; 
-            protected set { _gender = value; }
+            set { _gender = value; }
         } 
 
         public DateOnly? BirthDate 
         { 
             get => _birthDate; 
-            protected set { _birthDate = value; } 
+            set { _birthDate = value; } 
         }
 
         public DateOnly? PurchaseDate 
         {
             get => _purchaseDate; 
-            protected set { _purchaseDate = value; }
+            set { _purchaseDate = value; }
         }
 
         public DateOnly? DeathDate 
         {
             get => _deathDate; 
-            protected set { _deathDate = value; }
+            set { _deathDate = value; }
         }
 
-        public Filiation? Filiation {
-            get => _filiation; 
-            protected set { _filiation = value; }
-        }
 
         #endregion
         /// Refatorar Age para entregar a idade em valor mais granular (Anos e Meses)
@@ -79,13 +74,12 @@ namespace MODEL
         public AnimalEntity() { }
 
         public AnimalEntity(string name,Gender gender = Gender.Unknown,
-                      DateOnly? birthDate = null, DateOnly? purchaseDate = null, Filiation? filiation = null)         
+                      DateOnly? birthDate = null, DateOnly? purchaseDate = null, FiliationEntity? filiation = null)         
         {   
             Name = name;
             Gender = gender;
             BirthDate = birthDate;
             PurchaseDate = purchaseDate;
-            Filiation = filiation ?? new Filiation();
         }    
     }
 #endregion

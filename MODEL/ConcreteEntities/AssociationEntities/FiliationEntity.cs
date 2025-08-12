@@ -4,7 +4,7 @@ namespace MODEL
 {
        
     /// Informações de parentesco do animal.
-    public class Filiation
+    public class FiliationEntity
     {
         private BreedingType _type = BreedingType.Unknown;
 

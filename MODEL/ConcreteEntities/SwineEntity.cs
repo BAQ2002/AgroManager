@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public class SwineAnimalEntity : BaseEntity
+    public class SwineEntity : BaseEntity
     {
         private PorcType? _porcType = null;
         public PorcType? PorcType
