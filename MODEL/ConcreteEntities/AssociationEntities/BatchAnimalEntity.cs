@@ -39,6 +39,12 @@ namespace MODEL
             get => _exitReason;
             set { _exitReason = value; } 
         }
+
+        public BatchAnimalEntity(Guid animalId, Guid batchId)
+        {
+            AnimalId = animalId;
+            BatchId = batchId;
+        }
     }
 
 }

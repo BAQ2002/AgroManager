@@ -11,7 +11,7 @@ namespace MODEL
         private Guid _animalId;
         private DateOnly _occurrenceDate;
         private float _liters;
-        private string _testProp;
+        //private string _testProp;
         public Guid AnimalId
         {
             get => _animalId;
@@ -27,11 +27,11 @@ namespace MODEL
             get => _liters;
             set { _liters = value; } 
         }
-        public string TestProp
-        {
-            get => _testProp;
-            set { _testProp = value; } 
-        }
+        //public string TestProp
+        //{
+        //    get => _testProp;
+        //    set { _testProp = value; } 
+        //}
         //public string? propriedade2 { get; set; }
         //public string? propriedadeETC { get; set; }
     }

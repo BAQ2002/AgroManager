@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace MODEL.ConcreteEntities
 {
-    internal class BovinePastureBatch
+    public class BovinePastureBatch : BatchEntity
     {
+        private Guid _pastureId;
+        public Guid PastureId 
+        { 
+            get =>_pastureId; 
+            set {  _pastureId = value; }
+        }
     }
 }

@@ -1,0 +1,8 @@
+C:\Users\anton\source\repos\AgroManager\PL\obj\Debug\net8.0-windows\PL.csproj.AssemblyReference.cache
+C:\Users\anton\source\repos\AgroManager\PL\obj\Debug\net8.0-windows\PL.Form1.resources
+C:\Users\anton\source\repos\AgroManager\PL\obj\Debug\net8.0-windows\PL.csproj.GenerateResource.cache
+C:\Users\anton\source\repos\AgroManager\PL\obj\Debug\net8.0-windows\PL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anton\source\repos\AgroManager\PL\obj\Debug\net8.0-windows\PL.AssemblyInfoInputs.cache
+C:\Users\anton\source\repos\AgroManager\PL\obj\Debug\net8.0-windows\PL.AssemblyInfo.cs
+C:\Users\anton\source\repos\AgroManager\PL\obj\Debug\net8.0-windows\PL.csproj.CoreCompileInputs.cache
+C:\Users\anton\source\repos\AgroManager\PL\obj\Debug\net8.0-windows\PL.sourcelink.json

@@ -10,21 +10,11 @@ namespace BLL
     public static class AnimalBatchRepository
     {
 
-        public static void AddAnimalBatch(BatchAnimalStruct batchAnimal)
+        public static void AddAnimalBatch(BatchAnimalEntity batchAnimal)
         {
             using (var dbContext = new CUsersAntonSourceReposAplicacaowebDalDatabaseDatabase1MdfContext())
             {
-                var batchAnimalStruct = new BatchAnimalStruct()
-                {
-                    Id = Guid.NewGuid(),
-                    BatchId = batchAnimal.BatchId,
-                    AnimalId = batchAnimal.AnimalId,
-                    BatchEntryDate = batchAnimal.BatchEntryDate,
-                    BatchExitDate = batchAnimal.BatchExitDate == null ? null : batchAnimal.BatchExitDate,
-                    ExitReason = batchAnimal.ExitReason == null ? null : batchAnimal.ExitReason
-                };
-
-                dbContext.Add(batchAnimalStruct);
+                dbContext.Add(batchAnimal);
                 dbContext.SaveChanges();
             }
         }

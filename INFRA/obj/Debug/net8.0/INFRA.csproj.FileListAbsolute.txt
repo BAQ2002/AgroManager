@@ -1,0 +1,6 @@
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.csproj.AssemblyReference.cache
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.AssemblyInfoInputs.cache
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.AssemblyInfo.cs
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.csproj.CoreCompileInputs.cache
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.sourcelink.json

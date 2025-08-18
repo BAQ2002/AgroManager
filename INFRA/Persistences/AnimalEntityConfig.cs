@@ -14,9 +14,7 @@ public class AnimalEntityConfig : IEntityTypeConfiguration<AnimalEntity>
 
         b.Property(x => x.Id).HasColumnType("uuid"); // você já cria Guid no ctor -> DB não precisa gerar
                                         // .ValueGeneratedNever();     // opcional (Guid já não é gerado por padrão)
-
         b.Property(x => x.CreatedAt).HasColumnType("timestamptz"); // timestamp com fuso (UTC-friendly)
-
         b.Property(x => x.UpdatedAt).HasColumnType("timestamptz");
 
         // Campos COMUNS da hierarquia (se quiser padronizar aqui):
