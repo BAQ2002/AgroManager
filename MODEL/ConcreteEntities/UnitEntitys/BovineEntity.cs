@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public interface IBovineRepository
-    {
-        Task AddAsync(BovineEntity entity, CancellationToken ct = default);
-        Task<BovineEntity?> GetByIdAsync(Guid id, CancellationToken ct = default);
-        Task<BovineEntity?> GetByNameAsync(string name, CancellationToken ct = default);
-        Task<BovineEntity?> GetByGenderAsync(Gender gender, CancellationToken ct = default);
-        Task<BovineEntity?> GetByGenderAsync(int gender, CancellationToken ct = default);
-    }
+    
 
     public class BovineEntity : AnimalEntity
     {

@@ -74,7 +74,7 @@ namespace MODEL
         public AnimalEntity() { }
 
         public AnimalEntity(string name,Gender gender = Gender.Unknown,
-                      DateOnly? birthDate = null, DateOnly? purchaseDate = null, FiliationEntity? filiation = null)         
+                      DateOnly? birthDate = null, DateOnly? purchaseDate = null, ParentageEntity? filiation = null)         
         {   
             Name = name;
             Gender = gender;

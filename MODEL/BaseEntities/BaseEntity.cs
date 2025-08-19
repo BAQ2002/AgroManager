@@ -5,9 +5,9 @@ namespace MODEL
     /// </summary>
     public abstract class BaseEntity
     {
-        private Guid _id;
+        private Guid _id = Guid.NewGuid();
         private DateTimeOffset _createdAt = DateTimeOffset.UtcNow;
-        private DateTimeOffset? _updatedAt = DateTimeOffset.UtcNow;
+        private DateTimeOffset? _updatedAt = null;
 
         public Guid Id 
         {
@@ -27,11 +27,6 @@ namespace MODEL
             set { _updatedAt = value; } 
         }
         
-        public BaseEntity()
-        {
-            Id = Guid.NewGuid();
-        }
-
         protected virtual void Update()
         {             
             UpdatedAt = DateTimeOffset.UtcNow;
