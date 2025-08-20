@@ -30,16 +30,16 @@ namespace MODEL
         Task AddAsync(MilkEntity entity, CancellationToken ct = default);
         Task DeleteAsync(MilkEntity entity, CancellationToken ct = default);
         Task<MilkEntity?> GetByIdAsync(Guid id, CancellationToken ct = default);
-        Task<MilkEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
+        Task<MilkEntity?> GetByBovineIdAsync(Guid animalId, CancellationToken ct = default);
     }
 
     public interface IBatchAnimalRepository
     {
-        Task AddAsync(BatchAnimalEntity entity, CancellationToken ct = default);
-        Task DeleteAsync(BatchAnimalEntity entity, CancellationToken ct = default);
-        Task<BatchAnimalEntity?> GetByIdAsync(Guid id, CancellationToken ct = default);
-        Task<BatchAnimalEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
-        Task<BatchAnimalEntity?> GetByBatchIdAsync(Guid batchId, CancellationToken ct = default);
+        Task AddAsync(BatchAnimal_AssocEntity entity, CancellationToken ct = default);
+        Task DeleteAsync(BatchAnimal_AssocEntity entity, CancellationToken ct = default);
+        Task<BatchAnimal_AssocEntity?> GetByIdAsync(Guid id, CancellationToken ct = default);
+        Task<BatchAnimal_AssocEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
+        Task<BatchAnimal_AssocEntity?> GetByBatchIdAsync(Guid batchId, CancellationToken ct = default);
     }
     public interface IParentageRepository
     {

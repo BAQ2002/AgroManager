@@ -6,16 +6,16 @@ namespace AgroManager.Infrastructure.Persistence.Configurations;
 
 public class SwineEntityConfig : IEntityTypeConfiguration<SwineEntity>
 {
-    public void Configure(EntityTypeBuilder<SwineEntity> b)
+    public void Configure(EntityTypeBuilder<SwineEntity> entityBuilder)
     {
         // Tabela única para suínos (também recebe as colunas herdadas de AnimalEntity)
-        b.ToTable("Swines");
-        b.HasKey(x => x.Id);
+        entityBuilder.ToTable("Swines");
+        entityBuilder.HasKey(x => x.Id);
 
         // Específica de suíno (enum opcional -> int NULL):
-        b.Property(x => x.PorcType).HasConversion<int?>();
+        entityBuilder.Property(x => x.PorcType).HasConversion<int?>();
 
         // (Opcional) índices
-        // b.HasIndex(x => x.PorcType);
+        // entityBuilder.HasIndex(x => x.PorcType);
     }
 }

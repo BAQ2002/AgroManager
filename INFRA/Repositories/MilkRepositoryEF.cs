@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INFRA
+namespace INFRA.Repositories
 {
     public sealed class MilkRepositoryEF : IMilkRepository
     {
@@ -33,10 +33,10 @@ namespace INFRA
             return await db.MilkRecords.AsNoTracking().SingleOrDefaultAsync(m => m.Id == id, ct);
         }
 
-        public async Task<MilkEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default)
+        public async Task<MilkEntity?> GetByBovineIdAsync(Guid animalId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
-            return await db.MilkRecords.AsNoTracking().SingleOrDefaultAsync(m => m.AnimalId == animalId, ct);
+            return await db.MilkRecords.AsNoTracking().SingleOrDefaultAsync(m => m.BovineId == animalId, ct);
         }
     }
 }

@@ -14,10 +14,13 @@ public class AgroManagerDbContext : DbContext
     public DbSet<SwineEntity> Swines => Set<SwineEntity>();
     public DbSet<MilkEntity> MilkRecords => Set<MilkEntity>();
     public DbSet<ParentageEntity> Parentages => Set<ParentageEntity>();
-    #region Association Entities -------------------------
+
+    #region Association Entities --------------------------------------------------------
+
     public DbSet<ParentageEntity> Filiations => Set<ParentageEntity>();
-    public DbSet<BatchAnimalEntity> BatchAnimals => Set<BatchAnimalEntity>();
-     #endregion
+    public DbSet<BatchAnimal_AssocEntity> BatchAnimals => Set<BatchAnimal_AssocEntity>();
+
+     #endregion--------------------------------------------------------------------------
     //public DbSet<PastureSegment> PastureSegments => Set<PastureSegment>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

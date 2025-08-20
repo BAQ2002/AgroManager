@@ -11,8 +11,8 @@ namespace MODEL
         private Guid _animalId;
         private DateOnly _occurrenceDate;
         private float _liters;
-        //private string _testProp;
-        public Guid AnimalId
+
+        public Guid BovineId
         {
             get => _animalId;
             set { _animalId = value; }
@@ -27,13 +27,7 @@ namespace MODEL
             get => _liters;
             set { _liters = value; } 
         }
-        //public string TestProp
-        //{
-        //    get => _testProp;
-        //    set { _testProp = value; } 
-        //}
-        //public string? propriedade2 { get; set; }
-        //public string? propriedadeETC { get; set; }
+
     }
     public class MilkTrack
     {       

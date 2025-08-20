@@ -18,8 +18,8 @@ namespace BLL
     }
     public sealed class BovineService : IBovineService
     {
-        private readonly BovineRepositoryEF _repo;
-        public BovineService(BovineRepositoryEF repo) => _repo = repo;
+        private readonly IBovineRepository _repo;
+        public BovineService(IBovineRepository repo) => _repo = repo;
 
         public Task AddBovineAsync(BovineEntity e, CancellationToken ct = default) => _repo.AddAsync(e, ct);
         public Task<BovineEntity?> BuscarPorIdAsync(Guid id, CancellationToken ct = default) => _repo.GetByIdAsync(id, ct);

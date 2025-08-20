@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MODEL
-{
-    
-
+{   
     public class BovineEntity : AnimalEntity
     {
         private MaritalStatus? _matrialStatus = null;
