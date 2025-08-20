@@ -776,23 +776,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\anton\\.nuget\\packages\\": {},
+    "C:\\Users\\victo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anton\\source\\repos\\AgroManager\\BLL\\BLL.csproj",
+      "projectUniqueName": "C:\\Users\\victo\\Source\\Repos\\AgroManager\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "C:\\Users\\anton\\source\\repos\\AgroManager\\BLL\\BLL.csproj",
-      "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anton\\source\\repos\\AgroManager\\BLL\\obj\\",
+      "projectPath": "C:\\Users\\victo\\Source\\Repos\\AgroManager\\BLL\\BLL.csproj",
+      "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\victo\\Source\\Repos\\AgroManager\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\anton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -801,18 +801,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\anton\\source\\repos\\AgroManager\\INFRA\\INFRA.csproj": {
-              "projectPath": "C:\\Users\\anton\\source\\repos\\AgroManager\\INFRA\\INFRA.csproj"
+            "C:\\Users\\victo\\Source\\Repos\\AgroManager\\INFRA\\INFRA.csproj": {
+              "projectPath": "C:\\Users\\victo\\Source\\Repos\\AgroManager\\INFRA\\INFRA.csproj"
             },
-            "C:\\Users\\anton\\source\\repos\\AgroManager\\MODEL\\MODEL.csproj": {
-              "projectPath": "C:\\Users\\anton\\source\\repos\\AgroManager\\MODEL\\MODEL.csproj"
+            "C:\\Users\\victo\\Source\\Repos\\AgroManager\\MODEL\\MODEL.csproj": {
+              "projectPath": "C:\\Users\\victo\\Source\\Repos\\AgroManager\\MODEL\\MODEL.csproj"
             }
           }
         }

@@ -4,7 +4,7 @@ using MODEL;
 
 namespace AgroManager.Infrastructure.Persistence.Configurations;
 
-public class SwineEntityConfig : IEntityTypeConfiguration<SwineEntity>
+public class SwineConfig : IEntityTypeConfiguration<SwineEntity>
 {
     public void Configure(EntityTypeBuilder<SwineEntity> entityBuilder)
     {

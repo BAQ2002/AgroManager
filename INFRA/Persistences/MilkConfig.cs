@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace INFRA.Persistences
 {
-    public class MilkEntityConfig : IEntityTypeConfiguration<MilkEntity>
+    public class MilkConfig : IEntityTypeConfiguration<MilkEntity>
     {
         public void Configure(EntityTypeBuilder<MilkEntity> entityBuilder)
         {
