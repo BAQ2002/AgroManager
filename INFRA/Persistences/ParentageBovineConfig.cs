@@ -14,18 +14,7 @@ namespace INFRA.Persistences
         public void Configure(EntityTypeBuilder<BovineParentageEntity> entityBuilder)
         {
             entityBuilder.ToTable("BovineParentages");
-            entityBuilder.HasKey(x => x.Id);
-           
-            entityBuilder.Property(x => x.BreedingType).HasConversion<int?>();
-
-            entityBuilder.Property(x => x.FatherId).HasColumnType("uuid");
-            entityBuilder.Property(x => x.MotherId).HasColumnType("uuid");
-            entityBuilder.Property(x => x.SurrogateMotherId).HasColumnType("uuid");
-
-            entityBuilder.Property(x => x.FatherFlag).HasConversion<int?>();
-            entityBuilder.Property(x => x.MotherFlag).HasConversion<int?>();
-            entityBuilder.Property(x => x.SurrogateMotherFlag).HasConversion<int?>();
-
+            
             // 1:1 Parentage <-> Bovine (sem navegação no principal)
             entityBuilder.HasOne<BovineEntity>()
                 .WithOne()                                  // sem navegação no principal (opcional)
