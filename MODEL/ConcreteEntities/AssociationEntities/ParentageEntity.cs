@@ -2,8 +2,9 @@ using System;
 
 namespace MODEL
 {
-       
+    /// <summary>
     /// Informações de parentesco do animal.
+    /// </summary>
     public class ParentageEntity : BaseEntity
     {
         private BreedingType _type = BreedingType.Unknown;
@@ -58,6 +59,7 @@ namespace MODEL
             get => _surrogateMotherFlag;
             set { _surrogateMotherFlag = value; }
         }
-
     }
+    public class BovineParentageEntity : ParentageEntity { }
+    public class SwineParentageEntity : ParentageEntity { }    
 }
