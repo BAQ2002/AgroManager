@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace INFRA.Persistences.Bases
 {
-    public class BatchEntityConfig : IEntityTypeConfiguration<BatchEntity>
+    public class BatchConfig : IEntityTypeConfiguration<BatchEntity>
     {
         public void Configure(EntityTypeBuilder<BatchEntity> entityBuilder)
         {

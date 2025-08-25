@@ -5,7 +5,7 @@ namespace MODEL
     /// <summary>
     /// Informações de parentesco do animal.
     /// </summary>
-    public class ParentageEntity : BaseEntity
+    public abstract class ParentageEntity : BaseEntity
     {
         private BreedingType _type = BreedingType.Unknown;
         public BreedingType BreedingType

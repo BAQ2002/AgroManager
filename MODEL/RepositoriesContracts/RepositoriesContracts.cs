@@ -41,13 +41,24 @@ namespace MODEL
         Task<BatchAnimal_AssocEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
         Task<BatchAnimal_AssocEntity?> GetByBatchIdAsync(Guid batchId, CancellationToken ct = default);
     }
-    public interface IParentageRepository
+    public interface IBovineParentageRepository
     {
-        Task AddAsync(ParentageEntity entity, CancellationToken ct = default);
-        Task DeleteAsync(ParentageEntity entity, CancellationToken ct = default);
-        Task<ParentageEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
-        Task<ParentageEntity?> GetByFatherIdAsync(Guid fatherId, CancellationToken ct = default);
-        Task<ParentageEntity?> GetByMotherIdAsync(Guid motherId, CancellationToken ct = default);
-        Task<ParentageEntity?> GetBySurrogateMotherIdAsync(Guid surrogateMotherId, CancellationToken ct = default);
+        Task AddAsync(BovineParentageEntity entity, CancellationToken ct = default);
+        Task DeleteAsync(BovineParentageEntity entity, CancellationToken ct = default);
+        Task<BovineParentageEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
+        Task<BovineParentageEntity?> GetByFatherIdAsync(Guid fatherId, CancellationToken ct = default);
+        Task<BovineParentageEntity?> GetByMotherIdAsync(Guid motherId, CancellationToken ct = default);
+        Task<BovineParentageEntity?> GetBySurrogateMotherIdAsync(Guid surrogateMotherId, CancellationToken ct = default);
+    }
+    public interface ISwineParentageRepository
+    {
+        Task AddAsync(SwineParentageEntity entity, CancellationToken ct = default);
+        Task DeleteAsync(SwineParentageEntity entity, CancellationToken ct = default);
+        Task<SwineParentageEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
+        Task<SwineParentageEntity?> GetByFatherIdAsync(Guid fatherId, CancellationToken ct = default);
+        Task<SwineParentageEntity?> GetByMotherIdAsync(Guid motherId, CancellationToken ct = default);
+        Task<SwineParentageEntity?> GetBySurrogateMotherIdAsync(Guid surrogateMotherId, CancellationToken ct = default);
     }
 }
+
+

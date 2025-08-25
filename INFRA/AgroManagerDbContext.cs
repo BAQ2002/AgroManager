@@ -15,8 +15,8 @@ public class AgroManagerDbContext : DbContext
     public DbSet<MilkEntity> MilkRecords => Set<MilkEntity>();
 
     #region Association Entities --------------------------------------------------------
-    public DbSet<ParentageEntity> BovineParentages => Set<ParentageEntity>();
-    public DbSet<ParentageEntity> SwineParentages => Set<ParentageEntity>();
+    public DbSet<BovineParentageEntity> BovineParentages => Set<BovineParentageEntity>();
+    public DbSet<SwineParentageEntity> SwineParentages => Set<SwineParentageEntity>();
     public DbSet<BatchAnimal_AssocEntity> BatchAnimals => Set<BatchAnimal_AssocEntity>();
 
      #endregion--------------------------------------------------------------------------

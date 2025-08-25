@@ -18,4 +18,8 @@
     <ProjectReference Include="..\MODEL\MODEL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistences\Associations\BatchAnimals\" />
+  </ItemGroup>
+
 </Project>

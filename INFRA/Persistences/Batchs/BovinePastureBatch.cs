@@ -13,7 +13,7 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<BovineEntity> entityBuilder)
         {
-            entityBuilder.ToTable("Bovines");
+            entityBuilder.ToTable("BovinesPastureBatch");
 
             entityBuilder.Property(x => x.MaritalStatus).HasConversion<int?>(); //enum
             entityBuilder.Property(x => x.CattleType).HasConversion<int?>(); //enum

@@ -9,17 +9,17 @@ namespace MODEL
     public class MilkItem
     {
         public float Liters { get; set; }
-        public string TestProp { get; set; }
+        //public string TestProp { get; set; }
         public MilkItem(MilkEntity milkEntity) 
         {
             Liters = milkEntity.Liters;
-            TestProp = milkEntity.TestProp;
+            //TestProp = milkEntity.TestProp;
         }
 
         public MilkItem(float liters, string testProp) 
         {         
             Liters = liters;
-            TestProp = testProp;
+            //TestProp = testProp;
         }
 
     }
@@ -65,13 +65,13 @@ namespace MODEL
             float previousValue = _milkHistory[previousDate].Liters;
 
             float previousValueWeight = (previousValue - currentValue) / diasIntervalo;
-            for(int i =0; i <= diasIntervalo; i++)
-            float currentValueWeight =
+            //for (int i = 0; i <= diasIntervalo; i++)
+               // float currentValueWeight = 1;
 
             float somaPonderada = (previousValue * diasIntervalo); // assume constante até a nova date
             return somaPonderada / diasIntervalo;
         }
-        public float CalcularMediaSemanalEntreDatas(Dictionary<DateOnly, float> historico, DateOnly data)
+        public float CalcularMedidSemanalEntreDatas(Dictionary<DateOnly, float> historico, DateOnly data)
         {
             if (!historico.ContainsKey(data))
                 return 0f;

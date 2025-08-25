@@ -10,7 +10,6 @@ public class SwineConfig : IEntityTypeConfiguration<SwineEntity>
     {
         // Tabela única para suínos (também recebe as colunas herdadas de AnimalEntity)
         entityBuilder.ToTable("Swines");
-        entityBuilder.HasKey(x => x.Id);
 
         // Específica de suíno (enum opcional -> int NULL):
         entityBuilder.Property(x => x.PorcType).HasConversion<int?>();

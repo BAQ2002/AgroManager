@@ -5,7 +5,7 @@ using MODEL;
 
 namespace AgroManager.Infrastructure.Persistence.Configurations;
 
-public class AnimalEntityConfig : IEntityTypeConfiguration<AnimalEntity>
+public class AnimalConfig : IEntityTypeConfiguration<AnimalEntity>
 {
     public void Configure(EntityTypeBuilder<AnimalEntity> entityBuilder)
     {
