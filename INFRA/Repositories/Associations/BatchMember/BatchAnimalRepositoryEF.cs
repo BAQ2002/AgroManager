@@ -8,37 +8,37 @@ using System.Threading.Tasks;
 
 namespace INFRA
 {
-    internal class BatchAnimalRepositoryEF : IBatchAnimalRepository
+    internal class SwineBeefMemberRepositoryEF : ISwineBeefMemberRepository
     {
         private readonly IDbContextFactory<AgroManagerDbContext> _factory;
-        public BatchAnimalRepositoryEF(IDbContextFactory<AgroManagerDbContext> factory) => _factory = factory;
+        public ISwineBeefMemberRepository(IDbContextFactory<AgroManagerDbContext> factory) => _factory = factory;
 
-        public async Task AddAsync(BatchAnimal_AssocEntity entity, CancellationToken ct = default)
+        public async Task AddAsync(SwineBeefMember entity, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             db.BatchAnimals.Add(entity);
             await db.SaveChangesAsync(ct);
         }
 
-        public async Task DeleteAsync(BatchAnimal_AssocEntity entity, CancellationToken ct = default)
+        public async Task DeleteAsync(SwineBeefMember entity, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             db.BatchAnimals.Remove(entity);
             await db.SaveChangesAsync(ct);
         }
 
-        public async Task<BatchAnimal_AssocEntity?> GetByIdAsync(Guid id, CancellationToken ct = default)
+        public async Task<SwineBeefMember?> GetByIdAsync(Guid id, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.BatchAnimals.AsNoTracking().SingleOrDefaultAsync(bA => bA.Id == id, ct);
         }
 
-        public async Task<BatchAnimal_AssocEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default)
+        public async Task<SwineBeefMember?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.BatchAnimals.AsNoTracking().SingleOrDefaultAsync(bA => bA.AnimalId == animalId, ct);
         }
-        public async Task<BatchAnimal_AssocEntity?> GetByBatchIdAsync(Guid batchId, CancellationToken ct = default)
+        public async Task<SwineBeefMember?> GetByBatchIdAsync(Guid batchId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.BatchAnimals.AsNoTracking().SingleOrDefaultAsync(bA => bA.BatchId == batchId, ct);

@@ -13,13 +13,16 @@ public class AgroManagerDbContext : DbContext
     public DbSet<BovineEntity> Bovines => Set<BovineEntity>();
     public DbSet<SwineEntity> Swines => Set<SwineEntity>();
     public DbSet<MilkEntity> MilkRecords => Set<MilkEntity>();
+    public DbSet<PastureEntity> Pastures => Set<PastureEntity>();
 
     #region Association Entities --------------------------------------------------------
     public DbSet<BovineParentageEntity> BovineParentages => Set<BovineParentageEntity>();
     public DbSet<SwineParentageEntity> SwineParentages => Set<SwineParentageEntity>();
-    public DbSet<BatchAnimal_AssocEntity> BatchAnimals => Set<BatchAnimal_AssocEntity>();
 
-     #endregion--------------------------------------------------------------------------
+    public DbSet<BovinePastureMember> BovinePastureMembers => Set<BovinePastureMember>();
+    public DbSet<SwineBeefMember> SwineBeefMembers => Set<SwineBeefMember>();
+    
+    #endregion--------------------------------------------------------------------------
     //public DbSet<PastureSegment> PastureSegments => Set<PastureSegment>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

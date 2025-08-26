@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace INFRA.Persistences.Bases
+namespace INFRA.Persistences
 {
     public class BatchConfig : IEntityTypeConfiguration<BatchEntity>
     {

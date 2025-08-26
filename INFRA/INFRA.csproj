@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Persistences\Associations\BatchAnimals\" />
+    <Folder Include="Repositories\Batchs\" />
   </ItemGroup>
 
 </Project>

@@ -59,7 +59,5 @@ namespace MODEL
             get => _surrogateMotherFlag;
             set { _surrogateMotherFlag = value; }
         }
-    }
-    public class BovineParentageEntity : ParentageEntity { }
-    public class SwineParentageEntity : ParentageEntity { }    
+    }       
 }

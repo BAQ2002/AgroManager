@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public class BatchAnimal_AssocEntity : BaseEntity
+    public class BatchMemberEntity : BaseEntity
     {
         private Guid _animalId;
         private Guid _batchId;
@@ -40,7 +40,7 @@ namespace MODEL
             set { _exitReason = value; } 
         }
 
-        public BatchAnimal_AssocEntity(Guid animalId, Guid batchId)
+        public BatchMemberEntity(Guid animalId, Guid batchId)
         {
             AnimalId = animalId;
             BatchId = batchId;

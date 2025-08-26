@@ -22,7 +22,7 @@ namespace MODEL
             set { _description = value; }
         }
 
-        //public List<BatchAnimal_AssocEntity> AnimalsList = new();
+        //public List<AnimalBatchEntity> AnimalsList = new();
 
         public BatchEntity()
         { 
