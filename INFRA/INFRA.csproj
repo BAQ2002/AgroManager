@@ -18,8 +18,4 @@
     <ProjectReference Include="..\MODEL\MODEL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\Batchs\" />
-  </ItemGroup>
-
 </Project>

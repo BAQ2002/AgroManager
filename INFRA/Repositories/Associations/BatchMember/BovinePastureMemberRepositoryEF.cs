@@ -4,14 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace INFRA
 {
-    internal class BovinePastureMemberRepositoryEF : IBovinePastureMemberRepository
+    public sealed class BovinePastureMemberRepositoryEF : IBovinePastureMemberRepository
     {
         private readonly IDbContextFactory<AgroManagerDbContext> _factory;
-        public IBovinePastureMemberRepository(IDbContextFactory<AgroManagerDbContext> factory) => _factory = factory;
+        public BovinePastureMemberRepositoryEF(IDbContextFactory<AgroManagerDbContext> factory) => _factory = factory;
 
         public async Task AddAsync(BovinePastureMember entity, CancellationToken ct = default)
         {

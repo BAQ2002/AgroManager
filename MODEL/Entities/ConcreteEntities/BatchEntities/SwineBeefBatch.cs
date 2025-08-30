@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public class SwineBeefBatchEntity
+    public class SwineBeefBatch : BatchEntity
     {
     }
 }

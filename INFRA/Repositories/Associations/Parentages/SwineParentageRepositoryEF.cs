@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace INFRA
 {
-    public class SwineParentageRepositoryEF : ISwineParentageRepository
+    public sealed class SwineParentageRepositoryEF : ISwineParentageRepository
     {
         private readonly IDbContextFactory<AgroManagerDbContext> _factory;
         public SwineParentageRepositoryEF(IDbContextFactory<AgroManagerDbContext> factory) => _factory = factory;
