@@ -4,7 +4,6 @@ using System.Security.Cryptography;
 
 namespace MODEL
 {
-    
     public abstract class BatchEntity : BaseEntity
     {
         private string _name;

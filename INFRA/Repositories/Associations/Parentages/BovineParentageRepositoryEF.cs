@@ -6,8 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace INFRA.Repositories
+namespace INFRA
 {
+    /// <summary>
+    /// Classe que implementa os métodos de interação com o banco de dados
+    /// </summary>
     public sealed class BovineParentageRepositoryEF : IBovineParentageRepository
     {
         private readonly IDbContextFactory<AgroManagerDbContext> _factory;

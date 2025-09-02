@@ -14,7 +14,6 @@ namespace INFRA.Persistences
         public void Configure(EntityTypeBuilder<MilkEntity> entityBuilder)
         {
             entityBuilder.ToTable("MilkRecords");
-            entityBuilder.HasKey(x => x.Id);
 
             entityBuilder.Property(x => x.BovineId).HasColumnType("uuid").ValueGeneratedNever();
             entityBuilder.Property(x => x.OccurrenceDate).HasColumnType("date");

@@ -8,6 +8,9 @@ using System.Threading;
 
 namespace INFRA
 {
+    /// <summary>
+    /// Classe que implementa os métodos de interação com o banco de dados
+    /// </summary>
     public sealed class SwineParentageRepositoryEF : ISwineParentageRepository
     {
         private readonly IDbContextFactory<AgroManagerDbContext> _factory;

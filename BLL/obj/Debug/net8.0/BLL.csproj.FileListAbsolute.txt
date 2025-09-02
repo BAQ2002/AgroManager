@@ -4,3 +4,13 @@ C:\Users\anton\source\repos\AgroManager\BLL\obj\Debug\net8.0\BLL.AssemblyInfoInp
 C:\Users\anton\source\repos\AgroManager\BLL\obj\Debug\net8.0\BLL.AssemblyInfo.cs
 C:\Users\anton\source\repos\AgroManager\BLL\obj\Debug\net8.0\BLL.csproj.CoreCompileInputs.cache
 C:\Users\anton\source\repos\AgroManager\BLL\obj\Debug\net8.0\BLL.sourcelink.json
+C:\Users\anton\source\repos\AgroManager\BLL\bin\Debug\net8.0\BLL.deps.json
+C:\Users\anton\source\repos\AgroManager\BLL\bin\Debug\net8.0\BLL.dll
+C:\Users\anton\source\repos\AgroManager\BLL\bin\Debug\net8.0\BLL.pdb
+C:\Users\anton\source\repos\AgroManager\BLL\bin\Debug\net8.0\MODEL.dll
+C:\Users\anton\source\repos\AgroManager\BLL\bin\Debug\net8.0\MODEL.pdb
+C:\Users\anton\source\repos\AgroManager\BLL\obj\Debug\net8.0\BLL.csproj.Up2Date
+C:\Users\anton\source\repos\AgroManager\BLL\obj\Debug\net8.0\BLL.dll
+C:\Users\anton\source\repos\AgroManager\BLL\obj\Debug\net8.0\refint\BLL.dll
+C:\Users\anton\source\repos\AgroManager\BLL\obj\Debug\net8.0\BLL.pdb
+C:\Users\anton\source\repos\AgroManager\BLL\obj\Debug\net8.0\ref\BLL.dll

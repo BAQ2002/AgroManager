@@ -3,3 +3,10 @@ C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.AssemblyInf
 C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.AssemblyInfo.cs
 C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.csproj.CoreCompileInputs.cache
 C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.sourcelink.json
+C:\Users\anton\source\repos\AgroManager\MODEL\bin\Debug\net8.0\MODEL.deps.json
+C:\Users\anton\source\repos\AgroManager\MODEL\bin\Debug\net8.0\MODEL.dll
+C:\Users\anton\source\repos\AgroManager\MODEL\bin\Debug\net8.0\MODEL.pdb
+C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.dll
+C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\refint\MODEL.dll
+C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\MODEL.pdb
+C:\Users\anton\source\repos\AgroManager\MODEL\obj\Debug\net8.0\ref\MODEL.dll

@@ -8,14 +8,14 @@ namespace MODEL
 {
     public class MilkEntity : BaseEntity
     {
-        private Guid _animalId;
+        private Guid _bovineId;
         private DateOnly _occurrenceDate;
         private float _liters;
 
         public Guid BovineId
         {
-            get => _animalId;
-            set { _animalId = value; }
+            get => _bovineId;
+            set { _bovineId = value; }
         }
         public DateOnly OccurrenceDate
         {
@@ -28,9 +28,5 @@ namespace MODEL
             set { _liters = value; } 
         }
 
-    }
-    public class MilkTrack
-    {       
-        
     }
 }

@@ -3,15 +3,6 @@ using System;
 
 namespace MODEL
 {
-    #region CLASSE ANIMAL --------------------------------------
-    public interface IHealthTracker
-    {
-
-    }
-    public interface IFoodTracker
-    {
-
-    }
     public abstract class AnimalEntity : BaseEntity
     {
         #region Private Propeties --------------------------------------
@@ -21,9 +12,6 @@ namespace MODEL
         private DateOnly? _birthDate = null;
         private DateOnly? _purchaseDate = null;
         private DateOnly? _deathDate = null;
-        private IHealthTracker HealthTracker;
-        private IWeightTracker weightTracker;
-        private IFoodTracker foodTracker;
         #endregion
 
         #region Public Propeties --------------------------------------
@@ -63,7 +51,6 @@ namespace MODEL
             set { _deathDate = value; }
         }
 
-
         #endregion
         /// Refatorar Age para entregar a idade em valor mais granular (Anos e Meses)
         public int? Age =>
@@ -82,5 +69,5 @@ namespace MODEL
             PurchaseDate = purchaseDate;
         }    
     }
-#endregion
+
 }

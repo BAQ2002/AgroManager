@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public class BatchMemberEntity : BaseEntity
+    public abstract class BatchMemberEntity : BaseEntity
     {
         private Guid _animalId;
         private Guid _batchId;

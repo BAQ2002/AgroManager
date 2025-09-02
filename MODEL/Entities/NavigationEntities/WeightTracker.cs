@@ -1,3 +1,5 @@
+using System;
+
 namespace Fazendinha.Model
 {
     #region INTERFACE--------------------------------------
@@ -5,13 +7,14 @@ namespace Fazendinha.Model
     {
         DateOnly? LatestDate { get; }
         float? LatestWeight { get; }
-        IReadOnlyDictionary<DateOnly, float> History { get; }
+        //IReadOnlyDictionary<DateOnly, float> History { get; }
 
         bool TryGetWeight(DateOnly date, out float weight);
         void Record(DateOnly date, float weight);
     }
+    
     #endregion
-    #region CLASS ----------------------------------------
+        #region CLASS ----------------------------------------
     public class WeightTracker : IWeightTracker
     {
         private readonly Dictionary<DateOnly, float> _history = new();
@@ -30,8 +33,8 @@ namespace Fazendinha.Model
             protected set {_latestWeight = value;}
         }
 
-        public IReadOnlyDictionary<DateOnly, float> History
-            => new ReadOnlyDictionary<DateOnly, float>(_history);
+        //public IReadOnlyDictionary<DateOnly, float> History
+        //    => new ReadOnlyDictionary<DateOnly, float>(_history);
 
 
         #region CONSTRUCTORS -------------------------------------------

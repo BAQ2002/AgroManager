@@ -18,7 +18,7 @@ namespace INFRA.Persistences
             // 1:1 Parentage <-> Swine (sem navegação no principal)
             entityBuilder.HasOne<SwineEntity>()
                 .WithOne()                                  // sem navegação no principal (opcional)
-                .HasForeignKey<ParentageEntity>(x => x.Id)  // FK é a própria PK de Parentage
+                .HasForeignKey<SwineParentageEntity>(x => x.Id)  // FK é a própria PK de Parentage
                 .OnDelete(DeleteBehavior.Restrict)          // ou Cascade, conforme sua regra
                 .HasConstraintName("fk_parentage_swine_animal");
             

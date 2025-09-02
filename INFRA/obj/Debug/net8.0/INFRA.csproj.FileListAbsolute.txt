@@ -4,3 +4,15 @@ C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.AssemblyInf
 C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.AssemblyInfo.cs
 C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.csproj.CoreCompileInputs.cache
 C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.sourcelink.json
+C:\Users\anton\source\repos\AgroManager\INFRA\bin\Debug\net8.0\INFRA.deps.json
+C:\Users\anton\source\repos\AgroManager\INFRA\bin\Debug\net8.0\INFRA.runtimeconfig.json
+C:\Users\anton\source\repos\AgroManager\INFRA\bin\Debug\net8.0\INFRA.dll
+C:\Users\anton\source\repos\AgroManager\INFRA\bin\Debug\net8.0\INFRA.pdb
+C:\Users\anton\source\repos\AgroManager\INFRA\bin\Debug\net8.0\MODEL.dll
+C:\Users\anton\source\repos\AgroManager\INFRA\bin\Debug\net8.0\MODEL.pdb
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.csproj.Up2Date
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.dll
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\refint\INFRA.dll
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.pdb
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\INFRA.genruntimeconfig.cache
+C:\Users\anton\source\repos\AgroManager\INFRA\obj\Debug\net8.0\ref\INFRA.dll
