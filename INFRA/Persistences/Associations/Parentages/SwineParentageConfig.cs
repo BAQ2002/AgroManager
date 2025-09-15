@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace INFRA.Persistences
 {
-    public class ParentageSwineConfig : IEntityTypeConfiguration<SwineParentageEntity>
+    public class SwineParentageConfig : IEntityTypeConfiguration<SwineParentageEntity>
     {
         public void Configure(EntityTypeBuilder<SwineParentageEntity> entityBuilder)
         {

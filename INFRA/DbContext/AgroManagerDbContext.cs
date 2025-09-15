@@ -38,7 +38,7 @@ public class AgroManagerDbContext : DbContext
         // Aplica mapeamentos via Fluent API
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AgroManagerDbContext).Assembly);
 
-        modelBuilder.Entity<AnimalEntity>().UseTpcMappingStrategy(); // raiz
+        modelBuilder.Entity<BaseEntity>().UseTpcMappingStrategy(); // raiz
         // Convenções úteis (ex.: snake_case — opcional)
         // modelBuilder.HasPostgresExtension("uuid-ossp");
         // modelBuilder.UseIdentityByDefaultColumns(); // padrão no Npgsql para Identity

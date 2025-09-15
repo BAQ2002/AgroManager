@@ -13,8 +13,6 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<BatchEntity> entityBuilder)
         {
-            entityBuilder.UseTpcMappingStrategy();
-
             #region-Propriedades Hereditarias-------------------------
 
             entityBuilder.Property(x => x.Name).HasMaxLength(120); //string

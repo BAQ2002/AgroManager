@@ -9,7 +9,7 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<AnimalEntity> entityBuilder)
         {
-            entityBuilder.UseTpcMappingStrategy();
+           
 
             #region-Propriedades Hereditarias--------------------------------
 

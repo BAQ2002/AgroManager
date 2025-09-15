@@ -13,6 +13,8 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<BaseEntity> entityBuilder)
         {
+            entityBuilder.UseTpcMappingStrategy();
+
             entityBuilder.HasKey(x => x.Id); //Chave primaria
 
             #region-Propriedades Hereditarias------------------------------------------
