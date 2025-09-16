@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JYuwd55Vqos=",
+  "dgSpecHash": "92t/J0OikyM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\anton\\source\\repos\\AgroManager\\PL\\PL.csproj",
+  "projectFilePath": "C:\\Users\\anton\\Source\\repos\\AgroManager\\PL\\PL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anton\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\anton\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

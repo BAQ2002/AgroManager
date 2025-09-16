@@ -10,6 +10,8 @@ namespace INFRA.Persistences
         {
             entityBuilder.ToTable("Bovines");
 
+            entityBuilder.HasKey(x => x.Id); //Chave primaria
+
             entityBuilder.Property(x => x.MaritalStatus).HasConversion<int?>();
             entityBuilder.Property(x => x.CattleType).HasConversion<int?>();
 

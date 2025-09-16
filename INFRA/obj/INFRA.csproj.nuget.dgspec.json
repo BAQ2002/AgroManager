@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anton\\source\\repos\\AgroManager\\INFRA\\INFRA.csproj": {}
+    "C:\\Users\\anton\\Source\\repos\\AgroManager\\INFRA\\INFRA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anton\\source\\repos\\AgroManager\\INFRA\\INFRA.csproj": {
+    "C:\\Users\\anton\\Source\\repos\\AgroManager\\INFRA\\INFRA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anton\\source\\repos\\AgroManager\\INFRA\\INFRA.csproj",
+        "projectUniqueName": "C:\\Users\\anton\\Source\\repos\\AgroManager\\INFRA\\INFRA.csproj",
         "projectName": "INFRA",
-        "projectPath": "C:\\Users\\anton\\source\\repos\\AgroManager\\INFRA\\INFRA.csproj",
+        "projectPath": "C:\\Users\\anton\\Source\\repos\\AgroManager\\INFRA\\INFRA.csproj",
         "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anton\\source\\repos\\AgroManager\\INFRA\\obj\\",
+        "outputPath": "C:\\Users\\anton\\Source\\repos\\AgroManager\\INFRA\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\anton\\source\\repos\\AgroManager\\MODEL\\MODEL.csproj": {
-                "projectPath": "C:\\Users\\anton\\source\\repos\\AgroManager\\MODEL\\MODEL.csproj"
+              "C:\\Users\\anton\\Source\\repos\\AgroManager\\MODEL\\MODEL.csproj": {
+                "projectPath": "C:\\Users\\anton\\Source\\repos\\AgroManager\\MODEL\\MODEL.csproj"
               }
             }
           }
@@ -98,18 +97,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\anton\\source\\repos\\AgroManager\\MODEL\\MODEL.csproj": {
+    "C:\\Users\\anton\\Source\\repos\\AgroManager\\MODEL\\MODEL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anton\\source\\repos\\AgroManager\\MODEL\\MODEL.csproj",
+        "projectUniqueName": "C:\\Users\\anton\\Source\\repos\\AgroManager\\MODEL\\MODEL.csproj",
         "projectName": "MODEL",
-        "projectPath": "C:\\Users\\anton\\source\\repos\\AgroManager\\MODEL\\MODEL.csproj",
+        "projectPath": "C:\\Users\\anton\\Source\\repos\\AgroManager\\MODEL\\MODEL.csproj",
         "packagesPath": "C:\\Users\\anton\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anton\\source\\repos\\AgroManager\\MODEL\\obj\\",
+        "outputPath": "C:\\Users\\anton\\Source\\repos\\AgroManager\\MODEL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -124,7 +123,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -164,7 +162,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

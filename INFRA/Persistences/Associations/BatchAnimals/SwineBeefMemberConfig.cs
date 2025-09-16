@@ -14,6 +14,8 @@ namespace INFRA.Persistences
         public void Configure(EntityTypeBuilder<SwineBeefMember> entityBuilder)
         {
             entityBuilder.ToTable("SwineBeefMembers");
+
+            entityBuilder.HasKey(x => x.Id); //Chave primaria
         }
     }
 }
