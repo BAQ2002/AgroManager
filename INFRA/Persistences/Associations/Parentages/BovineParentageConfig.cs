@@ -15,8 +15,6 @@ namespace INFRA.Persistences
         {
             entityBuilder.ToTable("BovineParentages");
 
-            entityBuilder.HasKey(x => x.Id); //Chave primaria
-
             // 1:1 Parentage <-> Bovine (sem navegação no principal)
             entityBuilder.HasOne<BovineEntity>()
                 .WithOne()                                  // sem navegação no principal (opcional)

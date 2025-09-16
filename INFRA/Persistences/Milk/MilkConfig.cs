@@ -15,8 +15,6 @@ namespace INFRA.Persistences
         {
             entityBuilder.ToTable("MilkRecords");
 
-            entityBuilder.HasKey(x => x.Id); //Chave primaria
-
             entityBuilder.Property(x => x.BovineId).HasColumnType("uuid").ValueGeneratedNever();
             entityBuilder.Property(x => x.OccurrenceDate).HasColumnType("date");
             entityBuilder.Property(x => x.Liters).HasColumnType("real");

@@ -15,7 +15,7 @@ namespace INFRA.Persistences
         {
             entityBuilder.UseTpcMappingStrategy();
 
-            
+            entityBuilder.HasKey(x => x.Id); //Chave primaria
 
             #region-Propriedades Hereditarias------------------------------------------
 

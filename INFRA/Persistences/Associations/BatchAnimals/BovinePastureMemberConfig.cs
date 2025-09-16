@@ -13,9 +13,7 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<BovinePastureMember> entityBuilder)
         {
-            entityBuilder.ToTable("BovinePastureMembers");
-
-            entityBuilder.HasKey(x => x.Id); //Chave primaria
+            entityBuilder.ToTable("BovinePastureMembers");         
         }
     }
 }
