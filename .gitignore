@@ -1,1 +1,16 @@
 .vs
+
+PL/obj/
+MODEL/obj/
+INFRA/obj/
+BLL/obj/
+
+PL/bin/
+MODEL/bin/
+INFRA/bin/
+BLL/bin/
+
+PL/bin/Debug/
+MODEL/bin/Debug/
+INFRA/bin/Debug/
+BLL/bin/Debug/
