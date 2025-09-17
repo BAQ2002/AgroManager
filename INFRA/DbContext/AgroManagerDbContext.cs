@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 using MODEL;
+using INFRA.Persistences;
 
 namespace INFRA;
 
@@ -38,7 +39,14 @@ public class AgroManagerDbContext : DbContext
         // Aplica mapeamentos via Fluent API
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AgroManagerDbContext).Assembly);
 
-        modelBuilder.Entity<BaseEntity>().UseTpcMappingStrategy(); // raiz
+        // modelBuilder.Entity<BaseEntity>().UseTpcMappingStrategy();
+        modelBuilder.Entity<AnimalEntity>().UseTpcMappingStrategy();
+        modelBuilder.Entity<ParentageEntity>().UseTpcMappingStrategy();
+
+        modelBuilder.ApplyConfiguration(new BovineConfig());
+        modelBuilder.ApplyConfiguration(new BovineParentageConfig());
+
+        // raiz
         // Convenções úteis (ex.: snake_case — opcional)
         // modelBuilder.HasPostgresExtension("uuid-ossp");
         // modelBuilder.UseIdentityByDefaultColumns(); // padrão no Npgsql para Identity

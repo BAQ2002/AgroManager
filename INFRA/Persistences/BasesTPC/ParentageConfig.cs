@@ -15,6 +15,9 @@ namespace INFRA.Persistences
         {
             #region-Propriedades Hereditarias-------------------------
 
+            entityBuilder.HasKey(x => x.Id); //Chave primaria
+
+
             entityBuilder.Property(x => x.BreedingType).HasConversion<int?>();
 
             entityBuilder.Property(x => x.FatherId).HasColumnType("uuid");

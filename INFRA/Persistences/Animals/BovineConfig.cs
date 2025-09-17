@@ -6,17 +6,13 @@ namespace INFRA.Persistences
 {
     public class BovineConfig : IEntityTypeConfiguration<BovineEntity>
     {
-        public void Configure(EntityTypeBuilder<BovineEntity> entityBuilder)
+        public void Configure(EntityTypeBuilder<BovineEntity> b)
         {
-            entityBuilder.ToTable("Bovines");
-
-            entityBuilder.Property(x => x.MaritalStatus).HasConversion<int?>();
-            entityBuilder.Property(x => x.CattleType).HasConversion<int?>();
-
-            // (Opcional) índices úteis
-            // entityBuilder.HasIndex(x => x.CattleType);
-            // entityBuilder.HasIndex(x => x.MaritalStatus);
+            b.ToTable("Bovines");
+            b.Property(x => x.MaritalStatus).HasConversion<int?>();
+            b.Property(x => x.CattleType).HasConversion<int?>();
         }
+
     }
 }
 
