@@ -13,7 +13,7 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<SwineParentageEntity> entityBuilder)
         {
-            entityBuilder.ToTable("SwineParentages");
+            entityBuilder.ToTable("SwineParentages");            
 
             // 1:1 Parentage <-> Swine (sem navegação no principal)
             entityBuilder.HasOne<SwineEntity>()

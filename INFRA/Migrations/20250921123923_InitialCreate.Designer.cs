@@ -12,15 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace INFRA.Migrations
 {
     [DbContext(typeof(AgroManagerDbContext))]
-    [Migration("20250917141430_InicialCreate")]
-    partial class InicialCreate
+    [Migration("20250921123923_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.8")
+                .HasAnnotation("ProductVersion", "9.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -28,13 +28,14 @@ namespace INFRA.Migrations
             modelBuilder.Entity("MODEL.AnimalEntity", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<DateOnly?>("BirthDate")
                         .HasColumnType("date");
 
                     b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamptz");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateOnly?>("DeathDate")
                         .HasColumnType("date");
@@ -53,7 +54,7 @@ namespace INFRA.Migrations
                         .HasColumnType("date");
 
                     b.Property<DateTimeOffset?>("UpdatedAt")
-                        .HasColumnType("timestamptz");
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -75,11 +76,6 @@ namespace INFRA.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("character varying(120)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasMaxLength(21)
-                        .HasColumnType("character varying(21)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(120)
@@ -90,11 +86,9 @@ namespace INFRA.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BatchEntity");
+                    b.ToTable((string)null);
 
-                    b.HasDiscriminator().HasValue("BatchEntity");
-
-                    b.UseTphMappingStrategy();
+                    b.UseTpcMappingStrategy();
                 });
 
             modelBuilder.Entity("MODEL.BatchMemberEntity", b =>
@@ -127,61 +121,14 @@ namespace INFRA.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BatchMemberEntity");
+                    b.ToTable((string)null);
 
-                    b.UseTptMappingStrategy();
-                });
-
-            modelBuilder.Entity("MODEL.BovineParentageEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("BreedingType")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("FatherFlag")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("FatherId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("FatherId");
-
-                    b.Property<int>("MotherFlag")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("MotherId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("MotherId");
-
-                    b.Property<int?>("SurrogateMotherFlag")
-                        .HasColumnType("integer");
-
-                    b.Property<Guid?>("SurrogateMotherId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("SurrogateMotherId");
-
-                    b.Property<DateTimeOffset?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FatherId");
-
-                    b.HasIndex("MotherId");
-
-                    b.HasIndex("SurrogateMotherId");
-
-                    b.ToTable("BovineParentages", (string)null);
+                    b.UseTpcMappingStrategy();
                 });
 
             modelBuilder.Entity("MODEL.MilkEntity", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("BovineId")
@@ -292,14 +239,14 @@ namespace INFRA.Migrations
                     b.Property<Guid>("PastureId")
                         .HasColumnType("uuid");
 
-                    b.HasDiscriminator().HasValue("BovinePastureBatch");
+                    b.ToTable("BovinePastureBatchs", (string)null);
                 });
 
             modelBuilder.Entity("MODEL.SwineBeefBatch", b =>
                 {
                     b.HasBaseType("MODEL.BatchEntity");
 
-                    b.HasDiscriminator().HasValue("SwineBeefBatch");
+                    b.ToTable("SwineBeefBatchs", (string)null);
                 });
 
             modelBuilder.Entity("MODEL.BovinePastureMember", b =>
@@ -316,6 +263,19 @@ namespace INFRA.Migrations
                     b.ToTable("SwineBeefMembers", (string)null);
                 });
 
+            modelBuilder.Entity("MODEL.BovineParentageEntity", b =>
+                {
+                    b.HasBaseType("MODEL.ParentageEntity");
+
+                    b.HasIndex("FatherId");
+
+                    b.HasIndex("MotherId");
+
+                    b.HasIndex("SurrogateMotherId");
+
+                    b.ToTable("BovineParentages", (string)null);
+                });
+
             modelBuilder.Entity("MODEL.SwineParentageEntity", b =>
                 {
                     b.HasBaseType("MODEL.ParentageEntity");
@@ -327,6 +287,15 @@ namespace INFRA.Migrations
                     b.HasIndex("SurrogateMotherId");
 
                     b.ToTable("SwineParentages", (string)null);
+                });
+
+            modelBuilder.Entity("MODEL.MilkEntity", b =>
+                {
+                    b.HasOne("MODEL.BovineEntity", null)
+                        .WithMany()
+                        .HasForeignKey("BovineId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MODEL.BovineParentageEntity", b =>
@@ -357,33 +326,6 @@ namespace INFRA.Migrations
                         .HasForeignKey("SurrogateMotherId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .HasConstraintName("fk_parentage_bovine_surrogate");
-                });
-
-            modelBuilder.Entity("MODEL.MilkEntity", b =>
-                {
-                    b.HasOne("MODEL.BovineEntity", null)
-                        .WithMany()
-                        .HasForeignKey("BovineId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MODEL.BovinePastureMember", b =>
-                {
-                    b.HasOne("MODEL.BatchMemberEntity", null)
-                        .WithOne()
-                        .HasForeignKey("MODEL.BovinePastureMember", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MODEL.SwineBeefMember", b =>
-                {
-                    b.HasOne("MODEL.BatchMemberEntity", null)
-                        .WithOne()
-                        .HasForeignKey("MODEL.SwineBeefMember", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("MODEL.SwineParentageEntity", b =>

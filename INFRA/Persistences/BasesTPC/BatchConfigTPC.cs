@@ -13,6 +13,8 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<BatchEntity> entityBuilder)
         {
+            entityBuilder.HasKey(x => x.Id);
+
             #region-Propriedades Hereditarias-------------------------
 
             entityBuilder.Property(x => x.Name).HasMaxLength(120); //string

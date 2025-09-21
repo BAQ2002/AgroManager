@@ -6,30 +6,29 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace INFRA.Migrations
 {
     /// <inheritdoc />
-    public partial class InicialCreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "BatchEntity",
+                name: "BovinePastureBatchs",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "character varying(120)", maxLength: 120, nullable: false),
                     Description = table.Column<string>(type: "character varying(120)", maxLength: 120, nullable: true),
-                    Discriminator = table.Column<string>(type: "character varying(21)", maxLength: 21, nullable: false),
-                    PastureId = table.Column<Guid>(type: "uuid", nullable: true),
+                    PastureId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BatchEntity", x => x.Id);
+                    table.PrimaryKey("PK_BovinePastureBatchs", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "BatchMemberEntity",
+                name: "BovinePastureMembers",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -43,7 +42,7 @@ namespace INFRA.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BatchMemberEntity", x => x.Id);
+                    table.PrimaryKey("PK_BovinePastureMembers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -59,8 +58,8 @@ namespace INFRA.Migrations
                     DeathDate = table.Column<DateOnly>(type: "date", nullable: true),
                     MaritalStatus = table.Column<int>(type: "integer", nullable: true),
                     CattleType = table.Column<int>(type: "integer", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
-                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamptz", nullable: true)
+                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -81,6 +80,39 @@ namespace INFRA.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SwineBeefBatchs",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "character varying(120)", maxLength: 120, nullable: false),
+                    Description = table.Column<string>(type: "character varying(120)", maxLength: 120, nullable: true),
+                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SwineBeefBatchs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SwineBeefMembers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    AnimalId = table.Column<Guid>(type: "uuid", nullable: false),
+                    BatchId = table.Column<Guid>(type: "uuid", nullable: false),
+                    BatchEntryDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
+                    BatchExitDate = table.Column<DateTimeOffset>(type: "timestamptz", nullable: true),
+                    ExitReason = table.Column<string>(type: "character varying(120)", maxLength: 120, nullable: true),
+                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SwineBeefMembers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Swines",
                 columns: table => new
                 {
@@ -92,8 +124,8 @@ namespace INFRA.Migrations
                     PurchaseDate = table.Column<DateOnly>(type: "date", nullable: true),
                     DeathDate = table.Column<DateOnly>(type: "date", nullable: true),
                     PorcType = table.Column<int>(type: "integer", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamptz", nullable: false),
-                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamptz", nullable: true)
+                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -101,53 +133,19 @@ namespace INFRA.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BovinePastureMembers",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BovinePastureMembers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_BovinePastureMembers_BatchMemberEntity_Id",
-                        column: x => x.Id,
-                        principalTable: "BatchMemberEntity",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SwineBeefMembers",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SwineBeefMembers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_SwineBeefMembers_BatchMemberEntity_Id",
-                        column: x => x.Id,
-                        principalTable: "BatchMemberEntity",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "BovineParentages",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
                     BreedingType = table.Column<int>(type: "integer", nullable: false),
                     FatherId = table.Column<Guid>(type: "uuid", nullable: false),
                     FatherFlag = table.Column<int>(type: "integer", nullable: false),
                     MotherId = table.Column<Guid>(type: "uuid", nullable: false),
                     SurrogateMotherId = table.Column<Guid>(type: "uuid", nullable: true),
                     MotherFlag = table.Column<int>(type: "integer", nullable: false),
-                    SurrogateMotherFlag = table.Column<int>(type: "integer", nullable: true)
+                    SurrogateMotherFlag = table.Column<int>(type: "integer", nullable: true),
+                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -284,10 +282,10 @@ namespace INFRA.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BatchEntity");
+                name: "BovineParentages");
 
             migrationBuilder.DropTable(
-                name: "BovineParentages");
+                name: "BovinePastureBatchs");
 
             migrationBuilder.DropTable(
                 name: "BovinePastureMembers");
@@ -299,6 +297,9 @@ namespace INFRA.Migrations
                 name: "Pastures");
 
             migrationBuilder.DropTable(
+                name: "SwineBeefBatchs");
+
+            migrationBuilder.DropTable(
                 name: "SwineBeefMembers");
 
             migrationBuilder.DropTable(
@@ -306,9 +307,6 @@ namespace INFRA.Migrations
 
             migrationBuilder.DropTable(
                 name: "Bovines");
-
-            migrationBuilder.DropTable(
-                name: "BatchMemberEntity");
 
             migrationBuilder.DropTable(
                 name: "Swines");

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using MODEL;
 
 namespace INFRA.Persistences
 {
-    public class BovinePastureBatchConfig
+    public class BovinePastureBatchConfig : IEntityTypeConfiguration<BovinePastureBatch>
     {
+        public void Configure(EntityTypeBuilder<BovinePastureBatch> entityBuilder)
+        {
+            entityBuilder.ToTable("BovinePastureBatchs");
+
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<BatchMemberEntity> entityBuilder)
         {
+            entityBuilder.HasKey(x => x.Id);
+
             #region-Propriedades Hereditarias-------------------------
 
             entityBuilder.Property(x => x.AnimalId).HasColumnType("uuid");

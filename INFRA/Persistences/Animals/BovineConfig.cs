@@ -6,11 +6,12 @@ namespace INFRA.Persistences
 {
     public class BovineConfig : IEntityTypeConfiguration<BovineEntity>
     {
-        public void Configure(EntityTypeBuilder<BovineEntity> b)
+        public void Configure(EntityTypeBuilder<BovineEntity> entityBuilder)
         {
-            b.ToTable("Bovines");
-            b.Property(x => x.MaritalStatus).HasConversion<int?>();
-            b.Property(x => x.CattleType).HasConversion<int?>();
+            entityBuilder.ToTable("Bovines");
+
+            entityBuilder.Property(x => x.MaritalStatus).HasConversion<int?>();
+            entityBuilder.Property(x => x.CattleType).HasConversion<int?>();
         }
 
     }

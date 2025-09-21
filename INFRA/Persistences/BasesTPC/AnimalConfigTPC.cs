@@ -9,12 +9,10 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<AnimalEntity> entityBuilder)
         {
-            entityBuilder.HasKey(x => x.Id); //Chave primaria
+            entityBuilder.HasKey(x => x.Id);
 
             #region-Propriedades Hereditarias--------------------------------
-            entityBuilder.Property(x => x.Id).HasColumnType("uuid").ValueGeneratedNever(); //Guid
-            entityBuilder.Property(x => x.CreatedAt).HasColumnType("timestamptz"); //DateTimeOffset
-            entityBuilder.Property(x => x.UpdatedAt).HasColumnType("timestamptz"); //DateTimeOffset
+
             entityBuilder.Property(x => x.Name).HasMaxLength(120); //string
             entityBuilder.Property(x => x.Origin).HasConversion<int>(); //enum
             entityBuilder.Property(x => x.Gender).HasConversion<int>(); //enum

@@ -2,20 +2,16 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MODEL;
 
-namespace AgroManager.Infrastructure.Persistence.Configurations
+namespace INFRA.Persistences
 {
     public class SwineConfig : IEntityTypeConfiguration<SwineEntity>
     {
         public void Configure(EntityTypeBuilder<SwineEntity> entityBuilder)
         {
-            // Tabela única para suínos (também recebe as colunas herdadas de AnimalEntity)
             entityBuilder.ToTable("Swines");
 
-            // Específica de suíno (enum opcional -> int NULL):
             entityBuilder.Property(x => x.PorcType).HasConversion<int?>();
 
-            // (Opcional) índices
-            // entityBuilder.HasIndex(x => x.PorcType);
         }
     }
 }

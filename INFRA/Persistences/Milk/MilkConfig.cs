@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MODEL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace INFRA.Persistences
 {
@@ -14,7 +9,9 @@ namespace INFRA.Persistences
         public void Configure(EntityTypeBuilder<MilkEntity> entityBuilder)
         {
             entityBuilder.ToTable("MilkRecords");
+            entityBuilder.HasKey(x => x.Id);
 
+            entityBuilder.Property(x => x.Id).HasColumnType("uuid").ValueGeneratedNever(); //Guid
             entityBuilder.Property(x => x.BovineId).HasColumnType("uuid").ValueGeneratedNever();
             entityBuilder.Property(x => x.OccurrenceDate).HasColumnType("date");
             entityBuilder.Property(x => x.Liters).HasColumnType("real");

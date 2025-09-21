@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Text.RegularExpressions;
 using MODEL;
 using INFRA.Persistences;
 
@@ -39,9 +38,10 @@ public class AgroManagerDbContext : DbContext
         // Aplica mapeamentos via Fluent API
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AgroManagerDbContext).Assembly);
 
-        // modelBuilder.Entity<BaseEntity>().UseTpcMappingStrategy();
         modelBuilder.Entity<AnimalEntity>().UseTpcMappingStrategy();
         modelBuilder.Entity<ParentageEntity>().UseTpcMappingStrategy();
+        modelBuilder.Entity<BatchEntity>().UseTpcMappingStrategy();
+        modelBuilder.Entity<BatchMemberEntity>().UseTpcMappingStrategy();
 
         modelBuilder.ApplyConfiguration(new BovineConfig());
         modelBuilder.ApplyConfiguration(new BovineParentageConfig());
