@@ -1,0 +1,93 @@
+﻿@model AgroManager.WEB.Controllers.CreateBovineVm
+@using MODEL
+@{
+    ViewData["Title"] = "Novo Bovine";
+}
+
+<div class="page">
+    <header class="page-header">
+        <div>
+            <h1 class="page-title">Novo Bovine</h1>
+            <p class="page-subtitle">Cadastro de um bovino no banco de dados.</p>
+        </div>
+
+        <a class="badge" href="/bovines" style="text-decoration:none;">← Voltar</a>
+    </header>
+
+    <section class="datagrid-wrapper" style="padding: 16px;">
+        <form method="post" action="/bovines/create" style="display:flex; flex-direction:column; gap:12px;">
+            @Html.AntiForgeryToken()
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+                <div>
+                    <label>Nome</label>
+                    <input name="Name" value="@Model.Name" style="width:100%; padding:10px; border-radius:10px;" />
+                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Name)</div>
+                </div>
+
+                <div>
+                    <label>Idade</label>
+                    <input name="Age" value="@Model.Age" type="number" style="width:100%; padding:10px; border-radius:10px;" />
+                </div>
+
+                <div>
+                    <label>Sexo</label>
+                    <select name="Gender" style="width:100%; padding:10px; border-radius:10px;">
+                        @foreach (var v in Enum.GetValues(typeof(Gender)))
+                        {
+                            <option value="@v" selected="@(Equals(Model.Gender, v) ? "selected" : null)">@v</option>
+                        }
+                    </select>
+                </div>
+
+                <div>
+                    <label>Origem</label>
+                    <select name="Origin" style="width:100%; padding:10px; border-radius:10px;">
+                        @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
+                        {
+                            <option value="@v" selected="@(Equals(Model.Origin, v) ? "selected" : null)">@v</option>
+                        }
+                    </select>
+                </div>
+
+                <div>
+                    <label>Nascimento</label>
+                    <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date"
+                           style="width:100%; padding:10px; border-radius:10px;" />
+                </div>
+
+                <div>
+                    <label>Estado civil</label>
+                    <select name="MaritalStatus" style="width:100%; padding:10px; border-radius:10px;">
+                        <option value="">(vazio)</option>
+                        @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
+                        {
+                            <option value="@v" selected="@(Model.MaritalStatus.HasValue && Equals(Model.MaritalStatus.Value, v) ? "selected" : null)">@v</option>
+                        }
+                    </select>
+                </div>
+
+                <div>
+                    <label>Tipo de gado</label>
+                    <select name="CattleType" style="width:100%; padding:10px; border-radius:10px;">
+                        <option value="">(vazio)</option>
+                        @foreach (var v in Enum.GetValues(typeof(CattleType)))
+                        {
+                            <option value="@v" selected="@(Model.CattleType.HasValue && Equals(Model.CattleType.Value, v) ? "selected" : null)">@v</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div style="display:flex; gap:10px; justify-content:flex-end; margin-top: 8px;">
+                <a class="badge" href="/bovines" style="text-decoration:none;">Cancelar</a>
+                <button type="submit" class="badge" style="cursor:pointer;">Salvar</button>
+            </div>
+        </form>
+    </section>
+
+    <footer class="footer-info">
+        <span>Após salvar, você volta para a listagem.</span>
+        <span>AgroManager</span>
+    </footer>
+</div>

@@ -9,7 +9,9 @@
       "INFRA/1.0.0": {
         "dependencies": {
           "MODEL": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.9",
           "Microsoft.EntityFrameworkCore.Design": "9.0.9",
+          "Microsoft.EntityFrameworkCore.Relational": "9.0.9",
           "Microsoft.Extensions.Configuration": "9.0.8",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "9.0.8",
           "Microsoft.Extensions.Configuration.FileExtensions": "9.0.8",

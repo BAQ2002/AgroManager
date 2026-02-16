@@ -23,6 +23,9 @@ namespace MODEL
         //TipoEtc = etc
     }
 
+    /// <summary>
+    /// STATUS: ALPHA
+    /// </summary>
     public class PastureEntity : BaseEntity
     {
         private float _area; //area em m2

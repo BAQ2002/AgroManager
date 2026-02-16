@@ -10,6 +10,8 @@ namespace PL
         {
             InitializeComponent();
             _dbContext = dbContext;
+
+            dataGridView1.DataSource = _dbContext;
         }
     }
 

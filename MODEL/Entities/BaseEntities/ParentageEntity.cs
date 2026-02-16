@@ -22,6 +22,9 @@ namespace MODEL
         private Guid? _fatherId;    // id do pai
         private ParentFlag _fatherFlag = ParentFlag.Unknown; //Descreve se o pai é interno ou externo
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Guid? FatherId
         {
             get => _fatherId;

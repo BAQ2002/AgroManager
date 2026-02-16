@@ -21,6 +21,7 @@ namespace MODEL
             get => _cattleType;
             set { _cattleType = value; }
         }
+
         public BovineEntity() 
         {
             
