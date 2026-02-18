@@ -1,17 +1,26 @@
-﻿using INFRA;
+﻿using BLL.Animals.Bovines.Contracts;
+using BLL.Common.Exceptions;
+
+using INFRA;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 using MODEL;
 
 namespace AgroManager.WEB.Controllers;
 
 public sealed class BovinesController : Controller
 {
-    private readonly AgroManagerDbContext _db;
+    private readonly IDbContextFactory<AgroManagerDbContext> _dbFactory;    // leitura (List) temporario enquanto nao ha serviço para isso (BLL) - pode ser injetado diretamente no controller, sem depender de AddDbContext
+    private readonly IBovineService _bovineService; // escrita (Create)
 
-    public BovinesController(AgroManagerDbContext db)
+    public BovinesController(
+        IDbContextFactory<AgroManagerDbContext> dbFactory,
+        IBovineService bovineService)
     {
-        _db = db;
+        _dbFactory = dbFactory;
+        _bovineService = bovineService;
     }
 
     // /bovines  -> página (view) com tabela
@@ -22,10 +31,13 @@ public sealed class BovinesController : Controller
     }
 
     // /api/bovines -> dados JSON para preencher a tabela
+    // Leitura via DbContextFactory (sem depender de AddDbContext).
     [HttpGet("/api/bovines")]
     public async Task<IActionResult> List(CancellationToken ct)
     {
-        var data = await _db.Bovines
+        await using AgroManagerDbContext db = await _dbFactory.CreateDbContextAsync(ct);
+
+        var data = await db.Bovines
             .AsNoTracking()
             .Select(b => new
             {
@@ -50,7 +62,7 @@ public sealed class BovinesController : Controller
         return View(new CreateBovineVm());
     }
 
-    // POST /bovines/create -> salva no banco
+    // POST /bovines/create -> salva no banco via BLL (regras de negócio)
     [HttpPost("/bovines/create")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CreateBovineVm vm, CancellationToken ct)
@@ -67,10 +79,24 @@ public sealed class BovinesController : Controller
             CattleType = vm.CattleType
         };
 
-        _db.Bovines.Add(entity);
-        await _db.SaveChangesAsync(ct);
+        try
+        {
+            await _bovineService.CreateAsync(entity, ct);
 
-        return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index));
+        }
+        catch (BusinessRuleException ex)
+        {
+            ModelState.AddModelError(string.Empty, ex.Message);
+
+            return View(vm);
+        }
+        catch (Exception)
+        {
+            ModelState.AddModelError(string.Empty, "Ocorreu um erro inesperado ao salvar o bovino.");
+
+            return View(vm);
+        }
     }
 }
 
