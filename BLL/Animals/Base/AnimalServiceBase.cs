@@ -49,6 +49,32 @@ namespace BLL.Animals.Base
             return entity;
         }
 
+        public virtual async Task<TAnimal> UpdateAsync(TAnimal entity, CancellationToken ct = default)
+        {
+            // -------------------- Validação de entrada --------------------
+            if (entity is null) throw new ArgumentNullException(nameof(entity));
+
+            // -------------------- Id obrigatório para update --------------------
+            if (entity.Id == Guid.Empty) throw new BusinessRuleException("O identificador informado é inválido.");
+
+            // -------------------- Garante existência --------------------
+            TAnimal? existing = await _repository.GetByIdAsync(entity.Id, ct).ConfigureAwait(false);
+
+            // ----------------lançar InvalidOperationException ----------------
+            if (existing is null) throw new InvalidOperationException("Registro não encontrado.");
+
+            // -------------------- Regras comuns (AnimalEntity) --------------------
+            ValidateCommonRules(entity);
+
+            // -------------------- Regras específicas (bovino/suíno/...) --------------------
+            ValidateSpecificRules(entity);
+
+            // -------------------- Persistência --------------------
+            await _repository.UpdateAsync(entity, ct).ConfigureAwait(false);
+
+            return entity;
+        }
+
         /// <summary>
         /// Remove um animal a partir do id, aplicando regras comuns e específicas de exclusão.
         /// </summary>

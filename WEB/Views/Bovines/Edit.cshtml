@@ -1,0 +1,76 @@
+﻿@model AgroManager.WEB.Controllers.CreateBovineVm
+@using MODEL
+@{
+    ViewData["Title"] = "Editar Bovino";
+
+    // Pega o {id} que veio na rota: /bovines/edit/{id}
+    var idValue = ViewContext.RouteData.Values["id"]?.ToString() ?? string.Empty;
+}
+
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<div class="container mt-4">
+    <h2 class="mb-3">Editar Bovino</h2>
+
+    @* Exibe erros gerais (ModelState.AddModelError(string.Empty, "...")) *@
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <div asp-validation-summary="ModelOnly"></div>
+        </div>
+    }
+
+    <form method="post" action="/bovines/edit/@idValue">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <input class="form-control" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Gênero</label>
+            <select class="form-select" asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+            <span class="text-danger" asp-validation-for="Gender"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Origem</label>
+            <select class="form-select" asp-for="Origin" asp-items="Html.GetEnumSelectList<AcquisitionOrigin>()"></select>
+            <span class="text-danger" asp-validation-for="Origin"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Data de Nascimento</label>
+            <input class="form-control" asp-for="BirthDate" type="date" />
+            <span class="text-danger" asp-validation-for="BirthDate"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Estado Marital</label>
+            <select class="form-select" asp-for="MaritalStatus" asp-items="Html.GetEnumSelectList<MaritalStatus>()">
+                <option value="">(não informado)</option>
+            </select>
+            <span class="text-danger" asp-validation-for="MaritalStatus"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Tipo (CattleType)</label>
+            <select class="form-select" asp-for="CattleType" asp-items="Html.GetEnumSelectList<CattleType>()">
+                <option value="">(não informado)</option>
+            </select>
+            <span class="text-danger" asp-validation-for="CattleType"></span>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Salvar alterações</button>
+            <a href="/bovines" class="btn btn-secondary">Voltar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @* Validação client-side (se você já usa) *@
+    <partial name="_ValidationScriptsPartial" />
+}

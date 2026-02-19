@@ -23,6 +23,9 @@ namespace BLL.Animals.Ports
       
         Task AddAsync(TAnimal entity, CancellationToken ct = default);
 
+        Task UpdateAsync(TAnimal entity, CancellationToken ct = default); // <-- NOVO
+
+
         Task DeleteAsync(TAnimal entity, CancellationToken ct = default);
 
         Task<TAnimal?> GetByIdAsync(Guid id, CancellationToken ct = default);

@@ -21,6 +21,11 @@ namespace BLL.Animals.Swines.Adapters
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
+        public Task UpdateAsync(SwineEntity entity, CancellationToken ct = default) // temp
+        {
+            return null;
+        }
+
         public Task AddAsync(SwineEntity entity, CancellationToken ct = default)
         {
             return _repository.AddAsync(entity, ct);

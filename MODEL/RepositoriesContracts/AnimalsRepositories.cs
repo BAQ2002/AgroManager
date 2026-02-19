@@ -10,6 +10,7 @@ namespace MODEL
     {
         Task AddAsync(BovineEntity entity, CancellationToken ct = default);
         Task DeleteAsync(BovineEntity entity, CancellationToken ct = default);
+        Task UpdateAsync(BovineEntity entity, CancellationToken ct = default); 
         Task<BovineEntity?> GetByIdAsync(Guid id, CancellationToken ct = default);
         Task<BovineEntity?> GetByNameAsync(string name, CancellationToken ct = default);
         Task<BovineEntity?> GetByGenderAsync(Gender gender, CancellationToken ct = default);

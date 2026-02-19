@@ -30,6 +30,11 @@ namespace BLL.Animals.Bovines.Adapters
             return _repository.AddAsync(entity, ct);
         }
 
+        public Task UpdateAsync(BovineEntity entity, CancellationToken ct = default)
+        {
+            return _repository.UpdateAsync(entity, ct);
+        }
+
         public Task DeleteAsync(BovineEntity entity, CancellationToken ct = default)
         {
             return _repository.DeleteAsync(entity, ct);
