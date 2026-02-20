@@ -486,6 +486,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "INFRA": "1.0.0",
           "MODEL": "1.0.0"
         },
         "compile": {
@@ -1314,6 +1315,7 @@
     "net8.0": [
       "BLL >= 1.0.0",
       "INFRA >= 1.0.0",
+      "MODEL >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 9.0.9",
       "Microsoft.EntityFrameworkCore.Relational >= 9.0.9",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.4"
@@ -1356,6 +1358,9 @@
             },
             "C:\\Users\\anton\\Source\\repos\\AgroManager\\INFRA\\INFRA.csproj": {
               "projectPath": "C:\\Users\\anton\\Source\\repos\\AgroManager\\INFRA\\INFRA.csproj"
+            },
+            "C:\\Users\\anton\\Source\\repos\\AgroManager\\MODEL\\MODEL.csproj": {
+              "projectPath": "C:\\Users\\anton\\Source\\repos\\AgroManager\\MODEL\\MODEL.csproj"
             }
           }
         }

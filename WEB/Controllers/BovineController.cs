@@ -1,5 +1,5 @@
-﻿using BLL.Animals.Bovines.Contracts;
-using BLL.Common.Exceptions;
+﻿using BLL.Common.Exceptions;
+using BLL.Services;
 
 using INFRA;
 
@@ -59,13 +59,13 @@ public sealed class BovinesController : Controller
     [HttpGet("/bovines/create")]
     public IActionResult Create()
     {
-        return View(new CreateBovineVm());
+        return View(new BovineViewModel());
     }
 
     // POST /bovines/create -> salva no banco via BLL 
     [HttpPost("/bovines/create")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(CreateBovineVm vm, CancellationToken ct)
+    public async Task<IActionResult> Create(BovineViewModel vm, CancellationToken ct)
     {
         if (!ModelState.IsValid) return View(vm);
 
@@ -110,7 +110,7 @@ public sealed class BovinesController : Controller
         if (entity is null)
             return NotFound();
 
-        var vm = new CreateBovineVm
+        var vm = new BovineViewModel
         {
             Name = entity.Name,
             Gender = entity.Gender,
@@ -126,7 +126,7 @@ public sealed class BovinesController : Controller
 
     [HttpPost("/bovines/edit/{id:guid}")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(Guid id, CreateBovineVm vm, CancellationToken ct)
+    public async Task<IActionResult> Edit(Guid id, BovineViewModel vm, CancellationToken ct)
     {
         if (id == Guid.Empty)
             return BadRequest();
@@ -169,8 +169,18 @@ public sealed class BovinesController : Controller
     }
 }
 
-// ViewModel simples (pode ir em /ViewModels depois)
-public sealed class CreateBovineVm
+/// <summary>
+/// Representa um modelo de apresentação (ViewModel) utilizado para transportar
+/// dados projetados a partir das entidades de domínio.
+/// <para>
+/// Não possui <see cref="DbSet{TEntity}"/> registrado no <see cref="AgroManagerDbContext"/>.
+/// </para>
+/// <para>
+/// Não é uma entidade mapeada pelo Entity Framework Core, portanto, suas instâncias não
+/// são rastreadas pelo Change Tracker.
+/// </para>
+/// </summary>
+public sealed class BovineViewModel
 {
     public string? Name { get; set; }
 

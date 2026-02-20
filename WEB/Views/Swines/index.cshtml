@@ -1,0 +1,62 @@
+﻿﻿@{
+ViewData["Title"] = "Swines";
+}
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<div class="page">
+    <header class="page-header">
+        <div>
+            <h1 class="page-title">Swines</h1>
+            <p class="page-subtitle">Lista de suínos cadastrados no AgroManager.</p>
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+            <a class="badge" href="/swines/create" style="text-decoration:none;">+ Novo Swine</a>
+            <span class="badge">AgroManager • Web</span>
+        </div>
+    </header>
+
+    <section class="datagrid-wrapper">
+        <table class="datagrid">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Sexo</th>
+                    <th>Origem</th>
+                    <th>Nascimento</th>
+                    <th>Idade</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+        </table>
+    </section>
+
+    <footer class="footer-info">
+        <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
+        <span id="count">0 registro(s) exibidos</span>
+    </footer>
+</div>
+
+<script>
+    async function load() {
+        const res = await fetch("/api/swines");
+        const data = await res.json();
+
+        document.getElementById("rows").innerHTML = data.map(x => `
+      <tr>
+        <td>${x.name ?? ""}</td>
+        <td>${x.gender ?? ""}</td>
+        <td>${x.origin ?? ""}</td>
+        <td>${x.birthDate ?? ""}</td>
+        <td>${x.age ?? ""}</td>
+        <td>${x.porcType ?? ""}</td>
+      </tr>
+    `).join("");
+
+        document.getElementById("count").innerText = `${data.length} registro(s) exibidos`;
+    }
+
+    load();
+</script>
+

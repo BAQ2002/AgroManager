@@ -11,7 +11,7 @@ namespace INFRA
     /// <summary>
     /// Classe que implementa os métodos de interação com o banco de dados
     /// </summary>
-    public sealed class BovineRepositoryEF : IBovineRepository
+    public sealed class BovineRepositoryEF : IAnimalRepository<BovineEntity>
     {
         private readonly IDbContextFactory<AgroManagerDbContext> _factory;
         public BovineRepositoryEF(IDbContextFactory<AgroManagerDbContext> factory) => _factory = factory;
@@ -37,6 +37,7 @@ namespace INFRA
             db.Bovines.Remove(entity);
             await db.SaveChangesAsync(ct);
         }
+
         public async Task<BovineEntity?> GetByIdAsync(Guid id, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);

@@ -66,3 +66,4 @@ C:\Users\anton\Source\repos\AgroManager\WEB\obj\Debug\net8.0\refint\PL.dll
 C:\Users\anton\Source\repos\AgroManager\WEB\obj\Debug\net8.0\PL.pdb
 C:\Users\anton\Source\repos\AgroManager\WEB\obj\Debug\net8.0\PL.genruntimeconfig.cache
 C:\Users\anton\Source\repos\AgroManager\WEB\obj\Debug\net8.0\ref\PL.dll
+C:\Users\anton\Source\repos\AgroManager\WEB\obj\Debug\net8.0\scopedcss\Shared\_Layout.cshtml.rz.scp.css

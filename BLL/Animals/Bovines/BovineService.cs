@@ -1,18 +1,23 @@
-﻿using System;
+﻿
+using BLL.Common.Exceptions;
+using MODEL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 using System.Threading.Tasks;
-using BLL.Animals.Base;
-using BLL.Animals.Bovines.Contracts;
-using BLL.Animals.Ports;
-using BLL.Common.Exceptions;
-using MODEL;
+using System.Threading.Tasks;
 
-namespace BLL.Animals.Bovines
+namespace BLL.Services
 {
+    /// <summary>
+    /// Contrato público da BLL para operações relacionadas a bovinos.
+    /// // métodos exclusivos de bovino podem ser adicionados aqui futuramente
+    /// </summary>
+    public interface IBovineService : IAnimalService<BovineEntity>
+    { }
+
     /// <summary>
     /// Implementa regras de negócio específicas para bovinos.
     /// </summary>
@@ -22,8 +27,7 @@ namespace BLL.Animals.Bovines
         /// Inicializa o service de bovinos utilizando o port genérico de repositório.
         /// </summary>
         /// <param name="repository">Port adaptado para acesso a dados de bovinos.</param>
-        public BovineService(IAnimalRepositoryPort<BovineEntity> repository)
-            : base(repository)
+        public BovineService(IAnimalRepository<BovineEntity> repository): base(repository)
         {
         }
 

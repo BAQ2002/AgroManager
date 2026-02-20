@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MODEL
-{
+{   
     public interface IBovinePastureMemberRepository
     {
         Task AddAsync(BovinePastureMember entity, CancellationToken ct = default);

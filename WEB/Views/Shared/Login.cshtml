@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<div class="row justify-content-center">
+
+    <div class="col-md-4">
+
+        <div class="card shadow">
+
+            <div class="card-header bg-dark text-white text-center">
+                <h4>Login</h4>
+            </div>
+
+            <div class="card-body">
+
+                <form asp-action="Login" method="post">
+
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Senha</label>
+                        <input type="password" name="password" class="form-control" required />
+                    </div>
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.Error
+                        </div>
+                    }
+
+                    <button type="submit" class="btn btn-dark w-100">
+                        Entrar
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

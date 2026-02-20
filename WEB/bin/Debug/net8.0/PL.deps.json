@@ -10,6 +10,7 @@
         "dependencies": {
           "BLL": "1.0.0",
           "INFRA": "1.0.0",
+          "MODEL": "1.0.0",
           "Microsoft.EntityFrameworkCore": "9.0.9",
           "Microsoft.EntityFrameworkCore.Relational": "9.0.9",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4"
@@ -312,6 +313,7 @@
       },
       "BLL/1.0.0": {
         "dependencies": {
+          "INFRA": "1.0.0",
           "MODEL": "1.0.0"
         },
         "runtime": {

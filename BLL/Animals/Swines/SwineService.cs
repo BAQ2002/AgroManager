@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 using System.Threading;
 using System.Threading.Tasks;
-using BLL.Animals.Base;
-using BLL.Animals.Ports;
-using BLL.Animals.Swines.Contracts;
 using BLL.Common.Exceptions;
 using MODEL;
 
-namespace BLL.Animals.Swines
+namespace BLL.Services
 {
+    internal interface ISwineService : IAnimalService<SwineEntity>
+    {}
     /// <summary>
     /// Implementa regras de negócio específicas para suínos.
     /// </summary>
@@ -23,7 +22,7 @@ namespace BLL.Animals.Swines
         /// Inicializa o service de suínos utilizando o port genérico de repositório.
         /// </summary>
         /// <param name="repository">Port adaptado para acesso a dados de suínos.</param>
-        public SwineService(IAnimalRepositoryPort<SwineEntity> repository)
+        public SwineService(IAnimalRepository<SwineEntity> repository)
             : base(repository)
         {
         }

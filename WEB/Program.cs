@@ -1,7 +1,4 @@
-using BLL.Animals.Bovines;
-using BLL.Animals.Bovines.Adapters;
-using BLL.Animals.Bovines.Contracts;
-using BLL.Animals.Ports;
+using BLL.Services;
 
 using INFRA;
 
@@ -18,14 +15,13 @@ builder.Services.AddDbContextFactory<AgroManagerDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-// Repositório EF (INFRA) -> contrato do MODEL
-builder.Services.AddScoped<IBovineRepository, BovineRepositoryEF>();
-
-// Adapter (BLL) -> port genérico
-builder.Services.AddScoped<IAnimalRepositoryPort<BovineEntity>, BovineRepositoryPort>();
-
 // Service (BLL)
 builder.Services.AddScoped<IBovineService, BovineService>();
+
+// Repositório EF (INFRA) -> contrato do MODEL
+builder.Services.AddScoped<IAnimalRepository<BovineEntity>, BovineRepositoryEF>();
+
+
 
 var app = builder.Build();
 

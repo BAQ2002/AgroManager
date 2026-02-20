@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Início";
+}
+
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<div class="text-center">
+
+    <h1 class="display-4 mb-4">Bem-vindo ao AgroManager</h1>
+
+    <p class="lead">
+        Sistema de gerenciamento pecuário
+    </p>
+
+    <hr />
+
+    <div class="row mt-5">
+
+        <div class="col-md-4">
+            <a asp-controller="Bovine" asp-action="Index" class="btn btn-success w-100 p-3">
+                Gerenciar Bovinos
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Swines" asp-action="Index" class="btn btn-warning w-100 p-3">
+                Gerenciar Suínos
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Batch" asp-action="Index" class="btn btn-primary w-100 p-3">
+                Gerenciar Lotes
+            </a>
+        </div>
+
+    </div>
+
+</div>
