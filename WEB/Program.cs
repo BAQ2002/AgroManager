@@ -10,6 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<AgroManagerDbContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
 builder.Services.AddDbContextFactory<AgroManagerDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -18,7 +23,7 @@ builder.Services.AddDbContextFactory<AgroManagerDbContext>(options =>
 // Service (BLL)
 builder.Services.AddScoped<IBovineService, BovineService>();
 
-// Repositório EF (INFRA) -> contrato do MODEL
+// RepositÃ³rio EF (INFRA) -> contrato do MODEL
 builder.Services.AddScoped<IAnimalRepository<BovineEntity>, BovineRepositoryEF>();
 
 
