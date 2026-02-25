@@ -10,11 +10,23 @@ using MODEL;
 
 namespace AgroManager.WEB.Controllers;
 
+/// <summary>
+/// Controller MVC responsável por operações de leitura e escrita de bovinos.
+/// </summary>
+/// <remarks>
+/// A leitura da listagem utiliza <see cref="IDbContextFactory{TContext}"/> para criar um
+/// <see cref="AgroManagerDbContext"/> por operação, enquanto os fluxos de escrita passam pela BLL.
+/// </remarks>
 public sealed class BovinesController : Controller
 {
-    private readonly IDbContextFactory<AgroManagerDbContext> _dbFactory;    // leitura (List) temporario enquanto nao ha serviço para isso (BLL) - pode ser injetado diretamente no controller, sem depender de AddDbContext
-    private readonly IBovineService _bovineService; // escrita (Create)
+    private readonly IDbContextFactory<AgroManagerDbContext> _dbFactory;
+    private readonly IBovineService _bovineService;
 
+    /// <summary>
+    /// Inicializa o controller com dependências de acesso a dados e regras de negócio.
+    /// </summary>
+    /// <param name="dbFactory">Fábrica de contexto usada para consultas diretas de listagem.</param>
+    /// <param name="bovineService">Serviço de domínio para operações de escrita/validação.</param>
     public BovinesController(
         IDbContextFactory<AgroManagerDbContext> dbFactory,
         IBovineService bovineService)
@@ -31,7 +43,7 @@ public sealed class BovinesController : Controller
     }
 
     // /api/bovines -> dados JSON para preencher a tabela
-    // Leitura via DbContextFactory (sem depender de AddDbContext).
+    // Cria um DbContext dedicado para a operação através da fábrica (escopo local do método).
     [HttpGet("/api/bovines")]
     public async Task<IActionResult> List(CancellationToken ct)
     {
