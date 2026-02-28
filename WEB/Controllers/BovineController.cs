@@ -118,6 +118,7 @@ public sealed class BovinesController : Controller
 
         var vm = new BovineViewModel
         {
+            Id = entity.Id,
             Name = entity.Name,
             Gender = entity.Gender,
             Origin = entity.Origin,
@@ -134,6 +135,9 @@ public sealed class BovinesController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(Guid id, BovineViewModel bovineViewModel, CancellationToken CancellationToken)
     {
+        if (id == Guid.Empty && bovineViewModel.Id != Guid.Empty)
+            id = bovineViewModel.Id;
+
         if (id == Guid.Empty)
             return BadRequest();
 
@@ -188,6 +192,8 @@ public sealed class BovinesController : Controller
 /// </summary>
 public sealed class BovineViewModel
 {
+    public Guid Id { get; set; }
+
     public string? Name { get; set; }
 
     public Gender Gender { get; set; }
