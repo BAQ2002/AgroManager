@@ -22,8 +22,14 @@ public sealed class BovinesController : Controller
         _dbFactory = dbFactory;
         _bovineService = bovineService;
     }
-
-    // /bovines  -> página (view) com tabela
+    /// <summary>
+    /// /bovines -> página (view) da tabela Db.Bovines.
+    /// Utiliza <see cref="Task"/> <see cref="List"/>.
+    /// </summary>
+    /// <returns>
+    /// <see cref="ViewResult"/> utilizando o PL/Views/Bovines/Index.cshtml
+    /// como layout Front-End e os dados via Json's preenchidos por <see cref="List"/>.
+    /// </returns>
     [HttpGet("/bovines")]
     public IActionResult Index()
     {
@@ -65,23 +71,23 @@ public sealed class BovinesController : Controller
     // POST /bovines/create -> salva no banco via BLL 
     [HttpPost("/bovines/create")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(BovineViewModel vm, CancellationToken ct)
+    public async Task<IActionResult> Create(BovineViewModel bovineViewModel, CancellationToken cancellationToken)
     {
-        if (!ModelState.IsValid) return View(vm);
+        if (!ModelState.IsValid) return View(bovineViewModel);
 
         var entity = new BovineEntity
         {
-            Name = vm.Name,
-            Gender = vm.Gender,
-            Origin = vm.Origin,
-            BirthDate = vm.BirthDate,
-            MaritalStatus = vm.MaritalStatus,
-            CattleType = vm.CattleType
+            Name = bovineViewModel.Name,
+            Gender = bovineViewModel.Gender,
+            Origin = bovineViewModel.Origin,
+            BirthDate = bovineViewModel.BirthDate,
+            MaritalStatus = bovineViewModel.MaritalStatus,
+            CattleType = bovineViewModel.CattleType
         };
 
         try
         {
-            await _bovineService.CreateAsync(entity, ct);
+            await _bovineService.CreateAsync(entity, cancellationToken);
 
             return RedirectToAction(nameof(Index));
         }
@@ -89,23 +95,23 @@ public sealed class BovinesController : Controller
         {
             ModelState.AddModelError(string.Empty, ex.Message);
 
-            return View(vm);
+            return View(bovineViewModel);
         }
         catch (Exception)
         {
             ModelState.AddModelError(string.Empty, "Ocorreu um erro inesperado ao salvar o bovino.");
 
-            return View(vm);
+            return View(bovineViewModel);
         }
     }
 
     [HttpGet("/bovines/edit/{id:guid}")]
-    public async Task<IActionResult> Edit(Guid id, CancellationToken ct)
+    public async Task<IActionResult> Edit(Guid id, CancellationToken CancellationToken)
     {
         if (id == Guid.Empty)
             return BadRequest();
 
-        var entity = await _bovineService.GetByIdAsync(id, ct);
+        var entity = await _bovineService.GetByIdAsync(id, CancellationToken);
 
         if (entity is null)
             return NotFound();
@@ -126,45 +132,45 @@ public sealed class BovinesController : Controller
 
     [HttpPost("/bovines/edit/{id:guid}")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(Guid id, BovineViewModel vm, CancellationToken ct)
+    public async Task<IActionResult> Edit(Guid id, BovineViewModel bovineViewModel, CancellationToken CancellationToken)
     {
         if (id == Guid.Empty)
             return BadRequest();
 
         if (!ModelState.IsValid)
-            return View(vm);
+            return View(bovineViewModel);
 
         var entity = new BovineEntity
         {
             Id = id,                      // 🔹 importante
-            Name = vm.Name,
-            Gender = vm.Gender,
-            Origin = vm.Origin,
-            BirthDate = vm.BirthDate,
-            MaritalStatus = vm.MaritalStatus,
-            CattleType = vm.CattleType
+            Name = bovineViewModel.Name,
+            Gender = bovineViewModel.Gender,
+            Origin = bovineViewModel.Origin,
+            BirthDate = bovineViewModel.BirthDate,
+            MaritalStatus = bovineViewModel.MaritalStatus,
+            CattleType = bovineViewModel.CattleType
         };
 
         try
         {
-            await _bovineService.UpdateAsync(entity, ct);
+            await _bovineService.UpdateAsync(entity, CancellationToken);
 
             return RedirectToAction(nameof(Index));
         }
         catch (BusinessRuleException ex)
         {
             ModelState.AddModelError(string.Empty, ex.Message);
-            return View(vm);
+            return View(bovineViewModel);
         }
         catch (InvalidOperationException ex)
         {
             ModelState.AddModelError(string.Empty, ex.Message);
-            return View(vm);
+            return View(bovineViewModel);
         }
         catch (Exception)
         {
             ModelState.AddModelError(string.Empty, "Ocorreu um erro inesperado ao atualizar o bovino.");
-            return View(vm);
+            return View(bovineViewModel);
         }
     }
 }
