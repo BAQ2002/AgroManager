@@ -1,9 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using INFRA.Persistences;
+using Microsoft.EntityFrameworkCore;
 using MODEL;
-using INFRA.Persistences;
+using System;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace INFRA;
-
+/// <summary>
+/// Unidade de trabalho EF Core
+/// <para>1.Conexão e execução de Querie's : Ela usa a configuração recebida(DbContextOptions) para acessar o banco(provider, connection string etc.).</para>
+/// <para>2.Mapeamento objeto ⭠⭢ tabela : Expõe DbSets para entidades(Bovines, Swines...) e sabe como mapear tudo via OnModelCreating.</para>
+/// <para>3.Change Tracking : Quando você adiciona/altera/remove entidades, o contexto rastreia estado(Added/Modified/Deleted).</para>
+/// <para>4.Persistência(SaveChanges) : Só quando chama SaveChangesAsync ele transforma mudanças em SQL e envia ao banco.</para>
+/// </summary>
 public class AgroManagerDbContext : DbContext
 {
     public AgroManagerDbContext(DbContextOptions<AgroManagerDbContext> options) : base(options) { }
