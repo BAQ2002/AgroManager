@@ -1,39 +1,204 @@
-﻿@{
+@{
     ViewData["Title"] = "Início";
 }
 
-<link rel="stylesheet" href="~/css/styles.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-<div class="text-center">
+<style>
+    :root {
+        --bg-start: #030712;
+        --bg-end: #020617;
+        --panel: rgba(15, 23, 42, 0.78);
+        --panel-border: rgba(148, 163, 184, 0.22);
+        --text-primary: #e2e8f0;
+        --text-muted: #94a3b8;
+        --accent: #22c55e;
+        --accent-soft: rgba(34, 197, 94, 0.18);
+    }
 
-    <h1 class="display-4 mb-4">Bem-vindo ao AgroManager</h1>
+    body {
+        min-height: 100vh;
+        margin: 0;
+        background: radial-gradient(circle at 20% 0%, #0b1225, var(--bg-start) 40%, var(--bg-end) 100%);
+        color: var(--text-primary);
+        font-family: "Inter", "Segoe UI", sans-serif;
+    }
 
-    <p class="lead">
-        Sistema de gerenciamento pecuário
-    </p>
+    .home-shell {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
 
-    <hr />
+    .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.9rem 1.4rem;
+        backdrop-filter: blur(16px);
+        background: rgba(2, 6, 23, 0.7);
+        border-bottom: 1px solid var(--panel-border);
+    }
 
-    <div class="row mt-5">
+    .brand {
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: #f8fafc;
+        text-decoration: none;
+    }
 
-        <div class="col-md-4">
-            <a asp-controller="Bovine" asp-action="Index" class="btn btn-success w-100 p-3">
-                Gerenciar Bovinos
-            </a>
+    .profile-trigger {
+        border: 1px solid var(--panel-border);
+        background: var(--panel);
+        color: var(--text-primary);
+    }
+
+    .profile-trigger:hover,
+    .profile-trigger:focus {
+        background: rgba(30, 41, 59, 0.9);
+        color: #fff;
+    }
+
+    .hero {
+        width: min(1100px, 92vw);
+        margin: 3.5rem auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 0.6rem;
+        font-weight: 700;
+    }
+
+    .hero p {
+        color: var(--text-muted);
+        max-width: 60ch;
+        margin-bottom: 2rem;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .feature-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        border-radius: 16px;
+        padding: 1.2rem;
+        transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+        min-height: 180px;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(34, 197, 94, 0.75);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .feature-icon {
+        width: 2.2rem;
+        height: 2.2rem;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--accent-soft);
+        color: #86efac;
+        margin-bottom: 0.9rem;
+    }
+
+    .feature-card h2 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: .45rem;
+    }
+
+    .feature-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: .94rem;
+    }
+
+    .tag {
+        display: inline-flex;
+        gap: .4rem;
+        align-items: center;
+        margin-top: .85rem;
+        color: #86efac;
+        font-size: .86rem;
+        font-weight: 500;
+    }
+
+    @@media (max-width: 960px) {
+        .cards-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hero {
+            margin-top: 2.2rem;
+        }
+    }
+</style>
+
+<div class="home-shell">
+    <header class="topbar">
+        <a class="brand" asp-controller="Home" asp-action="Index">AgroManager</a>
+
+        <div class="dropdown">
+            <button class="btn profile-trigger rounded-pill d-flex align-items-center gap-2 px-3"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    aria-label="Acessar conta">
+                <i class="bi bi-person-circle fs-5"></i>
+                <span>Conta</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Acessar conta</a></li>
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Perfil</a></li>
+            </ul>
         </div>
+    </header>
 
-        <div class="col-md-4">
-            <a asp-controller="Swines" asp-action="Index" class="btn btn-warning w-100 p-3">
-                Gerenciar Suínos
+    <main class="hero">
+        <h1>Bem-vindo ao AgroManager</h1>
+        <p>
+            Centralize a operação pecuária em um painel moderno para monitorar animais e lotes.
+            Escolha um módulo para começar.
+        </p>
+
+        <section class="cards-grid" aria-label="Módulos de gerenciamento">
+            <a href='@Url.Action("Index", "Bovine")' class="feature-card">
+                <span class="feature-icon"><i class="bi bi-shield"></i></span>
+                <h2>Gerenciar Bovinos</h2>
+                <p>Cadastro completo, consulta de dados e acompanhamento do rebanho bovino.</p>
+                <span class="tag">Abrir módulo <i class="bi bi-arrow-right-short"></i></span>
             </a>
-        </div>
 
-        <div class="col-md-4">
-            <a asp-controller="Batch" asp-action="Index" class="btn btn-primary w-100 p-3">
-                Gerenciar Lotes
+            <a href='@Url.Action("Index", "Swines")' class="feature-card">
+                <span class="feature-icon"><i class="bi bi-boxes"></i></span>
+                <h2>Gerenciar Suínos</h2>
+                <p>Organize os suínos por status, origem e evolução produtiva.</p>
+                <span class="tag">Abrir módulo <i class="bi bi-arrow-right-short"></i></span>
             </a>
-        </div>
 
-    </div>
-
+            <a href='@Url.Action("Index", "Batch")' class="feature-card">
+                <span class="feature-icon"><i class="bi bi-diagram-3"></i></span>
+                <h2>Gerenciar Lotes</h2>
+                <p>Visualize e administre lotes para otimizar alocação e manejo no dia a dia.</p>
+                <span class="tag">Abrir módulo <i class="bi bi-arrow-right-short"></i></span>
+            </a>
+        </section>
+    </main>
 </div>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
