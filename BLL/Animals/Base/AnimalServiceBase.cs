@@ -8,133 +8,144 @@ using MODEL;
 namespace BLL.Services;
 
 /// <summary>
-/// Implementa o fluxo padrão de operações para animais (Template Method),
-/// centralizando regras comuns e delegando regras específicas para classes derivadas.
+/// Implementa o fluxo padrão de operações para animais usando Template Method,
+/// centralizando validações comuns e delegando validações específicas para classes derivadas.
 /// </summary>
-/// <typeparam name="TAnimal">
-/// Tipo da entidade animal. Deve herdar de AnimalEntity.
-/// </typeparam>
+/// <typeparam name="TAnimal">Tipo da entidade animal. Deve herdar de <see cref="AnimalEntity"/>.</typeparam>
 public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
     where TAnimal : AnimalEntity
 {
     private readonly IAnimalRepository<TAnimal> _repository;
 
     /// <summary>
-    /// Inicializa o serviço base com o port (repositório genérico adaptado).
+    /// Inicializa o serviço base com o port de persistência.
     /// </summary>
-    /// <param name="repository">Port de repositório para o tipo de animal.</param>
+    /// <param name="repository">Repositório usado para leituras e gravações do tipo de animal.</param>
+    /// <exception cref="ArgumentNullException">Lançada quando <paramref name="repository"/> é nulo.</exception>
     protected AnimalServiceBase(IAnimalRepository<TAnimal> repository)
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
     }
 
     /// <summary>
-    /// Cria um novo animal após validações comuns e específicas.
+    /// Cria um novo animal aplicando a sequência padrão do pipeline:
+    /// valida entrada, executa <see cref="ValidateCommonRules(TAnimal)"/>, executa
+    /// <see cref="ValidateSpecificRules(TAnimal)"/> e persiste chamando <see cref="IAnimalRepository{TAnimal}.AddAsync(TAnimal, CancellationToken)"/>.
     /// </summary>
+    /// <param name="entity">Entidade a ser criada.</param>
+    /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
+    /// <returns>A própria entidade recebida, após persistência.</returns>
+    /// <exception cref="ArgumentNullException">Lançada quando <paramref name="entity"/> é nulo.</exception>
     public virtual async Task<TAnimal> CreateAsync(TAnimal entity, CancellationToken ct = default)
     {
-        // -------------------- Validação de entrada --------------------
         if (entity is null) throw new ArgumentNullException(nameof(entity));
 
-        // -------------------- Regras comuns (AnimalEntity) --------------------
         ValidateCommonRules(entity);
 
-        // -------------------- Regras específicas (bovino/suíno/...) --------------------
         ValidateSpecificRules(entity);
 
-        // -------------------- Persistência --------------------
         await _repository.AddAsync(entity, ct).ConfigureAwait(false);
 
         return entity;
     }
 
+    /// <summary>
+    /// Atualiza um animal existente seguindo o pipeline padrão:
+    /// valida entrada e identificador, garante existência com <see cref="IAnimalRepository{TAnimal}.GetByIdAsync(Guid, CancellationToken)"/>,
+    /// aplica regras comuns/específicas e persiste com <see cref="IAnimalRepository{TAnimal}.UpdateAsync(TAnimal, CancellationToken)"/>.
+    /// </summary>
+    /// <param name="entity">Entidade contendo os novos dados para atualização.</param>
+    /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
+    /// <returns>A entidade recebida após atualização.</returns>
+    /// <exception cref="ArgumentNullException">Lançada quando <paramref name="entity"/> é nulo.</exception>
+    /// <exception cref="BusinessRuleException">Lançada quando o identificador é inválido.</exception>
+    /// <exception cref="InvalidOperationException">Lançada quando o registro não é encontrado.</exception>
     public virtual async Task<TAnimal> UpdateAsync(TAnimal entity, CancellationToken ct = default)
     {
-        // -------------------- Validação de entrada --------------------
         if (entity is null) throw new ArgumentNullException(nameof(entity));
 
-        // -------------------- Id obrigatório para update --------------------
         if (entity.Id == Guid.Empty) throw new BusinessRuleException("O identificador informado é inválido.");
 
-        // -------------------- Garante existência --------------------
         TAnimal? existing = await _repository.GetByIdAsync(entity.Id, ct).ConfigureAwait(false);
 
-        // ----------------lançar InvalidOperationException ----------------
         if (existing is null) throw new InvalidOperationException("Registro não encontrado.");
 
-        // -------------------- Regras comuns (AnimalEntity) --------------------
         ValidateCommonRules(entity);
 
-        // -------------------- Regras específicas (bovino/suíno/...) --------------------
         ValidateSpecificRules(entity);
 
-        // -------------------- Persistência --------------------
         await _repository.UpdateAsync(entity, ct).ConfigureAwait(false);
 
         return entity;
     }
 
     /// <summary>
-    /// Remove um animal a partir do id, aplicando regras comuns e específicas de exclusão.
+    /// Remove um animal a partir do identificador.
+    /// O fluxo valida o id, carrega a entidade via <see cref="IAnimalRepository{TAnimal}.GetByIdAsync(Guid, CancellationToken)"/>,
+    /// executa <see cref="ValidateDeleteCommonRules(TAnimal)"/> e <see cref="ValidateDeleteSpecificRulesAsync(TAnimal, CancellationToken)"/>
+    /// e finaliza chamando <see cref="IAnimalRepository{TAnimal}.DeleteAsync(TAnimal, CancellationToken)"/>.
     /// </summary>
+    /// <param name="id">Identificador do registro a ser excluído.</param>
+    /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
+    /// <exception cref="BusinessRuleException">Lançada quando o identificador é inválido.</exception>
+    /// <exception cref="NotFoundException">Lançada quando não existe entidade para o identificador informado.</exception>
     public virtual async Task DeleteAsync(Guid id, CancellationToken ct = default)
     {
-        // -------------------- Validação de entrada --------------------
         if (id == Guid.Empty) throw new BusinessRuleException("O identificador informado é inválido.");
 
-        // -------------------- Recupera entidade para validar exclusão --------------------
         TAnimal? entity = await _repository.GetByIdAsync(id, ct).ConfigureAwait(false);
 
         if (entity is null) throw new NotFoundException("Registro não encontrado.");
 
-        // -------------------- Regras comuns de exclusão --------------------
         ValidateDeleteCommonRules(entity);
 
-        // -------------------- Regras específicas de exclusão --------------------
         await ValidateDeleteSpecificRulesAsync(entity, ct).ConfigureAwait(false);
 
-        // -------------------- Persistência --------------------
         await _repository.DeleteAsync(entity, ct).ConfigureAwait(false);
     }
 
-
+    /// <summary>
+    /// Lista todos os animais do tipo corrente delegando diretamente ao repositório.
+    /// </summary>
+    /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
+    /// <returns>Coleção somente leitura com os animais encontrados.</returns>
     public virtual Task<IReadOnlyList<TAnimal>> ListAsync(CancellationToken ct = default)
     {
         return _repository.ListAsync(ct);
     }
 
     /// <summary>
-    /// Obtém um animal pelo id.
+    /// Obtém um animal por identificador.
+    /// Quando o id é vazio, retorna <see langword="null"/> sem consultar o repositório;
+    /// caso contrário, delega para <see cref="IAnimalRepository{TAnimal}.GetByIdAsync(Guid, CancellationToken)"/>.
     /// </summary>
+    /// <param name="id">Identificador do animal.</param>
+    /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
+    /// <returns>A entidade encontrada ou <see langword="null"/>.</returns>
     public virtual Task<TAnimal?> GetByIdAsync(Guid id, CancellationToken ct = default)
     {
-        // -------------------- Validação de entrada --------------------
         if (id == Guid.Empty) return Task.FromResult<TAnimal?>(null);
 
         return _repository.GetByIdAsync(id, ct);
     }
 
-    // =====================================================================================================
-    // Regras Comuns (AnimalEntity)
-    // =====================================================================================================
-
     /// <summary>
     /// Aplica validações comuns válidas para qualquer animal.
+    /// Normaliza o nome (quando informado), cria a referência temporal local
+    /// com <see cref="DateOnly.FromDateTime(DateTime)"/> e valida coerência entre
+    /// datas de nascimento, compra e óbito.
     /// </summary>
     /// <param name="entity">Entidade a ser validada.</param>
+    /// <exception cref="BusinessRuleException">Lançada quando alguma regra temporal é violada.</exception>
     protected virtual void ValidateCommonRules(TAnimal entity)
     {
-        // -------------------- Data de referência (hoje) --------------------
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
 
-        // -------------------- Name (opcional) --------------------
-        // Name é opcional no seu modelo. Aqui apenas normalizamos quando existir.
         if (!string.IsNullOrWhiteSpace(entity.Name))
         {
             entity.Name = entity.Name.Trim();
         }
 
-        // -------------------- BirthDate --------------------
         if (entity.BirthDate.HasValue)
         {
             DateOnly birthDate = entity.BirthDate.Value;
@@ -142,7 +153,6 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
             if (birthDate > today) throw new BusinessRuleException("A data de nascimento não pode ser futura.");
         }
 
-        // -------------------- PurchaseDate --------------------
         if (entity.PurchaseDate.HasValue)
         {
             DateOnly purchaseDate = entity.PurchaseDate.Value;
@@ -150,7 +160,6 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
             if (purchaseDate > today) throw new BusinessRuleException("A data de compra não pode ser futura.");
         }
 
-        // -------------------- DeathDate --------------------
         if (entity.DeathDate.HasValue)
         {
             DateOnly deathDate = entity.DeathDate.Value;
@@ -163,36 +172,29 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
             if (entity.PurchaseDate.HasValue && deathDate < entity.PurchaseDate.Value)
                 throw new BusinessRuleException("A data de óbito não pode ser anterior à data de compra.");
         }
-
-        // -------------------- Gender / Origin --------------------
-        // Por padrão, não forçamos aqui porque seu modelo aceita Unknown.
-        // Se você decidir regra real (ex.: impedir Unknown), fazemos isso na base ou em cada espécie.
     }
 
     /// <summary>
-    /// Regras comuns para exclusão (válidas para qualquer animal).
+    /// Executa validações comuns de exclusão válidas para todos os tipos de animais.
+    /// Método virtual para permitir extensão em cenários de bloqueios genéricos de remoção.
     /// </summary>
-    /// <param name="entity">Entidade que será excluída.</param>
+    /// <param name="entity">Entidade que está no fluxo de exclusão.</param>
     protected virtual void ValidateDeleteCommonRules(TAnimal entity)
     {
-        // Aqui entram regras genéricas do tipo:
-        // - não excluir se DeathDate já estiver preenchida (se quiser impedir histórico)
-        // - não excluir se existir vínculo comum a todos os animais (batch/parentage), quando padronizarmos isso
     }
 
-    // =====================================================================================================
-    // Ganchos (Template Method)
-    // =====================================================================================================
-
     /// <summary>
-    /// Aplica validações específicas da espécie (bovino/suíno/...).
-    /// Deve lançar BusinessRuleException quando regra de negócio falhar.
+    /// Gancho do Template Method para validações de domínio específicas da espécie.
+    /// É chamado pela base em operações de criação e atualização.
     /// </summary>
+    /// <param name="entity">Entidade da espécie concreta a ser validada.</param>
     protected abstract void ValidateSpecificRules(TAnimal entity);
 
     /// <summary>
-    /// Aplica validações específicas de exclusão da espécie.
-    /// Usado para cenários onde precisa consultar outros repositórios (Milk, Parentage, Batch, etc.).
+    /// Gancho do Template Method para validações específicas de exclusão.
+    /// É chamado pela base antes da remoção no repositório.
     /// </summary>
+    /// <param name="entity">Entidade da espécie concreta em processo de exclusão.</param>
+    /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
     protected abstract Task ValidateDeleteSpecificRulesAsync(TAnimal entity, CancellationToken ct);
 }
