@@ -6,29 +6,41 @@ using MODEL;
 
 namespace AgroManager.WEB.Controllers;
 
+/// <summary>
+/// Controller responsável por expor os endpoints HTTP de listagem, criação e edição de bovinos.
+/// Encaminha as regras de negócio para <see cref="IBovineService"/> e mantém no controller apenas
+/// a orquestração de fluxo Web (model binding, validação de <see cref="ModelStateDictionary"/> e retorno de views/resultados HTTP).
+/// </summary>
 public sealed class BovinesController : Controller
 {
     private readonly IBovineService _bovineService;
 
+    /// <summary>
+    /// Inicializa o controller com a dependência de serviço de bovinos injetada pelo container DI.
+    /// </summary>
+    /// <param name="bovineService">Serviço utilizado para executar operações de negócio sobre <see cref="BovineEntity"/>.</param>
     public BovinesController(IBovineService bovineService)
     {
         _bovineService = bovineService;
     }
+
     /// <summary>
-    /// /bovines -> página (view) da tabela Db.Bovines.
-    /// Utiliza <see cref="Task"/> <see cref="List"/>.
+    /// Renderiza a página principal de bovinos.
+    /// A tabela da tela é populada de forma assíncrona pelo endpoint <see cref="List(CancellationToken)"/>.
     /// </summary>
-    /// <returns>
-    /// <see cref="ViewResult"/> utilizando o PL/Views/Bovines/Index.cshtml
-    /// como layout Front-End e os dados via Json's preenchidos por <see cref="List"/>.
-    /// </returns>
+    /// <returns><see cref="ViewResult"/> para a view padrão de index de bovinos.</returns>
     [HttpGet("/bovines")]
     public IActionResult Index()
     {
         return View();
     }
 
-    // /api/bovines -> dados JSON para preencher a tabela
+    /// <summary>
+    /// Obtém os bovinos via <see cref="IBovineService.ListAsync(CancellationToken)"/>, projeta os dados em formato
+    /// pronto para serialização JSON (incluindo conversão de enums para texto) e retorna o resultado com <see cref="Ok(object?)"/>.
+    /// </summary>
+    /// <param name="ct">Token de cancelamento propagado para a camada de serviço.</param>
+    /// <returns><see cref="OkObjectResult"/> com a coleção projetada para consumo da tabela no front-end.</returns>
     [HttpGet("/api/bovines")]
     public async Task<IActionResult> List(CancellationToken ct)
     {
@@ -50,14 +62,29 @@ public sealed class BovinesController : Controller
         return Ok(data);
     }
 
-    // /bovines/create -> página de cadastro
+    /// <summary>
+    /// Renderiza a página de cadastro inicializando uma nova instância de <see cref="BovineViewModel"/>
+    /// para preencher o formulário da view.
+    /// </summary>
+    /// <returns><see cref="ViewResult"/> com um model vazio para criação.</returns>
     [HttpGet("/bovines/create")]
     public IActionResult Create()
     {
         return View(new BovineViewModel());
     }
 
-    // POST /bovines/create -> salva no banco via BLL 
+    /// <summary>
+    /// Processa o envio do formulário de criação.
+    /// Valida <see cref="ModelState"/>, mapeia <see cref="BovineViewModel"/> para <see cref="BovineEntity"/>,
+    /// chama <see cref="IBovineService.CreateAsync(BovineEntity, CancellationToken)"/> e redireciona para <see cref="Index"/> em caso de sucesso.
+    /// Em caso de falha de regra de negócio ou erro inesperado, registra a mensagem no <see cref="ModelState"/> e retorna a mesma view.
+    /// </summary>
+    /// <param name="bovineViewModel">Model recebido do formulário de criação.</param>
+    /// <param name="cancellationToken">Token de cancelamento propagado para a camada de serviço.</param>
+    /// <returns>
+    /// <see cref="RedirectToActionResult"/> quando a criação é concluída; caso contrário,
+    /// <see cref="ViewResult"/> com o model original e mensagens de erro.
+    /// </returns>
     [HttpPost("/bovines/create")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(BovineViewModel bovineViewModel, CancellationToken cancellationToken)
@@ -94,6 +121,17 @@ public sealed class BovinesController : Controller
         }
     }
 
+    /// <summary>
+    /// Carrega os dados para edição de um bovino.
+    /// Valida o identificador, chama <see cref="IBovineService.GetByIdAsync(Guid, CancellationToken)"/>,
+    /// projeta a entidade para <see cref="BovineViewModel"/> e retorna a view de edição.
+    /// </summary>
+    /// <param name="id">Identificador do bovino que será editado.</param>
+    /// <param name="CancellationToken">Token de cancelamento propagado para a camada de serviço.</param>
+    /// <returns>
+    /// <see cref="BadRequestResult"/> para id inválido, <see cref="NotFoundResult"/> para registro inexistente
+    /// ou <see cref="ViewResult"/> com o model preenchido.
+    /// </returns>
     [HttpGet("/bovines/edit/{id:guid}")]
     public async Task<IActionResult> Edit(Guid id, CancellationToken CancellationToken)
     {
@@ -120,6 +158,19 @@ public sealed class BovinesController : Controller
         return View(vm);
     }
 
+    /// <summary>
+    /// Processa o envio do formulário de edição.
+    /// Resolve o identificador final (rota ou model), valida o estado do model,
+    /// mapeia os dados para <see cref="BovineEntity"/> e chama <see cref="IBovineService.UpdateAsync(BovineEntity, CancellationToken)"/>.
+    /// Em caso de erro de regra de negócio, registro inexistente ou exceção inesperada, adiciona mensagem no <see cref="ModelState"/> e retorna a view.
+    /// </summary>
+    /// <param name="id">Identificador informado na rota.</param>
+    /// <param name="bovineViewModel">Model enviado pelo formulário de edição.</param>
+    /// <param name="CancellationToken">Token de cancelamento propagado para a camada de serviço.</param>
+    /// <returns>
+    /// <see cref="RedirectToActionResult"/> quando a atualização é concluída; caso contrário,
+    /// resultado de erro de requisição ou <see cref="ViewResult"/> com mensagens de validação.
+    /// </returns>
     [HttpPost("/bovines/edit/{id:guid}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(Guid id, BovineViewModel bovineViewModel, CancellationToken CancellationToken)
@@ -135,7 +186,7 @@ public sealed class BovinesController : Controller
 
         var entity = new BovineEntity
         {
-            Id = id,                      // 🔹 importante
+            Id = id,
             Name = bovineViewModel.Name,
             Gender = bovineViewModel.Gender,
             Origin = bovineViewModel.Origin,

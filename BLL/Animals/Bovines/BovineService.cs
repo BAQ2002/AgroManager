@@ -1,67 +1,67 @@
-﻿
-using BLL.Common.Exceptions;
+﻿using BLL.Common.Exceptions;
 using MODEL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Threading.Tasks;
 
 namespace BLL.Services
 {
     /// <summary>
     /// Contrato público da BLL para operações relacionadas a bovinos.
-    /// // métodos exclusivos de bovino podem ser adicionados aqui futuramente
+    /// Herda o fluxo padrão de CRUD definido em <see cref="IAnimalService{TAnimal}"/>
+    /// e permite extensão com operações específicas de bovinos quando necessário.
     /// </summary>
     public interface IBovineService : IAnimalService<BovineEntity>
     { }
 
     /// <summary>
-    /// Implementa regras de negócio específicas para bovinos.
+    /// Implementa regras de negócio específicas para bovinos sobre o pipeline comum de
+    /// <see cref="AnimalServiceBase{TAnimal}"/>.
+    /// O fluxo de criação/atualização/exclusão é executado na classe base, que chama os ganchos
+    /// <see cref="ValidateSpecificRules(BovineEntity)"/> e <see cref="ValidateDeleteSpecificRulesAsync(BovineEntity, CancellationToken)"/>.
     /// </summary>
     public sealed class BovineService : AnimalServiceBase<BovineEntity>, IBovineService
     {
         /// <summary>
-        /// Inicializa o service de bovinos utilizando o port genérico de repositório.
+        /// Inicializa o serviço de bovinos delegando a persistência para um repositório que implementa
+        /// <see cref="IAnimalRepository{TAnimal}"/> para <see cref="BovineEntity"/>.
         /// </summary>
-        /// <param name="repository">Port adaptado para acesso a dados de bovinos.</param>
-        public BovineService(IAnimalRepository<BovineEntity> repository): base(repository)
+        /// <param name="repository">Port adaptado para acesso e escrita de dados de bovinos.</param>
+        public BovineService(IAnimalRepository<BovineEntity> repository) : base(repository)
         {
         }
 
         /// <summary>
-        /// Aplica validações específicas de bovinos.
+        /// Executa validações de domínio específicas de bovinos.
+        /// Este método é chamado pela classe base antes de persistir em
+        /// <see cref="AnimalServiceBase{TAnimal}.CreateAsync(TAnimal, CancellationToken)"/> e
+        /// <see cref="AnimalServiceBase{TAnimal}.UpdateAsync(TAnimal, CancellationToken)"/>.
         /// </summary>
-        /// <param name="entity">Entidade a ser validada.</param>
+        /// <param name="entity">Entidade bovina que será validada.</param>
+        /// <exception cref="BusinessRuleException">
+        /// Lançada quando <c>CattleType</c> não é informado, quando o gênero está como <see cref="Gender.Unknown"/>
+        /// ou quando uma fêmea não possui <c>MaritalStatus</c> definido.
+        /// </exception>
         protected override void ValidateSpecificRules(BovineEntity entity)
         {
-            // -------------------- CattleType (obrigatório) --------------------
             if (entity.CattleType is null) throw new BusinessRuleException("O tipo do bovino (CattleType) deve ser informado.");
 
-            // -------------------- Gender (regra de negócio) --------------------
-            // Seu MODEL permite Unknown, mas aqui decidimos uma regra real:
-            // cadastro deve definir o gênero para o domínio fazer sentido.
             if (entity.Gender == Gender.Unknown) throw new BusinessRuleException("O gênero do bovino deve ser informado.");
 
-            // -------------------- MaritalStatus (regra por gênero) --------------------
-            // Exemplo de regra real: status marital faz sentido para fêmea.
             if (entity.Gender == Gender.Female && entity.MaritalStatus is null) throw new BusinessRuleException("O estado marital do bovino deve ser informado para fêmeas.");
         }
 
         /// <summary>
-        /// Aplica validações específicas antes de excluir um bovino.
+        /// Executa validações adicionais antes da exclusão de bovinos.
+        /// Este gancho é chamado pela base em <see cref="AnimalServiceBase{TAnimal}.DeleteAsync(Guid, CancellationToken)"/>
+        /// após as regras comuns e antes da chamada ao repositório para remoção.
         /// </summary>
-        /// <param name="entity">Entidade que será excluída.</param>
-        /// <param name="ct">Token de cancelamento.</param>
+        /// <param name="entity">Entidade bovina que está no fluxo de exclusão.</param>
+        /// <param name="ct">Token de cancelamento do fluxo assíncrono.</param>
+        /// <returns>
+        /// <see cref="Task.CompletedTask"/>, pois atualmente não há validações adicionais com dependências externas.
+        /// </returns>
         protected override Task ValidateDeleteSpecificRulesAsync(BovineEntity entity, CancellationToken ct)
         {
-            // Aqui futuramente entram regras como:
-            // - não excluir se existir MilkEntity vinculado
-            // - não excluir se estiver em Batch / Parentage
-            // Por enquanto, não há dependências extras conectadas neste service.
-
             return Task.CompletedTask;
         }
     }
