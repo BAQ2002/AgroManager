@@ -17,7 +17,7 @@
     </header>
 
     <section class="datagrid-wrapper" style="padding: 16px;">
-        <form method="post" action="/bovines/create" style="display:flex; flex-direction:column; gap:12px;">
+        <form method="post" action="/bovines/edit/@Model.Id" style="display:flex; flex-direction:column; gap:12px;">
             @Html.AntiForgeryToken()
 
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
