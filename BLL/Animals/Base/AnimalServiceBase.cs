@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using BLL.Common.Exceptions;
@@ -94,6 +95,12 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
 
         // -------------------- Persistência --------------------
         await _repository.DeleteAsync(entity, ct).ConfigureAwait(false);
+    }
+
+
+    public virtual Task<IReadOnlyList<TAnimal>> ListAsync(CancellationToken ct = default)
+    {
+        return _repository.ListAsync(ct);
     }
 
     /// <summary>

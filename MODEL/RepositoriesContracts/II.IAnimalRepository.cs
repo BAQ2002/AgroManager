@@ -24,6 +24,8 @@ namespace MODEL
 
         Task<TAnimal?> GetByNameAsync(string name, CancellationToken ct = default);
 
+        Task<IReadOnlyList<TAnimal>> ListAsync(CancellationToken ct = default);
+
         Task<TAnimal?> GetByGenderAsync(Gender gender, CancellationToken ct = default);
 
         Task<TAnimal?> GetByGenderAsync(int gender, CancellationToken ct = default);

@@ -1,25 +1,17 @@
 ﻿using BLL.Common.Exceptions;
 using BLL.Services;
 
-using INFRA;
-
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
 using MODEL;
 
 namespace AgroManager.WEB.Controllers;
 
 public sealed class BovinesController : Controller
 {
-    private readonly IDbContextFactory<AgroManagerDbContext> _dbFactory;    // leitura (List) temporario enquanto nao ha serviço para isso (BLL) - pode ser injetado diretamente no controller, sem depender de AddDbContext
-    private readonly IBovineService _bovineService; // escrita (Create)
+    private readonly IBovineService _bovineService;
 
-    public BovinesController(
-        IDbContextFactory<AgroManagerDbContext> dbFactory,
-        IBovineService bovineService)
+    public BovinesController(IBovineService bovineService)
     {
-        _dbFactory = dbFactory;
         _bovineService = bovineService;
     }
     /// <summary>
@@ -37,14 +29,12 @@ public sealed class BovinesController : Controller
     }
 
     // /api/bovines -> dados JSON para preencher a tabela
-    // Leitura via DbContextFactory (sem depender de AddDbContext).
     [HttpGet("/api/bovines")]
     public async Task<IActionResult> List(CancellationToken ct)
     {
-        await using AgroManagerDbContext db = await _dbFactory.CreateDbContextAsync(ct);
+        var bovines = await _bovineService.ListAsync(ct);
 
-        var data = await db.Bovines
-            .AsNoTracking()
+        var data = bovines
             .Select(b => new
             {
                 b.Id,
@@ -55,8 +45,7 @@ public sealed class BovinesController : Controller
                 b.Age,
                 MaritalStatus = b.MaritalStatus.HasValue ? b.MaritalStatus.Value.ToString() : "",
                 CattleType = b.CattleType.HasValue ? b.CattleType.Value.ToString() : ""
-            })
-            .ToListAsync(ct);
+            });
 
         return Ok(data);
     }
