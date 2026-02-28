@@ -38,6 +38,12 @@ namespace INFRA
             await db.SaveChangesAsync(ct);
         }
 
+        public async Task<IReadOnlyList<BovineEntity>> ListAsync(CancellationToken ct = default)
+        {
+            await using var db = await _factory.CreateDbContextAsync(ct);
+            return await db.Bovines.AsNoTracking().ToListAsync(ct);
+        }
+
         public async Task<BovineEntity?> GetByIdAsync(Guid id, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
