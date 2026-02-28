@@ -27,6 +27,7 @@
                     <th>Idade</th>
                     <th>Estado</th>
                     <th>Tipo</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody id="rows"></tbody>
@@ -53,6 +54,7 @@
         <td>${x.age ?? ""}</td>
         <td>${x.maritalStatus ?? ""}</td>
         <td>${x.cattleType ?? ""}</td>
+        <td><a class="badge" href="/bovines/edit/${x.id}" style="text-decoration:none;">Editar</a></td>
       </tr>
     `).join("");
 
