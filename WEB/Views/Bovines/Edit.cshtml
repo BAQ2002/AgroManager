@@ -15,8 +15,9 @@
             <p class="page-subtitle">Atualização de um bovino no banco de dados.</p>
         </div>
 
-        <a class="badge" href="/bovines" style="text-decoration:none;">← Voltar</a>
-    </header>
+    <form method="post" action="/bovines/edit/@idValue">
+        @Html.AntiForgeryToken()
+        <input asp-for="Id" type="hidden" />
 
     <section class="datagrid-wrapper" style="padding: 16px;">
         <form method="post" action="/bovines/edit/@idValue" style="display:flex; flex-direction:column; gap:12px;">
