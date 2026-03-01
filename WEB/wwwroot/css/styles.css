@@ -65,11 +65,12 @@ body {
 /* Filters */
 
 .filters-panel {
-  margin: 4px 0 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(55, 65, 81, 0.8);
-  background: rgba(15, 23, 42, 0.85);
-  padding: 14px;
+  margin: 8px 0 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+  padding: 18px;
+  box-shadow: 0 18px 35px rgba(1, 5, 20, 0.55);
 }
 
 .filters-head {
@@ -96,8 +97,8 @@ body {
 
 .filters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
 }
 
 .filter-field {
@@ -109,34 +110,68 @@ body {
 }
 
 .filter-field input,
-.filter-details {
+.enum-select-trigger {
   border: 1px solid rgba(100, 116, 139, 0.6);
-  background: rgba(2, 6, 23, 0.8);
+  background: rgba(2, 6, 23, 0.82);
   color: #e5e7eb;
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 10px;
+  padding: 9px 10px;
 }
 
-.filter-details summary {
+.filter-field input:focus,
+.enum-select-trigger:focus {
+  outline: none;
+  border-color: rgba(34, 197, 94, 0.7);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.16);
+}
+
+.enum-filter {
+  position: relative;
+}
+
+.enum-select-trigger {
+  width: 100%;
   cursor: pointer;
-  list-style: none;
+  text-align: left;
+  font-size: 0.84rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.filter-details summary::-webkit-details-marker {
+.enum-select-menu {
   display: none;
+  position: absolute;
+  z-index: 12;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 12px;
+  background: rgba(2, 6, 23, 0.98);
+  box-shadow: 0 16px 32px rgba(2, 6, 23, 0.65);
+  padding: 8px;
+  max-height: 190px;
+  overflow-y: auto;
 }
 
-.filter-options {
+.enum-select.open .enum-select-menu {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-top: 8px;
+  gap: 6px;
 }
 
-.filter-options label {
+.enum-select-menu label {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
+  font-size: 0.82rem;
+  color: #dbe4f0;
+  padding: 6px 7px;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.enum-select-menu label:hover {
+  background: rgba(30, 41, 59, 0.85);
 }
 
 /* DataGrid */

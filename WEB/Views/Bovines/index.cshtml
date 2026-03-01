@@ -28,24 +28,30 @@
                 <input id="filterName" type="text" placeholder="Ex: Mimosa" />
             </label>
 
-            <details class="filter-field filter-details">
-                <summary>Sexo</summary>
-                <div class="filter-options" id="filterGender">
+            <div class="filter-field enum-filter">
+                <span>Sexo</span>
+                <div class="enum-select" data-filter="Sexo">
+                    <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar sexo</button>
+                    <div class="enum-select-menu" id="filterGender">
                     <label><input type="checkbox" value="Unknown" /> Unknown</label>
                     <label><input type="checkbox" value="Male" /> Male</label>
                     <label><input type="checkbox" value="Female" /> Female</label>
+                    </div>
                 </div>
-            </details>
+            </div>
 
-            <details class="filter-field filter-details">
-                <summary>Origem</summary>
-                <div class="filter-options" id="filterOrigin">
+            <div class="filter-field enum-filter">
+                <span>Origem</span>
+                <div class="enum-select" data-filter="Origem">
+                    <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar origem</button>
+                    <div class="enum-select-menu" id="filterOrigin">
                     <label><input type="checkbox" value="Unknown" /> Unknown</label>
                     <label><input type="checkbox" value="Born" /> Born</label>
                     <label><input type="checkbox" value="Purchased" /> Purchased</label>
                     <label><input type="checkbox" value="External" /> External</label>
+                    </div>
                 </div>
-            </details>
+            </div>
 
             <label class="filter-field">
                 <span>Nascimento (mín.)</span>
@@ -67,24 +73,30 @@
                 <input id="filterAgeMax" type="number" min="0" placeholder="Ex: 48" />
             </label>
 
-            <details class="filter-field filter-details">
-                <summary>Estado</summary>
-                <div class="filter-options" id="filterMaritalStatus">
+            <div class="filter-field enum-filter">
+                <span>Estado</span>
+                <div class="enum-select" data-filter="Estado">
+                    <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar estado</button>
+                    <div class="enum-select-menu" id="filterMaritalStatus">
                     <label><input type="checkbox" value="Unknown" /> Unknown</label>
                     <label><input type="checkbox" value="Single" /> Single</label>
                     <label><input type="checkbox" value="Pregnant" /> Pregnant</label>
                     <label><input type="checkbox" value="Mother" /> Mother</label>
+                    </div>
                 </div>
-            </details>
+            </div>
 
-            <details class="filter-field filter-details">
-                <summary>Tipo</summary>
-                <div class="filter-options" id="filterCattleType">
+            <div class="filter-field enum-filter">
+                <span>Tipo</span>
+                <div class="enum-select" data-filter="Tipo">
+                    <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar tipo</button>
+                    <div class="enum-select-menu" id="filterCattleType">
                     <label><input type="checkbox" value="Unknown" /> Unknown</label>
                     <label><input type="checkbox" value="Beef" /> Beef</label>
                     <label><input type="checkbox" value="Dairy" /> Dairy</label>
+                    </div>
                 </div>
-            </details>
+            </div>
         </div>
     </section>
 
@@ -201,6 +213,8 @@
             .flatMap(selector => Array.from(document.querySelectorAll(selector)))
             .forEach(element => element.addEventListener("input", applyFilters));
 
+        wireEnumSelects();
+
         document.getElementById("clearFilters").addEventListener("click", () => {
             document.getElementById("filterName").value = "";
             document.getElementById("filterBirthDateMin").value = "";
@@ -208,9 +222,64 @@
             document.getElementById("filterAgeMin").value = "";
             document.getElementById("filterAgeMax").value = "";
 
-            document.querySelectorAll(".filter-options input[type='checkbox']").forEach(x => x.checked = false);
+            document.querySelectorAll(".enum-select-menu input[type='checkbox']").forEach(x => x.checked = false);
+            updateEnumSelectLabels();
 
             applyFilters();
+        });
+    }
+
+    function updateEnumSelectLabel(selectElement) {
+        const trigger = selectElement.querySelector(".enum-select-trigger");
+        const checked = selectElement.querySelectorAll("input[type='checkbox']:checked").length;
+
+        if (checked === 0) {
+            trigger.textContent = `Selecionar ${selectElement.dataset.filter.toLowerCase()}`;
+            return;
+        }
+
+        trigger.textContent = checked === 1 ? "1 selecionado" : `${checked} selecionados`;
+    }
+
+    function updateEnumSelectLabels() {
+        document.querySelectorAll(".enum-select").forEach(updateEnumSelectLabel);
+    }
+
+    function wireEnumSelects() {
+        document.querySelectorAll(".enum-select").forEach(selectElement => {
+            const trigger = selectElement.querySelector(".enum-select-trigger");
+
+            selectElement.addEventListener("click", (event) => {
+                event.stopPropagation();
+            });
+
+            trigger.addEventListener("click", (event) => {
+                event.stopPropagation();
+                const isOpen = selectElement.classList.contains("open");
+
+                document.querySelectorAll(".enum-select.open").forEach(item => {
+                    item.classList.remove("open");
+                    item.querySelector(".enum-select-trigger").setAttribute("aria-expanded", "false");
+                });
+
+                if (!isOpen) {
+                    selectElement.classList.add("open");
+                    trigger.setAttribute("aria-expanded", "true");
+                }
+            });
+
+            selectElement.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+                checkbox.addEventListener("change", () => updateEnumSelectLabel(selectElement));
+            });
+
+            updateEnumSelectLabel(selectElement);
+        });
+
+        document.addEventListener("click", () => {
+            document.querySelectorAll(".enum-select.open").forEach(selectElement => {
+                selectElement.classList.remove("open");
+                selectElement.querySelector(".enum-select-trigger").setAttribute("aria-expanded", "false");
+            });
         });
     }
 
