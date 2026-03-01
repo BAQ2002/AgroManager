@@ -2,6 +2,7 @@
 using MODEL;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -74,6 +75,61 @@ namespace INFRA
             return await db.Bovines.AsNoTracking().ToListAsync(ct);
         }
 
+
+        /// <summary>
+        /// Cria um <see cref="AgroManagerDbContext"/> e retorna bovinos aplicando filtros comuns de <see cref="AnimalFiltersModel"/>.
+        /// O método compõe a consulta dinamicamente e aplica paginação opcional via <c>Skip</c> e <c>Take</c>.
+        /// </summary>
+        /// <param name="filters">Filtros comuns aplicáveis a qualquer entidade de animal.</param>
+        /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
+        /// <returns>Lista somente leitura com os bovinos filtrados.</returns>
+        /// <exception cref="ArgumentNullException">Lançada quando <paramref name="filters"/> é nulo.</exception>
+        public async Task<IReadOnlyList<BovineEntity>> ListAsync(AnimalFiltersModel filters, CancellationToken ct = default)
+        {
+            if (filters is null) throw new ArgumentNullException(nameof(filters));
+
+            await using var db = await _factory.CreateDbContextAsync(ct);
+
+            IQueryable<BovineEntity> query = db.Bovines.AsNoTracking();
+
+            if (!string.IsNullOrWhiteSpace(filters.Name))
+            {
+                string normalizedName = filters.Name.Trim();
+                query = query.Where(x => x.Name != null && x.Name.Contains(normalizedName));
+            }
+
+            if (filters.Origin.HasValue)
+            {
+                query = query.Where(x => x.Origin == filters.Origin.Value);
+            }
+
+            if (filters.Gender.HasValue)
+            {
+                query = query.Where(x => x.Gender == filters.Gender.Value);
+            }
+
+            if (filters.BirthDateFrom.HasValue)
+            {
+                query = query.Where(x => x.BirthDate.HasValue && x.BirthDate.Value >= filters.BirthDateFrom.Value);
+            }
+
+            if (filters.BirthDateTo.HasValue)
+            {
+                query = query.Where(x => x.BirthDate.HasValue && x.BirthDate.Value <= filters.BirthDateTo.Value);
+            }
+
+            if (filters.Skip.HasValue && filters.Skip.Value > 0)
+            {
+                query = query.Skip(filters.Skip.Value);
+            }
+
+            if (filters.Take.HasValue && filters.Take.Value > 0)
+            {
+                query = query.Take(filters.Take.Value);
+            }
+
+            return await query.ToListAsync(ct);
+        }
         /// <summary>
         /// Cria um <see cref="AgroManagerDbContext"/> e consulta um bovino por identificador
         /// usando <c>AsNoTracking</c> e <c>SingleOrDefaultAsync</c>.
