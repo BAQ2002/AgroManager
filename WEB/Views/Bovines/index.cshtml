@@ -16,20 +16,20 @@
         </div>
     </header>
 
-    <section class="datagrid-wrapper" aria-label="Filtros de busca de bovinos" style="padding: 16px; margin-bottom: 16px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px;">
-            <h2 style="font-size:1rem; font-weight:600;">Filtros de busca</h2>
-            <button id="clearFilters" type="button" class="badge" style="cursor:pointer;">Limpar filtros</button>
+    <section class="datagrid-wrapper filters-panel" aria-label="Filtros de busca de bovinos">
+        <div class="filters-head">
+            <h2>Filtros de busca</h2>
+            <button id="clearFilters" type="button" class="badge filters-clear-action">Limpar filtros</button>
         </div>
 
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap:12px;">
+        <div class="filters-grid">
             <label class="filter-field">
-                <span>Nome</span>
+                <span class="filter-label">Nome</span>
                 <input id="filterName" type="text" placeholder="Ex: Mimosa" />
             </label>
 
             <div class="filter-field enum-filter">
-                <span>Sexo</span>
+                <span class="filter-label">Sexo</span>
                 <div class="enum-select" data-filter="Sexo">
                     <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar sexo</button>
                     <div class="enum-select-menu" id="filterGender">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="filter-field enum-filter">
-                <span>Origem</span>
+                <span class="filter-label">Origem</span>
                 <div class="enum-select" data-filter="Origem">
                     <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar origem</button>
                     <div class="enum-select-menu" id="filterOrigin">
@@ -54,27 +54,27 @@
             </div>
 
             <label class="filter-field">
-                <span>Nascimento (mín.)</span>
+                <span class="filter-label">Nascimento (mín.)</span>
                 <input id="filterBirthDateMin" type="date" />
             </label>
 
             <label class="filter-field">
-                <span>Nascimento (máx.)</span>
+                <span class="filter-label">Nascimento (máx.)</span>
                 <input id="filterBirthDateMax" type="date" />
             </label>
 
             <label class="filter-field">
-                <span>Idade (mín.)</span>
+                <span class="filter-label">Idade (mín.)</span>
                 <input id="filterAgeMin" type="number" min="0" placeholder="Ex: 12" />
             </label>
 
             <label class="filter-field">
-                <span>Idade (máx.)</span>
+                <span class="filter-label">Idade (máx.)</span>
                 <input id="filterAgeMax" type="number" min="0" placeholder="Ex: 48" />
             </label>
 
             <div class="filter-field enum-filter">
-                <span>Estado</span>
+                <span class="filter-label">Estado</span>
                 <div class="enum-select" data-filter="Estado">
                     <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar estado</button>
                     <div class="enum-select-menu" id="filterMaritalStatus">
@@ -87,7 +87,7 @@
             </div>
 
             <div class="filter-field enum-filter">
-                <span>Tipo</span>
+                <span class="filter-label">Tipo</span>
                 <div class="enum-select" data-filter="Tipo">
                     <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar tipo</button>
                     <div class="enum-select-menu" id="filterCattleType">
