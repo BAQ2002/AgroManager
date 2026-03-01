@@ -81,6 +81,10 @@ body {
   margin-bottom: 10px;
 }
 
+.filters-clear-action {
+  cursor: pointer;
+}
+
 .filters-head h2 {
   font-size: 1rem;
   font-weight: 600;
@@ -104,9 +108,16 @@ body {
 .filter-field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   font-size: 0.8rem;
   color: #cbd5e1;
+  min-height: 78px;
+}
+
+.filter-label {
+  display: block;
+  font-weight: 500;
+  color: #e2e8f0;
 }
 
 .filter-field input,
@@ -129,11 +140,16 @@ body {
   position: relative;
 }
 
+.enum-select {
+  position: relative;
+}
+
 .enum-select-trigger {
   width: 100%;
   cursor: pointer;
   text-align: left;
   font-size: 0.84rem;
+  min-height: 40px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -151,6 +167,11 @@ body {
   padding: 8px;
   max-height: 190px;
   overflow-y: auto;
+}
+
+.enum-select.open .enum-select-trigger {
+  border-color: rgba(34, 197, 94, 0.7);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.16);
 }
 
 .enum-select.open .enum-select-menu {
