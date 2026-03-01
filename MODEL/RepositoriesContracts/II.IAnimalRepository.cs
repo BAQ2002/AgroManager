@@ -65,6 +65,16 @@ namespace MODEL
         Task<IReadOnlyList<TAnimal>> ListAsync(CancellationToken ct = default);
 
         /// <summary>
+        /// Lista entidades animais aplicando filtros comuns reaproveitáveis por qualquer espécie.
+        /// Esse contrato substitui a necessidade de filtros específicos por entidade quando os critérios
+        /// pertencem ao núcleo comum de <see cref="AnimalEntity"/>.
+        /// </summary>
+        /// <param name="filters">Modelo de filtros comuns para consulta de animais.</param>
+        /// <param name="ct">Token utilizado para cancelar a operação assíncrona.</param>
+        /// <returns>Coleção somente leitura com os animais que atenderam aos critérios.</returns>
+        Task<IReadOnlyList<TAnimal>> ListAsync(AnimalFiltersModel filters, CancellationToken ct = default);
+
+        /// <summary>
         /// Busca uma entidade animal pelo gênero representado no enum <see cref="Gender"/>.
         /// </summary>
         /// <param name="gender">Valor de gênero usado no filtro.</param>

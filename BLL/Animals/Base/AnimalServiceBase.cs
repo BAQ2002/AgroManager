@@ -115,6 +115,21 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
     }
 
     /// <summary>
+    /// Lista os animais do tipo corrente aplicando filtros comuns compartilhados entre espécies.
+    /// Quando <paramref name="filters"/> é nulo, o método mantém o mesmo comportamento de <see cref="ListAsync(CancellationToken)"/>.
+    /// </summary>
+    /// <param name="filters">Modelo contendo critérios comuns de busca.</param>
+    /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
+    /// <returns>Coleção somente leitura com os animais encontrados.</returns>
+    /// <exception cref="ArgumentNullException">Lançada quando <paramref name="filters"/> é nulo.</exception>
+    public virtual Task<IReadOnlyList<TAnimal>> ListAsync(AnimalFiltersModel filters, CancellationToken ct = default)
+    {
+        if (filters is null) throw new ArgumentNullException(nameof(filters));
+
+        return _repository.ListAsync(filters, ct);
+    }
+
+    /// <summary>
     /// Obtém um animal por identificador.
     /// Quando o id é vazio, retorna <see langword="null"/> sem consultar o repositório;
     /// caso contrário, delega para <see cref="IAnimalRepository{TAnimal}.GetByIdAsync(Guid, CancellationToken)"/>.
