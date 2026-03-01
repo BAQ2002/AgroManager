@@ -16,14 +16,14 @@ namespace INFRA
         private readonly IDbContextFactory<AgroManagerDbContext> _factory;
         public SwineRepositoryEF(IDbContextFactory<AgroManagerDbContext> factory) => _factory = factory;
 
-        public async Task AddAsync(SwineEntity entity, CancellationToken ct = default)
+        public override async Task AddAsync(SwineEntity entity, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             db.Swines.Add(entity);
             await db.SaveChangesAsync(ct);
         }
 
-        public async Task UpdateAsync(SwineEntity entity, CancellationToken ct = default)
+        public override async Task UpdateAsync(SwineEntity entity, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
 
@@ -31,14 +31,14 @@ namespace INFRA
             await db.SaveChangesAsync(ct);
         }
 
-        public async Task DeleteAsync(SwineEntity entity, CancellationToken ct = default)
+        public override async Task DeleteAsync(SwineEntity entity, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             db.Swines.Remove(entity);
             await db.SaveChangesAsync(ct);
         }
 
-        public async Task<IReadOnlyList<SwineEntity>> ListAsync(CancellationToken ct = default)
+        public override async Task<IReadOnlyList<SwineEntity>> ListAsync(CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Swines.AsNoTracking().ToListAsync(ct);
@@ -52,7 +52,7 @@ namespace INFRA
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
         /// <returns>Lista somente leitura com os suínos filtrados.</returns>
         /// <exception cref="ArgumentNullException">Lançada quando <paramref name="filters"/> é nulo.</exception>
-        public async Task<IReadOnlyList<SwineEntity>> ListAsync(AnimalFiltersModel filters, CancellationToken ct = default)
+        public override async Task<IReadOnlyList<SwineEntity>> ListAsync(AnimalFiltersModel filters, CancellationToken ct = default)
         {
             if (filters is null) throw new ArgumentNullException(nameof(filters));
 
@@ -99,25 +99,25 @@ namespace INFRA
             return await query.ToListAsync(ct);
         }
 
-        public async Task<SwineEntity?> GetByIdAsync(Guid id, CancellationToken ct = default)
+        public override async Task<SwineEntity?> GetByIdAsync(Guid id, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Swines.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id, ct);
         }
 
-        public async Task<SwineEntity?> GetByNameAsync(string name, CancellationToken ct = default)
+        public override async Task<SwineEntity?> GetByNameAsync(string name, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Swines.AsNoTracking().SingleOrDefaultAsync(x => x.Name == name, ct);
         }
 
-        public async Task<SwineEntity?> GetByGenderAsync(Gender gender, CancellationToken ct = default)
+        public override async Task<SwineEntity?> GetByGenderAsync(Gender gender, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Swines.AsNoTracking().SingleOrDefaultAsync(x => x.Gender == gender, ct);
         }
 
-        public async Task<SwineEntity?> GetByGenderAsync(int gender, CancellationToken ct = default)
+        public override async Task<SwineEntity?> GetByGenderAsync(int gender, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Swines.AsNoTracking().SingleOrDefaultAsync(x => (int)x.Gender == gender, ct);

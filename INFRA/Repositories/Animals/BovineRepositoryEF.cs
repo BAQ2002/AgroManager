@@ -29,7 +29,7 @@ namespace INFRA
         /// </summary>
         /// <param name="entity">Entidade bovina a ser persistida.</param>
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
-        public async Task AddAsync(BovineEntity entity, CancellationToken ct = default)
+        public override async Task AddAsync(BovineEntity entity, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             db.Bovines.Add(entity);
@@ -42,7 +42,7 @@ namespace INFRA
         /// </summary>
         /// <param name="entity">Entidade bovina contendo os novos valores.</param>
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
-        public async Task UpdateAsync(BovineEntity entity, CancellationToken ct = default)
+        public override async Task UpdateAsync(BovineEntity entity, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
 
@@ -56,7 +56,7 @@ namespace INFRA
         /// </summary>
         /// <param name="entity">Entidade bovina a ser removida.</param>
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
-        public async Task DeleteAsync(BovineEntity entity, CancellationToken ct = default)
+        public override async Task DeleteAsync(BovineEntity entity, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             db.Bovines.Remove(entity);
@@ -69,7 +69,7 @@ namespace INFRA
         /// </summary>
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
         /// <returns>Lista somente leitura com os bovinos encontrados.</returns>
-        public async Task<IReadOnlyList<BovineEntity>> ListAsync(CancellationToken ct = default)
+        public override async Task<IReadOnlyList<BovineEntity>> ListAsync(CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Bovines.AsNoTracking().ToListAsync(ct);
@@ -84,7 +84,7 @@ namespace INFRA
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
         /// <returns>Lista somente leitura com os bovinos filtrados.</returns>
         /// <exception cref="ArgumentNullException">Lançada quando <paramref name="filters"/> é nulo.</exception>
-        public async Task<IReadOnlyList<BovineEntity>> ListAsync(AnimalFiltersModel filters, CancellationToken ct = default)
+        public override async Task<IReadOnlyList<BovineEntity>> ListAsync(AnimalFiltersModel filters, CancellationToken ct = default)
         {
             if (filters is null) throw new ArgumentNullException(nameof(filters));
 
@@ -137,7 +137,7 @@ namespace INFRA
         /// <param name="id">Identificador do bovino.</param>
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
         /// <returns>A entidade encontrada ou <see langword="null"/>.</returns>
-        public async Task<BovineEntity?> GetByIdAsync(Guid id, CancellationToken ct = default)
+        public override async Task<BovineEntity?> GetByIdAsync(Guid id, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Bovines.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id, ct);
@@ -150,7 +150,7 @@ namespace INFRA
         /// <param name="name">Nome utilizado como filtro da consulta.</param>
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
         /// <returns>A entidade encontrada ou <see langword="null"/>.</returns>
-        public async Task<BovineEntity?> GetByNameAsync(string name, CancellationToken ct = default)
+        public override async Task<BovineEntity?> GetByNameAsync(string name, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Bovines.AsNoTracking().SingleOrDefaultAsync(x => x.Name == name, ct);
@@ -163,7 +163,7 @@ namespace INFRA
         /// <param name="gender">Gênero utilizado no filtro.</param>
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
         /// <returns>A entidade encontrada ou <see langword="null"/>.</returns>
-        public async Task<BovineEntity?> GetByGenderAsync(Gender gender, CancellationToken ct = default)
+        public override async Task<BovineEntity?> GetByGenderAsync(Gender gender, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Bovines.AsNoTracking().SingleOrDefaultAsync(x => x.Gender == gender, ct);
@@ -176,7 +176,7 @@ namespace INFRA
         /// <param name="gender">Valor inteiro do gênero utilizado no filtro.</param>
         /// <param name="ct">Token de cancelamento da operação assíncrona.</param>
         /// <returns>A entidade encontrada ou <see langword="null"/>.</returns>
-        public async Task<BovineEntity?> GetByGenderAsync(int gender, CancellationToken ct = default)
+        public override async Task<BovineEntity?> GetByGenderAsync(int gender, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.Bovines.AsNoTracking().SingleOrDefaultAsync(x => (int)x.Gender == gender, ct);
