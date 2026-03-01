@@ -34,12 +34,12 @@
 
     .filters-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px 12px;
     }
 
     .filter-range-group {
-        grid-column: span 2;
+        grid-column: span 3;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
@@ -146,18 +146,39 @@
 
     .enum-select-menu label {
         display: flex;
-        gap: 8px;
+        gap: 6px;
         align-items: center;
-        font-size: 0.9rem;
+        font-size: 0.78rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
         color: #0f172a;
-        padding: 5px 6px;
+        padding: 4px 6px;
         border-radius: 8px;
         transition: background-color 0.15s ease;
+    }
+
+    .enum-select-menu label input[type="checkbox"] {
+        margin: 0;
+        width: 14px;
+        height: 14px;
+        flex: 0 0 auto;
     }
 
         .enum-select-menu label:hover {
             background: #e2e8f0;
         }
+
+    @@media (max-width: 1080px) {
+        .filters-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .filter-range-group {
+            grid-column: span 2;
+        }
+    }
 
     @@media (max-width: 860px) {
         .filters-grid,
