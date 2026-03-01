@@ -16,13 +16,13 @@
         </div>
     </header>
 
-    <section class="filters-panel" aria-label="Filtros de busca de bovinos">
-        <div class="filters-head">
-            <h2>Filtros de busca</h2>
-            <button id="clearFilters" type="button" class="filters-clear">Limpar filtros</button>
+    <section class="datagrid-wrapper" aria-label="Filtros de busca de bovinos" style="padding: 16px; margin-bottom: 16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px;">
+            <h2 style="font-size:1rem; font-weight:600;">Filtros de busca</h2>
+            <button id="clearFilters" type="button" class="badge" style="cursor:pointer;">Limpar filtros</button>
         </div>
 
-        <div class="filters-grid">
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap:12px;">
             <label class="filter-field">
                 <span>Nome</span>
                 <input id="filterName" type="text" placeholder="Ex: Mimosa" />
@@ -33,9 +33,9 @@
                 <div class="enum-select" data-filter="Sexo">
                     <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar sexo</button>
                     <div class="enum-select-menu" id="filterGender">
-                    <label><input type="checkbox" value="Unknown" /> Unknown</label>
-                    <label><input type="checkbox" value="Male" /> Male</label>
-                    <label><input type="checkbox" value="Female" /> Female</label>
+                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                        <label><input type="checkbox" value="Male" /> Male</label>
+                        <label><input type="checkbox" value="Female" /> Female</label>
                     </div>
                 </div>
             </div>
@@ -45,10 +45,10 @@
                 <div class="enum-select" data-filter="Origem">
                     <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar origem</button>
                     <div class="enum-select-menu" id="filterOrigin">
-                    <label><input type="checkbox" value="Unknown" /> Unknown</label>
-                    <label><input type="checkbox" value="Born" /> Born</label>
-                    <label><input type="checkbox" value="Purchased" /> Purchased</label>
-                    <label><input type="checkbox" value="External" /> External</label>
+                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                        <label><input type="checkbox" value="Born" /> Born</label>
+                        <label><input type="checkbox" value="Purchased" /> Purchased</label>
+                        <label><input type="checkbox" value="External" /> External</label>
                     </div>
                 </div>
             </div>
@@ -78,10 +78,10 @@
                 <div class="enum-select" data-filter="Estado">
                     <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar estado</button>
                     <div class="enum-select-menu" id="filterMaritalStatus">
-                    <label><input type="checkbox" value="Unknown" /> Unknown</label>
-                    <label><input type="checkbox" value="Single" /> Single</label>
-                    <label><input type="checkbox" value="Pregnant" /> Pregnant</label>
-                    <label><input type="checkbox" value="Mother" /> Mother</label>
+                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                        <label><input type="checkbox" value="Single" /> Single</label>
+                        <label><input type="checkbox" value="Pregnant" /> Pregnant</label>
+                        <label><input type="checkbox" value="Mother" /> Mother</label>
                     </div>
                 </div>
             </div>
@@ -91,9 +91,9 @@
                 <div class="enum-select" data-filter="Tipo">
                     <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar tipo</button>
                     <div class="enum-select-menu" id="filterCattleType">
-                    <label><input type="checkbox" value="Unknown" /> Unknown</label>
-                    <label><input type="checkbox" value="Beef" /> Beef</label>
-                    <label><input type="checkbox" value="Dairy" /> Dairy</label>
+                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                        <label><input type="checkbox" value="Beef" /> Beef</label>
+                        <label><input type="checkbox" value="Dairy" /> Dairy</label>
                     </div>
                 </div>
             </div>
