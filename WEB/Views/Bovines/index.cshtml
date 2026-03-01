@@ -2,6 +2,174 @@
     ViewData["Title"] = "Bovines";
 }
 <link rel="stylesheet" href="~/css/styles.css" />
+<style>
+    .filters-panel {
+        margin: 8px 0 16px;
+        border-radius: 18px;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        background: linear-gradient(145deg, rgba(3, 9, 26, 0.96), rgba(1, 5, 18, 0.98));
+        padding: 16px;
+        box-shadow: 0 14px 28px rgba(1, 5, 20, 0.4);
+        overflow: visible;
+    }
+
+    .filters-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+        .filters-head h2 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #f8fafc;
+        }
+
+    .filters-clear-action {
+        cursor: pointer;
+    }
+
+    .filters-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 12px;
+    }
+
+    .filter-range-group {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .filter-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 0.8rem;
+        color: #cbd5e1;
+    }
+
+    .filter-label {
+        display: block;
+        font-size: 0.95rem;
+        font-weight: 500;
+        line-height: 1.2;
+        color: #f8fafc;
+    }
+
+    .filter-field input,
+    .enum-select-trigger {
+        width: 100%;
+        height: 42px;
+        border: 1px solid rgba(148, 163, 184, 0.8);
+        background: #f8fafc;
+        color: #020617;
+        border-radius: 10px;
+        padding: 0 12px;
+        font-size: 0.95rem;
+    }
+
+        .filter-field input::placeholder {
+            color: #64748b;
+        }
+
+        .filter-field input:focus,
+        .enum-select-trigger:focus {
+            outline: none;
+            border-color: rgba(45, 212, 191, 0.95);
+            box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.24);
+        }
+
+    .enum-select {
+        position: relative;
+    }
+
+    .enum-select-trigger {
+        cursor: pointer;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        padding-right: 34px;
+        appearance: none;
+        position: relative;
+    }
+
+    .enum-select::after {
+        content: "";
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        border-right: 2px solid #334155;
+        border-bottom: 2px solid #334155;
+        transform: translateY(-70%) rotate(45deg);
+        pointer-events: none;
+        transition: transform 0.15s ease;
+    }
+
+    .enum-select.open::after {
+        transform: translateY(-30%) rotate(-135deg);
+    }
+
+    .enum-select-menu {
+        display: none;
+        position: absolute;
+        z-index: 12;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        border-radius: 10px;
+        background: #f8fafc;
+        box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
+        padding: 8px;
+        max-height: 190px;
+        overflow-y: auto;
+    }
+
+    .enum-select.open .enum-select-trigger {
+        border-color: rgba(45, 212, 191, 0.95);
+        box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.24);
+    }
+
+    .enum-select.open .enum-select-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .enum-select-menu label {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #0f172a;
+        padding: 5px 6px;
+        border-radius: 8px;
+        transition: background-color 0.15s ease;
+    }
+
+        .enum-select-menu label:hover {
+            background: #e2e8f0;
+        }
+
+    @@media (max-width: 860px) {
+        .filters-grid,
+        .filter-range-group {
+            grid-template-columns: 1fr;
+        }
+
+        .filter-range-group {
+            grid-column: span 1;
+        }
+    }
+</style>
 
 <div class="page">
     <header class="page-header">
@@ -53,26 +221,6 @@
                 </div>
             </div>
 
-            <label class="filter-field">
-                <span class="filter-label">Nascimento (mín.)</span>
-                <input id="filterBirthDateMin" type="date" />
-            </label>
-
-            <label class="filter-field">
-                <span class="filter-label">Nascimento (máx.)</span>
-                <input id="filterBirthDateMax" type="date" />
-            </label>
-
-            <label class="filter-field">
-                <span class="filter-label">Idade (mín.)</span>
-                <input id="filterAgeMin" type="number" min="0" placeholder="Ex: 12" />
-            </label>
-
-            <label class="filter-field">
-                <span class="filter-label">Idade (máx.)</span>
-                <input id="filterAgeMax" type="number" min="0" placeholder="Ex: 48" />
-            </label>
-
             <div class="filter-field enum-filter">
                 <span class="filter-label">Estado</span>
                 <div class="enum-select" data-filter="Estado">
@@ -96,6 +244,30 @@
                         <label><input type="checkbox" value="Dairy" /> Dairy</label>
                     </div>
                 </div>
+            </div>
+
+            <div class="filter-range-group" aria-label="Faixa de nascimento">
+                <label class="filter-field">
+                    <span class="filter-label">Nascimento (mín.)</span>
+                    <input id="filterBirthDateMin" type="date" />
+                </label>
+
+                <label class="filter-field">
+                    <span class="filter-label">Nascimento (máx.)</span>
+                    <input id="filterBirthDateMax" type="date" />
+                </label>
+            </div>
+
+            <div class="filter-range-group" aria-label="Faixa de idade">
+                <label class="filter-field">
+                    <span class="filter-label">Idade (mín.)</span>
+                    <input id="filterAgeMin" type="number" min="0" placeholder="Ex: 12" />
+                </label>
+
+                <label class="filter-field">
+                    <span class="filter-label">Idade (máx.)</span>
+                    <input id="filterAgeMax" type="number" min="0" placeholder="Ex: 48" />
+                </label>
             </div>
         </div>
     </section>
