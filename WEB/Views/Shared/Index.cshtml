@@ -2,9 +2,6 @@
     ViewData["Title"] = "Início";
 }
 
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-
 <style>
     :root {
         --bg-start: #030712;
@@ -29,38 +26,6 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-    }
-
-    .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.9rem 1.4rem;
-        backdrop-filter: blur(16px);
-        background: rgba(2, 6, 23, 0.7);
-        border-bottom: 1px solid var(--panel-border);
-    }
-
-    .brand {
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        color: #f8fafc;
-        text-decoration: none;
-    }
-
-    .profile-trigger {
-        border: 1px solid var(--panel-border);
-        background: var(--panel);
-        color: var(--text-primary);
-    }
-
-    .profile-trigger:hover,
-    .profile-trigger:focus {
-        background: rgba(30, 41, 59, 0.9);
-        color: #fff;
     }
 
     .hero {
@@ -150,25 +115,6 @@
 </style>
 
 <div class="home-shell">
-    <header class="topbar">
-        <a class="brand" asp-controller="Home" asp-action="Index">AgroManager</a>
-
-        <div class="dropdown">
-            <button class="btn profile-trigger rounded-pill d-flex align-items-center gap-2 px-3"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    aria-label="Acessar conta">
-                <i class="bi bi-person-circle fs-5"></i>
-                <span>Conta</span>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Acessar conta</a></li>
-                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Perfil</a></li>
-            </ul>
-        </div>
-    </header>
-
     <main class="hero">
         <h1>Bem-vindo ao AgroManager</h1>
         <p>
@@ -201,4 +147,3 @@
     </main>
 </div>
 
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
