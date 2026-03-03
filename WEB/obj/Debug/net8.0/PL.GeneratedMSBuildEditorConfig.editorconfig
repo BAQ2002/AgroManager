@@ -44,8 +44,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/anton/Source/repos/AgroManager/WEB/Shared/TopBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFRvcEJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/anton/Source/repos/AgroManager/WEB/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/anton/Source/repos/AgroManager/WEB/Shared/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/anton/Source/repos/AgroManager/WEB/Views/Bovines/Create.cshtml]
