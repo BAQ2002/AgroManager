@@ -14,28 +14,28 @@ namespace MODEL
     /// <typeparam name="TAnimal">
     /// Tipo da entidade animal. Deve herdar de AnimalEntity.
     /// </typeparam>
-    public abstract class IAnimalRepository<TAnimal> where TAnimal : AnimalEntity
+    public interface IAnimalRepository<TAnimal> where TAnimal : AnimalEntity
     {
         /// <summary>
         /// Persiste uma nova entidade animal no repositório.
         /// </summary>
         /// <param name="entity">Entidade a ser adicionada na origem de dados.</param>
         /// <param name="ct">Token utilizado para cancelar a operação assíncrona.</param>
-        public abstract Task AddAsync(TAnimal entity, CancellationToken ct = default);
+        Task AddAsync(TAnimal entity, CancellationToken ct = default);
 
         /// <summary>
         /// Atualiza os dados de uma entidade animal já existente no repositório.
         /// </summary>
         /// <param name="entity">Entidade com os novos valores que devem ser persistidos.</param>
         /// <param name="ct">Token utilizado para cancelar a operação assíncrona.</param>
-        public abstract Task UpdateAsync(TAnimal entity, CancellationToken ct = default);
+        Task UpdateAsync(TAnimal entity, CancellationToken ct = default);
 
         /// <summary>
         /// Remove uma entidade animal previamente carregada da origem de dados.
         /// </summary>
         /// <param name="entity">Entidade que será removida.</param>
         /// <param name="ct">Token utilizado para cancelar a operação assíncrona.</param>
-        public abstract Task DeleteAsync(TAnimal entity, CancellationToken ct = default);
+        Task DeleteAsync(TAnimal entity, CancellationToken ct = default);
 
         /// <summary>
         /// Busca uma entidade animal pelo identificador único.
@@ -45,7 +45,7 @@ namespace MODEL
         /// <returns>
         /// A entidade encontrada ou <see langword="null"/> quando não existir registro para o identificador informado.
         /// </returns>
-        public abstract Task<TAnimal?> GetByIdAsync(Guid id, CancellationToken ct = default);
+        Task<TAnimal?> GetByIdAsync(Guid id, CancellationToken ct = default);
 
         /// <summary>
         /// Busca uma entidade animal pelo nome.
@@ -55,14 +55,14 @@ namespace MODEL
         /// <returns>
         /// A entidade encontrada ou <see langword="null"/> quando não houver correspondência exata para o nome informado.
         /// </returns>
-        public abstract Task<TAnimal?> GetByNameAsync(string name, CancellationToken ct = default);
+        Task<TAnimal?> GetByNameAsync(string name, CancellationToken ct = default);
 
         /// <summary>
         /// Lista todas as entidades animais disponíveis no repositório.
         /// </summary>
         /// <param name="ct">Token utilizado para cancelar a operação assíncrona.</param>
         /// <returns>Coleção somente leitura contendo os animais encontrados.</returns>
-        public abstract Task<IReadOnlyList<TAnimal>> ListAsync(CancellationToken ct = default);
+        public Task<IReadOnlyList<TAnimal>> ListAsync(CancellationToken ct = default);
 
         /// <summary>
         /// Lista entidades animais aplicando filtros comuns reaproveitáveis por qualquer espécie.
@@ -72,7 +72,7 @@ namespace MODEL
         /// <param name="filters">Modelo de filtros comuns para consulta de animais.</param>
         /// <param name="ct">Token utilizado para cancelar a operação assíncrona.</param>
         /// <returns>Coleção somente leitura com os animais que atenderam aos critérios.</returns>
-        public abstract Task<IReadOnlyList<TAnimal>> ListAsync(AnimalFiltersModel filters, CancellationToken ct = default);
+        Task<IReadOnlyList<TAnimal>> ListAsync(AnimalFiltersModel filters, CancellationToken ct = default);
 
         /// <summary>
         /// Busca uma entidade animal pelo gênero representado no enum <see cref="Gender"/>.
@@ -82,7 +82,7 @@ namespace MODEL
         /// <returns>
         /// A entidade encontrada ou <see langword="null"/> quando não houver registro com o gênero informado.
         /// </returns>
-        public abstract Task<TAnimal?> GetByGenderAsync(Gender gender, CancellationToken ct = default);
+        Task<TAnimal?> GetByGenderAsync(Gender gender, CancellationToken ct = default);
 
         /// <summary>
         /// Busca uma entidade animal pelo gênero informado em representação numérica.
@@ -92,6 +92,6 @@ namespace MODEL
         /// <returns>
         /// A entidade encontrada ou <see langword="null"/> quando não houver registro com o gênero informado.
         /// </returns>
-        public abstract Task<TAnimal?> GetByGenderAsync(int gender, CancellationToken ct = default);
+        Task<TAnimal?> GetByGenderAsync(int gender, CancellationToken ct = default);
     }
 }
