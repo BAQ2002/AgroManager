@@ -13,6 +13,14 @@
         overflow: visible;
     }
 
+    .filters-panel.collapsed .filters-content {
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
     .filters-head {
         display: flex;
         justify-content: space-between;
@@ -30,6 +38,18 @@
 
     .filters-clear-action {
         cursor: pointer;
+    }
+
+    .filters-toggle-action {
+        cursor: pointer;
+    }
+
+    .filters-content {
+        max-height: 1400px;
+        opacity: 1;
+        margin-top: 0;
+        overflow: visible;
+        transition: max-height 0.3s ease, opacity 0.25s ease;
     }
 
     .filters-grid {
@@ -201,17 +221,19 @@
 
         <div style="display:flex; gap:10px; align-items:center;">
             <a class="badge" href="/bovines/create" style="text-decoration:none;">+ Novo Bovine</a>
+            <button id="toggleFilters" type="button" class="badge filters-toggle-action" aria-expanded="true" aria-controls="filtersContent">Ocultar filtros ▲</button>
             <span class="badge">AgroManager • Web</span>
         </div>
     </header>
 
-    <section class="datagrid-wrapper filters-panel" aria-label="Filtros de busca de bovinos">
+    <section id="filtersPanel" class="datagrid-wrapper filters-panel" aria-label="Filtros de busca de bovinos">
         <div class="filters-head">
             <h2>Filtros de busca</h2>
             <button id="clearFilters" type="button" class="badge filters-clear-action">Limpar filtros</button>
         </div>
 
-        <div class="filters-grid">
+        <div id="filtersContent" class="filters-content">
+            <div class="filters-grid">
             <label class="filter-field">
                 <span class="filter-label">Nome</span>
                 <input id="filterName" type="text" placeholder="Ex: Mimosa" />
@@ -289,6 +311,7 @@
                     <span class="filter-label">Idade (máx.)</span>
                     <input id="filterAgeMax" type="number" min="0" placeholder="Ex: 48" />
                 </label>
+            </div>
             </div>
         </div>
     </section>
@@ -407,6 +430,7 @@
             .forEach(element => element.addEventListener("input", applyFilters));
 
         wireEnumSelects();
+        wireFiltersPanelToggle();
 
         document.getElementById("clearFilters").addEventListener("click", () => {
             document.getElementById("filterName").value = "";
@@ -419,6 +443,17 @@
             updateEnumSelectLabels();
 
             applyFilters();
+        });
+    }
+
+    function wireFiltersPanelToggle() {
+        const toggleButton = document.getElementById("toggleFilters");
+        const filtersPanel = document.getElementById("filtersPanel");
+
+        toggleButton.addEventListener("click", () => {
+            const isCollapsed = filtersPanel.classList.toggle("collapsed");
+            toggleButton.textContent = isCollapsed ? "Mostrar filtros ▼" : "Ocultar filtros ▲";
+            toggleButton.setAttribute("aria-expanded", (!isCollapsed).toString());
         });
     }
 
