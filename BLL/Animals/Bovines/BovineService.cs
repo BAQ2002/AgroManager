@@ -43,7 +43,7 @@ namespace BLL.Services
         /// </exception>
         protected override void ValidateSpecificRules(BovineEntity entity)
         {
-            if (entity.CattleType is null) throw new BusinessRuleException("O tipo do bovino (CattleType) deve ser informado.");
+            if (entity.CattleType is null) throw new BusinessRuleException("O tipo do bovino deve ser informado.");
 
             if (entity.Gender == Gender.Unknown) throw new BusinessRuleException("O gênero do bovino deve ser informado.");
 

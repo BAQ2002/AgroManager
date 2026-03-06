@@ -20,6 +20,10 @@
         <form method="post" action="/bovines/edit/@Model.Id" style="display:flex; flex-direction:column; gap:12px;">
             @Html.AntiForgeryToken()
 
+            <div style="color:#fca5a5;">
+                @Html.ValidationSummary(false)
+            </div>
+
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
                 <div>
                     <label>Nome</label>
