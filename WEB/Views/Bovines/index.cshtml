@@ -44,8 +44,72 @@
         cursor: pointer;
     }
 
-    .filters-toggle-action {
+    .filters-toggle-control {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.5);
+        background: rgba(15, 23, 42, 0.65);
+        color: #f8fafc;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
         cursor: pointer;
+        user-select: none;
+    }
+
+    .filters-toggle-input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        clip: rect(0 0 0 0);
+    }
+
+    .filters-toggle-slider {
+        position: relative;
+        width: 46px;
+        height: 28px;
+        border-radius: 999px;
+        background: #dc2626;
+        transition: background-color 0.22s ease;
+        flex: 0 0 auto;
+    }
+
+        .filters-toggle-slider::after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 3px 8px rgba(15, 23, 42, 0.35);
+            transition: transform 0.22s ease;
+        }
+
+    .filters-toggle-input:checked + .filters-toggle-slider {
+        background: #22c55e;
+    }
+
+    .filters-toggle-input:checked + .filters-toggle-slider::after {
+        transform: translateX(18px);
+    }
+
+    .filters-toggle-input:focus-visible + .filters-toggle-slider {
+        outline: 2px solid #5eead4;
+        outline-offset: 3px;
+    }
+
+    .filters-toggle-text {
+        white-space: nowrap;
     }
 
     .filters-content {
@@ -226,7 +290,11 @@
         <div style="display:flex; gap:10px; align-items:center;">
             <a class="badge" href="/" style="text-decoration:none;">← Voltar ao início</a>
             <a class="badge" href="/bovines/create" style="text-decoration:none;">+ Novo Bovine</a>
-            <button id="toggleFilters" type="button" class="badge filters-toggle-action" aria-expanded="true" aria-controls="filtersContent">Ocultar filtros ▲</button>
+            <label class="filters-toggle-control" for="toggleFilters" aria-controls="filtersContent">
+                <input id="toggleFilters" class="filters-toggle-input" type="checkbox" checked aria-expanded="true" aria-label="Exibir ou ocultar filtros de busca" />
+                <span class="filters-toggle-slider" aria-hidden="true"></span>
+                <span id="toggleFiltersText" class="filters-toggle-text">Filtros visíveis</span>
+            </label>
             <span class="badge">AgroManager • Web</span>
         </div>
     </header>
@@ -452,13 +520,15 @@
     }
 
     function wireFiltersPanelToggle() {
-        const toggleButton = document.getElementById("toggleFilters");
+        const toggleSwitch = document.getElementById("toggleFilters");
+        const toggleText = document.getElementById("toggleFiltersText");
         const filtersPanel = document.getElementById("filtersPanel");
 
-        toggleButton.addEventListener("click", () => {
-            const isCollapsed = filtersPanel.classList.toggle("collapsed");
-            toggleButton.textContent = isCollapsed ? "Mostrar filtros ▼" : "Ocultar filtros ▲";
-            toggleButton.setAttribute("aria-expanded", (!isCollapsed).toString());
+        toggleSwitch.addEventListener("change", () => {
+            const isCollapsed = !toggleSwitch.checked;
+            filtersPanel.classList.toggle("collapsed", isCollapsed);
+            toggleText.textContent = isCollapsed ? "Filtros ocultos" : "Filtros visíveis";
+            toggleSwitch.setAttribute("aria-expanded", (!isCollapsed).toString());
         });
     }
 
