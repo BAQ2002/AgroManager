@@ -7,17 +7,14 @@
 
 body {
     min-height: 100vh;
+    margin: 0;
     background: radial-gradient(circle at top, #050816, #02040a);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
     color: #e5e7eb;
 }
 
 .page {
-    width: 100%;
-    max-width: 1000px;
+    width: min(1000px, calc(100% - 48px));
+    margin: 24px auto;
     background: rgba(3, 7, 18, 0.95);
     border-radius: 20px;
     padding: 24px 28px 20px;
