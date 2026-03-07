@@ -33,6 +33,12 @@
         margin-bottom: 14px;
     }
 
+    .filters-title-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
         .filters-head h2 {
             margin: 0;
             font-size: 1rem;
@@ -44,19 +50,15 @@
         cursor: pointer;
     }
 
+    .filters-actions {
+        margin-top: 14px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
     .filters-toggle-control {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(148, 163, 184, 0.5);
-        background: rgba(15, 23, 42, 0.65);
-        color: #f8fafc;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        font-weight: 600;
         cursor: pointer;
         user-select: none;
     }
@@ -108,7 +110,30 @@
         outline-offset: 3px;
     }
 
-    .filters-toggle-text {
+    .filters-fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+    }
+
+    .filters-fieldset:disabled {
+        opacity: 0.55;
+    }
+
+    .filters-fieldset:disabled * {
+        pointer-events: none;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
         white-space: nowrap;
     }
 
@@ -290,22 +315,24 @@
         <div style="display:flex; gap:10px; align-items:center;">
             <a class="badge" href="/" style="text-decoration:none;">← Voltar ao início</a>
             <a class="badge" href="/bovines/create" style="text-decoration:none;">+ Novo Bovine</a>
-            <label class="filters-toggle-control" for="toggleFilters" aria-controls="filtersContent">
-                <input id="toggleFilters" class="filters-toggle-input" type="checkbox" checked aria-expanded="true" aria-label="Exibir ou ocultar filtros de busca" />
-                <span class="filters-toggle-slider" aria-hidden="true"></span>
-                <span id="toggleFiltersText" class="filters-toggle-text">Filtros visíveis</span>
-            </label>
             <span class="badge">AgroManager • Web</span>
         </div>
     </header>
 
     <section id="filtersPanel" class="datagrid-wrapper filters-panel" aria-label="Filtros de busca de bovinos">
         <div class="filters-head">
-            <h2>Filtros de busca</h2>
-            <button id="clearFilters" type="button" class="badge filters-clear-action">Limpar filtros</button>
+            <div class="filters-title-group">
+                <label class="filters-toggle-control" for="toggleFilters" aria-controls="filtersContent">
+                    <input id="toggleFilters" class="filters-toggle-input" type="checkbox" checked aria-expanded="true" aria-label="Exibir ou ocultar filtros de busca" />
+                    <span class="filters-toggle-slider" aria-hidden="true"></span>
+                    <span class="sr-only">Ativar filtros de busca</span>
+                </label>
+                <h2>Filtros de busca</h2>
+            </div>
         </div>
 
         <div id="filtersContent" class="filters-content">
+            <fieldset id="filtersFieldset" class="filters-fieldset">
             <div class="filters-grid">
             <label class="filter-field">
                 <span class="filter-label">Nome</span>
@@ -386,6 +413,11 @@
                 </label>
             </div>
             </div>
+
+            <div class="filters-actions">
+                <button id="clearFilters" type="button" class="badge filters-clear-action">Limpar filtros</button>
+            </div>
+            </fieldset>
         </div>
     </section>
 
@@ -444,6 +476,12 @@
     }
 
     function applyFilters() {
+        const toggleSwitch = document.getElementById("toggleFilters");
+        if (toggleSwitch && !toggleSwitch.checked) {
+            renderRows(allBovines);
+            return;
+        }
+
         const nameFilter = document.getElementById("filterName").value.trim().toLowerCase();
         const genders = getCheckedValues("filterGender");
         const origins = getCheckedValues("filterOrigin");
@@ -521,15 +559,21 @@
 
     function wireFiltersPanelToggle() {
         const toggleSwitch = document.getElementById("toggleFilters");
-        const toggleText = document.getElementById("toggleFiltersText");
         const filtersPanel = document.getElementById("filtersPanel");
+        const filtersFieldset = document.getElementById("filtersFieldset");
+        const clearFiltersButton = document.getElementById("clearFilters");
 
-        toggleSwitch.addEventListener("change", () => {
-            const isCollapsed = !toggleSwitch.checked;
-            filtersPanel.classList.toggle("collapsed", isCollapsed);
-            toggleText.textContent = isCollapsed ? "Filtros ocultos" : "Filtros visíveis";
-            toggleSwitch.setAttribute("aria-expanded", (!isCollapsed).toString());
-        });
+        const syncFiltersState = () => {
+            const isEnabled = toggleSwitch.checked;
+            filtersPanel.classList.toggle("collapsed", !isEnabled);
+            filtersFieldset.disabled = !isEnabled;
+            clearFiltersButton.disabled = !isEnabled;
+            toggleSwitch.setAttribute("aria-expanded", isEnabled.toString());
+            applyFilters();
+        };
+
+        toggleSwitch.addEventListener("change", syncFiltersState);
+        syncFiltersState();
     }
 
     function updateEnumSelectLabel(selectElement) {
