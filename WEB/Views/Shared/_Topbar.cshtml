@@ -1,13 +1,18 @@
 <header class="am-topbar">
     <a class="am-topbar-brand" asp-controller="Home" asp-action="Index">AgroManager</a>
 
-    <nav class="am-topbar-nav" aria-label="Navegação principal">
-        <a asp-controller="Bovine" asp-action="Index">Bovinos</a>
-        <a asp-controller="Swines" asp-action="Index">Suínos</a>
-    </nav>
-
-    <a class="am-topbar-account" asp-controller="Account" asp-action="Login" aria-label="Acessar conta">
-        <i class="bi bi-person-circle" aria-hidden="true"></i>
-        <span>Conta</span>
-    </a>
+    <div class="dropdown">
+        <button class="btn am-profile-trigger rounded-pill d-flex align-items-center gap-2 px-3"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                aria-label="Acessar conta">
+            <i class="bi bi-person-circle fs-5"></i>
+            <span>Conta</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Acessar conta</a></li>
+            <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Perfil</a></li>
+        </ul>
+    </div>
 </header>

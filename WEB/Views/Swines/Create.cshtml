@@ -10,9 +10,10 @@
 
 
 
-@await Html.PartialAsync("_Topbar")
+<div class="am-page-shell">
+    @await Html.PartialAsync("_Topbar")
 
-<div class="page">
+    <div class="page">
     <header class="page-header">
         <div>
             <h1 class="page-title">Novo Swine</h1>
@@ -91,4 +92,5 @@
         <span>Após salvar, você volta para a listagem.</span>
         <span>AgroManager</span>
     </footer>
+</div>
 </div>

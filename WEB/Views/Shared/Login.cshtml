@@ -8,9 +8,10 @@
 <link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
 
 
-@await Html.PartialAsync("_Topbar")
+<div class="am-page-shell">
+    @await Html.PartialAsync("_Topbar")
 
-<div class="row justify-content-center" style="padding: 24px;">
+    <div class="row justify-content-center">
 
     <div class="col-md-4">
 
@@ -53,4 +54,5 @@
 
     </div>
 
+</div>
 </div>

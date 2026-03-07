@@ -309,9 +309,10 @@
     }
 </style>
 
-@await Html.PartialAsync("_Topbar")
+<div class="am-page-shell">
+    @await Html.PartialAsync("_Topbar")
 
-<div class="page">
+    <div class="page">
     <header class="page-header">
         <div>
             <h1 class="page-title">Bovines</h1>
@@ -449,6 +450,7 @@
         <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
         <span id="count">0 registro(s) exibidos</span>
     </footer>
+</div>
 </div>
 
 <script>

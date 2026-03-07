@@ -7,9 +7,10 @@ ViewData["Title"] = "Swines";
 <link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
 
 
-@await Html.PartialAsync("_Topbar")
+<div class="am-page-shell">
+    @await Html.PartialAsync("_Topbar")
 
-<div class="page">
+    <div class="page">
     <header class="page-header">
         <div>
             <h1 class="page-title">Swines</h1>
@@ -42,6 +43,7 @@ ViewData["Title"] = "Swines";
         <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
         <span id="count">0 registro(s) exibidos</span>
     </footer>
+</div>
 </div>
 
 <script>
