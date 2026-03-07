@@ -4,9 +4,16 @@
     ViewData["Title"] = "Novo Swine";
 }
 <link rel="stylesheet" href="~/css/styles.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+<link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
 
 
-<div class="page">
+
+<div class="am-page-shell">
+    @await Html.PartialAsync("_Topbar")
+
+    <div class="page">
     <header class="page-header">
         <div>
             <h1 class="page-title">Novo Swine</h1>
@@ -85,4 +92,5 @@
         <span>Após salvar, você volta para a listagem.</span>
         <span>AgroManager</span>
     </footer>
+</div>
 </div>
