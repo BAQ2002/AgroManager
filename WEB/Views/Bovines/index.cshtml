@@ -302,9 +302,12 @@
         display: inline-flex;
         align-items: center;
         justify-content: space-between;
-        gap: 8px;
-        width: 118px;
+        gap: 6px;
         margin-left: 6px;
+        padding: 2px 4px 2px 8px;
+        border-radius: 999px;
+        background: #e2e8f0;
+        color: #0f172a;
     }
 
     .age-unit-select {
@@ -313,12 +316,12 @@
     }
 
     .age-unit-trigger {
-        width: 36px;
-        height: 28px;
-        border: 1px solid rgba(148, 163, 184, 0.8);
-        background: #f8fafc;
+        width: 24px;
+        height: 22px;
+        border: 1px solid rgba(100, 116, 139, 0.75);
+        background: #e2e8f0;
         color: #0f172a;
-        border-radius: 8px;
+        border-radius: 6px;
         padding: 0;
         cursor: pointer;
         appearance: none;
@@ -328,15 +331,19 @@
     .age-unit-select::after {
         content: "";
         position: absolute;
-        right: 14px;
+        right: 8px;
         top: 50%;
-        width: 7px;
-        height: 7px;
-        border-right: 2px solid #334155;
-        border-bottom: 2px solid #334155;
+        width: 6px;
+        height: 6px;
+        border-right: 1.5px solid #334155;
+        border-bottom: 1.5px solid #334155;
         transform: translateY(-70%) rotate(45deg);
         pointer-events: none;
         transition: transform 0.15s ease;
+    }
+
+    .age-unit-select.open .age-unit-trigger {
+        border-color: rgba(30, 41, 59, 0.8);
     }
 
     .age-unit-select.open::after {
