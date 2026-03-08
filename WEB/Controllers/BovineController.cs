@@ -56,6 +56,9 @@ public sealed class BovinesController : Controller
                 Origin = b.Origin.ToString(),
                 b.BirthDate,
                 b.Age,
+                AgeInDays = b.GetAge(AgeUnit.Days),
+                AgeInMonths = b.GetAge(AgeUnit.Months),
+                AgeInYears = b.GetAge(AgeUnit.Years),
                 MaritalStatus = b.MaritalStatus.HasValue ? b.MaritalStatus.Value.ToString() : "",
                 CattleType = b.CattleType.HasValue ? b.CattleType.Value.ToString() : ""
             });
@@ -156,6 +159,9 @@ public sealed class BovinesController : Controller
             Origin = entity.Origin,
             BirthDate = entity.BirthDate,
             Age = entity.Age,
+            AgeInDays = entity.GetAge(AgeUnit.Days),
+            AgeInMonths = entity.GetAge(AgeUnit.Months),
+            AgeInYears = entity.GetAge(AgeUnit.Years),
             MaritalStatus = entity.MaritalStatus,
             CattleType = entity.CattleType
         };
@@ -299,6 +305,12 @@ public sealed class BovineViewModel
     public DateOnly? BirthDate { get; set; }
 
     public int? Age { get; set; }
+
+    public int? AgeInDays { get; set; }
+
+    public int? AgeInMonths { get; set; }
+
+    public int? AgeInYears { get; set; }
 
     public MaritalStatus? MaritalStatus { get; set; }
 
