@@ -24,6 +24,14 @@ namespace MODEL
         Purchased = 2, //Comprado
         External = 3 //Nao faz parte da fazenda
     }
+
+    public enum AgeUnit
+    {
+        Days = 0,
+        Months = 1,
+        Years = 2
+    }
+
     #endregion
 
     #region Bonive Enum Properties
