@@ -28,6 +28,17 @@
         padding: 16px;
         box-shadow: 0 14px 28px rgba(1, 5, 20, 0.4);
         overflow: visible;
+        width: 100%;
+        max-width: 100%;
+        transition: max-width 0.32s ease, padding 0.25s ease;
+        transform-origin: top left;
+    }
+
+    .filters-panel.collapsed {
+        max-width: 250px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 16px;
     }
 
     .filters-panel.collapsed .filters-content {
@@ -40,7 +51,7 @@
 
     .filters-head {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         gap: 12px;
         margin-bottom: 14px;
