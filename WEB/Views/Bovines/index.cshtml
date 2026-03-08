@@ -28,6 +28,17 @@
         padding: 16px;
         box-shadow: 0 14px 28px rgba(1, 5, 20, 0.4);
         overflow: visible;
+        width: 100%;
+        max-width: 100%;
+        transition: max-width 0.32s ease, padding 0.25s ease;
+        transform-origin: top left;
+    }
+
+    .filters-panel.collapsed {
+        max-width: 250px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 14px 16px;
     }
 
     .filters-panel.collapsed .filters-content {
@@ -44,12 +55,26 @@
         align-items: center;
         gap: 12px;
         margin-bottom: 14px;
+        transition: margin-bottom 0.2s ease;
     }
 
     .filters-title-group {
         display: flex;
         align-items: center;
         gap: 10px;
+    }
+
+    .filters-panel.collapsed .filters-head,
+    .filters-panel.collapsed .filters-title-group {
+        justify-content: center;
+    }
+
+    .filters-panel.collapsed .filters-head {
+        margin-bottom: 0;
+    }
+
+    .filters-panel.collapsed .filters-head h2 {
+        white-space: nowrap;
     }
 
         .filters-head h2 {
