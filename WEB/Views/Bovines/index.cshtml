@@ -296,6 +296,92 @@
             background: #e2e8f0;
         }
 
+
+
+    .age-header-select {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        width: 118px;
+        margin-left: 6px;
+    }
+
+    .age-unit-select {
+        position: relative;
+        display: inline-block;
+    }
+
+    .age-unit-trigger {
+        width: 36px;
+        height: 28px;
+        border: 1px solid rgba(148, 163, 184, 0.8);
+        background: #f8fafc;
+        color: #0f172a;
+        border-radius: 8px;
+        padding: 0;
+        cursor: pointer;
+        appearance: none;
+        position: relative;
+    }
+
+    .age-unit-select::after {
+        content: "";
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        width: 7px;
+        height: 7px;
+        border-right: 2px solid #334155;
+        border-bottom: 2px solid #334155;
+        transform: translateY(-70%) rotate(45deg);
+        pointer-events: none;
+        transition: transform 0.15s ease;
+    }
+
+    .age-unit-select.open::after {
+        transform: translateY(-30%) rotate(-135deg);
+    }
+
+    .age-unit-menu {
+        display: none;
+        position: absolute;
+        z-index: 15;
+        top: calc(100% + 6px);
+        right: 0;
+        min-width: 110px;
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        border-radius: 10px;
+        background: #f8fafc;
+        box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
+        padding: 6px;
+    }
+
+    .age-unit-select.open .age-unit-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .age-unit-option {
+        border: 0;
+        background: transparent;
+        text-align: left;
+        border-radius: 8px;
+        padding: 6px 8px;
+        color: #0f172a;
+        font-size: 0.78rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+    }
+
+    .age-unit-option:hover,
+    .age-unit-option.active {
+        background: #e2e8f0;
+    }
+
     @@media (max-width: 1080px) {
         .filters-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -445,7 +531,19 @@
                     <th>Sexo</th>
                     <th>Origem</th>
                     <th>Nascimento</th>
-                    <th>Idade</th>
+                    <th>
+                        <span class="age-header-select">
+                            <span>Idade</span>
+                            <div class="age-unit-select" id="ageUnitSelect">
+                                <button type="button" class="age-unit-trigger" id="ageUnitTrigger" aria-expanded="false" aria-label="Selecionar unidade de idade"></button>
+                                <div class="age-unit-menu" id="ageUnitMenu">
+                                    <button type="button" class="age-unit-option active" data-unit="years">Anos</button>
+                                    <button type="button" class="age-unit-option" data-unit="months">Meses</button>
+                                    <button type="button" class="age-unit-option" data-unit="days">Dias</button>
+                                </div>
+                            </div>
+                        </span>
+                    </th>
                     <th>Estado</th>
                     <th>Tipo</th>
                     <th>Ações</th>
@@ -464,6 +562,7 @@
 
 <script>
     let allBovines = [];
+    let currentAgeUnit = "years";
 
     function toDate(value) {
         if (!value) return null;
@@ -475,6 +574,18 @@
         return Array.from(document.querySelectorAll(`#${containerId} input[type='checkbox']:checked`)).map(x => x.value.toLowerCase());
     }
 
+
+    function getAgeByUnit(item) {
+        if (currentAgeUnit === "days") return item.ageInDays;
+        if (currentAgeUnit === "months") return item.ageInMonths;
+        return item.ageInYears ?? item.age;
+    }
+
+    function formatAgeByUnit(item) {
+        const value = getAgeByUnit(item);
+        return value === null || value === undefined || value === "" ? "" : value;
+    }
+
     function renderRows(data) {
         document.getElementById("rows").innerHTML = data.map(x => `
           <tr>
@@ -482,7 +593,7 @@
             <td>${x.gender ?? ""}</td>
             <td>${x.origin ?? ""}</td>
             <td>${x.birthDate ?? ""}</td>
-            <td>${x.age ?? ""}</td>
+            <td>${formatAgeByUnit(x)}</td>
             <td>${x.maritalStatus ?? ""}</td>
             <td>${x.cattleType ?? ""}</td>
             <td><a class="badge" href="/bovines/edit/${x.id}" style="text-decoration:none;">Editar</a></td>
@@ -520,7 +631,8 @@
             const maritalStatus = (x.maritalStatus ?? "").toLowerCase();
             const cattleType = (x.cattleType ?? "").toLowerCase();
             const birthDate = toDate(x.birthDate);
-            const age = x.age === null || x.age === undefined || x.age === "" ? null : Number(x.age);
+            const ageRaw = getAgeByUnit(x);
+            const age = ageRaw === null || ageRaw === undefined || ageRaw === "" ? null : Number(ageRaw);
 
             if (nameFilter && !name.includes(nameFilter)) return false;
             if (genders.length && !genders.includes(gender)) return false;
@@ -558,6 +670,7 @@
             .forEach(element => element.addEventListener("input", applyFilters));
 
         wireEnumSelects();
+        wireAgeUnitSelect();
         wireFiltersPanelToggle();
 
         document.getElementById("clearFilters").addEventListener("click", () => {
@@ -571,6 +684,36 @@
             updateEnumSelectLabels();
 
             applyFilters();
+        });
+    }
+
+
+    function wireAgeUnitSelect() {
+        const select = document.getElementById("ageUnitSelect");
+        const trigger = document.getElementById("ageUnitTrigger");
+        const options = Array.from(select.querySelectorAll(".age-unit-option"));
+
+        trigger.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const isOpen = select.classList.contains("open");
+            select.classList.toggle("open", !isOpen);
+            trigger.setAttribute("aria-expanded", (!isOpen).toString());
+        });
+
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                currentAgeUnit = option.dataset.unit;
+                options.forEach(item => item.classList.remove("active"));
+                option.classList.add("active");
+                select.classList.remove("open");
+                trigger.setAttribute("aria-expanded", "false");
+                applyFilters();
+            });
+        });
+
+        document.addEventListener("click", () => {
+            select.classList.remove("open");
+            trigger.setAttribute("aria-expanded", "false");
         });
     }
 
