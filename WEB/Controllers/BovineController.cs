@@ -1,5 +1,6 @@
 ﻿using BLL.Common.Exceptions;
 using BLL.Services;
+using System;
 
 using Microsoft.AspNetCore.Mvc;
 using MODEL;
@@ -91,31 +92,35 @@ public sealed class BovinesController : Controller
     {
         if (!ModelState.IsValid) return View(bovineViewModel);
 
-        var entity = new BovineEntity
-        {
-            Name = bovineViewModel.Name,
-            Gender = bovineViewModel.Gender,
-            Origin = bovineViewModel.Origin,
-            BirthDate = bovineViewModel.BirthDate,
-            MaritalStatus = bovineViewModel.MaritalStatus,
-            CattleType = bovineViewModel.CattleType
-        };
+        ValidateCreateBusinessRules(bovineViewModel);
+
+        if (!ModelState.IsValid) return View(bovineViewModel);
 
         try
         {
+            var entity = new BovineEntity
+            {
+                Name = bovineViewModel.Name,
+                Gender = bovineViewModel.Gender,
+                Origin = bovineViewModel.Origin,
+                BirthDate = bovineViewModel.BirthDate,
+                MaritalStatus = bovineViewModel.MaritalStatus,
+                CattleType = bovineViewModel.CattleType
+            };
+
             await _bovineService.CreateAsync(entity, cancellationToken);
 
             return RedirectToAction(nameof(Index));
         }
         catch (BusinessRuleException ex)
         {
-            ModelState.AddModelError(string.Empty, ex.Message);
+            AddCreateModelError(ex.Message);
 
             return View(bovineViewModel);
         }
         catch (Exception)
         {
-            ModelState.AddModelError(string.Empty, "Ocorreu um erro inesperado ao salvar o bovino.");
+            AddCreateModelError("Ocorreu um erro inesperado ao salvar o bovino.");
 
             return View(bovineViewModel);
         }
@@ -215,6 +220,57 @@ public sealed class BovinesController : Controller
         {
             ModelState.AddModelError(string.Empty, "Ocorreu um erro inesperado ao atualizar o bovino.");
             return View(bovineViewModel);
+        }
+    }
+    private void ValidateCreateBusinessRules(BovineViewModel bovineViewModel)
+    {
+        if (bovineViewModel.CattleType is null)
+            ModelState.AddModelError(nameof(BovineViewModel.CattleType), "O tipo do bovino deve ser informado.");
+
+        if (bovineViewModel.Gender == Gender.Unknown)
+            ModelState.AddModelError(nameof(BovineViewModel.Gender), "O gênero do bovino deve ser informado.");
+
+        if (bovineViewModel.Gender == Gender.Female && bovineViewModel.MaritalStatus is null)
+            ModelState.AddModelError(nameof(BovineViewModel.MaritalStatus), "O estado marital do bovino deve ser informado para fêmeas.");
+    }
+
+    private void AddCreateModelError(string message)
+    {
+        if (string.IsNullOrWhiteSpace(message))
+        {
+            ModelState.AddModelError(nameof(BovineViewModel.Name), "Valor inválido informado.");
+
+            return;
+        }
+
+        var messages = message.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+        if (messages.Length == 0)
+        {
+            messages = new[] { message };
+        }
+
+        foreach (var item in messages)
+        {
+            var normalizedMessage = item.ToLowerInvariant();
+            var fieldName = nameof(BovineViewModel.Name);
+
+            if (normalizedMessage.Contains("estado marital"))
+                fieldName = nameof(BovineViewModel.MaritalStatus);
+            else if (normalizedMessage.Contains("tipo"))
+                fieldName = nameof(BovineViewModel.CattleType);
+            else if (normalizedMessage.Contains("gênero") || normalizedMessage.Contains("genero"))
+                fieldName = nameof(BovineViewModel.Gender);
+            else if (normalizedMessage.Contains("nascimento"))
+                fieldName = nameof(BovineViewModel.BirthDate);
+            else if (normalizedMessage.Contains("origem"))
+                fieldName = nameof(BovineViewModel.Origin);
+            else if (normalizedMessage.Contains("idade"))
+                fieldName = nameof(BovineViewModel.Age);
+            else if (normalizedMessage.Contains("nome"))
+                fieldName = nameof(BovineViewModel.Name);
+
+            ModelState.AddModelError(fieldName, item);
         }
     }
 }
