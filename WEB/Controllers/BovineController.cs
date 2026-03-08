@@ -1,5 +1,6 @@
 ﻿using BLL.Common.Exceptions;
 using BLL.Services;
+using System;
 
 using Microsoft.AspNetCore.Mvc;
 using MODEL;
@@ -89,6 +90,10 @@ public sealed class BovinesController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(BovineViewModel bovineViewModel, CancellationToken cancellationToken)
     {
+        if (!ModelState.IsValid) return View(bovineViewModel);
+
+        ValidateCreateBusinessRules(bovineViewModel);
+
         if (!ModelState.IsValid) return View(bovineViewModel);
 
         try
@@ -217,6 +222,18 @@ public sealed class BovinesController : Controller
             return View(bovineViewModel);
         }
     }
+    private void ValidateCreateBusinessRules(BovineViewModel bovineViewModel)
+    {
+        if (bovineViewModel.CattleType is null)
+            ModelState.AddModelError(nameof(BovineViewModel.CattleType), "O tipo do bovino deve ser informado.");
+
+        if (bovineViewModel.Gender == Gender.Unknown)
+            ModelState.AddModelError(nameof(BovineViewModel.Gender), "O gênero do bovino deve ser informado.");
+
+        if (bovineViewModel.Gender == Gender.Female && bovineViewModel.MaritalStatus is null)
+            ModelState.AddModelError(nameof(BovineViewModel.MaritalStatus), "O estado marital do bovino deve ser informado para fêmeas.");
+    }
+
     private void AddCreateModelError(string message)
     {
         if (string.IsNullOrWhiteSpace(message))
@@ -226,25 +243,35 @@ public sealed class BovinesController : Controller
             return;
         }
 
-        var normalizedMessage = message.ToLowerInvariant();
-        var fieldName = nameof(BovineViewModel.Name);
+        var messages = message.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
-        if (normalizedMessage.Contains("estado marital"))
-            fieldName = nameof(BovineViewModel.MaritalStatus);
-        else if (normalizedMessage.Contains("tipo"))
-            fieldName = nameof(BovineViewModel.CattleType);
-        else if (normalizedMessage.Contains("gênero") || normalizedMessage.Contains("genero"))
-            fieldName = nameof(BovineViewModel.Gender);
-        else if (normalizedMessage.Contains("nascimento"))
-            fieldName = nameof(BovineViewModel.BirthDate);
-        else if (normalizedMessage.Contains("origem"))
-            fieldName = nameof(BovineViewModel.Origin);
-        else if (normalizedMessage.Contains("idade"))
-            fieldName = nameof(BovineViewModel.Age);
-        else if (normalizedMessage.Contains("nome"))
-            fieldName = nameof(BovineViewModel.Name);
+        if (messages.Length == 0)
+        {
+            messages = new[] { message };
+        }
 
-        ModelState.AddModelError(fieldName, message);
+        foreach (var item in messages)
+        {
+            var normalizedMessage = item.ToLowerInvariant();
+            var fieldName = nameof(BovineViewModel.Name);
+
+            if (normalizedMessage.Contains("estado marital"))
+                fieldName = nameof(BovineViewModel.MaritalStatus);
+            else if (normalizedMessage.Contains("tipo"))
+                fieldName = nameof(BovineViewModel.CattleType);
+            else if (normalizedMessage.Contains("gênero") || normalizedMessage.Contains("genero"))
+                fieldName = nameof(BovineViewModel.Gender);
+            else if (normalizedMessage.Contains("nascimento"))
+                fieldName = nameof(BovineViewModel.BirthDate);
+            else if (normalizedMessage.Contains("origem"))
+                fieldName = nameof(BovineViewModel.Origin);
+            else if (normalizedMessage.Contains("idade"))
+                fieldName = nameof(BovineViewModel.Age);
+            else if (normalizedMessage.Contains("nome"))
+                fieldName = nameof(BovineViewModel.Name);
+
+            ModelState.AddModelError(fieldName, item);
+        }
     }
 }
 
