@@ -9,6 +9,41 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 <link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
 
+<style>
+    .floating-field {
+        position: relative;
+    }
+
+    .floating-field-input {
+        width: 100%;
+        padding: 16px 10px 10px;
+        border-radius: 10px;
+        border: 1px solid #d1d5db;
+        background: transparent;
+    }
+
+    .floating-field-label {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #fff;
+        padding: 0 4px;
+        color: #6b7280;
+        transition: all 0.2s ease;
+        pointer-events: none;
+    }
+
+    .floating-field:focus-within .floating-field-label,
+    .floating-field.filled .floating-field-label,
+    .floating-field-input:not(:placeholder-shown) + .floating-field-label {
+        top: 0;
+        transform: translateY(-50%);
+        font-size: 12px;
+        color: #374151;
+    }
+</style>
+
 
 @await Html.PartialAsync("_Topbar")
 
@@ -29,67 +64,72 @@
 
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
                 <div>
-                    <label>Nome</label>
-                    <input name="Name" value="@Model.Name" style="width:100%; padding:10px; border-radius:10px;" />
+                    <div class="floating-field">
+                        <input name="Name" value="@Model.Name" placeholder=" " class="floating-field-input" />
+                        <label class="floating-field-label">Nome</label>
+                    </div>
                     <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Name)</div>
                 </div>
 
                 <div>
-                    <label>Idade</label>
-                    <input name="Age" value="@Model.Age" type="number" style="width:100%; padding:10px; border-radius:10px;" />
-                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Age)</div>
-                </div>
-
-                <div>
-                    <label>Sexo</label>
-                    <select name="Gender" style="width:100%; padding:10px; border-radius:10px;">
+                    <div class="floating-field">
+                        <select name="Gender" class="floating-field-input js-floating-select">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
                             <option value="@v" selected="@(Equals(Model.Gender, v) ? "selected" : null)">@v</option>
                         }
-                    </select>
+                        </select>
+                        <label class="floating-field-label">Sexo</label>
+                    </div>
                     <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Gender)</div>
                 </div>
 
                 <div>
-                    <label>Origem</label>
-                    <select name="Origin" style="width:100%; padding:10px; border-radius:10px;">
+                    <div class="floating-field">
+                        <select name="Origin" class="floating-field-input js-floating-select">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
                             <option value="@v" selected="@(Equals(Model.Origin, v) ? "selected" : null)">@v</option>
                         }
-                    </select>
+                        </select>
+                        <label class="floating-field-label">Origem</label>
+                    </div>
                     <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Origin)</div>
                 </div>
 
                 <div>
-                    <label>Nascimento</label>
-                    <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date"
-                           style="width:100%; padding:10px; border-radius:10px;" />
+                    <div class="floating-field">
+                        <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " class="floating-field-input" />
+                        <label class="floating-field-label">Nascimento</label>
+                    </div>
                     <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.BirthDate)</div>
                 </div>
 
                 <div>
-                    <label>Estado civil</label>
-                    <select name="MaritalStatus" style="width:100%; padding:10px; border-radius:10px;">
+                    <div class="floating-field">
+                        <select name="MaritalStatus" class="floating-field-input js-floating-select">
                         <option value="">(vazio)</option>
                         @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
                         {
                             <option value="@v" selected="@(Model.MaritalStatus.HasValue && Equals(Model.MaritalStatus.Value, v) ? "selected" : null)">@v</option>
                         }
-                    </select>
+                        </select>
+                        <label class="floating-field-label">Estado civil</label>
+                    </div>
                     <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.MaritalStatus)</div>
                 </div>
 
                 <div>
-                    <label>Tipo de gado</label>
-                    <select name="CattleType" style="width:100%; padding:10px; border-radius:10px;">
+                    <div class="floating-field">
+                        <select name="CattleType" class="floating-field-input js-floating-select">
                         <option value="">(vazio)</option>
                         @foreach (var v in Enum.GetValues(typeof(CattleType)))
                         {
                             <option value="@v" selected="@(Model.CattleType.HasValue && Equals(Model.CattleType.Value, v) ? "selected" : null)">@v</option>
                         }
-                    </select>
+                        </select>
+                        <label class="floating-field-label">Tipo de gado</label>
+                    </div>
                     <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.CattleType)</div>
                 </div>
             </div>
@@ -106,4 +146,17 @@
         <span>AgroManager</span>
     </footer>
 </div>
+
+<script>
+    document.querySelectorAll(".js-floating-select").forEach((element) => {
+        const field = element.closest(".floating-field");
+
+        const syncFilledState = () => {
+            field.classList.toggle("filled", element.value !== "");
+        };
+
+        element.addEventListener("change", syncFilledState);
+        syncFilledState();
+    });
+</script>
 </div>
