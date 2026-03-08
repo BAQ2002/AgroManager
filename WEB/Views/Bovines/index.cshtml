@@ -2,9 +2,22 @@
     ViewData["Title"] = "Bovines";
 }
 <link rel="stylesheet" href="~/css/styles.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+<link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
+
 <style>
     body {
-        align-items: flex-start;
+        display: block;
+        padding: 0;
+    }
+
+    .am-topbar {
+        border-radius: 0;
+    }
+
+    .am-page-shell {
+        margin: 24px auto;
     }
 
     .filters-panel {
@@ -305,7 +318,10 @@
     }
 </style>
 
-<div class="page">
+@await Html.PartialAsync("_Topbar")
+
+<div class="am-page-shell">
+    <div class="page">
     <header class="page-header">
         <div>
             <h1 class="page-title">Bovines</h1>
@@ -443,6 +459,7 @@
         <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
         <span id="count">0 registro(s) exibidos</span>
     </footer>
+</div>
 </div>
 
 <script>
