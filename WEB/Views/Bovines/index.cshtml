@@ -8,7 +8,16 @@
 
 <style>
     body {
-        align-items: flex-start;
+        display: block;
+        padding: 0;
+    }
+
+    .am-topbar {
+        border-radius: 0;
+    }
+
+    .am-page-shell {
+        margin: 24px auto;
     }
 
     .filters-panel {
@@ -309,9 +318,9 @@
     }
 </style>
 
-<div class="am-page-shell">
-    @await Html.PartialAsync("_Topbar")
+@await Html.PartialAsync("_Topbar")
 
+<div class="am-page-shell">
     <div class="page">
     <header class="page-header">
         <div>
