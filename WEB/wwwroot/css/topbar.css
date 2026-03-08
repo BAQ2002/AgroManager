@@ -13,6 +13,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    box-sizing: border-box;
     padding: 0.9rem 1.4rem;
     backdrop-filter: blur(16px);
     background: rgba(2, 6, 23, 0.7);
