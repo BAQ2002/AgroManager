@@ -73,7 +73,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <select name="Gender" class="floating-field-input js-floating-select">
+                        <select name="Gender" class="floating-field-input js-floating-select" data-empty-values="Unknown">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
                             <option value="@v" selected="@(Equals(Model.Gender, v) ? "selected" : null)">@v</option>
@@ -86,7 +86,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <select name="Origin" class="floating-field-input js-floating-select">
+                        <select name="Origin" class="floating-field-input js-floating-select" data-empty-values="Unknown">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
                             <option value="@v" selected="@(Equals(Model.Origin, v) ? "selected" : null)">@v</option>
@@ -107,7 +107,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <select name="MaritalStatus" class="floating-field-input js-floating-select">
+                        <select name="MaritalStatus" class="floating-field-input js-floating-select" data-empty-values="Unknown">
                         <option value="">(vazio)</option>
                         @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
                         {
@@ -121,7 +121,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <select name="CattleType" class="floating-field-input js-floating-select">
+                        <select name="CattleType" class="floating-field-input js-floating-select" data-empty-values="Unknown">
                         <option value="">(vazio)</option>
                         @foreach (var v in Enum.GetValues(typeof(CattleType)))
                         {
@@ -151,8 +151,18 @@
     document.querySelectorAll(".js-floating-select").forEach((element) => {
         const field = element.closest(".floating-field");
 
+        const emptyValues = new Set(
+            (element.dataset.emptyValues || "")
+                .split(",")
+                .map((value) => value.trim())
+                .filter((value) => value !== "")
+        );
+
+        emptyValues.add("");
+
         const syncFilledState = () => {
-            field.classList.toggle("filled", element.value !== "");
+            const currentValue = (element.value || "").trim();
+            field.classList.toggle("filled", !emptyValues.has(currentValue));
         };
 
         element.addEventListener("change", syncFilledState);
