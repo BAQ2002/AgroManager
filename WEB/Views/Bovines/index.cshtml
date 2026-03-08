@@ -322,13 +322,13 @@
     }
 
     .age-unit-trigger {
-        min-width: 72px;
-        height: 24px;
+        width: 12px;
+        height: 12px;
         border: 0;
         background: transparent;
         color: inherit;
-        border-radius: 6px;
-        padding: 0 14px 0 6px;
+        border-radius: 0;
+        padding: 0;
         cursor: pointer;
         appearance: none;
         position: relative;
@@ -554,6 +554,9 @@
                     <th>
                         <span class="age-header-select">
                             <span>Idade</span>
+                            <span>(</span>
+                            <span id="ageUnitLabel">anos</span>
+                            <span>)</span>
                             <div class="age-unit-select" id="ageUnitSelect">
                                 <button type="button" class="age-unit-trigger" id="ageUnitTrigger" aria-expanded="false" aria-label="Selecionar unidade de idade"></button>
                                 <div class="age-unit-menu" id="ageUnitMenu">
@@ -607,9 +610,23 @@
         return item.ageInYears ?? item.age;
     }
 
+    function getAgeUnitLabel() {
+        if (currentAgeUnit === "days") return "dias";
+        if (currentAgeUnit === "months") return "meses";
+        return "anos";
+    }
+
     function formatAgeByUnit(item) {
         const value = getAgeByUnit(item);
-        return value === null || value === undefined || value === "" ? "" : value;
+        if (value === null || value === undefined || value === "") return "";
+        return `${value} ${getAgeUnitLabel()}`;
+    }
+
+    function updateAgeUnitLabel() {
+        const label = document.getElementById("ageUnitLabel");
+        if (label) {
+            label.textContent = getAgeUnitLabel();
+        }
     }
 
     function renderRows(data) {
@@ -736,6 +753,7 @@
                 trigger.textContent = getAgeUnitLabel(currentAgeUnit);
                 select.classList.remove("open");
                 trigger.setAttribute("aria-expanded", "false");
+                updateAgeUnitLabel();
                 applyFilters();
             });
         });
@@ -744,6 +762,8 @@
             select.classList.remove("open");
             trigger.setAttribute("aria-expanded", "false");
         });
+
+        updateAgeUnitLabel();
     }
 
     function wireFiltersPanelToggle() {
