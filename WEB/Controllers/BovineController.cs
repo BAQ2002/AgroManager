@@ -91,31 +91,31 @@ public sealed class BovinesController : Controller
     {
         if (!ModelState.IsValid) return View(bovineViewModel);
 
-        var entity = new BovineEntity
-        {
-            Name = bovineViewModel.Name,
-            Gender = bovineViewModel.Gender,
-            Origin = bovineViewModel.Origin,
-            BirthDate = bovineViewModel.BirthDate,
-            MaritalStatus = bovineViewModel.MaritalStatus,
-            CattleType = bovineViewModel.CattleType
-        };
-
         try
         {
+            var entity = new BovineEntity
+            {
+                Name = bovineViewModel.Name,
+                Gender = bovineViewModel.Gender,
+                Origin = bovineViewModel.Origin,
+                BirthDate = bovineViewModel.BirthDate,
+                MaritalStatus = bovineViewModel.MaritalStatus,
+                CattleType = bovineViewModel.CattleType
+            };
+
             await _bovineService.CreateAsync(entity, cancellationToken);
 
             return RedirectToAction(nameof(Index));
         }
         catch (BusinessRuleException ex)
         {
-            ModelState.AddModelError(string.Empty, ex.Message);
+            AddCreateModelError(ex.Message);
 
             return View(bovineViewModel);
         }
         catch (Exception)
         {
-            ModelState.AddModelError(string.Empty, "Ocorreu um erro inesperado ao salvar o bovino.");
+            AddCreateModelError("Ocorreu um erro inesperado ao salvar o bovino.");
 
             return View(bovineViewModel);
         }
@@ -216,6 +216,35 @@ public sealed class BovinesController : Controller
             ModelState.AddModelError(string.Empty, "Ocorreu um erro inesperado ao atualizar o bovino.");
             return View(bovineViewModel);
         }
+    }
+    private void AddCreateModelError(string message)
+    {
+        if (string.IsNullOrWhiteSpace(message))
+        {
+            ModelState.AddModelError(nameof(BovineViewModel.Name), "Valor inválido informado.");
+
+            return;
+        }
+
+        var normalizedMessage = message.ToLowerInvariant();
+        var fieldName = nameof(BovineViewModel.Name);
+
+        if (normalizedMessage.Contains("estado marital"))
+            fieldName = nameof(BovineViewModel.MaritalStatus);
+        else if (normalizedMessage.Contains("tipo"))
+            fieldName = nameof(BovineViewModel.CattleType);
+        else if (normalizedMessage.Contains("gênero") || normalizedMessage.Contains("genero"))
+            fieldName = nameof(BovineViewModel.Gender);
+        else if (normalizedMessage.Contains("nascimento"))
+            fieldName = nameof(BovineViewModel.BirthDate);
+        else if (normalizedMessage.Contains("origem"))
+            fieldName = nameof(BovineViewModel.Origin);
+        else if (normalizedMessage.Contains("idade"))
+            fieldName = nameof(BovineViewModel.Age);
+        else if (normalizedMessage.Contains("nome"))
+            fieldName = nameof(BovineViewModel.Name);
+
+        ModelState.AddModelError(fieldName, message);
     }
 }
 
