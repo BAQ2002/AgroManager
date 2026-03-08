@@ -55,12 +55,26 @@
         align-items: center;
         gap: 12px;
         margin-bottom: 14px;
+        transition: margin-bottom 0.2s ease;
     }
 
     .filters-title-group {
         display: flex;
         align-items: center;
         gap: 10px;
+    }
+
+    .filters-panel.collapsed .filters-head,
+    .filters-panel.collapsed .filters-title-group {
+        justify-content: center;
+    }
+
+    .filters-panel.collapsed .filters-head {
+        margin-bottom: 0;
+    }
+
+    .filters-panel.collapsed .filters-head h2 {
+        white-space: nowrap;
     }
 
         .filters-head h2 {
