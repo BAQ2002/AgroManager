@@ -10,9 +10,9 @@
 <link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
 
 
-<div class="am-page-shell">
-    @await Html.PartialAsync("_Topbar")
+@await Html.PartialAsync("_Topbar")
 
+<div class="am-page-shell">
     <div class="page">
     <header class="page-header">
         <div>
@@ -27,10 +27,6 @@
         <form method="post" action="/bovines/create" style="display:flex; flex-direction:column; gap:12px;">
             @Html.AntiForgeryToken()
 
-            <div style="color:#fca5a5;">
-                @Html.ValidationSummary(false)
-            </div>
-
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
                 <div>
                     <label>Nome</label>
@@ -41,6 +37,7 @@
                 <div>
                     <label>Idade</label>
                     <input name="Age" value="@Model.Age" type="number" style="width:100%; padding:10px; border-radius:10px;" />
+                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Age)</div>
                 </div>
 
                 <div>
@@ -51,6 +48,7 @@
                             <option value="@v" selected="@(Equals(Model.Gender, v) ? "selected" : null)">@v</option>
                         }
                     </select>
+                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Gender)</div>
                 </div>
 
                 <div>
@@ -61,12 +59,14 @@
                             <option value="@v" selected="@(Equals(Model.Origin, v) ? "selected" : null)">@v</option>
                         }
                     </select>
+                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Origin)</div>
                 </div>
 
                 <div>
                     <label>Nascimento</label>
                     <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date"
                            style="width:100%; padding:10px; border-radius:10px;" />
+                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.BirthDate)</div>
                 </div>
 
                 <div>
@@ -78,6 +78,7 @@
                             <option value="@v" selected="@(Model.MaritalStatus.HasValue && Equals(Model.MaritalStatus.Value, v) ? "selected" : null)">@v</option>
                         }
                     </select>
+                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.MaritalStatus)</div>
                 </div>
 
                 <div>
@@ -89,6 +90,7 @@
                             <option value="@v" selected="@(Model.CattleType.HasValue && Equals(Model.CattleType.Value, v) ? "selected" : null)">@v</option>
                         }
                     </select>
+                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.CattleType)</div>
                 </div>
             </div>
 
