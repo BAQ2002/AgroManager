@@ -301,13 +301,7 @@
     .age-header-select {
         display: inline-flex;
         align-items: center;
-        justify-content: flex-start;
-        gap: 6px;
         margin-left: 0;
-        padding: 0;
-        border-radius: 0;
-        background: transparent;
-        color: inherit;
     }
 
     .datagrid td:nth-child(4),
@@ -318,12 +312,13 @@
 
     .age-unit-select {
         position: relative;
-        display: inline-block;
+        display: inline-flex;
     }
 
     .age-unit-trigger {
-        width: 12px;
-        height: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
         border: 0;
         background: transparent;
         color: inherit;
@@ -333,25 +328,24 @@
         appearance: none;
         position: relative;
         text-align: left;
-        font-size: 0.78rem;
-        line-height: 1;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .age-unit-trigger-icon {
+        width: 8px;
+        height: 8px;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: translateY(-20%) rotate(45deg);
+        transition: transform 0.15s ease;
+        flex: 0 0 auto;
+    }
+
+    .age-unit-label {
         text-transform: uppercase;
         letter-spacing: 0.06em;
         font-weight: 600;
-    }
-
-    .age-unit-select::after {
-        content: "";
-        position: absolute;
-        right: 1px;
-        top: 50%;
-        width: 6px;
-        height: 6px;
-        border-right: 1.5px solid currentColor;
-        border-bottom: 1.5px solid currentColor;
-        transform: translateY(-70%) rotate(45deg);
-        pointer-events: none;
-        transition: transform 0.15s ease;
     }
 
     .age-unit-trigger:focus-visible {
@@ -359,8 +353,8 @@
         outline-offset: 2px;
     }
 
-    .age-unit-select.open::after {
-        transform: translateY(-30%) rotate(-135deg);
+    .age-unit-select.open .age-unit-trigger-icon {
+        transform: translateY(15%) rotate(-135deg);
     }
 
     .age-unit-menu {
@@ -553,12 +547,11 @@
                     <th>Nascimento</th>
                     <th>
                         <span class="age-header-select">
-                            <span>Idade</span>
-                            <span>(</span>
-                            <span id="ageUnitLabel">anos</span>
-                            <span>)</span>
                             <div class="age-unit-select" id="ageUnitSelect">
-                                <button type="button" class="age-unit-trigger" id="ageUnitTrigger" aria-expanded="false" aria-label="Selecionar unidade de idade"></button>
+                                <button type="button" class="age-unit-trigger" id="ageUnitTrigger" aria-expanded="false" aria-label="Selecionar unidade de idade">
+                                    <span class="age-unit-label">Idade (<span id="ageUnitLabel">anos</span>)</span>
+                                    <span class="age-unit-trigger-icon" aria-hidden="true"></span>
+                                </button>
                                 <div class="age-unit-menu" id="ageUnitMenu">
                                     <button type="button" class="age-unit-option active" data-unit="years">Anos</button>
                                     <button type="button" class="age-unit-option" data-unit="months">Meses</button>
@@ -586,12 +579,6 @@
 <script>
     let allBovines = [];
     let currentAgeUnit = "years";
-
-    function getAgeUnitLabel(unit) {
-        if (unit === "months") return "Meses";
-        if (unit === "days") return "Dias";
-        return "Anos";
-    }
 
     function toDate(value) {
         if (!value) return null;
@@ -736,8 +723,6 @@
         const trigger = document.getElementById("ageUnitTrigger");
         const options = Array.from(select.querySelectorAll(".age-unit-option"));
 
-        trigger.textContent = getAgeUnitLabel(currentAgeUnit);
-
         trigger.addEventListener("click", (event) => {
             event.stopPropagation();
             const isOpen = select.classList.contains("open");
@@ -750,7 +735,6 @@
                 currentAgeUnit = option.dataset.unit;
                 options.forEach(item => item.classList.remove("active"));
                 option.classList.add("active");
-                trigger.textContent = getAgeUnitLabel(currentAgeUnit);
                 select.classList.remove("open");
                 trigger.setAttribute("aria-expanded", "false");
                 updateAgeUnitLabel();
