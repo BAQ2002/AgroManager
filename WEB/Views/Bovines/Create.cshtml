@@ -35,8 +35,7 @@
     }
 
     .floating-field:focus-within .floating-field-label,
-    .floating-field.filled .floating-field-label,
-    .floating-field-input:not(:placeholder-shown) + .floating-field-label {
+    .floating-field.filled .floating-field-label {
         top: 0;
         transform: translateY(-50%);
         font-size: 12px;
@@ -65,7 +64,7 @@
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
                 <div>
                     <div class="floating-field">
-                        <input name="Name" value="@Model.Name" placeholder=" " class="floating-field-input" />
+                        <input name="Name" value="@Model.Name" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
                         <label class="floating-field-label">Nome</label>
                     </div>
                     <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Name)</div>
@@ -73,7 +72,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <select name="Gender" class="floating-field-input js-floating-select" data-empty-values="Unknown">
+                        <select name="Gender" class="floating-field-input js-floating-control" data-empty-values="Unknown">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
                             <option value="@v" selected="@(Equals(Model.Gender, v) ? "selected" : null)">@v</option>
@@ -86,7 +85,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <select name="Origin" class="floating-field-input js-floating-select" data-empty-values="Unknown">
+                        <select name="Origin" class="floating-field-input js-floating-control" data-empty-values="Unknown">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
                             <option value="@v" selected="@(Equals(Model.Origin, v) ? "selected" : null)">@v</option>
@@ -99,7 +98,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " class="floating-field-input" />
+                        <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
                         <label class="floating-field-label">Nascimento</label>
                     </div>
                     <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.BirthDate)</div>
@@ -107,7 +106,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <select name="MaritalStatus" class="floating-field-input js-floating-select" data-empty-values="Unknown">
+                        <select name="MaritalStatus" class="floating-field-input js-floating-control" data-empty-values=",Unknown">
                         <option value="">(vazio)</option>
                         @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
                         {
@@ -121,7 +120,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <select name="CattleType" class="floating-field-input js-floating-select" data-empty-values="Unknown">
+                        <select name="CattleType" class="floating-field-input js-floating-control" data-empty-values=",Unknown">
                         <option value="">(vazio)</option>
                         @foreach (var v in Enum.GetValues(typeof(CattleType)))
                         {
@@ -148,7 +147,7 @@
 </div>
 
 <script>
-    document.querySelectorAll(".js-floating-select").forEach((element) => {
+    document.querySelectorAll(".js-floating-control").forEach((element) => {
         const field = element.closest(".floating-field");
 
         const emptyValues = new Set(
@@ -166,6 +165,7 @@
         };
 
         element.addEventListener("change", syncFilledState);
+        element.addEventListener("input", syncFilledState);
         syncFilledState();
     });
 </script>
