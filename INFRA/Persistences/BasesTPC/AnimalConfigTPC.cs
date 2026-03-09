@@ -19,6 +19,7 @@ namespace INFRA.Persistences
             entityBuilder.Property(x => x.BirthDate).HasColumnType("date"); //DateOnly
             entityBuilder.Property(x => x.PurchaseDate).HasColumnType("date"); //DateOnly
             entityBuilder.Property(x => x.DeathDate).HasColumnType("date"); //DateOnly
+            entityBuilder.Property(x => x.PhotoKey).HasMaxLength(512);
 
             #endregion-------------------------------------------------------      
         }

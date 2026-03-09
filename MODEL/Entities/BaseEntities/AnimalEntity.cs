@@ -12,6 +12,8 @@ namespace MODEL
         private DateOnly? _birthDate = null;
         private DateOnly? _purchaseDate = null;
         private DateOnly? _deathDate = null;
+        private string? _photoKey = null; // Chave lógica do objeto no storage (bucket/key)
+
         #endregion
 
         #region Public Propeties --------------------------------------
@@ -49,6 +51,12 @@ namespace MODEL
         {
             get => _deathDate;
             set { _deathDate = value; }
+        }
+
+        public string? PhotoKey
+        {
+            get => _photoKey;
+            set { _photoKey = string.IsNullOrWhiteSpace(value) ? null : value.Trim(); }
         }
 
         #endregion
