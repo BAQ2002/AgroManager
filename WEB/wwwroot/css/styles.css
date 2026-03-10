@@ -347,3 +347,65 @@ body {
             padding: 8px 10px;
         }
 }
+
+/* Shared action/form utilities */
+
+.am-link-plain {
+    text-decoration: none;
+}
+
+.am-inline-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.am-inline-actions-spaced {
+    margin: 0 0 16px;
+}
+
+.am-panel-body {
+    padding: 16px;
+}
+
+.am-form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.am-form-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.am-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.am-error-text {
+    color: #fca5a5;
+}
+
+.am-form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.am-button-action {
+    cursor: pointer;
+}
+
+@media (max-width: 860px) {
+    .am-form-columns {
+        grid-template-columns: 1fr;
+    }
+}
