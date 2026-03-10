@@ -4,10 +4,6 @@
     ViewData["Title"] = "Novo Bovine";
 }
 
-<link rel="stylesheet" href="~/css/styles.css" />
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-<link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
 
 <style>
     .floating-field {
@@ -44,7 +40,6 @@
 </style>
 
 
-@await Html.PartialAsync("_Topbar")
 
 <div class="am-page-shell">
     <div class="page">
@@ -54,20 +49,20 @@
             <p class="page-subtitle">Cadastro de um bovino no banco de dados.</p>
         </div>
 
-        <a class="badge" href="/bovines" style="text-decoration:none;">← Voltar</a>
+        <a class="badge am-link-plain" href="/bovines">← Voltar</a>
     </header>
 
-    <section class="datagrid-wrapper" style="padding: 16px;">
-        <form method="post" action="/bovines/create" style="display:flex; flex-direction:column; gap:12px;">
+    <section class="datagrid-wrapper am-panel-body">
+        <form method="post" action="/bovines/create" class="am-form-grid">
             @Html.AntiForgeryToken()
 
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+            <div class="am-form-columns">
                 <div>
                     <div class="floating-field">
                         <input name="Name" value="@Model.Name" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
                         <label class="floating-field-label">Nome</label>
                     </div>
-                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Name)</div>
+                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Name)</div>
                 </div>
 
                 <div>
@@ -80,7 +75,7 @@
                         </select>
                         <label class="floating-field-label">Sexo</label>
                     </div>
-                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Gender)</div>
+                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Gender)</div>
                 </div>
 
                 <div>
@@ -93,7 +88,7 @@
                         </select>
                         <label class="floating-field-label">Origem</label>
                     </div>
-                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Origin)</div>
+                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Origin)</div>
                 </div>
 
                 <div>
@@ -101,7 +96,7 @@
                         <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
                         <label class="floating-field-label">Nascimento</label>
                     </div>
-                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.BirthDate)</div>
+                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.BirthDate)</div>
                 </div>
 
                 <div>
@@ -115,7 +110,7 @@
                         </select>
                         <label class="floating-field-label">Estado civil</label>
                     </div>
-                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.MaritalStatus)</div>
+                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.MaritalStatus)</div>
                 </div>
 
                 <div>
@@ -129,13 +124,13 @@
                         </select>
                         <label class="floating-field-label">Tipo de gado</label>
                     </div>
-                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.CattleType)</div>
+                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.CattleType)</div>
                 </div>
             </div>
 
-            <div style="display:flex; gap:10px; justify-content:flex-end; margin-top: 8px;">
-                <a class="badge" href="/bovines" style="text-decoration:none;">Cancelar</a>
-                <button type="submit" class="badge" style="cursor:pointer;">Salvar</button>
+            <div class="am-form-actions">
+                <a class="badge am-link-plain" href="/bovines">Cancelar</a>
+                <button type="submit" class="badge am-button-action">Salvar</button>
             </div>
         </form>
     </section>
@@ -146,6 +141,7 @@
     </footer>
 </div>
 
+@section Scripts {
 <script>
     document.querySelectorAll(".js-floating-control").forEach((element) => {
         const field = element.closest(".floating-field");
@@ -169,4 +165,5 @@
         syncFilledState();
     });
 </script>
+}
 </div>

@@ -1,14 +1,9 @@
 ﻿﻿@{
 ViewData["Title"] = "Swines";
 }
-<link rel="stylesheet" href="~/css/styles.css" />
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-<link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
 
 
 <div class="am-page-shell">
-    @await Html.PartialAsync("_Topbar")
 
     <div class="page">
     <header class="page-header">
@@ -17,8 +12,8 @@ ViewData["Title"] = "Swines";
             <p class="page-subtitle">Lista de suínos cadastrados no AgroManager.</p>
         </div>
 
-        <div style="display:flex; gap:10px; align-items:center;">
-            <a class="badge" href="/swines/create" style="text-decoration:none;">+ Novo Swine</a>
+        <div class="am-inline-actions">
+            <a class="badge am-link-plain" href="/swines/create">+ Novo Swine</a>
             <span class="badge">AgroManager • Web</span>
         </div>
     </header>
@@ -46,6 +41,7 @@ ViewData["Title"] = "Swines";
 </div>
 </div>
 
+@section Scripts {
 <script>
     async function load() {
         const res = await fetch("/api/swines");
@@ -67,4 +63,4 @@ ViewData["Title"] = "Swines";
 
     load();
 </script>
-
+}
