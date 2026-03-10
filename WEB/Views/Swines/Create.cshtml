@@ -3,15 +3,10 @@
 @{
     ViewData["Title"] = "Novo Swine";
 }
-<link rel="stylesheet" href="~/css/styles.css" />
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-<link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
 
 
 
 <div class="am-page-shell">
-    @await Html.PartialAsync("_Topbar")
 
     <div class="page">
     <header class="page-header">
@@ -20,32 +15,32 @@
             <p class="page-subtitle">Cadastro de um suíno no banco de dados.</p>
         </div>
 
-        <a class="badge" href="/swines" style="text-decoration:none;">← Voltar</a>
+        <a class="badge am-link-plain" href="/swines">← Voltar</a>
     </header>
 
-    <section class="datagrid-wrapper" style="padding: 16px;">
-        <form method="post" action="/swines/create" style="display:flex; flex-direction:column; gap:12px;">
+    <section class="datagrid-wrapper am-panel-body">
+        <form method="post" action="/swines/create" class="am-form-grid">
             @Html.AntiForgeryToken()
 
-            <div style="color:#fca5a5;">
+            <div class="am-error-text">
                 @Html.ValidationSummary(false)
             </div>
 
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+            <div class="am-form-columns">
                 <div>
                     <label>Nome</label>
-                    <input name="Name" value="@Model.Name" style="width:100%; padding:10px; border-radius:10px;" />
-                    <div style="color:#fca5a5;">@Html.ValidationMessageFor(m => m.Name)</div>
+                    <input name="Name" value="@Model.Name" class="am-input" />
+                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Name)</div>
                 </div>
 
                 <div>
                     <label>Idade</label>
-                    <input name="Age" value="@Model.Age" type="number" style="width:100%; padding:10px; border-radius:10px;" />
+                    <input name="Age" value="@Model.Age" type="number" class="am-input" />
                 </div>
 
                 <div>
                     <label>Sexo</label>
-                    <select name="Gender" style="width:100%; padding:10px; border-radius:10px;">
+                    <select name="Gender" class="am-input">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
                             <option value="@v" selected="@(Equals(Model.Gender, v) ? "selected" : null)">@v</option>
@@ -55,7 +50,7 @@
 
                 <div>
                     <label>Origem</label>
-                    <select name="Origin" style="width:100%; padding:10px; border-radius:10px;">
+                    <select name="Origin" class="am-input">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
                             <option value="@v" selected="@(Equals(Model.Origin, v) ? "selected" : null)">@v</option>
@@ -66,12 +61,12 @@
                 <div>
                     <label>Nascimento</label>
                     <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date"
-                           style="width:100%; padding:10px; border-radius:10px;" />
+                           class="am-input" />
                 </div>
 
                 <div>
                     <label>Tipo (PorcType)</label>
-                    <select name="PorcType" style="width:100%; padding:10px; border-radius:10px;">
+                    <select name="PorcType" class="am-input">
                         <option value="">(vazio)</option>
                         @foreach (var v in Enum.GetValues(typeof(PorcType)))
                         {
@@ -81,9 +76,9 @@
                 </div>
             </div>
 
-            <div style="display:flex; gap:10px; justify-content:flex-end; margin-top: 8px;">
-                <a class="badge" href="/swines" style="text-decoration:none;">Cancelar</a>
-                <button type="submit" class="badge" style="cursor:pointer;">Salvar</button>
+            <div class="am-form-actions">
+                <a class="badge am-link-plain" href="/swines">Cancelar</a>
+                <button type="submit" class="badge am-button-action">Salvar</button>
             </div>
         </form>
     </section>

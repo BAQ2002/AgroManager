@@ -1,10 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Bovines";
 }
-<link rel="stylesheet" href="~/css/styles.css" />
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-<link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
 
 <style>
     body {
@@ -443,7 +439,6 @@
     }
 </style>
 
-@await Html.PartialAsync("_Topbar")
 
 <div class="am-page-shell">
     <div class="page">
@@ -557,9 +552,9 @@
         </div>
     </section>
 
-    <div style="display:flex; gap:10px; align-items:center; margin: 0 0 16px;">
-        <a class="badge" href="/" style="text-decoration:none;">← Voltar ao início</a>
-        <a class="badge" href="/bovines/create" style="text-decoration:none;">+ Novo Bovine</a>
+    <div class="am-inline-actions am-inline-actions-spaced">
+        <a class="badge am-link-plain" href="/">← Voltar ao início</a>
+        <a class="badge am-link-plain" href="/bovines/create">+ Novo Bovine</a>
     </div>
 
     <section class="datagrid-wrapper">
@@ -601,6 +596,7 @@
 </div>
 </div>
 
+@section Scripts {
 <script>
     let allBovines = [];
     let currentAgeUnit = "years";
@@ -651,7 +647,7 @@
             <td>${formatAgeByUnit(x)}</td>
             <td>${x.maritalStatus ?? ""}</td>
             <td>${x.cattleType ?? ""}</td>
-            <td><a class="badge" href="/bovines/edit/${x.id}" style="text-decoration:none;">Editar</a></td>
+            <td><a class="badge am-link-plain" href="/bovines/edit/${x.id}">Editar</a></td>
           </tr>
         `).join("");
 
@@ -857,3 +853,4 @@
     wireFilters();
     load();
 </script>
+}
