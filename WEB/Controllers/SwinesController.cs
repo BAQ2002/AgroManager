@@ -43,10 +43,7 @@ public sealed class SwinesController : Controller
                 Gender = s.Gender.ToString(),     // Enum -> string (facilita exibição na tabela).
                 Origin = s.Origin.ToString(),     // Enum -> string (facilita exibição na tabela).
                 s.BirthDate,                      // Data de nascimento.
-                s.Age,                            // Idade (se existir/calculada no modelo).
-                AgeInDays = s.GetAge(AgeUnit.Days),
-                AgeInMonths = s.GetAge(AgeUnit.Months),
-                AgeInYears = s.GetAge(AgeUnit.Years),
+                s.Age,                            // Idade (se existir/calculada no modelo).         
                 PorcType = s.PorcType.HasValue
                     ? s.PorcType.Value.ToString()
                     : ""                          // Se nulo, retorna string vazia (evita "null" no front).
