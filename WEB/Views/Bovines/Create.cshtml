@@ -5,39 +5,11 @@
 }
 
 
-<style>
-    .floating-field {
-        position: relative;
-    }
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/bovines/create.css" asp-append-version="true" />
+}
 
-    .floating-field-input {
-        width: 100%;
-        padding: 16px 10px 10px;
-        border-radius: 10px;
-        border: 1px solid #d1d5db;
-        background: transparent;
-    }
 
-    .floating-field-label {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #fff;
-        padding: 0 4px;
-        color: #6b7280;
-        transition: all 0.2s ease;
-        pointer-events: none;
-    }
-
-    .floating-field:focus-within .floating-field-label,
-    .floating-field.filled .floating-field-label {
-        top: 0;
-        transform: translateY(-50%);
-        font-size: 12px;
-        color: #374151;
-    }
-</style>
 
 
 
