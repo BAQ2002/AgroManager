@@ -1,7 +1,14 @@
+wwwroot\css\components\filters-panel.css
+wwwroot\css\components\topbar.css
+wwwroot\css\pages\bovines\create.css
+wwwroot\css\pages\bovines\index.css
+wwwroot\css\pages\shared\index.css
 wwwroot\css\site.css
 wwwroot\css\styles.css
-wwwroot\css\topbar.css
 wwwroot\favicon.ico
+wwwroot\js\pages\bovines\create.js
+wwwroot\js\pages\bovines\index.js
+wwwroot\js\pages\swines\index.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
