@@ -1,110 +1,110 @@
 :root {
-        --bg-start: #030712;
-        --bg-end: #020617;
-        --panel: rgba(15, 23, 42, 0.78);
-        --panel-border: rgba(148, 163, 184, 0.22);
-        --text-primary: #e2e8f0;
-        --text-muted: #94a3b8;
-        --accent: #22c55e;
-        --accent-soft: rgba(34, 197, 94, 0.18);
+        --bg-start: #030712; /* --bg-start: valor "#030712". define uma cor. */
+        --bg-end: #020617; /* --bg-end: valor "#020617". define uma cor. */
+        --panel: rgba(15, 23, 42, 0.78); /* --panel: valor "rgba(15, 23, 42, 0.78)". define uma cor. */
+        --panel-border: rgba(148, 163, 184, 0.22); /* --panel-border: valor "rgba(148, 163, 184, 0.22)". define uma cor. */
+        --text-primary: #e2e8f0; /* --text-primary: valor "#e2e8f0". define uma cor. */
+        --text-muted: #94a3b8; /* --text-muted: valor "#94a3b8". define uma cor. */
+        --accent: #22c55e; /* --accent: valor "#22c55e". define uma cor. */
+        --accent-soft: rgba(34, 197, 94, 0.18); /* --accent-soft: valor "rgba(34, 197, 94, 0.18)". define uma cor. */
     }
 
     body {
-        min-height: 100vh;
-        margin: 0;
-        background: radial-gradient(circle at 20% 0%, #0b1225, var(--bg-start) 40%, var(--bg-end) 100%);
-        color: var(--text-primary);
-        font-family: "Inter", "Segoe UI", sans-serif;
+        min-height: 100vh; /* min-height: valor "100vh". unidades: 100vh: 1% da altura da viewport. */
+        margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
+        background: radial-gradient(circle at 20% 0%, #0b1225, var(--bg-start) 40%, var(--bg-end) 100%); /* background: valor "radial-gradient(circle at 20% 0%, #0b1225, var(--bg-start) 40%, var(--bg-end) 100%)". define um gradiente como fundo. */
+        color: var(--text-primary); /* color: valor "var(--text-primary)". */
+        font-family: "Inter", "Segoe UI", sans-serif; /* font-family: valor ""Inter", "Segoe UI", sans-serif". */
     }
 
     .home-shell {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
+        min-height: 100vh; /* min-height: valor "100vh". unidades: 100vh: 1% da altura da viewport. */
+        display: flex; /* display: valor "flex". define o modo de layout/exibição. */
+        flex-direction: column; /* flex-direction: valor "column". */
     }
 
 
     .hero {
-        width: min(1100px, 92vw);
-        margin: 3.5rem auto;
+        width: min(1100px, 92vw); /* width: valor "min(1100px, 92vw)". valor responsivo calculado por função matemática. unidades: 1100px: pixels da CSS (unidade fixa na tela); 92vw: 1% da largura da viewport. */
+        margin: 3.5rem auto; /* margin: valor "3.5rem auto". unidades: 3.5rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
     .hero h1 {
-        font-size: clamp(2rem, 4vw, 3rem);
-        margin-bottom: 0.6rem;
-        font-weight: 700;
+        font-size: clamp(2rem, 4vw, 3rem); /* font-size: valor "clamp(2rem, 4vw, 3rem)". valor fluido limitado por mínimo e máximo com clamp(). unidades: 2rem: unidade relativa ao font-size do elemento raiz (html); 4vw: 1% da largura da viewport; 3rem: unidade relativa ao font-size do elemento raiz (html). */
+        margin-bottom: 0.6rem; /* margin-bottom: valor "0.6rem". unidades: 0.6rem: unidade relativa ao font-size do elemento raiz (html). */
+        font-weight: 700; /* font-weight: valor "700". */
     }
 
     .hero p {
-        color: var(--text-muted);
-        max-width: 60ch;
-        margin-bottom: 2rem;
+        color: var(--text-muted); /* color: valor "var(--text-muted)". */
+        max-width: 60ch; /* max-width: valor "60ch". unidades: 60ch: largura do caractere "0" da fonte atual. */
+        margin-bottom: 2rem; /* margin-bottom: valor "2rem". unidades: 2rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
     .cards-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
+        display: grid; /* display: valor "grid". define o modo de layout/exibição. */
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(3, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
+        gap: 1rem; /* gap: valor "1rem". unidades: 1rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
     .feature-card {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-        background: var(--panel);
-        border: 1px solid var(--panel-border);
-        border-radius: 16px;
-        padding: 1.2rem;
-        transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-        min-height: 180px;
+        display: block; /* display: valor "block". define o modo de layout/exibição. */
+        text-decoration: none; /* text-decoration: valor "none". valor neutro/ausente para essa propriedade. */
+        color: inherit; /* color: valor "inherit". usa o valor global "inherit" da cascata. */
+        background: var(--panel); /* background: valor "var(--panel)". */
+        border: 1px solid var(--panel-border); /* border: valor "1px solid var(--panel-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+        border-radius: 16px; /* border-radius: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+        padding: 1.2rem; /* padding: valor "1.2rem". unidades: 1.2rem: unidade relativa ao font-size do elemento raiz (html). */
+        transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; /* transition: valor "transform .2s ease, border-color .2s ease, box-shadow .2s ease". unidades: .2s: segundos (tempo de animação/transição). */
+        min-height: 180px; /* min-height: valor "180px". unidades: 180px: pixels da CSS (unidade fixa na tela). */
     }
 
     .feature-card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(34, 197, 94, 0.75);
-        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+        transform: translateY(-3px); /* transform: valor "translateY(-3px)". unidades: -3px: pixels da CSS (unidade fixa na tela). */
+        border-color: rgba(34, 197, 94, 0.75); /* border-color: valor "rgba(34, 197, 94, 0.75)". define uma cor. */
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35); /* box-shadow: valor "0 14px 35px rgba(0, 0, 0, 0.35)". unidades: 14px: pixels da CSS (unidade fixa na tela); 35px: pixels da CSS (unidade fixa na tela). */
     }
 
     .feature-icon {
-        width: 2.2rem;
-        height: 2.2rem;
-        border-radius: 10px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--accent-soft);
-        color: #86efac;
-        margin-bottom: 0.9rem;
+        width: 2.2rem; /* width: valor "2.2rem". unidades: 2.2rem: unidade relativa ao font-size do elemento raiz (html). */
+        height: 2.2rem; /* height: valor "2.2rem". unidades: 2.2rem: unidade relativa ao font-size do elemento raiz (html). */
+        border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+        display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
+        align-items: center; /* align-items: valor "center". */
+        justify-content: center; /* justify-content: valor "center". */
+        background: var(--accent-soft); /* background: valor "var(--accent-soft)". */
+        color: #86efac; /* color: valor "#86efac". define uma cor. */
+        margin-bottom: 0.9rem; /* margin-bottom: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
     .feature-card h2 {
-        font-size: 1.15rem;
-        font-weight: 600;
-        margin-bottom: .45rem;
+        font-size: 1.15rem; /* font-size: valor "1.15rem". unidades: 1.15rem: unidade relativa ao font-size do elemento raiz (html). */
+        font-weight: 600; /* font-weight: valor "600". */
+        margin-bottom: .45rem; /* margin-bottom: valor ".45rem". unidades: .45rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
     .feature-card p {
-        margin: 0;
-        color: var(--text-muted);
-        font-size: .94rem;
+        margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
+        color: var(--text-muted); /* color: valor "var(--text-muted)". */
+        font-size: .94rem; /* font-size: valor ".94rem". unidades: .94rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
     .tag {
-        display: inline-flex;
-        gap: .4rem;
-        align-items: center;
-        margin-top: .85rem;
-        color: #86efac;
-        font-size: .86rem;
-        font-weight: 500;
+        display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
+        gap: .4rem; /* gap: valor ".4rem". unidades: .4rem: unidade relativa ao font-size do elemento raiz (html). */
+        align-items: center; /* align-items: valor "center". */
+        margin-top: .85rem; /* margin-top: valor ".85rem". unidades: .85rem: unidade relativa ao font-size do elemento raiz (html). */
+        color: #86efac; /* color: valor "#86efac". define uma cor. */
+        font-size: .86rem; /* font-size: valor ".86rem". unidades: .86rem: unidade relativa ao font-size do elemento raiz (html). */
+        font-weight: 500; /* font-weight: valor "500". */
     }
 
     @media (max-width: 960px) {
         .cards-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
         }
 
         .hero {
-            margin-top: 2.2rem;
+            margin-top: 2.2rem; /* margin-top: valor "2.2rem". unidades: 2.2rem: unidade relativa ao font-size do elemento raiz (html). */
         }
     }
