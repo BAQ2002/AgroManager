@@ -1,0 +1,2815 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 1975 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(Guia de Atributos CSS do Projeto AgroManager) Tj
+T*
+() Tj
+T*
+(Este documento lista os seletores e explica cada atributo style encontrado nos arquivos CSS do) Tj
+T*
+(    projeto \(exceto bibliotecas de terceiros em /lib\).) Tj
+T*
+() Tj
+T*
+(Arquivo: WEB/Shared/_Layout.cshtml.css) Tj
+T*
+(Seletor: a.navbar-brand) Tj
+T*
+(  - white-space: normal) Tj
+T*
+(    -> Controla quebra e colapso de espaos em branco.) Tj
+T*
+(  - text-align: center) Tj
+T*
+(    -> Define alinhamento horizontal do texto.) Tj
+T*
+(  - word-break: break-all) Tj
+T*
+(    -> Controla quebra de palavras longas.) Tj
+T*
+() Tj
+T*
+(Seletor: a) Tj
+T*
+(  - color: #0077cc) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .btn-primary) Tj
+T*
+(  - color: #fff) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - background-color: #1b6ec2) Tj
+T*
+(    -> Define apenas a cor de fundo do elemento.) Tj
+T*
+(  - border-color: #1861ac) Tj
+T*
+(    -> Define a cor das bordas.) Tj
+T*
+() Tj
+T*
+(Seletor: .nav-pills .nav-link.active, .nav-pills .show > .nav-link) Tj
+T*
+(  - color: #fff) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - background-color: #1b6ec2) Tj
+T*
+(    -> Define apenas a cor de fundo do elemento.) Tj
+T*
+(  - border-color: #1861ac) Tj
+T*
+(    -> Define a cor das bordas.) Tj
+T*
+() Tj
+T*
+(Seletor: .border-top) Tj
+T*
+(  - border-top: 1px solid #e5e5e5) Tj
+T*
+(    -> Define a borda superior do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .border-bottom) Tj
+T*
+(  - border-bottom: 1px solid #e5e5e5) Tj
+T*
+(    -> Define a borda inferior do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .box-shadow) Tj
+T*
+(  - box-shadow: 0 .25rem .75rem rgba\(0, 0, 0, .05\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: button.accept-policy) Tj
+T*
+(  - font-size: 1rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - line-height: inherit) Tj
+T*
+(    -> Define a altura da linha de texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .footer) Tj
+T*
+(  - position: absolute) Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Length 2424 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - bottom: 0) Tj
+T*
+(    -> Posiciona o elemento em relao  base do container de referncia.) Tj
+T*
+(  - width: 100%) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - white-space: nowrap) Tj
+T*
+(    -> Controla quebra e colapso de espaos em branco.) Tj
+T*
+(  - line-height: 60px) Tj
+T*
+(    -> Define a altura da linha de texto.) Tj
+T*
+() Tj
+T*
+(Arquivo: WEB/wwwroot/css/components/filters-panel.css) Tj
+T*
+(Seletor: .filters-panel) Tj
+T*
+(  - margin: 8px 0 16px) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - border-radius: 18px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - border: 1px solid rgba\(148, 163, 184, 0.24\)) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - background: linear-gradient\(145deg, rgba\(3, 9, 26, 0.96\), rgba\(1, 5, 18, 0.98\)\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - padding: 16px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - box-shadow: 0 14px 28px rgba\(1, 5, 20, 0.4\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-head) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - justify-content: flex-start) Tj
+T*
+(    -> Alinha/distribui itens no eixo principal em flex/grid.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - gap: 12px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+(  - margin-bottom: 14px) Tj
+T*
+(    -> Define a margem inferior.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-head h2) Tj
+T*
+(  - margin: 0) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - font-size: 1rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - font-weight: 600) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+(  - color: #f8fafc) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-title-group) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - gap: 10px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+ET
+endstream
+endobj
+4 0 obj
+<< /Length 2187 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+() Tj
+T*
+(Seletor: .filters-clear-action) Tj
+T*
+(  - cursor: pointer) Tj
+T*
+(    -> Define o tipo de cursor exibido ao passar o mouse.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-actions) Tj
+T*
+(  - margin-top: 14px) Tj
+T*
+(    -> Define a margem superior.) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - justify-content: flex-end) Tj
+T*
+(    -> Alinha/distribui itens no eixo principal em flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-grid) Tj
+T*
+(  - display: grid) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)) Tj
+T*
+(    -> Define as colunas de um grid.) Tj
+T*
+(  - gap: 14px 12px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .filter-range-group) Tj
+T*
+(  - grid-column: span 3) Tj
+T*
+(    -> Define um aspecto visual/comportamental especfico do elemento.) Tj
+T*
+(  - display: grid) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)) Tj
+T*
+(    -> Define as colunas de um grid.) Tj
+T*
+(  - gap: 12px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .filter-field) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - flex-direction: column) Tj
+T*
+(    -> Define a direo principal dos itens em container flex.) Tj
+T*
+(  - gap: 6px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+(  - font-size: 0.8rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - color: #cbd5e1) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .filter-label) Tj
+T*
+(  - display: block) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - font-size: 0.95rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - font-weight: 500) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+(  - line-height: 1.2) Tj
+T*
+(    -> Define a altura da linha de texto.) Tj
+T*
+(  - color: #f8fafc) Tj
+T*
+(    -> Define a cor do texto.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Length 2367 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+() Tj
+T*
+(Seletor: .filter-field input,
+.enum-select-trigger) Tj
+T*
+(  - width: 100%) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - height: 42px) Tj
+T*
+(    -> Define a altura do elemento.) Tj
+T*
+(  - border: 1px solid rgba\(148, 163, 184, 0.8\)) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - background: #f8fafc) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - color: #020617) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - border-radius: 10px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - padding: 0 12px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - font-size: 0.95rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+() Tj
+T*
+(Seletor: .filter-field input::placeholder) Tj
+T*
+(  - color: #64748b) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .filter-field input:focus,
+.enum-select-trigger:focus) Tj
+T*
+(  - outline: none) Tj
+T*
+(    -> Desenha contorno externo ao elemento \(no ocupa espao\).) Tj
+T*
+(  - border-color: rgba\(45, 212, 191, 0.95\)) Tj
+T*
+(    -> Define a cor das bordas.) Tj
+T*
+(  - box-shadow: 0 0 0 3px rgba\(45, 212, 191, 0.24\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .enum-select) Tj
+T*
+(  - position: relative) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+() Tj
+T*
+(Seletor: .enum-select-trigger) Tj
+T*
+(  - cursor: pointer) Tj
+T*
+(    -> Define o tipo de cursor exibido ao passar o mouse.) Tj
+T*
+(  - text-align: left) Tj
+T*
+(    -> Define alinhamento horizontal do texto.) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - transition: border-color 0.15s ease, box-shadow 0.15s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+(  - padding-right: 34px) Tj
+T*
+(    -> Define espaamento interno  direita.) Tj
+T*
+(  - appearance: none) Tj
+T*
+(    -> Controla a aparncia nativa de controles de formulrio.) Tj
+T*
+(  - position: relative) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+() Tj
+T*
+(Seletor: .enum-select::after) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Length 2659 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(  - content: "") Tj
+T*
+(    -> Define contedo gerado em pseudo-elementos \(::before/::after\).) Tj
+T*
+(  - position: absolute) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - right: 12px) Tj
+T*
+(    -> Define um aspecto visual/comportamental especfico do elemento.) Tj
+T*
+(  - top: 50%) Tj
+T*
+(    -> Posiciona o elemento em relao ao topo do container.) Tj
+T*
+(  - width: 8px) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - height: 8px) Tj
+T*
+(    -> Define a altura do elemento.) Tj
+T*
+(  - border-right: 2px solid #334155) Tj
+T*
+(    -> Define a borda direita do elemento.) Tj
+T*
+(  - border-bottom: 2px solid #334155) Tj
+T*
+(    -> Define a borda inferior do elemento.) Tj
+T*
+(  - transform: translateY\(-70%\) rotate\(45deg\)) Tj
+T*
+(    -> Aplica transformaes geomtricas \(translao, rotao, escala\).) Tj
+T*
+(  - pointer-events: none) Tj
+T*
+(    -> Controla se o elemento responde a eventos de ponteiro.) Tj
+T*
+(  - transition: transform 0.15s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+() Tj
+T*
+(Seletor: .enum-select.open::after) Tj
+T*
+(  - transform: translateY\(-30%\) rotate\(-135deg\)) Tj
+T*
+(    -> Aplica transformaes geomtricas \(translao, rotao, escala\).) Tj
+T*
+() Tj
+T*
+(Seletor: .enum-select-menu) Tj
+T*
+(  - display: none) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - position: absolute) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - z-index: 12) Tj
+T*
+(    -> Define ordem de empilhamento de elementos posicionados.) Tj
+T*
+(  - top: calc\(100% + 6px\)) Tj
+T*
+(    -> Posiciona o elemento em relao ao topo do container.) Tj
+T*
+(  - left: 0) Tj
+T*
+(    -> Posiciona o elemento em relao  esquerda do container.) Tj
+T*
+(  - right: 0) Tj
+T*
+(    -> Define um aspecto visual/comportamental especfico do elemento.) Tj
+T*
+(  - border: 1px solid rgba\(148, 163, 184, 0.7\)) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - border-radius: 10px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - background: #f8fafc) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - box-shadow: 0 10px 22px rgba\(2, 6, 23, 0.28\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+(  - padding: 8px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - max-height: 190px) Tj
+T*
+(    -> Define altura mxima do elemento.) Tj
+T*
+(  - overflow-y: auto) Tj
+T*
+(    -> Define um aspecto visual/comportamental especfico do elemento.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Length 2314 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+() Tj
+T*
+(Seletor: .enum-select.open .enum-select-trigger) Tj
+T*
+(  - border-color: rgba\(45, 212, 191, 0.95\)) Tj
+T*
+(    -> Define a cor das bordas.) Tj
+T*
+(  - box-shadow: 0 0 0 3px rgba\(45, 212, 191, 0.24\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .enum-select.open .enum-select-menu) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - flex-direction: column) Tj
+T*
+(    -> Define a direo principal dos itens em container flex.) Tj
+T*
+(  - gap: 4px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .enum-select-menu label) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - gap: 6px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - font-size: 0.78rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - line-height: 1.1) Tj
+T*
+(    -> Define a altura da linha de texto.) Tj
+T*
+(  - text-transform: uppercase) Tj
+T*
+(    -> Transforma o texto \(maisculas/minsculas\).) Tj
+T*
+(  - letter-spacing: 0.06em) Tj
+T*
+(    -> Define o espaamento entre caracteres.) Tj
+T*
+(  - font-weight: 600) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+(  - color: #0f172a) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - padding: 4px 6px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - border-radius: 8px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - transition: background-color 0.15s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+() Tj
+T*
+(Seletor: .enum-select-menu label input[type="checkbox"]) Tj
+T*
+(  - margin: 0) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - width: 14px) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - height: 14px) Tj
+T*
+(    -> Define a altura do elemento.) Tj
+T*
+(  - flex: 0 0 auto) Tj
+T*
+(    -> Atalho para crescimento, encolhimento e base de itens flex.) Tj
+T*
+() Tj
+T*
+(Seletor: .enum-select-menu label:hover) Tj
+T*
+(  - background: #e2e8f0) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+ET
+endstream
+endobj
+8 0 obj
+<< /Length 2448 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+() Tj
+T*
+(Arquivo: WEB/wwwroot/css/components/topbar.css) Tj
+T*
+(Seletor: .am-page-shell) Tj
+T*
+(  - width: 100%) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - max-width: 1000px) Tj
+T*
+(    -> Define largura mxima do elemento.) Tj
+T*
+(  - margin: 0 auto) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - flex-direction: column) Tj
+T*
+(    -> Define a direo principal dos itens em container flex.) Tj
+T*
+(  - gap: 16px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-topbar) Tj
+T*
+(  - position: sticky) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - top: 0) Tj
+T*
+(    -> Posiciona o elemento em relao ao topo do container.) Tj
+T*
+(  - z-index: 10) Tj
+T*
+(    -> Define ordem de empilhamento de elementos posicionados.) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - justify-content: space-between) Tj
+T*
+(    -> Alinha/distribui itens no eixo principal em flex/grid.) Tj
+T*
+(  - width: 100vw) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - margin-left: calc\(50% - 50vw\)) Tj
+T*
+(    -> Define a margem esquerda.) Tj
+T*
+(  - margin-right: calc\(50% - 50vw\)) Tj
+T*
+(    -> Define um aspecto visual/comportamental especfico do elemento.) Tj
+T*
+(  - box-sizing: border-box) Tj
+T*
+(    -> Define como largura/altura consideram padding e border.) Tj
+T*
+(  - padding: 0.9rem 1.4rem) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - backdrop-filter: blur\(16px\)) Tj
+T*
+(    -> Define um aspecto visual/comportamental especfico do elemento.) Tj
+T*
+(  - background: rgba\(2, 6, 23, 0.7\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - border-bottom: 1px solid rgba\(148, 163, 184, 0.22\)) Tj
+T*
+(    -> Define a borda inferior do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-topbar-brand) Tj
+T*
+(  - font-weight: 700) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+(  - letter-spacing: 0.02em) Tj
+T*
+(    -> Define o espaamento entre caracteres.) Tj
+T*
+(  - color: #f8fafc) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - text-decoration: none) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Length 2452 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(    -> Define decorao do texto \(sublinhado etc.\).) Tj
+T*
+() Tj
+T*
+(Seletor: .am-profile-trigger) Tj
+T*
+(  - border: 1px solid rgba\(148, 163, 184, 0.22\)) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - background: rgba\(15, 23, 42, 0.78\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - color: #e2e8f0) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-profile-trigger:hover,
+.am-profile-trigger:focus) Tj
+T*
+(  - background: rgba\(30, 41, 59, 0.9\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - color: #fff) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Arquivo: WEB/wwwroot/css/pages/bovines/create.css) Tj
+T*
+(Seletor: .floating-field) Tj
+T*
+(  - position: relative) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+() Tj
+T*
+(Seletor: .floating-field-input) Tj
+T*
+(  - width: 100%) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - padding: 16px 10px 10px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - border-radius: 10px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - border: 1px solid #d1d5db) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - background: transparent) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+() Tj
+T*
+(Seletor: .floating-field-label) Tj
+T*
+(  - position: absolute) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - left: 10px) Tj
+T*
+(    -> Posiciona o elemento em relao  esquerda do container.) Tj
+T*
+(  - top: 50%) Tj
+T*
+(    -> Posiciona o elemento em relao ao topo do container.) Tj
+T*
+(  - transform: translateY\(-50%\)) Tj
+T*
+(    -> Aplica transformaes geomtricas \(translao, rotao, escala\).) Tj
+T*
+(  - background: #fff) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - padding: 0 4px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - color: #6b7280) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - transition: all 0.2s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+(  - pointer-events: none) Tj
+T*
+(    -> Controla se o elemento responde a eventos de ponteiro.) Tj
+T*
+() Tj
+T*
+(Seletor: .floating-field:focus-within .floating-field-label,
+    .floating-field.filled) Tj
+ET
+endstream
+endobj
+10 0 obj
+<< /Length 2111 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(    .floating-field-label) Tj
+T*
+(  - top: 0) Tj
+T*
+(    -> Posiciona o elemento em relao ao topo do container.) Tj
+T*
+(  - transform: translateY\(-50%\)) Tj
+T*
+(    -> Aplica transformaes geomtricas \(translao, rotao, escala\).) Tj
+T*
+(  - font-size: 12px) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - color: #374151) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Arquivo: WEB/wwwroot/css/pages/bovines/index.css) Tj
+T*
+(Seletor: body) Tj
+T*
+(  - display: block) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - padding: 0) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-topbar) Tj
+T*
+(  - border-radius: 0) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-page-shell) Tj
+T*
+(  - margin: 24px auto) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-panel) Tj
+T*
+(  - overflow: visible) Tj
+T*
+(    -> Controla como contedo excedente  exibido.) Tj
+T*
+(  - width: 100%) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - max-width: 100%) Tj
+T*
+(    -> Define largura mxima do elemento.) Tj
+T*
+(  - transition: max-width 0.32s ease, padding 0.25s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+(  - transform-origin: top left) Tj
+T*
+(    -> Define um aspecto visual/comportamental especfico do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-panel.collapsed) Tj
+T*
+(  - max-width: 250px) Tj
+T*
+(    -> Define largura mxima do elemento.) Tj
+T*
+(  - margin-left: 0) Tj
+T*
+(    -> Define a margem esquerda.) Tj
+T*
+(  - margin-right: 0) Tj
+T*
+(    -> Define um aspecto visual/comportamental especfico do elemento.) Tj
+T*
+(  - padding: 16px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-panel.collapsed .filters-content) Tj
+T*
+(  - max-height: 0) Tj
+T*
+(    -> Define altura mxima do elemento.) Tj
+T*
+(  - opacity: 0) Tj
+T*
+(    -> Define o nvel de transparncia.) Tj
+T*
+(  - margin-top: 0) Tj
+T*
+(    -> Define a margem superior.) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Length 2371 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(  - overflow: hidden) Tj
+T*
+(    -> Controla como contedo excedente  exibido.) Tj
+T*
+(  - pointer-events: none) Tj
+T*
+(    -> Controla se o elemento responde a eventos de ponteiro.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-head) Tj
+T*
+(  - transition: margin-bottom 0.2s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-panel.collapsed .filters-head,
+.filters-panel.collapsed .filters-title-group) Tj
+T*
+(  - justify-content: center) Tj
+T*
+(    -> Alinha/distribui itens no eixo principal em flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-panel.collapsed .filters-head) Tj
+T*
+(  - margin-bottom: 0) Tj
+T*
+(    -> Define a margem inferior.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-panel.collapsed .filters-head h2) Tj
+T*
+(  - white-space: nowrap) Tj
+T*
+(    -> Controla quebra e colapso de espaos em branco.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-toggle-control) Tj
+T*
+(  - display: inline-flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - cursor: pointer) Tj
+T*
+(    -> Define o tipo de cursor exibido ao passar o mouse.) Tj
+T*
+(  - user-select: none) Tj
+T*
+(    -> Define se o usurio pode selecionar texto/contedo.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-toggle-input) Tj
+T*
+(  - position: absolute) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - width: 1px) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - height: 1px) Tj
+T*
+(    -> Define a altura do elemento.) Tj
+T*
+(  - margin: -1px) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - padding: 0) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - overflow: hidden) Tj
+T*
+(    -> Controla como contedo excedente  exibido.) Tj
+T*
+(  - border: 0) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - clip: rect\(0 0 0 0\)) Tj
+T*
+(    -> Recorta a rea visvel do elemento \(tcnica antiga, comum em acessibilidade visual\).) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-toggle-slider) Tj
+T*
+(  - position: relative) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - width: 46px) Tj
+T*
+(    -> Define largura do elemento.) Tj
+ET
+endstream
+endobj
+12 0 obj
+<< /Length 2474 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(  - height: 28px) Tj
+T*
+(    -> Define a altura do elemento.) Tj
+T*
+(  - border-radius: 999px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - background: #dc2626) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - transition: background-color 0.22s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+(  - flex: 0 0 auto) Tj
+T*
+(    -> Atalho para crescimento, encolhimento e base de itens flex.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-toggle-slider::after) Tj
+T*
+(  - content: "") Tj
+T*
+(    -> Define contedo gerado em pseudo-elementos \(::before/::after\).) Tj
+T*
+(  - position: absolute) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - top: 2px) Tj
+T*
+(    -> Posiciona o elemento em relao ao topo do container.) Tj
+T*
+(  - left: 2px) Tj
+T*
+(    -> Posiciona o elemento em relao  esquerda do container.) Tj
+T*
+(  - width: 24px) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - height: 24px) Tj
+T*
+(    -> Define a altura do elemento.) Tj
+T*
+(  - border-radius: 50%) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - background: #ffffff) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - box-shadow: 0 3px 8px rgba\(15, 23, 42, 0.35\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+(  - transition: transform 0.22s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-toggle-input:checked + .filters-toggle-slider) Tj
+T*
+(  - background: #22c55e) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-toggle-input:checked + .filters-toggle-slider::after) Tj
+T*
+(  - transform: translateX\(18px\)) Tj
+T*
+(    -> Aplica transformaes geomtricas \(translao, rotao, escala\).) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-toggle-input:focus-visible + .filters-toggle-slider) Tj
+T*
+(  - outline: 2px solid #5eead4) Tj
+T*
+(    -> Desenha contorno externo ao elemento \(no ocupa espao\).) Tj
+T*
+(  - outline-offset: 3px) Tj
+T*
+(    -> Define distncia entre outline e a borda.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-fieldset) Tj
+T*
+(  - border: 0) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - margin: 0) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - padding: 0) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Length 2241 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(  - min-width: 0) Tj
+T*
+(    -> Define largura mnima do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-fieldset:disabled) Tj
+T*
+(  - opacity: 0.55) Tj
+T*
+(    -> Define o nvel de transparncia.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-fieldset:disabled *) Tj
+T*
+(  - pointer-events: none) Tj
+T*
+(    -> Controla se o elemento responde a eventos de ponteiro.) Tj
+T*
+() Tj
+T*
+(Seletor: .sr-only) Tj
+T*
+(  - position: absolute) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - width: 1px) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - height: 1px) Tj
+T*
+(    -> Define a altura do elemento.) Tj
+T*
+(  - padding: 0) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - margin: -1px) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - overflow: hidden) Tj
+T*
+(    -> Controla como contedo excedente  exibido.) Tj
+T*
+(  - clip: rect\(0, 0, 0, 0\)) Tj
+T*
+(    -> Recorta a rea visvel do elemento \(tcnica antiga, comum em acessibilidade visual\).) Tj
+T*
+(  - border: 0) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - white-space: nowrap) Tj
+T*
+(    -> Controla quebra e colapso de espaos em branco.) Tj
+T*
+() Tj
+T*
+(Seletor: .filters-content) Tj
+T*
+(  - max-height: 1400px) Tj
+T*
+(    -> Define altura mxima do elemento.) Tj
+T*
+(  - opacity: 1) Tj
+T*
+(    -> Define o nvel de transparncia.) Tj
+T*
+(  - margin-top: 0) Tj
+T*
+(    -> Define a margem superior.) Tj
+T*
+(  - overflow: visible) Tj
+T*
+(    -> Controla como contedo excedente  exibido.) Tj
+T*
+(  - transition: max-height 0.3s ease, opacity 0.25s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+() Tj
+T*
+(Seletor: .age-header-select) Tj
+T*
+(  - display: inline-flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - margin-left: 0) Tj
+T*
+(    -> Define a margem esquerda.) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid td:nth-child\(4\),
+.datagrid td:nth-child\(5\)) Tj
+T*
+(  - text-align: left) Tj
+T*
+(    -> Define alinhamento horizontal do texto.) Tj
+ET
+endstream
+endobj
+14 0 obj
+<< /Length 2499 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(  - font-variant-numeric: tabular-nums) Tj
+T*
+(    -> Controla variantes numricas da fonte \(ex.: nmeros tabulares\).) Tj
+T*
+() Tj
+T*
+(Seletor: .age-unit-select) Tj
+T*
+(  - position: relative) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - display: inline-flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .age-unit-trigger) Tj
+T*
+(  - display: inline-flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - gap: 6px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+(  - border: 0) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - background: transparent) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - color: inherit) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - border-radius: 0) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - padding: 0) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - cursor: pointer) Tj
+T*
+(    -> Define o tipo de cursor exibido ao passar o mouse.) Tj
+T*
+(  - appearance: none) Tj
+T*
+(    -> Controla a aparncia nativa de controles de formulrio.) Tj
+T*
+(  - position: relative) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - text-align: left) Tj
+T*
+(    -> Define alinhamento horizontal do texto.) Tj
+T*
+(  - font-size: inherit) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - line-height: inherit) Tj
+T*
+(    -> Define a altura da linha de texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .age-unit-trigger-icon) Tj
+T*
+(  - width: 8px) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - height: 8px) Tj
+T*
+(    -> Define a altura do elemento.) Tj
+T*
+(  - border-right: 1.5px solid currentColor) Tj
+T*
+(    -> Define a borda direita do elemento.) Tj
+T*
+(  - border-bottom: 1.5px solid currentColor) Tj
+T*
+(    -> Define a borda inferior do elemento.) Tj
+T*
+(  - transform: translateY\(-20%\) rotate\(45deg\)) Tj
+T*
+(    -> Aplica transformaes geomtricas \(translao, rotao, escala\).) Tj
+T*
+(  - transition: transform 0.15s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+(  - flex: 0 0 auto) Tj
+T*
+(    -> Atalho para crescimento, encolhimento e base de itens flex.) Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Length 2423 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+() Tj
+T*
+(Seletor: .age-unit-label) Tj
+T*
+(  - text-transform: uppercase) Tj
+T*
+(    -> Transforma o texto \(maisculas/minsculas\).) Tj
+T*
+(  - letter-spacing: 0.06em) Tj
+T*
+(    -> Define o espaamento entre caracteres.) Tj
+T*
+(  - font-weight: 600) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+() Tj
+T*
+(Seletor: .age-unit-trigger:focus-visible) Tj
+T*
+(  - outline: 2px solid rgba\(45, 212, 191, 0.95\)) Tj
+T*
+(    -> Desenha contorno externo ao elemento \(no ocupa espao\).) Tj
+T*
+(  - outline-offset: 2px) Tj
+T*
+(    -> Define distncia entre outline e a borda.) Tj
+T*
+() Tj
+T*
+(Seletor: .age-unit-select.open .age-unit-trigger-icon) Tj
+T*
+(  - transform: translateY\(15%\) rotate\(-135deg\)) Tj
+T*
+(    -> Aplica transformaes geomtricas \(translao, rotao, escala\).) Tj
+T*
+() Tj
+T*
+(Seletor: .age-unit-menu) Tj
+T*
+(  - display: none) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - position: absolute) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - z-index: 15) Tj
+T*
+(    -> Define ordem de empilhamento de elementos posicionados.) Tj
+T*
+(  - top: calc\(100% + 6px\)) Tj
+T*
+(    -> Posiciona o elemento em relao ao topo do container.) Tj
+T*
+(  - left: 0) Tj
+T*
+(    -> Posiciona o elemento em relao  esquerda do container.) Tj
+T*
+(  - width: 100%) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - border: 1px solid rgba\(148, 163, 184, 0.7\)) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - border-radius: 10px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - background: #f8fafc) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - box-shadow: 0 10px 22px rgba\(2, 6, 23, 0.28\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+(  - padding: 6px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .age-unit-select.open .age-unit-menu) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - flex-direction: column) Tj
+T*
+(    -> Define a direo principal dos itens em container flex.) Tj
+T*
+(  - gap: 4px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .age-unit-option) Tj
+T*
+(  - border: 0) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+ET
+endstream
+endobj
+16 0 obj
+<< /Length 2544 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(  - background: transparent) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - text-align: left) Tj
+T*
+(    -> Define alinhamento horizontal do texto.) Tj
+T*
+(  - border-radius: 8px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - padding: 6px 8px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - color: #0f172a) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - font-size: 0.78rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - line-height: 1.1) Tj
+T*
+(    -> Define a altura da linha de texto.) Tj
+T*
+(  - text-transform: uppercase) Tj
+T*
+(    -> Transforma o texto \(maisculas/minsculas\).) Tj
+T*
+(  - letter-spacing: 0.06em) Tj
+T*
+(    -> Define o espaamento entre caracteres.) Tj
+T*
+(  - font-weight: 600) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+() Tj
+T*
+(Seletor: .age-unit-option:hover,
+.age-unit-option.active) Tj
+T*
+(  - background: #e2e8f0) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+() Tj
+T*
+(Arquivo: WEB/wwwroot/css/pages/shared/index.css) Tj
+T*
+(Seletor: :root) Tj
+T*
+(  - --bg-start: #030712) Tj
+T*
+(    -> Define uma propriedade customizada \(varivel CSS\) reutilizvel.) Tj
+T*
+(  - --bg-end: #020617) Tj
+T*
+(    -> Define uma propriedade customizada \(varivel CSS\) reutilizvel.) Tj
+T*
+(  - --panel: rgba\(15, 23, 42, 0.78\)) Tj
+T*
+(    -> Define uma propriedade customizada \(varivel CSS\) reutilizvel.) Tj
+T*
+(  - --panel-border: rgba\(148, 163, 184, 0.22\)) Tj
+T*
+(    -> Define uma propriedade customizada \(varivel CSS\) reutilizvel.) Tj
+T*
+(  - --text-primary: #e2e8f0) Tj
+T*
+(    -> Define uma propriedade customizada \(varivel CSS\) reutilizvel.) Tj
+T*
+(  - --text-muted: #94a3b8) Tj
+T*
+(    -> Define uma propriedade customizada \(varivel CSS\) reutilizvel.) Tj
+T*
+(  - --accent: #22c55e) Tj
+T*
+(    -> Define uma propriedade customizada \(varivel CSS\) reutilizvel.) Tj
+T*
+(  - --accent-soft: rgba\(34, 197, 94, 0.18\)) Tj
+T*
+(    -> Define uma propriedade customizada \(varivel CSS\) reutilizvel.) Tj
+T*
+() Tj
+T*
+(Seletor: body) Tj
+T*
+(  - min-height: 100vh) Tj
+T*
+(    -> Define altura mnima do elemento.) Tj
+T*
+(  - margin: 0) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - background: radial-gradient\(circle at 20% 0%, #0b1225, var\(--bg-start\) 40%, var\(--bg-end\)) Tj
+T*
+(    100%\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - color: var\(--text-primary\)) Tj
+T*
+(    -> Define a cor do texto.) Tj
+ET
+endstream
+endobj
+17 0 obj
+<< /Length 2149 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(  - font-family: "Inter", "Segoe UI", sans-serif) Tj
+T*
+(    -> Define a famlia tipogrfica usada no texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .home-shell) Tj
+T*
+(  - min-height: 100vh) Tj
+T*
+(    -> Define altura mnima do elemento.) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - flex-direction: column) Tj
+T*
+(    -> Define a direo principal dos itens em container flex.) Tj
+T*
+() Tj
+T*
+(Seletor: .hero) Tj
+T*
+(  - width: min\(1100px, 92vw\)) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - margin: 3.5rem auto) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .hero h1) Tj
+T*
+(  - font-size: clamp\(2rem, 4vw, 3rem\)) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - margin-bottom: 0.6rem) Tj
+T*
+(    -> Define a margem inferior.) Tj
+T*
+(  - font-weight: 700) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+() Tj
+T*
+(Seletor: .hero p) Tj
+T*
+(  - color: var\(--text-muted\)) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - max-width: 60ch) Tj
+T*
+(    -> Define largura mxima do elemento.) Tj
+T*
+(  - margin-bottom: 2rem) Tj
+T*
+(    -> Define a margem inferior.) Tj
+T*
+() Tj
+T*
+(Seletor: .cards-grid) Tj
+T*
+(  - display: grid) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - grid-template-columns: repeat\(3, minmax\(0, 1fr\)\)) Tj
+T*
+(    -> Define as colunas de um grid.) Tj
+T*
+(  - gap: 1rem) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .feature-card) Tj
+T*
+(  - display: block) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - text-decoration: none) Tj
+T*
+(    -> Define decorao do texto \(sublinhado etc.\).) Tj
+T*
+(  - color: inherit) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - background: var\(--panel\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - border: 1px solid var\(--panel-border\)) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - border-radius: 16px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+ET
+endstream
+endobj
+18 0 obj
+<< /Length 2243 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(  - padding: 1.2rem) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+(  - min-height: 180px) Tj
+T*
+(    -> Define altura mnima do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .feature-card:hover) Tj
+T*
+(  - transform: translateY\(-3px\)) Tj
+T*
+(    -> Aplica transformaes geomtricas \(translao, rotao, escala\).) Tj
+T*
+(  - border-color: rgba\(34, 197, 94, 0.75\)) Tj
+T*
+(    -> Define a cor das bordas.) Tj
+T*
+(  - box-shadow: 0 14px 35px rgba\(0, 0, 0, 0.35\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .feature-icon) Tj
+T*
+(  - width: 2.2rem) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - height: 2.2rem) Tj
+T*
+(    -> Define a altura do elemento.) Tj
+T*
+(  - border-radius: 10px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - display: inline-flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - justify-content: center) Tj
+T*
+(    -> Alinha/distribui itens no eixo principal em flex/grid.) Tj
+T*
+(  - background: var\(--accent-soft\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - color: #86efac) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - margin-bottom: 0.9rem) Tj
+T*
+(    -> Define a margem inferior.) Tj
+T*
+() Tj
+T*
+(Seletor: .feature-card h2) Tj
+T*
+(  - font-size: 1.15rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - font-weight: 600) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+(  - margin-bottom: .45rem) Tj
+T*
+(    -> Define a margem inferior.) Tj
+T*
+() Tj
+T*
+(Seletor: .feature-card p) Tj
+T*
+(  - margin: 0) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - color: var\(--text-muted\)) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - font-size: .94rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+() Tj
+T*
+(Seletor: .tag) Tj
+T*
+(  - display: inline-flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+ET
+endstream
+endobj
+19 0 obj
+<< /Length 2135 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(  - gap: .4rem) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - margin-top: .85rem) Tj
+T*
+(    -> Define a margem superior.) Tj
+T*
+(  - color: #86efac) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - font-size: .86rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - font-weight: 500) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+() Tj
+T*
+(Arquivo: WEB/wwwroot/css/site.css) Tj
+T*
+(Seletor: html) Tj
+T*
+(  - font-size: 14px) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+() Tj
+T*
+(Seletor: .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus,) Tj
+T*
+(    .form-check-input:focus) Tj
+T*
+(  - box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: html) Tj
+T*
+(  - position: relative) Tj
+T*
+(    -> Define o mtodo de posicionamento \(static, relative, absolute, etc.\).) Tj
+T*
+(  - min-height: 100%) Tj
+T*
+(    -> Define altura mnima do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: body) Tj
+T*
+(  - margin-bottom: 60px) Tj
+T*
+(    -> Define a margem inferior.) Tj
+T*
+() Tj
+T*
+(Arquivo: WEB/wwwroot/css/styles.css) Tj
+T*
+(Seletor: *) Tj
+T*
+(  - box-sizing: border-box) Tj
+T*
+(    -> Define como largura/altura consideram padding e border.) Tj
+T*
+(  - margin: 0) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - padding: 0) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif) Tj
+T*
+(    -> Define a famlia tipogrfica usada no texto.) Tj
+T*
+() Tj
+T*
+(Seletor: body) Tj
+T*
+(  - min-height: 100vh) Tj
+T*
+(    -> Define altura mnima do elemento.) Tj
+T*
+(  - margin: 0) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - background: radial-gradient\(circle at top, #050816, #02040a\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - color: #f8fafc) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+ET
+endstream
+endobj
+20 0 obj
+<< /Length 2239 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(Seletor: .page) Tj
+T*
+(  - width: min\(1000px, calc\(100% - 48px\)\)) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - margin: 24px auto) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+(  - background: rgba\(3, 7, 18, 0.95\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - border-radius: 20px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - padding: 24px 28px 20px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - box-shadow: 0 24px 60px rgba\(0, 0, 0, 0.75\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+(  - border: 1px solid rgba\(148, 163, 184, 0.25\)) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+() Tj
+T*
+(Seletor: .page-header) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - justify-content: space-between) Tj
+T*
+(    -> Alinha/distribui itens no eixo principal em flex/grid.) Tj
+T*
+(  - align-items: flex-start) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - gap: 12px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+(  - margin-bottom: 18px) Tj
+T*
+(    -> Define a margem inferior.) Tj
+T*
+() Tj
+T*
+(Seletor: .page-title) Tj
+T*
+(  - font-size: 1.5rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - font-weight: 600) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+(  - margin-bottom: 4px) Tj
+T*
+(    -> Define a margem inferior.) Tj
+T*
+() Tj
+T*
+(Seletor: .page-subtitle) Tj
+T*
+(  - font-size: 0.9rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - color: #9ca3af) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .badge) Tj
+T*
+(  - font-size: 0.75rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - text-transform: uppercase) Tj
+T*
+(    -> Transforma o texto \(maisculas/minsculas\).) Tj
+T*
+(  - letter-spacing: 0.08em) Tj
+T*
+(    -> Define o espaamento entre caracteres.) Tj
+T*
+(  - padding: 4px 12px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - border-radius: 999px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - border: 1px solid rgba\(16, 163, 127, 0.6\)) Tj
+ET
+endstream
+endobj
+21 0 obj
+<< /Length 2361 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - color: #bbf7d0) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - background: linear-gradient\( 135deg, rgba\(16, 163, 127, 0.3\), rgba\(15, 23, 42, 0.9\) \)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid-wrapper) Tj
+T*
+(  - margin-top: 6px) Tj
+T*
+(    -> Define a margem superior.) Tj
+T*
+(  - border-radius: 14px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - overflow: hidden) Tj
+T*
+(    -> Controla como contedo excedente  exibido.) Tj
+T*
+(  - border: 1px solid rgba\(55, 65, 81, 0.8\)) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - background: radial-gradient\(circle at top left, #020617, #02040a\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid) Tj
+T*
+(  - width: 100%) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - border-collapse: collapse) Tj
+T*
+(    -> Define como as bordas de tabelas so renderizadas.) Tj
+T*
+(  - font-size: 0.9rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid thead) Tj
+T*
+(  - background: linear-gradient\( 135deg, rgba\(16, 163, 127, 0.95\), rgba\(45, 212, 191, 0.8\) \)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid th,
+    .datagrid td) Tj
+T*
+(  - padding: 10px 14px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid th) Tj
+T*
+(  - text-align: left) Tj
+T*
+(    -> Define alinhamento horizontal do texto.) Tj
+T*
+(  - font-weight: 500) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+(  - color: #0b1120) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - border-bottom: 1px solid rgba\(15, 23, 42, 0.35\)) Tj
+T*
+(    -> Define a borda inferior do elemento.) Tj
+T*
+(  - font-size: 0.85rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid tbody tr) Tj
+T*
+(  - transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.08s ease) Tj
+T*
+(    -> Define transio suave entre mudanas de propriedades.) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid tbody tr:nth-child\(odd\)) Tj
+T*
+(  - background-color: rgba\(15, 23, 42, 0.96\)) Tj
+T*
+(    -> Define apenas a cor de fundo do elemento.) Tj
+T*
+() Tj
+ET
+endstream
+endobj
+22 0 obj
+<< /Length 2449 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(Seletor: .datagrid tbody tr:nth-child\(even\)) Tj
+T*
+(  - background-color: rgba\(17, 24, 39, 0.96\)) Tj
+T*
+(    -> Define apenas a cor de fundo do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid tbody tr:hover) Tj
+T*
+(  - background: radial-gradient\(circle at left, rgba\(16, 163, 127, 0.22\), #020617\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - transform: translateY\(-1px\)) Tj
+T*
+(    -> Aplica transformaes geomtricas \(translao, rotao, escala\).) Tj
+T*
+(  - box-shadow: 0 4px 16px rgba\(0, 0, 0, 0.65\)) Tj
+T*
+(    -> Aplica sombra ao redor do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid td) Tj
+T*
+(  - border-bottom: 1px solid rgba\(31, 41, 55, 0.9\)) Tj
+T*
+(    -> Define a borda inferior do elemento.) Tj
+T*
+(  - color: #e5e7eb) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .datagrid td:nth-child\(4\)) Tj
+T*
+(  - text-align: right) Tj
+T*
+(    -> Define alinhamento horizontal do texto.) Tj
+T*
+(  - font-variant-numeric: tabular-nums) Tj
+T*
+(    -> Controla variantes numricas da fonte \(ex.: nmeros tabulares\).) Tj
+T*
+() Tj
+T*
+(Seletor: .status-pill) Tj
+T*
+(  - display: inline-flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+(  - justify-content: center) Tj
+T*
+(    -> Alinha/distribui itens no eixo principal em flex/grid.) Tj
+T*
+(  - padding: 3px 10px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - border-radius: 999px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - font-size: 0.75rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - font-weight: 500) Tj
+T*
+(    -> Define a espessura da fonte.) Tj
+T*
+(  - border: 1px solid transparent) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+() Tj
+T*
+(Seletor: .status-ok) Tj
+T*
+(  - background: rgba\(16, 163, 127, 0.1\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - border-color: rgba\(16, 163, 127, 0.7\)) Tj
+T*
+(    -> Define a cor das bordas.) Tj
+T*
+(  - color: #6ee7b7) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .status-away) Tj
+T*
+(  - background: rgba\(234, 179, 8, 0.12\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - border-color: rgba\(250, 204, 21, 0.8\)) Tj
+ET
+endstream
+endobj
+23 0 obj
+<< /Length 2035 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(    -> Define a cor das bordas.) Tj
+T*
+(  - color: #facc15) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .status-off) Tj
+T*
+(  - background: rgba\(248, 113, 113, 0.08\)) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - border-color: rgba\(248, 113, 113, 0.8\)) Tj
+T*
+(    -> Define a cor das bordas.) Tj
+T*
+(  - color: #fecaca) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .footer-info) Tj
+T*
+(  - margin-top: 10px) Tj
+T*
+(    -> Define a margem superior.) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - justify-content: space-between) Tj
+T*
+(    -> Alinha/distribui itens no eixo principal em flex/grid.) Tj
+T*
+(  - font-size: 0.8rem) Tj
+T*
+(    -> Define o tamanho da fonte.) Tj
+T*
+(  - color: #9ca3af) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+(  - gap: 8px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .footer-info span) Tj
+T*
+(  - opacity: 0.9) Tj
+T*
+(    -> Define o nvel de transparncia.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-link-plain) Tj
+T*
+(  - text-decoration: none) Tj
+T*
+(    -> Define decorao do texto \(sublinhado etc.\).) Tj
+T*
+() Tj
+T*
+(Seletor: .am-inline-actions) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - gap: 10px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+(  - align-items: center) Tj
+T*
+(    -> Define o alinhamento dos itens no eixo transversal em um container flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-inline-actions-spaced) Tj
+T*
+(  - margin: 0 0 16px) Tj
+T*
+(    -> Define margens externas do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-panel-body) Tj
+T*
+(  - padding: 16px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-form-grid) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - flex-direction: column) Tj
+ET
+endstream
+endobj
+24 0 obj
+<< /Length 1709 >>
+stream
+BT
+/F1 10 Tf
+40 802 Td
+14 TL
+(    -> Define a direo principal dos itens em container flex.) Tj
+T*
+(  - gap: 12px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-form-columns) Tj
+T*
+(  - display: grid) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - grid-template-columns: 1fr 1fr) Tj
+T*
+(    -> Define as colunas de um grid.) Tj
+T*
+(  - gap: 12px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-input) Tj
+T*
+(  - width: 100%) Tj
+T*
+(    -> Define largura do elemento.) Tj
+T*
+(  - padding: 10px) Tj
+T*
+(    -> Define espaamento interno do elemento.) Tj
+T*
+(  - border-radius: 10px) Tj
+T*
+(    -> Arredonda os cantos do elemento.) Tj
+T*
+(  - border: 1px solid rgba\(148, 163, 184, 0.6\)) Tj
+T*
+(    -> Atalho para definir largura, estilo e cor da borda.) Tj
+T*
+(  - background: #f8fafc) Tj
+T*
+(    -> Define o plano de fundo \(cor, imagem ou gradiente\).) Tj
+T*
+(  - color: #0f172a) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-error-text) Tj
+T*
+(  - color: #fca5a5) Tj
+T*
+(    -> Define a cor do texto.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-form-actions) Tj
+T*
+(  - display: flex) Tj
+T*
+(    -> Define o tipo de caixa e comportamento de layout do elemento.) Tj
+T*
+(  - gap: 10px) Tj
+T*
+(    -> Define espaamento entre itens de flex/grid.) Tj
+T*
+(  - justify-content: flex-end) Tj
+T*
+(    -> Alinha/distribui itens no eixo principal em flex/grid.) Tj
+T*
+(  - margin-top: 8px) Tj
+T*
+(    -> Define a margem superior.) Tj
+T*
+() Tj
+T*
+(Seletor: .am-button-action) Tj
+T*
+(  - cursor: pointer) Tj
+T*
+(    -> Define o tipo de cursor exibido ao passar o mouse.) Tj
+T*
+() Tj
+ET
+endstream
+endobj
+25 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+26 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 3 0 R >>
+endobj
+27 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 4 0 R >>
+endobj
+28 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 5 0 R >>
+endobj
+29 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 6 0 R >>
+endobj
+30 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 7 0 R >>
+endobj
+31 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 8 0 R >>
+endobj
+32 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 9 0 R >>
+endobj
+33 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 10 0 R >>
+endobj
+34 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 11 0 R >>
+endobj
+35 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 12 0 R >>
+endobj
+36 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 13 0 R >>
+endobj
+37 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 14 0 R >>
+endobj
+38 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 15 0 R >>
+endobj
+39 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 16 0 R >>
+endobj
+40 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 17 0 R >>
+endobj
+41 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 18 0 R >>
+endobj
+42 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 19 0 R >>
+endobj
+43 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 20 0 R >>
+endobj
+44 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 21 0 R >>
+endobj
+45 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 22 0 R >>
+endobj
+46 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 23 0 R >>
+endobj
+47 0 obj
+<< /Type /Page /Parent 48 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R >> >> /Contents 24 0 R >>
+endobj
+48 0 obj
+<< /Type /Pages /Kids [ 25 0 R 26 0 R 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R 35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 40 0 R 41 0 R 42 0 R 43 0 R 44 0 R 45 0 R 46 0 R 47 0 R ] /Count 23 >>
+endobj
+49 0 obj
+<< /Type /Catalog /Pages 48 0 R >>
+endobj
+xref
+0 50
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000002106 00000 n 
+0000004582 00000 n 
+0000006821 00000 n 
+0000009240 00000 n 
+0000011951 00000 n 
+0000014317 00000 n 
+0000016817 00000 n 
+0000019321 00000 n 
+0000021485 00000 n 
+0000023909 00000 n 
+0000026436 00000 n 
+0000028730 00000 n 
+0000031282 00000 n 
+0000033758 00000 n 
+0000036355 00000 n 
+0000038557 00000 n 
+0000040853 00000 n 
+0000043041 00000 n 
+0000045333 00000 n 
+0000047747 00000 n 
+0000050249 00000 n 
+0000052337 00000 n 
+0000054099 00000 n 
+0000054227 00000 n 
+0000054355 00000 n 
+0000054483 00000 n 
+0000054611 00000 n 
+0000054739 00000 n 
+0000054867 00000 n 
+0000054995 00000 n 
+0000055123 00000 n 
+0000055252 00000 n 
+0000055381 00000 n 
+0000055510 00000 n 
+0000055639 00000 n 
+0000055768 00000 n 
+0000055897 00000 n 
+0000056026 00000 n 
+0000056155 00000 n 
+0000056284 00000 n 
+0000056413 00000 n 
+0000056542 00000 n 
+0000056671 00000 n 
+0000056800 00000 n 
+0000056929 00000 n 
+0000057058 00000 n 
+0000057274 00000 n 
+trailer
+<< /Size 50 /Root 49 0 R >>
+startxref
+57325
+%%EOF
