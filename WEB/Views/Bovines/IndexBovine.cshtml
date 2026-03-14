@@ -11,7 +11,7 @@
 
 
 <div class="am-page-shell">
-    <div class="page">
+    <div class="page bovines-content-layout">
         <header class="page-header">
             <div>
                 <h1 class="page-title">Bovines</h1>
@@ -20,8 +20,7 @@
 
         </header>
 
-        <div class="bovines-content-layout">
-            <section id="filtersPanel" class="datagrid-wrapper filters-panel" aria-label="Filtros de busca de bovinos">
+        <section id="filtersPanel" class="datagrid-wrapper filters-panel" aria-label="Filtros de busca de bovinos">
                 <div class="filters-head">
                     <div class="filters-title-group">
                         <label class="filters-toggle-control" for="toggleFilters" aria-controls="filtersContent">
@@ -117,51 +116,50 @@
                         </div>
                     </fieldset>
                 </div>
+        </section>
+
+        <div class="bovines-records-column">
+            <div class="am-inline-actions am-inline-actions-spaced">
+                <a class="badge am-link-plain" href="/">← Voltar ao início</a>
+                <a class="badge am-link-plain" href="/bovines/create">+ Novo Bovine</a>
+            </div>
+
+            <section class="datagrid-wrapper">
+                <table class="datagrid">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Sexo</th>
+                            <th>Origem</th>
+                            <th>Nascimento</th>
+                            <th>
+                                <span class="age-header-select">
+                                    <div class="age-unit-select" id="ageUnitSelect">
+                                        <button type="button" class="age-unit-trigger" id="ageUnitTrigger" aria-expanded="false" aria-label="Selecionar unidade de idade">
+                                            <span class="age-unit-label">Idade (<span id="ageUnitLabel">anos</span>)</span>
+                                            <span class="age-unit-trigger-icon" aria-hidden="true"></span>
+                                        </button>
+                                        <div class="age-unit-menu" id="ageUnitMenu">
+                                            <button type="button" class="age-unit-option active" data-unit="years">Anos</button>
+                                            <button type="button" class="age-unit-option" data-unit="months">Meses</button>
+                                            <button type="button" class="age-unit-option" data-unit="days">Dias</button>
+                                        </div>
+                                    </div>
+                                </span>
+                            </th>
+                            <th>Estado</th>
+                            <th>Tipo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rows"></tbody>
+                </table>
             </section>
 
-            <div class="bovines-records-column">
-                <div class="am-inline-actions am-inline-actions-spaced">
-                    <a class="badge am-link-plain" href="/">← Voltar ao início</a>
-                    <a class="badge am-link-plain" href="/bovines/create">+ Novo Bovine</a>
-                </div>
-
-                <section class="datagrid-wrapper">
-                    <table class="datagrid">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Sexo</th>
-                                <th>Origem</th>
-                                <th>Nascimento</th>
-                                <th>
-                                    <span class="age-header-select">
-                                        <div class="age-unit-select" id="ageUnitSelect">
-                                            <button type="button" class="age-unit-trigger" id="ageUnitTrigger" aria-expanded="false" aria-label="Selecionar unidade de idade">
-                                                <span class="age-unit-label">Idade (<span id="ageUnitLabel">anos</span>)</span>
-                                                <span class="age-unit-trigger-icon" aria-hidden="true"></span>
-                                            </button>
-                                            <div class="age-unit-menu" id="ageUnitMenu">
-                                                <button type="button" class="age-unit-option active" data-unit="years">Anos</button>
-                                                <button type="button" class="age-unit-option" data-unit="months">Meses</button>
-                                                <button type="button" class="age-unit-option" data-unit="days">Dias</button>
-                                            </div>
-                                        </div>
-                                    </span>
-                                </th>
-                                <th>Estado</th>
-                                <th>Tipo</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="rows"></tbody>
-                    </table>
-                </section>
-
-                <footer class="footer-info">
-                    <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
-                    <span id="count">0 registro(s) exibidos</span>
-                </footer>
-            </div>
+            <footer class="footer-info">
+                <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
+                <span id="count">0 registro(s) exibidos</span>
+            </footer>
         </div>
     </div>
 </div>

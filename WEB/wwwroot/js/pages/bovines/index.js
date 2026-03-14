@@ -47,7 +47,7 @@
             <td>${formatAgeByUnit(x)}</td>
             <td>${x.maritalStatus ?? ""}</td>
             <td>${x.cattleType ?? ""}</td>
-            <td><a class="badge am-link-plain" href="/bovines/edit/${x.id}">Editar</a></td>
+            <td><a class="badge am-link-plain" href="/bovines/edit/${x.id}" aria-label="Editar bovino">✏️</a></td>
           </tr>
         `).join("");
 
