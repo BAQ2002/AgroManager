@@ -15,6 +15,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
+@{
+    var pageWidth = ViewData["PageMaxWidth"] as string;
+    var pageContainerClass = pageWidth switch
+    {
+        "wide" => "am-page-container am-page-container-wide",
+        "full" => "am-page-container am-page-container-full",
+        _ => "container"
+    };
+}
+
 <body>
 
     <!-- NAVBAR SUPERIOR -->
@@ -85,7 +95,7 @@
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
-    <div class="container mt-4">
+    <div class="@pageContainerClass mt-4">
         <main role="main">
             @RenderBody()
         </main>
