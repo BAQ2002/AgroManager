@@ -1,0 +1,171 @@
+﻿@{
+    ViewData["Title"] = "Bovines";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/components/filters-panel.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pages/bovines/index.css" asp-append-version="true" />
+}
+
+
+
+
+<div class="am-page-shell">
+    <div class="page">
+        <header class="page-header">
+            <div>
+                <h1 class="page-title">Bovines</h1>
+                <p class="page-subtitle">Lista de bovinos cadastrados no AgroManager.</p>
+            </div>
+
+        </header>
+
+        <div class="bovines-content-layout">
+            <section id="filtersPanel" class="datagrid-wrapper filters-panel" aria-label="Filtros de busca de bovinos">
+                <div class="filters-head">
+                    <div class="filters-title-group">
+                        <label class="filters-toggle-control" for="toggleFilters" aria-controls="filtersContent">
+                            <input id="toggleFilters" class="filters-toggle-input" type="checkbox" checked aria-expanded="true" aria-label="Exibir ou ocultar filtros de busca" />
+                            <span class="filters-toggle-slider" aria-hidden="true"></span>
+                            <span class="sr-only">Ativar filtros de busca</span>
+                        </label>
+                        <h2>Filtros de busca</h2>
+                    </div>
+                </div>
+
+                <div id="filtersContent" class="filters-content">
+                    <fieldset id="filtersFieldset" class="filters-fieldset">
+                        <div class="filters-grid bovines-filters-grid">
+                            <label class="filter-field">
+                                <span class="filter-label">Nome</span>
+                                <input id="filterName" type="text" placeholder="Ex: Mimosa" />
+                            </label>
+
+                            <div class="filter-field enum-filter">
+                                <span class="filter-label">Tipo</span>
+                                <div class="enum-select" data-filter="Tipo">
+                                    <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar tipo</button>
+                                    <div class="enum-select-menu" id="filterCattleType">
+                                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                                        <label><input type="checkbox" value="Beef" /> Beef</label>
+                                        <label><input type="checkbox" value="Dairy" /> Dairy</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-field enum-filter">
+                                <span class="filter-label">Origem</span>
+                                <div class="enum-select" data-filter="Origem">
+                                    <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar origem</button>
+                                    <div class="enum-select-menu" id="filterOrigin">
+                                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                                        <label><input type="checkbox" value="Born" /> Born</label>
+                                        <label><input type="checkbox" value="Purchased" /> Purchased</label>
+                                        <label><input type="checkbox" value="External" /> External</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-field enum-filter">
+                                <span class="filter-label">Sexo</span>
+                                <div class="enum-select" data-filter="Sexo">
+                                    <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar sexo</button>
+                                    <div class="enum-select-menu" id="filterGender">
+                                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                                        <label><input type="checkbox" value="Male" /> Male</label>
+                                        <label><input type="checkbox" value="Female" /> Female</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-field enum-filter">
+                                <span class="filter-label">Estado</span>
+                                <div class="enum-select" data-filter="Estado">
+                                    <button type="button" class="enum-select-trigger" aria-expanded="false">Selecionar estado</button>
+                                    <div class="enum-select-menu" id="filterMaritalStatus">
+                                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                                        <label><input type="checkbox" value="Single" /> Single</label>
+                                        <label><input type="checkbox" value="Pregnant" /> Pregnant</label>
+                                        <label><input type="checkbox" value="Mother" /> Mother</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label class="filter-field filter-field-half" aria-label="Faixa de nascimento mínima">
+                                <span class="filter-label">Nascimento (mín.)</span>
+                                <input id="filterBirthDateMin" type="date" />
+                            </label>
+
+                            <label class="filter-field filter-field-half" aria-label="Faixa de nascimento máxima">
+                                <span class="filter-label">Nascimento (máx.)</span>
+                                <input id="filterBirthDateMax" type="date" />
+                            </label>
+
+                            <label class="filter-field filter-field-half" aria-label="Faixa de idade mínima">
+                                <span class="filter-label">Idade (mín.)</span>
+                                <input id="filterAgeMin" type="number" min="0" placeholder="Ex: 12" />
+                            </label>
+
+                            <label class="filter-field filter-field-half" aria-label="Faixa de idade máxima">
+                                <span class="filter-label">Idade (máx.)</span>
+                                <input id="filterAgeMax" type="number" min="0" placeholder="Ex: 48" />
+                            </label>
+                        </div>
+
+                        <div class="filters-actions">
+                            <button id="clearFilters" type="button" class="badge filters-clear-action">Limpar filtros</button>
+                        </div>
+                    </fieldset>
+                </div>
+            </section>
+
+            <div class="bovines-records-column">
+                <div class="am-inline-actions am-inline-actions-spaced">
+                    <a class="badge am-link-plain" href="/">← Voltar ao início</a>
+                    <a class="badge am-link-plain" href="/bovines/create">+ Novo Bovine</a>
+                </div>
+
+                <section class="datagrid-wrapper">
+                    <table class="datagrid">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Sexo</th>
+                                <th>Origem</th>
+                                <th>Nascimento</th>
+                                <th>
+                                    <span class="age-header-select">
+                                        <div class="age-unit-select" id="ageUnitSelect">
+                                            <button type="button" class="age-unit-trigger" id="ageUnitTrigger" aria-expanded="false" aria-label="Selecionar unidade de idade">
+                                                <span class="age-unit-label">Idade (<span id="ageUnitLabel">anos</span>)</span>
+                                                <span class="age-unit-trigger-icon" aria-hidden="true"></span>
+                                            </button>
+                                            <div class="age-unit-menu" id="ageUnitMenu">
+                                                <button type="button" class="age-unit-option active" data-unit="years">Anos</button>
+                                                <button type="button" class="age-unit-option" data-unit="months">Meses</button>
+                                                <button type="button" class="age-unit-option" data-unit="days">Dias</button>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </th>
+                                <th>Estado</th>
+                                <th>Tipo</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rows"></tbody>
+                    </table>
+                </section>
+
+                <footer class="footer-info">
+                    <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
+                    <span id="count">0 registro(s) exibidos</span>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/pages/bovines/index.js" asp-append-version="true"></script>
+}

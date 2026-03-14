@@ -31,7 +31,7 @@ public sealed class BovinesController : Controller
     /// </summary>
     /// <returns><see cref="ViewResult"/> para a view padrão de index de bovinos.</returns>
     [HttpGet("/bovines")]
-    public IActionResult Index()
+    public IActionResult IndexBovine()
     {
         return View();
     }
