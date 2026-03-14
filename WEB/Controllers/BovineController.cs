@@ -72,7 +72,7 @@ public sealed class BovinesController : Controller
     /// </summary>
     /// <returns><see cref="ViewResult"/> com um model vazio para criação.</returns>
     [HttpGet("/bovines/create")]
-    public IActionResult Create()
+    public IActionResult CreateBovine()
     {
         return View(new BovineViewModel());
     }
@@ -91,7 +91,7 @@ public sealed class BovinesController : Controller
     /// </returns>
     [HttpPost("/bovines/create")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(BovineViewModel bovineViewModel, CancellationToken cancellationToken)
+    public async Task<IActionResult> CreateBovine(BovineViewModel bovineViewModel, CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid) return View(bovineViewModel);
 
@@ -141,7 +141,7 @@ public sealed class BovinesController : Controller
     /// ou <see cref="ViewResult"/> com o model preenchido.
     /// </returns>
     [HttpGet("/bovines/edit/{id:guid}")]
-    public async Task<IActionResult> Edit(Guid id, CancellationToken CancellationToken)
+    public async Task<IActionResult> EditBovine(Guid id, CancellationToken CancellationToken)
     {
         if (id == Guid.Empty)
             return BadRequest();
