@@ -9,6 +9,79 @@ body {
 
 .am-page-shell {
     margin: 24px auto; /* margin: valor "24px auto". unidades: 24px: pixels da CSS (unidade fixa na tela). */
+    max-width: 1680px; /* max-width: valor "1680px". unidades: 1680px: pixels da CSS (unidade fixa na tela). */
+    padding: 0 16px; /* padding: valor "0 16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+}
+
+.page {
+    width: min(1600px, calc(100% - 16px)); /* width: valor "min(1600px, calc(100% - 16px))". unidades: 1600px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
+}
+
+.bovines-content-layout {
+    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
+    grid-template-columns: minmax(360px, 440px) minmax(0, 1fr); /* grid-template-columns: valor "minmax(360px, 440px) minmax(0, 1fr)". unidades: 1fr: fração do espaço disponível no grid. */
+    gap: 16px; /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    align-items: start; /* align-items: valor "start". */
+}
+
+.bovines-records-column {
+    min-width: 0; /* min-width: valor "0". valor neutro/ausente para essa propriedade. */
+}
+
+#filtersPanel.filters-panel {
+    margin-top: 6px; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
+}
+
+.bovines-filters-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(6, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
+}
+
+.bovines-filters-grid .filter-field:nth-child(1),
+.bovines-filters-grid .filter-field:nth-child(2) {
+    grid-column: span 3; /* grid-column: valor "span 3". */
+}
+
+.bovines-filters-grid .filter-field:nth-child(3),
+.bovines-filters-grid .filter-field:nth-child(4),
+.bovines-filters-grid .filter-field:nth-child(5) {
+    grid-column: span 2; /* grid-column: valor "span 2". */
+}
+
+.bovines-filters-grid .filter-field-half {
+    grid-column: span 3; /* grid-column: valor "span 3". */
+}
+
+@media (max-width: 1260px) {
+    .bovines-content-layout {
+        grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
+    }
+
+    .bovines-filters-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(3, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
+    }
+
+    .bovines-filters-grid .filter-field:nth-child(1),
+    .bovines-filters-grid .filter-field:nth-child(2),
+    .bovines-filters-grid .filter-field-half {
+        grid-column: span 3; /* grid-column: valor "span 3". */
+    }
+
+    .bovines-filters-grid .filter-field:nth-child(3),
+    .bovines-filters-grid .filter-field:nth-child(4),
+    .bovines-filters-grid .filter-field:nth-child(5) {
+        grid-column: span 1; /* grid-column: valor "span 1". */
+    }
+}
+
+@media (max-width: 860px) {
+    .bovines-filters-grid {
+        grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
+    }
+
+    .bovines-filters-grid .filter-field,
+    .bovines-filters-grid .filter-field-half {
+        grid-column: span 1; /* grid-column: valor "span 1". */
+    }
 }
 
 .age-header-select {
