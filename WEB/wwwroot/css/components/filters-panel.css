@@ -58,16 +58,16 @@
     grid-column: span 6; /* grid-column: valor "span 6". */
 }
 
-.filter-col-3 {
-    grid-column: span 3; /* grid-column: valor "span 3". */
+.filter-col-1 {
+    grid-column: span 1; /* grid-column: valor "span 1". */
 }
 
 .filter-col-2 {
     grid-column: span 2; /* grid-column: valor "span 2". */
 }
 
-.filter-col-1 {
-    grid-column: span 1; /* grid-column: valor "span 1". */
+.filter-col-3 {
+    grid-column: span 3; /* grid-column: valor "span 3". */
 }
 
 .filter-range-group {
@@ -357,12 +357,12 @@
         grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(3, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
     }
 
-    .filters-grid-responsive .filter-col-lg-3 {
-        grid-column: span 3; /* grid-column: valor "span 3". */
-    }
-
     .filters-grid-responsive .filter-col-lg-1 {
         grid-column: span 1; /* grid-column: valor "span 1". */
+    }
+
+    .filters-grid-responsive .filter-col-lg-3 {
+        grid-column: span 3; /* grid-column: valor "span 3". */
     }
 
     .filter-range-group {
