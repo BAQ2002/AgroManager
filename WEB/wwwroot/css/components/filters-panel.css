@@ -58,23 +58,17 @@
 }
 
 .filter-field {
-    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    flex-direction: column; /* flex-direction: valor "column". */
-    gap: 6px; /* gap: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
     font-size: 0.8rem; /* font-size: valor "0.8rem". unidades: 0.8rem: unidade relativa ao font-size do elemento raiz (html). */
     color: #cbd5e1; /* color: valor "#cbd5e1". define uma cor. */
 }
 
-.filter-label {
-    display: block; /* display: valor "block". define o modo de layout/exibição. */
-    font-size: 0.95rem; /* font-size: valor "0.95rem". unidades: 0.95rem: unidade relativa ao font-size do elemento raiz (html). */
-    font-weight: 500; /* font-weight: valor "500". */
-    line-height: 1.2; /* line-height: valor "1.2". */
-    color: #f8fafc; /* color: valor "#f8fafc". define uma cor. */
+.filter-field-floating .floating-field {
+    position: relative; /* position: valor "relative". */
 }
 
 .filter-field input,
-.enum-select-trigger {
+.enum-select-trigger,
+.filter-field-floating .floating-field-input {
     width: 100%; /* width: valor "100%". */
     height: 42px; /* height: valor "42px". unidades: 42px: pixels da CSS (unidade fixa na tela). */
     border: 1px solid rgba(148, 163, 184, 0.8); /* border: valor "1px solid rgba(148, 163, 184, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
@@ -90,10 +84,37 @@
 }
 
 .filter-field input:focus,
-.enum-select-trigger:focus {
+.enum-select-trigger:focus,
+.filter-field-floating .floating-field-input:focus {
     outline: none; /* outline: valor "none". valor neutro/ausente para essa propriedade. */
     border-color: rgba(45, 212, 191, 0.95); /* border-color: valor "rgba(45, 212, 191, 0.95)". define uma cor. */
     box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.24); /* box-shadow: valor "0 0 0 3px rgba(45, 212, 191, 0.24)". unidades: 3px: pixels da CSS (unidade fixa na tela). */
+}
+
+.filter-field-floating .floating-field-label {
+    position: absolute; /* position: valor "absolute". */
+    left: 10px; /* left: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+    top: 50%; /* top: valor "50%". */
+    transform: translateY(-50%); /* transform: valor "translateY(-50%)". */
+    background: #f8fafc; /* background: valor "#f8fafc". define uma cor. */
+    padding: 0 4px; /* padding: valor "0 4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
+    color: #64748b; /* color: valor "#64748b". define uma cor. */
+    line-height: 1.1; /* line-height: valor "1.1". */
+    transition: all 0.2s ease; /* transition: valor "all 0.2s ease". unidades: 0.2s: segundos (tempo de animação/transição). */
+    pointer-events: none; /* pointer-events: valor "none". valor neutro/ausente para essa propriedade. */
+    font-size: 0.95rem; /* font-size: valor "0.95rem". unidades: 0.95rem: unidade relativa ao font-size do elemento raiz (html). */
+}
+
+.filter-field-floating .floating-field:focus-within .floating-field-label,
+.filter-field-floating .floating-field.filled .floating-field-label {
+    top: 0; /* top: valor "0". valor neutro/ausente para essa propriedade. */
+    transform: translateY(-50%); /* transform: valor "translateY(-50%)". */
+    font-size: 12px; /* font-size: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    color: #334155; /* color: valor "#334155". define uma cor. */
+}
+
+.filter-field-floating .floating-field-input {
+    padding: 16px 12px 8px; /* padding: valor "16px 12px 8px". unidades: 16px: pixels da CSS (unidade fixa na tela); 12px: pixels da CSS (unidade fixa na tela); 8px: pixels da CSS (unidade fixa na tela). */
 }
 
 .enum-select {
