@@ -2,6 +2,35 @@
     let allBovines = [];
     let currentAgeUnit = "years";
 
+    function syncFloatingField(element) {
+        const field = element.closest(".floating-field");
+        if (!field) return;
+
+        const emptyValues = new Set(
+            (element.dataset.emptyValues || "")
+                .split(",")
+                .map((value) => value.trim())
+                .filter((value) => value !== "")
+        );
+
+        emptyValues.add("");
+
+        const currentValue = (element.value || "").trim();
+        field.classList.toggle("filled", !emptyValues.has(currentValue));
+    }
+
+    function syncFloatingFields() {
+        document.querySelectorAll(".js-floating-control").forEach(syncFloatingField);
+    }
+
+    function syncEnumFloatingField(selectElement) {
+        const field = selectElement.closest(".floating-field");
+        if (!field) return;
+
+        const checked = selectElement.querySelectorAll("input[type='checkbox']:checked").length;
+        field.classList.toggle("filled", checked > 0);
+    }
+
     function toDate(value) {
         if (!value) return null;
         const parsed = new Date(value);
@@ -118,7 +147,17 @@
 
         selectors
             .flatMap(selector => Array.from(document.querySelectorAll(selector)))
-            .forEach(element => element.addEventListener("input", applyFilters));
+            .forEach(element => {
+                element.addEventListener("input", () => {
+                    syncFloatingField(element);
+                    applyFilters();
+                });
+
+                element.addEventListener("change", () => {
+                    syncFloatingField(element);
+                    applyFilters();
+                });
+            });
 
         wireEnumSelects();
         wireAgeUnitSelect();
@@ -133,9 +172,12 @@
 
             document.querySelectorAll(".enum-select-menu input[type='checkbox']").forEach(x => x.checked = false);
             updateEnumSelectLabels();
+            syncFloatingFields();
 
             applyFilters();
         });
+
+        syncFloatingFields();
     }
 
     function wireAgeUnitSelect() {
@@ -195,10 +237,12 @@
 
         if (checked === 0) {
             trigger.textContent = `Selecionar ${selectElement.dataset.filter.toLowerCase()}`;
+            syncEnumFloatingField(selectElement);
             return;
         }
 
         trigger.textContent = checked === 1 ? "1 selecionado" : `${checked} selecionados`;
+        syncEnumFloatingField(selectElement);
     }
 
     function updateEnumSelectLabels() {
