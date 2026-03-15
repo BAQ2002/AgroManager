@@ -28,66 +28,9 @@ body {
     min-width: 0; /* min-width: valor "0". valor neutro/ausente para essa propriedade. */
 }
 
-#filtersPanel.filters-panel {
-    margin-top: 6px; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
-}
-
-.bovines-filters-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(6, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
-}
-
-.bovines-filters-grid .filter-field:nth-child(1),
-.bovines-filters-grid .filter-field:nth-child(2) {
-    grid-column: span 3; /* grid-column: valor "span 3". */
-}
-
-.bovines-filters-grid .filter-field:nth-child(3),
-.bovines-filters-grid .filter-field:nth-child(4),
-.bovines-filters-grid .filter-field:nth-child(5) {
-    grid-column: span 2; /* grid-column: valor "span 2". */
-}
-
-.bovines-filters-grid .filter-field-half {
-    grid-column: span 3; /* grid-column: valor "span 3". */
-}
-
-.bovines-filters-grid .filter-field input,
-.bovines-filters-grid .enum-select-trigger {
-    height: 38px; /* height: valor "38px". unidades: 38px: pixels da CSS (unidade fixa na tela). */
-    padding: 0 10px; /* padding: valor "0 10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    font-size: 0.9rem; /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
-}
-
 @media (max-width: 1260px) {
     .bovines-content-layout {
         grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
-    }
-
-    .bovines-filters-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(3, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
-    }
-
-    .bovines-filters-grid .filter-field:nth-child(1),
-    .bovines-filters-grid .filter-field:nth-child(2),
-    .bovines-filters-grid .filter-field-half {
-        grid-column: span 3; /* grid-column: valor "span 3". */
-    }
-
-    .bovines-filters-grid .filter-field:nth-child(3),
-    .bovines-filters-grid .filter-field:nth-child(4),
-    .bovines-filters-grid .filter-field:nth-child(5) {
-        grid-column: span 1; /* grid-column: valor "span 1". */
-    }
-}
-
-@media (max-width: 860px) {
-    .bovines-filters-grid {
-        grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
-    }
-
-    .bovines-filters-grid .filter-field,
-    .bovines-filters-grid .filter-field-half {
-        grid-column: span 1; /* grid-column: valor "span 1". */
     }
 }
 
