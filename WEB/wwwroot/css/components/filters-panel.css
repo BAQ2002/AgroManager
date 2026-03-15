@@ -50,6 +50,26 @@
     gap: 14px 12px; /* gap: valor "14px 12px". unidades: 14px: pixels da CSS (unidade fixa na tela); 12px: pixels da CSS (unidade fixa na tela). */
 }
 
+.filters-grid-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(6, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
+}
+
+.filter-col-6 {
+    grid-column: span 6; /* grid-column: valor "span 6". */
+}
+
+.filter-col-3 {
+    grid-column: span 3; /* grid-column: valor "span 3". */
+}
+
+.filter-col-2 {
+    grid-column: span 2; /* grid-column: valor "span 2". */
+}
+
+.filter-col-1 {
+    grid-column: span 1; /* grid-column: valor "span 1". */
+}
+
 .filter-range-group {
     grid-column: span 3; /* grid-column: valor "span 3". */
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
@@ -77,6 +97,14 @@
     border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     padding: 0 12px; /* padding: valor "0 12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
     font-size: 0.95rem; /* font-size: valor "0.95rem". unidades: 0.95rem: unidade relativa ao font-size do elemento raiz (html). */
+}
+
+.filters-grid-compact .filter-field input,
+.filters-grid-compact .enum-select-trigger,
+.filters-grid-compact .filter-field-floating .floating-field-input {
+    height: 38px; /* height: valor "38px". unidades: 38px: pixels da CSS (unidade fixa na tela). */
+    padding: 0 10px; /* padding: valor "0 10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+    font-size: 0.9rem; /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
 .filter-field input::placeholder {
@@ -325,6 +353,18 @@
         grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(2, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
     }
 
+    .filters-grid-responsive.filters-grid-6 {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(3, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
+    }
+
+    .filters-grid-responsive .filter-col-lg-3 {
+        grid-column: span 3; /* grid-column: valor "span 3". */
+    }
+
+    .filters-grid-responsive .filter-col-lg-1 {
+        grid-column: span 1; /* grid-column: valor "span 1". */
+    }
+
     .filter-range-group {
         grid-column: span 2; /* grid-column: valor "span 2". */
     }
@@ -334,6 +374,14 @@
     .filters-grid,
     .filter-range-group {
         grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
+    }
+
+    .filters-grid-responsive.filters-grid-6 {
+        grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
+    }
+
+    .filters-grid-responsive .filter-col-sm-1 {
+        grid-column: span 1; /* grid-column: valor "span 1". */
     }
 
     .filter-range-group {
