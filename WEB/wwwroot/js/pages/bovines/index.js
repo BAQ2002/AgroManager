@@ -236,7 +236,7 @@
         const checked = selectElement.querySelectorAll("input[type='checkbox']:checked").length;
 
         if (checked === 0) {
-            trigger.textContent = `Selecionar ${selectElement.dataset.filter.toLowerCase()}`;
+            trigger.textContent = "";
             syncEnumFloatingField(selectElement);
             return;
         }
