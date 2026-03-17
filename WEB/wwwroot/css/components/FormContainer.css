@@ -1,23 +1,43 @@
-﻿.form-one-columns {
-    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
-    grid-template-columns: 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+.form-one-columns,
+.form-two-columns,
+.form-three-columns,
+.form-four-columns {
+    display: grid;
+    gap: 12px;
+}
+
+.form-one-columns {
+    grid-template-columns: 1fr;
 }
 
 .form-two-columns {
-    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
-    grid-template-columns: 1fr 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .form-three-columns {
-    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
-    grid-template-columns: 1fr 1fr 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .form-four-columns {
-    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
-    grid-template-columns: 1fr 1fr 1fr 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.form-field {
+    min-width: 0;
+}
+
+.form-responsive-md-two {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1080px) {
+    .form-responsive-md-two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 860px) {
+    .form-responsive-sm-one {
+        grid-template-columns: 1fr;
+    }
 }
