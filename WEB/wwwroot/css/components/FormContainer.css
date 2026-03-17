@@ -1,0 +1,23 @@
+﻿.form-one-columns {
+    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
+    grid-template-columns: 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
+    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+}
+
+.form-two-columns {
+    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
+    grid-template-columns: 1fr 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
+    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+}
+
+.form-three-columns {
+    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
+    grid-template-columns: 1fr 1fr 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
+    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+}
+
+.form-four-columns {
+    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
+    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+}

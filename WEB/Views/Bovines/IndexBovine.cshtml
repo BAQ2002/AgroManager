@@ -6,6 +6,8 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/components/filters-panel.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/pages/bovines/IndexBovine.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pages/bovines/FormContainer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pages/bovines/FloatingTextBox.css" asp-append-version="true" />
 }
 
 
@@ -27,6 +29,7 @@
 
     <div class="bovines-content-layout">
         <section id="filtersPanel" class="datagrid-wrapper filters-panel" aria-label="Filtros de busca de bovinos">
+
             <div class="filters-head">
                 <div class="filters-title-group">
                     <label class="filters-toggle-control" for="toggleFilters" aria-controls="filtersContent">
@@ -41,12 +44,13 @@
             <div id="filtersContent" class="filters-content">
                 <fieldset id="filtersFieldset" class="filters-fieldset">
                     <div class="filters-grid filters-grid-6 filters-grid-responsive filters-grid-compact">
-                        <label class="filter-field filter-field-floating filter-col-sm-1 filter-col-lg-3 filter-col-3">
+
+                        <div class="filter-field filter-field-floating filter-col-sm-1 filter-col-lg-3 filter-col-3">
                             <div class="floating-field">
                                 <input id="filterName" type="text" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
                                 <span class="floating-field-label">Nome</span>
                             </div>
-                        </label>
+                        </div>
 
                         <div class="filter-field enum-filter filter-field-floating filter-col-sm-1 filter-col-lg-3 filter-col-3">
                             <div class="floating-field">                   
