@@ -1,390 +1,161 @@
 .filters-panel {
-    margin: 8px 0 16px; /* margin: valor "8px 0 16px". unidades: 8px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 18px; /* border-radius: valor "18px". unidades: 18px: pixels da CSS (unidade fixa na tela). */
-    border: 1px solid rgba(148, 163, 184, 0.24); /* border: valor "1px solid rgba(148, 163, 184, 0.24)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    background: linear-gradient(145deg, rgba(3, 9, 26, 0.96), rgba(1, 5, 18, 0.98)); /* background: valor "linear-gradient(145deg, rgba(3, 9, 26, 0.96), rgba(1, 5, 18, 0.98))". define um gradiente como fundo. unidades: 145deg: graus de rotação/ângulo. */
-    padding: 16px; /* padding: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
-    box-shadow: 0 14px 28px rgba(1, 5, 20, 0.4); /* box-shadow: valor "0 14px 28px rgba(1, 5, 20, 0.4)". unidades: 14px: pixels da CSS (unidade fixa na tela); 28px: pixels da CSS (unidade fixa na tela). */
-    overflow: visible; /* overflow: valor "visible". */
-    width: 100%; /* width: valor "100%". */
-    max-width: 100%; /* max-width: valor "100%". */
-    transition: max-width 0.32s ease, padding 0.25s ease; /* transition: valor "max-width 0.32s ease, padding 0.25s ease". unidades: 0.32s: segundos (tempo de animação/transição); 0.25s: segundos (tempo de animação/transição). */
-    transform-origin: top left; /* transform-origin: valor "top left". */
+    margin: 8px 0 16px;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: linear-gradient(145deg, rgba(3, 9, 26, 0.96), rgba(1, 5, 18, 0.98));
+    padding: 16px;
+    box-shadow: 0 14px 28px rgba(1, 5, 20, 0.4);
+    overflow: visible;
+    width: 100%;
+    max-width: 100%;
+    transition: max-width 0.32s ease, padding 0.25s ease;
+    transform-origin: top left;
 }
 
 .filters-head {
-    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    justify-content: flex-start; /* justify-content: valor "flex-start". */
-    align-items: center; /* align-items: valor "center". */
-    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-    margin-bottom: 14px; /* margin-bottom: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
-    transition: margin-bottom 0.2s ease; /* transition: valor "margin-bottom 0.2s ease". unidades: 0.2s: segundos (tempo de animação/transição). */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    transition: margin-bottom 0.2s ease;
 }
 
 .filters-head h2 {
-    margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
-    font-size: 1rem; /* font-size: valor "1rem". unidades: 1rem: unidade relativa ao font-size do elemento raiz (html). */
-    font-weight: 600; /* font-weight: valor "600". */
-    color: #f8fafc; /* color: valor "#f8fafc". define uma cor. */
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f8fafc;
 }
 
 .filters-title-group {
-    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    align-items: center; /* align-items: valor "center". */
-    gap: 10px; /* gap: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-}
-
-.filters-clear-action {
-    cursor: pointer; /* cursor: valor "pointer". */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .filters-actions {
-    margin-top: 14px; /* margin-top: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
-    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    justify-content: flex-end; /* justify-content: valor "flex-end". */
+    margin-top: 14px;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.filters-grid {
-    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(3, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: 14px 12px; /* gap: valor "14px 12px". unidades: 14px: pixels da CSS (unidade fixa na tela); 12px: pixels da CSS (unidade fixa na tela). */
+.filters-clear-action {
+    cursor: pointer;
 }
-
-.filters-grid-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(6, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
-}
-
-.filter-col-6 {
-    grid-column: span 6; /* grid-column: valor "span 6". */
-}
-
-.filter-col-1 {
-    grid-column: span 1; /* grid-column: valor "span 1". */
-}
-
-.filter-col-2 {
-    grid-column: span 2; /* grid-column: valor "span 2". */
-}
-
-.filter-col-3 {
-    grid-column: span 3; /* grid-column: valor "span 3". */
-}
-
-.filter-range-group {
-    grid-column: span 3; /* grid-column: valor "span 3". */
-    display: grid; /* display: valor "grid". define o modo de layout/exibição. */
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(2, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-}
-
-.filter-field {
-    font-size: 0.8rem; /* font-size: valor "0.8rem". unidades: 0.8rem: unidade relativa ao font-size do elemento raiz (html). */
-    color: #cbd5e1; /* color: valor "#cbd5e1". define uma cor. */
-}
-
-.filter-field-floating .floating-field {
-    position: relative; /* position: valor "relative". */
-}
-
-.filter-field input,
-.enum-select-trigger,
-.filter-field-floating .floating-field-input {
-    width: 100%; /* width: valor "100%". */
-    height: 42px; /* height: valor "42px". unidades: 42px: pixels da CSS (unidade fixa na tela). */
-    border: 1px solid rgba(148, 163, 184, 0.8); /* border: valor "1px solid rgba(148, 163, 184, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    background: #f8fafc; /* background: valor "#f8fafc". define uma cor. */
-    color: #020617; /* color: valor "#020617". define uma cor. */
-    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    padding: 0 12px; /* padding: valor "0 12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-    font-size: 0.95rem; /* font-size: valor "0.95rem". unidades: 0.95rem: unidade relativa ao font-size do elemento raiz (html). */
-}
-
-.filters-grid-compact .filter-field input,
-.filters-grid-compact .enum-select-trigger,
-.filters-grid-compact .filter-field-floating .floating-field-input {
-    height: 38px; /* height: valor "38px". unidades: 38px: pixels da CSS (unidade fixa na tela). */
-    padding: 0 10px; /* padding: valor "0 10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    font-size: 0.9rem; /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
-}
-
-.filter-field input::placeholder {
-    color: #64748b; /* color: valor "#64748b". define uma cor. */
-}
-
-.filter-field input:focus,
-.enum-select-trigger:focus,
-.filter-field-floating .floating-field-input:focus {
-    outline: none; /* outline: valor "none". valor neutro/ausente para essa propriedade. */
-    border-color: rgba(45, 212, 191, 0.95); /* border-color: valor "rgba(45, 212, 191, 0.95)". define uma cor. */
-    box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.24); /* box-shadow: valor "0 0 0 3px rgba(45, 212, 191, 0.24)". unidades: 3px: pixels da CSS (unidade fixa na tela). */
-}
-
-.filter-field-floating .floating-field-label {
-    position: absolute; /* position: valor "absolute". */
-    left: 10px; /* left: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    top: 50%; /* top: valor "50%". */
-    transform: translateY(-50%); /* transform: valor "translateY(-50%)". */
-    background: #f8fafc; /* background: valor "#f8fafc". define uma cor. */
-    padding: 0 4px; /* padding: valor "0 4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
-    color: #64748b; /* color: valor "#64748b". define uma cor. */
-    line-height: 1.1; /* line-height: valor "1.1". */
-    transition: all 0.2s ease; /* transition: valor "all 0.2s ease". unidades: 0.2s: segundos (tempo de animação/transição). */
-    pointer-events: none; /* pointer-events: valor "none". valor neutro/ausente para essa propriedade. */
-    font-size: 0.95rem; /* font-size: valor "0.95rem". unidades: 0.95rem: unidade relativa ao font-size do elemento raiz (html). */
-}
-
-.filter-field-floating .floating-field:focus-within .floating-field-label,
-.filter-field-floating .floating-field.filled .floating-field-label {
-    top: 0; /* top: valor "0". valor neutro/ausente para essa propriedade. */
-    transform: translateY(-50%); /* transform: valor "translateY(-50%)". */
-    font-size: 12px; /* font-size: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-    color: #334155; /* color: valor "#334155". define uma cor. */
-}
-
-.filter-field-floating .floating-field-input {
-    padding: 16px 12px 8px; /* padding: valor "16px 12px 8px". unidades: 16px: pixels da CSS (unidade fixa na tela); 12px: pixels da CSS (unidade fixa na tela); 8px: pixels da CSS (unidade fixa na tela). */
-}
-
-.enum-select {
-    position: relative; /* position: valor "relative". */
-}
-
-.enum-select-trigger {
-    cursor: pointer; /* cursor: valor "pointer". */
-    text-align: left; /* text-align: valor "left". */
-    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    align-items: center; /* align-items: valor "center". */
-    transition: border-color 0.15s ease, box-shadow 0.15s ease; /* transition: valor "border-color 0.15s ease, box-shadow 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
-    padding-right: 34px; /* padding-right: valor "34px". unidades: 34px: pixels da CSS (unidade fixa na tela). */
-    appearance: none; /* appearance: valor "none". valor neutro/ausente para essa propriedade. */
-    position: relative; /* position: valor "relative". */
-}
-
-.enum-select::after {
-    content: ""; /* content: valor """". */
-    position: absolute; /* position: valor "absolute". */
-    right: 12px; /* right: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-    top: 50%; /* top: valor "50%". */
-    width: 8px; /* width: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    height: 8px; /* height: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    border-right: 2px solid #334155; /* border-right: valor "2px solid #334155". unidades: 2px: pixels da CSS (unidade fixa na tela). */
-    border-bottom: 2px solid #334155; /* border-bottom: valor "2px solid #334155". unidades: 2px: pixels da CSS (unidade fixa na tela). */
-    transform: translateY(-70%) rotate(45deg); /* transform: valor "translateY(-70%) rotate(45deg)". unidades: 45deg: graus de rotação/ângulo. */
-    pointer-events: none; /* pointer-events: valor "none". valor neutro/ausente para essa propriedade. */
-    transition: transform 0.15s ease; /* transition: valor "transform 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
-}
-
-.enum-select.open::after {
-    transform: translateY(-30%) rotate(-135deg); /* transform: valor "translateY(-30%) rotate(-135deg)". unidades: -135deg: graus de rotação/ângulo. */
-}
-
-.enum-select-menu {
-    display: none; /* display: valor "none". valor neutro/ausente para essa propriedade. */
-    position: absolute; /* position: valor "absolute". */
-    z-index: 12; /* z-index: valor "12". */
-    top: calc(100% + 6px); /* top: valor "calc(100% + 6px)". valor calculado dinamicamente com calc(). unidades: 6px: pixels da CSS (unidade fixa na tela). */
-    left: 0; /* left: valor "0". valor neutro/ausente para essa propriedade. */
-    right: 0; /* right: valor "0". valor neutro/ausente para essa propriedade. */
-    border: 1px solid rgba(148, 163, 184, 0.7); /* border: valor "1px solid rgba(148, 163, 184, 0.7)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    background: #f8fafc; /* background: valor "#f8fafc". define uma cor. */
-    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28); /* box-shadow: valor "0 10px 22px rgba(2, 6, 23, 0.28)". unidades: 10px: pixels da CSS (unidade fixa na tela); 22px: pixels da CSS (unidade fixa na tela). */
-    padding: 8px; /* padding: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    max-height: 190px; /* max-height: valor "190px". unidades: 190px: pixels da CSS (unidade fixa na tela). */
-    overflow-y: auto; /* overflow-y: valor "auto". valor automático calculado pelo navegador. */
-}
-
-.enum-select.open .enum-select-trigger {
-    border-color: rgba(45, 212, 191, 0.95); /* border-color: valor "rgba(45, 212, 191, 0.95)". define uma cor. */
-    box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.24); /* box-shadow: valor "0 0 0 3px rgba(45, 212, 191, 0.24)". unidades: 3px: pixels da CSS (unidade fixa na tela). */
-}
-
-.enum-select.open .enum-select-menu {
-    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    flex-direction: column; /* flex-direction: valor "column". */
-    gap: 4px; /* gap: valor "4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
-}
-
-.enum-select-menu label {
-    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    gap: 6px; /* gap: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
-    align-items: center; /* align-items: valor "center". */
-    font-size: 0.78rem; /* font-size: valor "0.78rem". unidades: 0.78rem: unidade relativa ao font-size do elemento raiz (html). */
-    line-height: 1.1; /* line-height: valor "1.1". */
-    text-transform: uppercase; /* text-transform: valor "uppercase". */
-    letter-spacing: 0.06em; /* letter-spacing: valor "0.06em". unidades: 0.06em: unidade relativa ao font-size do elemento atual. */
-    font-weight: 600; /* font-weight: valor "600". */
-    color: #0f172a; /* color: valor "#0f172a". define uma cor. */
-    padding: 4px 6px; /* padding: valor "4px 6px". unidades: 4px: pixels da CSS (unidade fixa na tela); 6px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 8px; /* border-radius: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    transition: background-color 0.15s ease; /* transition: valor "background-color 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
-}
-
-.enum-select-menu label input[type="checkbox"] {
-    margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
-    width: 14px; /* width: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
-    height: 14px; /* height: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
-    flex: 0 0 auto; /* flex: valor "0 0 auto". */
-}
-
-.enum-select-menu label:hover {
-    background: #e2e8f0; /* background: valor "#e2e8f0". define uma cor. */
-}
-
 
 .filters-panel.collapsed {
-    max-width: 250px; /* max-width: valor "250px". unidades: 250px: pixels da CSS (unidade fixa na tela). */
-    margin-left: 0; /* margin-left: valor "0". valor neutro/ausente para essa propriedade. */
-    margin-right: 0; /* margin-right: valor "0". valor neutro/ausente para essa propriedade. */
-    padding: 16px; /* padding: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    max-width: 250px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 16px;
 }
 
 .filters-panel.collapsed .filters-content {
-    max-height: 0; /* max-height: valor "0". valor neutro/ausente para essa propriedade. */
-    opacity: 0; /* opacity: valor "0". valor neutro/ausente para essa propriedade. */
-    margin-top: 0; /* margin-top: valor "0". valor neutro/ausente para essa propriedade. */
-    overflow: hidden; /* overflow: valor "hidden". */
-    pointer-events: none; /* pointer-events: valor "none". valor neutro/ausente para essa propriedade. */
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    overflow: hidden;
+    pointer-events: none;
 }
 
 .filters-panel.collapsed .filters-head,
 .filters-panel.collapsed .filters-title-group {
-    justify-content: center; /* justify-content: valor "center". */
+    justify-content: center;
 }
 
 .filters-panel.collapsed .filters-head {
-    margin-bottom: 0; /* margin-bottom: valor "0". valor neutro/ausente para essa propriedade. */
+    margin-bottom: 0;
 }
 
 .filters-panel.collapsed .filters-head h2 {
-    white-space: nowrap; /* white-space: valor "nowrap". */
+    white-space: nowrap;
 }
 
 .filters-toggle-control {
-    display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
-    align-items: center; /* align-items: valor "center". */
-    cursor: pointer; /* cursor: valor "pointer". */
-    user-select: none; /* user-select: valor "none". valor neutro/ausente para essa propriedade. */
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
 }
 
 .filters-toggle-input {
-    position: absolute; /* position: valor "absolute". */
-    width: 1px; /* width: valor "1px". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    height: 1px; /* height: valor "1px". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    margin: -1px; /* margin: valor "-1px". unidades: -1px: pixels da CSS (unidade fixa na tela). */
-    padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
-    overflow: hidden; /* overflow: valor "hidden". */
-    border: 0; /* border: valor "0". valor neutro/ausente para essa propriedade. */
-    clip: rect(0 0 0 0); /* clip: valor "rect(0 0 0 0)". */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
 }
 
 .filters-toggle-slider {
-    position: relative; /* position: valor "relative". */
-    width: 46px; /* width: valor "46px". unidades: 46px: pixels da CSS (unidade fixa na tela). */
-    height: 28px; /* height: valor "28px". unidades: 28px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 999px; /* border-radius: valor "999px". unidades: 999px: pixels da CSS (unidade fixa na tela). */
-    background: #dc2626; /* background: valor "#dc2626". define uma cor. */
-    transition: background-color 0.22s ease; /* transition: valor "background-color 0.22s ease". unidades: 0.22s: segundos (tempo de animação/transição). */
-    flex: 0 0 auto; /* flex: valor "0 0 auto". */
+    position: relative;
+    width: 46px;
+    height: 28px;
+    border-radius: 999px;
+    background: #dc2626;
+    transition: background-color 0.22s ease;
+    flex: 0 0 auto;
 }
 
 .filters-toggle-slider::after {
-    content: ""; /* content: valor """". */
-    position: absolute; /* position: valor "absolute". */
-    top: 2px; /* top: valor "2px". unidades: 2px: pixels da CSS (unidade fixa na tela). */
-    left: 2px; /* left: valor "2px". unidades: 2px: pixels da CSS (unidade fixa na tela). */
-    width: 24px; /* width: valor "24px". unidades: 24px: pixels da CSS (unidade fixa na tela). */
-    height: 24px; /* height: valor "24px". unidades: 24px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 50%; /* border-radius: valor "50%". */
-    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
-    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.35); /* box-shadow: valor "0 3px 8px rgba(15, 23, 42, 0.35)". unidades: 3px: pixels da CSS (unidade fixa na tela); 8px: pixels da CSS (unidade fixa na tela). */
-    transition: transform 0.22s ease; /* transition: valor "transform 0.22s ease". unidades: 0.22s: segundos (tempo de animação/transição). */
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.35);
+    transition: transform 0.22s ease;
 }
 
 .filters-toggle-input:checked + .filters-toggle-slider {
-    background: #22c55e; /* background: valor "#22c55e". define uma cor. */
+    background: #22c55e;
 }
 
 .filters-toggle-input:checked + .filters-toggle-slider::after {
-    transform: translateX(18px); /* transform: valor "translateX(18px)". unidades: 18px: pixels da CSS (unidade fixa na tela). */
+    transform: translateX(18px);
 }
 
 .filters-toggle-input:focus-visible + .filters-toggle-slider {
-    outline: 2px solid #5eead4; /* outline: valor "2px solid #5eead4". unidades: 2px: pixels da CSS (unidade fixa na tela). */
-    outline-offset: 3px; /* outline-offset: valor "3px". unidades: 3px: pixels da CSS (unidade fixa na tela). */
+    outline: 2px solid #5eead4;
+    outline-offset: 3px;
 }
 
 .filters-fieldset {
-    border: 0; /* border: valor "0". valor neutro/ausente para essa propriedade. */
-    margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
-    padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .filters-fieldset:disabled {
-    opacity: 0.68; /* opacity: valor "0.68". */
+    opacity: 0.68;
 }
 
 .filters-fieldset:disabled * {
-    cursor: not-allowed !important; /* cursor: valor "not-allowed". */
+    cursor: not-allowed !important;
 }
 
 .sr-only {
-    position: absolute; /* position: valor "absolute". */
-    width: 1px; /* width: valor "1px". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    height: 1px; /* height: valor "1px". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
-    margin: -1px; /* margin: valor "-1px". unidades: -1px: pixels da CSS (unidade fixa na tela). */
-    overflow: hidden; /* overflow: valor "hidden". */
-    clip: rect(0, 0, 0, 0); /* clip: valor "rect(0, 0, 0, 0)". */
-    border: 0; /* border: valor "0". valor neutro/ausente para essa propriedade. */
-    white-space: nowrap; /* white-space: valor "nowrap". */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    white-space: nowrap;
 }
 
 .filters-content {
-    max-height: 1400px; /* max-height: valor "1400px". unidades: 1400px: pixels da CSS (unidade fixa na tela). */
-    opacity: 1; /* opacity: valor "1". */
-    margin-top: 0; /* margin-top: valor "0". valor neutro/ausente para essa propriedade. */
-    overflow: visible; /* overflow: valor "visible". */
-    transition: max-height 0.3s ease, opacity 0.25s ease; /* transition: valor "max-height 0.3s ease, opacity 0.25s ease". unidades: 0.3s: segundos (tempo de animação/transição); 0.25s: segundos (tempo de animação/transição). */
-}
-
-@media (max-width: 1080px) {
-    .filters-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(2, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
-    }
-
-    .filters-grid-responsive.filters-grid-6 {
-        grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(3, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
-    }
-
-    .filters-grid-responsive .filter-col-lg-1 {
-        grid-column: span 1; /* grid-column: valor "span 1". */
-    }
-
-    .filters-grid-responsive .filter-col-lg-3 {
-        grid-column: span 3; /* grid-column: valor "span 3". */
-    }
-
-    .filter-range-group {
-        grid-column: span 2; /* grid-column: valor "span 2". */
-    }
-}
-
-@media (max-width: 860px) {
-    .filters-grid,
-    .filter-range-group {
-        grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
-    }
-
-    .filters-grid-responsive.filters-grid-6 {
-        grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
-    }
-
-    .filters-grid-responsive .filter-col-sm-1 {
-        grid-column: span 1; /* grid-column: valor "span 1". */
-    }
-
-    .filter-range-group {
-        grid-column: span 1; /* grid-column: valor "span 1". */
-    }
+    max-height: 1400px;
+    opacity: 1;
+    margin-top: 0;
+    overflow: visible;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
 }

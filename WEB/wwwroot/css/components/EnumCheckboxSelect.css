@@ -1,0 +1,85 @@
+.enum-select {
+    position: relative;
+}
+
+.enum-select-trigger {
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    padding-right: 34px;
+    appearance: none;
+    position: relative;
+}
+
+.enum-select::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #334155;
+    border-bottom: 2px solid #334155;
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
+    transition: transform 0.15s ease;
+}
+
+.enum-select.open::after {
+    transform: translateY(-30%) rotate(-135deg);
+}
+
+.enum-select-menu {
+    display: none;
+    position: absolute;
+    z-index: 12;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    border-radius: 10px;
+    background: #f8fafc;
+    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
+    padding: 8px;
+    max-height: 190px;
+    overflow-y: auto;
+}
+
+.enum-select.open .enum-select-trigger {
+    border-color: rgba(45, 212, 191, 0.95);
+    box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.24);
+}
+
+.enum-select.open .enum-select-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.enum-select-menu label {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-size: 0.78rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    color: #0f172a;
+    padding: 4px 6px;
+    border-radius: 8px;
+    transition: background-color 0.15s ease;
+}
+
+.enum-select-menu label input[type="checkbox"] {
+    margin: 0;
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+}
+
+.enum-select-menu label:hover {
+    background: #e2e8f0;
+}
