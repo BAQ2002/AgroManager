@@ -41,3 +41,9 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+.form-stack {
+    display: grid;
+    gap: 12px;
+}
