@@ -8,8 +8,6 @@
     overflow: visible;
     width: 100%;
     max-width: 100%;
-    transition: max-width 0.32s ease, padding 0.25s ease;
-    transform-origin: top left;
 }
 
 .filters-head {
@@ -47,113 +45,10 @@
     color: #000000;
 }
 
-.filters-panel.collapsed {
-    max-width: 250px;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 16px;
-}
-
-.filters-panel.collapsed .filters-content {
-    max-height: 0;
-    opacity: 0;
-    margin-top: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.filters-panel.collapsed .filters-head,
-.filters-panel.collapsed .filters-title-group {
-    justify-content: center;
-}
-
-.filters-panel.collapsed .filters-head {
-    margin-bottom: 0;
-}
-
-.filters-panel.collapsed .filters-head h2 {
-    white-space: nowrap;
-}
-
-.filters-toggle-control {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-}
-
-.filters-toggle-input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    clip: rect(0 0 0 0);
-}
-
-.filters-toggle-slider {
-    position: relative;
-    width: 46px;
-    height: 28px;
-    border-radius: 999px;
-    border: 1px solid #000000;
-    background: #000000;
-    transition: background-color 0.22s ease, border-color 0.22s ease;
-    flex: 0 0 auto;
-}
-
-.filters-toggle-slider::after {
-    content: "";
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: #ffffff;
-    transition: transform 0.22s ease;
-}
-
-.filters-toggle-input:checked + .filters-toggle-slider {
-    background: #296436;
-    border-color: #296436;
-}
-
-.filters-toggle-input:checked + .filters-toggle-slider::after {
-    transform: translateX(18px);
-}
-
-.filters-toggle-input:focus-visible + .filters-toggle-slider {
-    outline: 2px solid #296436;
-    outline-offset: 2px;
-}
-
 .filters-fieldset {
     border: 0;
     margin: 0;
     padding: 0;
-}
-
-.filters-fieldset:disabled {
-    opacity: 0.68;
-}
-
-.filters-fieldset:disabled * {
-    cursor: not-allowed !important;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-    white-space: nowrap;
 }
 
 .filters-content {

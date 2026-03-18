@@ -84,12 +84,6 @@
     }
 
     function applyFilters() {
-        const toggleSwitch = document.getElementById("toggleFilters");
-        if (toggleSwitch && !toggleSwitch.checked) {
-            renderRows(allBovines);
-            return;
-        }
-
         const nameFilter = document.getElementById("filterName").value.trim().toLowerCase();
         const genders = getCheckedValues("filterGender");
         const origins = getCheckedValues("filterOrigin");
@@ -161,7 +155,6 @@
 
         wireEnumSelects();
         wireAgeUnitSelect();
-        wireFiltersPanelToggle();
 
         document.getElementById("clearFilters").addEventListener("click", () => {
             document.getElementById("filterName").value = "";
@@ -210,25 +203,6 @@
         });
 
         updateAgeUnitLabel();
-    }
-
-    function wireFiltersPanelToggle() {
-        const toggleSwitch = document.getElementById("toggleFilters");
-        const filtersPanel = document.getElementById("filtersPanel");
-        const filtersFieldset = document.getElementById("filtersFieldset");
-        const clearFiltersButton = document.getElementById("clearFilters");
-
-        const syncFiltersState = () => {
-            const isEnabled = toggleSwitch.checked;
-            filtersPanel.classList.toggle("collapsed", !isEnabled);
-            filtersFieldset.disabled = !isEnabled;
-            clearFiltersButton.disabled = !isEnabled;
-            toggleSwitch.setAttribute("aria-expanded", isEnabled.toString());
-            applyFilters();
-        };
-
-        toggleSwitch.addEventListener("change", syncFiltersState);
-        syncFiltersState();
     }
 
     function updateEnumSelectLabel(selectElement) {
