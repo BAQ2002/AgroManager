@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/topbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components/topbar.css" asp-append-version="true" />
 
     @await RenderSectionAsync("Styles", required: false)
 
@@ -21,7 +21,7 @@
     {
         "wide" => "am-page-container am-page-container-wide",
         "full" => "am-page-container am-page-container-full",
-        _ => "container"
+        _ => "am-page-container"
     };
 }
 

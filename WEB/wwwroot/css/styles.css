@@ -8,8 +8,8 @@
 body {
     min-height: 100vh; /* min-height: valor "100vh". unidades: 100vh: 1% da altura da viewport. */
     margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
-    background: radial-gradient(circle at top, #050816, #02040a); /* background: valor "radial-gradient(circle at top, #050816, #02040a)". define um gradiente como fundo. */
-    color: #f8fafc; /* color: valor "#f8fafc". define uma cor. */
+    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
+    color: #0f172a; /* color: valor "#0f172a". define uma cor. */
 }
 
 .am-page-container {
@@ -36,11 +36,11 @@ body {
 .page {
     width: min(1000px, calc(100% - 48px)); /* width: valor "min(1000px, calc(100% - 48px))". valor responsivo calculado por função matemática. unidades: 1000px: pixels da CSS (unidade fixa na tela); 48px: pixels da CSS (unidade fixa na tela). */
     margin: 24px auto; /* margin: valor "24px auto". unidades: 24px: pixels da CSS (unidade fixa na tela). */
-    background: rgba(3, 7, 18, 0.95); /* background: valor "rgba(3, 7, 18, 0.95)". define uma cor. */
+    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
     border-radius: 20px; /* border-radius: valor "20px". unidades: 20px: pixels da CSS (unidade fixa na tela). */
     padding: 24px 28px 20px; /* padding: valor "24px 28px 20px". unidades: 24px: pixels da CSS (unidade fixa na tela); 28px: pixels da CSS (unidade fixa na tela); 20px: pixels da CSS (unidade fixa na tela). */
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75); /* box-shadow: valor "0 24px 60px rgba(0, 0, 0, 0.75)". unidades: 24px: pixels da CSS (unidade fixa na tela); 60px: pixels da CSS (unidade fixa na tela). */
-    border: 1px solid rgba(148, 163, 184, 0.25); /* border: valor "1px solid rgba(148, 163, 184, 0.25)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08); /* box-shadow: valor "0 12px 32px rgba(15, 23, 42, 0.08)". unidades: 12px: pixels da CSS (unidade fixa na tela); 32px: pixels da CSS (unidade fixa na tela). */
+    border: 1px solid #e2e8f0; /* border: valor "1px solid #e2e8f0". unidades: 1px: pixels da CSS (unidade fixa na tela). */
 }
 
 /* Header */
@@ -61,7 +61,7 @@ body {
 
 .page-subtitle {
     font-size: 0.9rem; /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
-    color: #9ca3af; /* color: valor "#9ca3af". define uma cor. */
+    color: #64748b; /* color: valor "#64748b". define uma cor. */
 }
 
 .badge {
@@ -92,7 +92,7 @@ body {
 }
 
     .datagrid thead {
-        background: linear-gradient( 135deg, rgba(16, 163, 127, 0.95), rgba(45, 212, 191, 0.8) ); /* background: valor "linear-gradient( 135deg, rgba(16, 163, 127, 0.95), rgba(45, 212, 191, 0.8) )". define um gradiente como fundo. unidades: 135deg: graus de rotação/ângulo. */
+        background: #296436; /* background: valor "#296436". define uma cor. */
     }
 
     .datagrid th,
@@ -103,7 +103,7 @@ body {
     .datagrid th {
         text-align: left; /* text-align: valor "left". */
         font-weight: 500; /* font-weight: valor "500". */
-        color: #0b1120; /* color: valor "#0b1120". define uma cor. */
+        color: #ffffff; /* color: valor "#ffffff". define uma cor. */
         border-bottom: 1px solid rgba(15, 23, 42, 0.35); /* border-bottom: valor "1px solid rgba(15, 23, 42, 0.35)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
         font-size: 0.85rem; /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
     }
@@ -174,7 +174,7 @@ body {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     justify-content: space-between; /* justify-content: valor "space-between". */
     font-size: 0.8rem; /* font-size: valor "0.8rem". unidades: 0.8rem: unidade relativa ao font-size do elemento raiz (html). */
-    color: #9ca3af; /* color: valor "#9ca3af". define uma cor. */
+    color: #64748b; /* color: valor "#64748b". define uma cor. */
     gap: 8px; /* gap: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
 }
 

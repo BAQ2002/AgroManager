@@ -1,19 +1,20 @@
 :root {
-        --bg-start: #030712; /* --bg-start: valor "#030712". define uma cor. */
-        --bg-end: #020617; /* --bg-end: valor "#020617". define uma cor. */
-        --panel: rgba(15, 23, 42, 0.78); /* --panel: valor "rgba(15, 23, 42, 0.78)". define uma cor. */
-        --panel-border: rgba(148, 163, 184, 0.22); /* --panel-border: valor "rgba(148, 163, 184, 0.22)". define uma cor. */
-        --text-primary: #e2e8f0; /* --text-primary: valor "#e2e8f0". define uma cor. */
-        --text-muted: #94a3b8; /* --text-muted: valor "#94a3b8". define uma cor. */
+        --bg-start: #ffffff; /* --bg-start: valor "#ffffff". define uma cor. */
+        --bg-end: #f8fafc; /* --bg-end: valor "#f8fafc". define uma cor. */
+        --panel: #ffffff; /* --panel: valor "#ffffff". define uma cor. */
+        --panel-border: #e2e8f0; /* --panel-border: valor "#e2e8f0". define uma cor. */
+        --text-primary: #0f172a; /* --text-primary: valor "#0f172a". define uma cor. */
+        --text-muted: #64748b; /* --text-muted: valor "#64748b". define uma cor. */
         --accent: #22c55e; /* --accent: valor "#22c55e". define uma cor. */
-        --accent-soft: rgba(34, 197, 94, 0.18); /* --accent-soft: valor "rgba(34, 197, 94, 0.18)". define uma cor. */
+        --accent-soft: rgba(41, 100, 54, 0.12); /* --accent-soft: valor "rgba(41, 100, 54, 0.12)". define uma cor. */
     }
 
     body {
         min-height: 100vh; /* min-height: valor "100vh". unidades: 100vh: 1% da altura da viewport. */
         margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
-        background: radial-gradient(circle at 20% 0%, #0b1225, var(--bg-start) 40%, var(--bg-end) 100%); /* background: valor "radial-gradient(circle at 20% 0%, #0b1225, var(--bg-start) 40%, var(--bg-end) 100%)". define um gradiente como fundo. */
+        background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%); /* background: valor "linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%)". define um gradiente como fundo. unidades: 180deg: graus de rotação/ângulo. */
         color: var(--text-primary); /* color: valor "var(--text-primary)". */
+        padding-bottom: 2rem; /* padding-bottom: valor "2rem". unidades: 2rem: unidade relativa ao font-size do elemento raiz (html). */
         font-family: "Inter", "Segoe UI", sans-serif; /* font-family: valor ""Inter", "Segoe UI", sans-serif". */
     }
 
@@ -27,6 +28,11 @@
     .hero {
         width: min(1100px, 92vw); /* width: valor "min(1100px, 92vw)". valor responsivo calculado por função matemática. unidades: 1100px: pixels da CSS (unidade fixa na tela); 92vw: 1% da largura da viewport. */
         margin: 3.5rem auto; /* margin: valor "3.5rem auto". unidades: 3.5rem: unidade relativa ao font-size do elemento raiz (html). */
+        background: #ffffff; /* background: valor "#ffffff". define uma cor. */
+        border: 1px solid #e2e8f0; /* border: valor "1px solid #e2e8f0". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+        border-radius: 24px; /* border-radius: valor "24px". unidades: 24px: pixels da CSS (unidade fixa na tela). */
+        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08); /* box-shadow: valor "0 18px 42px rgba(15, 23, 42, 0.08)". unidades: 18px: pixels da CSS (unidade fixa na tela); 42px: pixels da CSS (unidade fixa na tela). */
+        padding: 2.5rem; /* padding: valor "2.5rem". unidades: 2.5rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
     .hero h1 {
@@ -62,7 +68,7 @@
     .feature-card:hover {
         transform: translateY(-3px); /* transform: valor "translateY(-3px)". unidades: -3px: pixels da CSS (unidade fixa na tela). */
         border-color: rgba(34, 197, 94, 0.75); /* border-color: valor "rgba(34, 197, 94, 0.75)". define uma cor. */
-        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35); /* box-shadow: valor "0 14px 35px rgba(0, 0, 0, 0.35)". unidades: 14px: pixels da CSS (unidade fixa na tela); 35px: pixels da CSS (unidade fixa na tela). */
+        box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12); /* box-shadow: valor "0 14px 35px rgba(15, 23, 42, 0.12)". unidades: 14px: pixels da CSS (unidade fixa na tela); 35px: pixels da CSS (unidade fixa na tela). */
     }
 
     .feature-icon {
@@ -73,7 +79,7 @@
         align-items: center; /* align-items: valor "center". */
         justify-content: center; /* justify-content: valor "center". */
         background: var(--accent-soft); /* background: valor "var(--accent-soft)". */
-        color: #86efac; /* color: valor "#86efac". define uma cor. */
+        color: #296436; /* color: valor "#296436". define uma cor. */
         margin-bottom: 0.9rem; /* margin-bottom: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
@@ -94,7 +100,7 @@
         gap: .4rem; /* gap: valor ".4rem". unidades: .4rem: unidade relativa ao font-size do elemento raiz (html). */
         align-items: center; /* align-items: valor "center". */
         margin-top: .85rem; /* margin-top: valor ".85rem". unidades: .85rem: unidade relativa ao font-size do elemento raiz (html). */
-        color: #86efac; /* color: valor "#86efac". define uma cor. */
+        color: #296436; /* color: valor "#296436". define uma cor. */
         font-size: .86rem; /* font-size: valor ".86rem". unidades: .86rem: unidade relativa ao font-size do elemento raiz (html). */
         font-weight: 500; /* font-weight: valor "500". */
     }
@@ -106,5 +112,6 @@
 
         .hero {
             margin-top: 2.2rem; /* margin-top: valor "2.2rem". unidades: 2.2rem: unidade relativa ao font-size do elemento raiz (html). */
+            padding: 1.5rem; /* padding: valor "1.5rem". unidades: 1.5rem: unidade relativa ao font-size do elemento raiz (html). */
         }
     }
