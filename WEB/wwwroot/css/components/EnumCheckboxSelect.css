@@ -20,8 +20,8 @@
     top: 50%;
     width: 8px;
     height: 8px;
-    border-right: 2px solid #334155;
-    border-bottom: 2px solid #334155;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
     transform: translateY(-70%) rotate(45deg);
     pointer-events: none;
     transition: transform 0.15s ease;
@@ -38,18 +38,19 @@
     top: calc(100% + 6px);
     left: 0;
     right: 0;
-    border: 1px solid rgba(148, 163, 184, 0.7);
+    border: 1px solid #000000;
     border-radius: 10px;
-    background: #f8fafc;
-    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
+    background: #ffffff;
+    box-shadow: none;
     padding: 8px;
     max-height: 190px;
     overflow-y: auto;
 }
 
 .enum-select.open .enum-select-trigger {
-    border-color: rgba(45, 212, 191, 0.95);
-    box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.24);
+    border-width: 2px;
+    border-color: #296436;
+    box-shadow: none;
 }
 
 .enum-select.open .enum-select-menu {
@@ -67,7 +68,7 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
     font-weight: 600;
-    color: #0f172a;
+    color: #000000;
     padding: 4px 6px;
     border-radius: 8px;
     transition: background-color 0.15s ease;
@@ -81,5 +82,5 @@
 }
 
 .enum-select-menu label:hover {
-    background: #e2e8f0;
+    background: #ffffff;
 }

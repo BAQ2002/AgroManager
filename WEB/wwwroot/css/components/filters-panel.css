@@ -1,10 +1,10 @@
 .filters-panel {
     margin: 8px 0 16px;
     border-radius: 18px;
-    border: 1px solid rgba(148, 163, 184, 0.24);
+    border: 1px solid #000000;
     background: #ffffff;
     padding: 16px;
-    box-shadow: 0 14px 28px rgba(1, 5, 20, 0.4);
+    box-shadow: none;
     overflow: visible;
     width: 100%;
     max-width: 100%;
@@ -25,7 +25,7 @@
     margin: 0;
     font-size: 1rem;
     font-weight: 600;
-    color: #f8fafc;
+    color: #000000;
 }
 
 .filters-title-group {
@@ -42,6 +42,9 @@
 
 .filters-clear-action {
     cursor: pointer;
+    border: 1px solid #000000;
+    background: #ffffff;
+    color: #000000;
 }
 
 .filters-panel.collapsed {
@@ -95,8 +98,9 @@
     width: 46px;
     height: 28px;
     border-radius: 999px;
-    background: #dc2626;
-    transition: background-color 0.22s ease;
+    border: 1px solid #000000;
+    background: #000000;
+    transition: background-color 0.22s ease, border-color 0.22s ease;
     flex: 0 0 auto;
 }
 
@@ -109,12 +113,12 @@
     height: 24px;
     border-radius: 50%;
     background: #ffffff;
-    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.35);
     transition: transform 0.22s ease;
 }
 
 .filters-toggle-input:checked + .filters-toggle-slider {
-    background: #22c55e;
+    background: #296436;
+    border-color: #296436;
 }
 
 .filters-toggle-input:checked + .filters-toggle-slider::after {
@@ -122,8 +126,8 @@
 }
 
 .filters-toggle-input:focus-visible + .filters-toggle-slider {
-    outline: 2px solid #5eead4;
-    outline-offset: 3px;
+    outline: 2px solid #296436;
+    outline-offset: 2px;
 }
 
 .filters-fieldset {
