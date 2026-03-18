@@ -85,7 +85,7 @@ body {
 }
 
 .age-unit-trigger:focus-visible {
-    outline: 2px solid rgba(45, 212, 191, 0.95); /* outline: valor "2px solid rgba(45, 212, 191, 0.95)". unidades: 2px: pixels da CSS (unidade fixa na tela). */
+    outline: 2px solid #296436; /* outline: valor "2px solid #296436". unidades: 2px: pixels da CSS (unidade fixa na tela). */
     outline-offset: 2px; /* outline-offset: valor "2px". unidades: 2px: pixels da CSS (unidade fixa na tela). */
 }
 
