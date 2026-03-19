@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BLL.Common.Exceptions;
+using Minio.DataModel.Notification;
+using MODEL;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using BLL.Common.Exceptions;
-using MODEL;
 
 namespace BLL.Services;
 
@@ -16,16 +17,21 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
     where TAnimal : AnimalEntity
 {
     private readonly IAnimalRepository<TAnimal> _repository;
+    private readonly IPhotoStorage _photoStorage;
 
     /// <summary>
     /// Inicializa o serviço base com o port de persistência.
     /// </summary>
     /// <param name="repository">Repositório usado para leituras e gravações do tipo de animal.</param>
     /// <exception cref="ArgumentNullException">Lançada quando <paramref name="repository"/> é nulo.</exception>
-    protected AnimalServiceBase(IAnimalRepository<TAnimal> repository)
+    protected AnimalServiceBase(IAnimalRepository<TAnimal> repository, IPhotoStorage photoStorage)
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        _photoStorage = photoStorage ?? throw new ArgumentNullException(nameof(photoStorage)); ;
     }
+
+
+    #region CRUD Methods --------------------------------------
 
     /// <summary>
     /// Cria um novo animal aplicando a sequência padrão do pipeline:
@@ -103,6 +109,21 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
 
         await _repository.DeleteAsync(entity, ct).ConfigureAwait(false);
     }
+    
+    /// <summary>
+    /// Obtém um animal por identificador.
+    /// Quando o id é vazio, retorna <see langword="null"/> sem consultar o repositório;
+    /// caso contrário, delega para <see cref="IAnimalRepository{TAnimal}.GetByIdAsync(Guid, CancellationToken)"/>.
+    /// </summary>
+    /// <param name="id">Identificador do animal.</param>
+    /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
+    /// <returns>A entidade encontrada ou <see langword="null"/>.</returns>
+    public virtual Task<TAnimal?> GetByIdAsync(Guid id, CancellationToken ct = default)
+    {
+        if (id == Guid.Empty) return Task.FromResult<TAnimal?>(null);
+
+        return _repository.GetByIdAsync(id, ct) ?? throw new NotFoundException("Registro não encontrado.");
+    }
 
     /// <summary>
     /// Lista todos os animais do tipo corrente delegando diretamente ao repositório.
@@ -129,20 +150,94 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
         return _repository.ListAsync(filters, ct);
     }
 
-    /// <summary>
-    /// Obtém um animal por identificador.
-    /// Quando o id é vazio, retorna <see langword="null"/> sem consultar o repositório;
-    /// caso contrário, delega para <see cref="IAnimalRepository{TAnimal}.GetByIdAsync(Guid, CancellationToken)"/>.
-    /// </summary>
-    /// <param name="id">Identificador do animal.</param>
-    /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
-    /// <returns>A entidade encontrada ou <see langword="null"/>.</returns>
-    public virtual Task<TAnimal?> GetByIdAsync(Guid id, CancellationToken ct = default)
-    {
-        if (id == Guid.Empty) return Task.FromResult<TAnimal?>(null);
+    #endregion
 
-        return _repository.GetByIdAsync(id, ct);
+    #region Storage Methods----------------------------
+
+    public virtual async Task<string> UploadPhotoAsync(
+         Guid animalId,
+         Stream content,
+         string contentType,
+         long? contentLength,
+         string? fileName = null,
+         string? suffix = null,
+         CancellationToken ct = default)
+    {
+        // Validações de entrada
+        if (animalId == Guid.Empty) throw new BusinessRuleException("O identificador informado é inválido.");
+        if (content is null) throw new ArgumentNullException(nameof(content));
+        if (string.IsNullOrWhiteSpace(contentType)) throw new BusinessRuleException("O tipo do arquivo da foto deve ser informado.");
+
+        // *talvez faca sentido criar um metodo quue retorne a fotoKey sem trazer a entidade completa, para otimizar esse fluxo. Por ora, mantem-se a consulta completa.
+        TAnimal? entity = await GetByIdAsync(animalId, ct).ConfigureAwait(false);
+
+        if (entity is null) throw new NotFoundException("Registro não encontrado.");
+
+        string? oldPhotoKey = entity.PhotoKey;
+
+        PhotoUploadResult uploadResult = await _photoStorage.UploadAsync(
+            new PhotoUploadRequest(
+                Content: content,
+                ContentType: contentType,
+                ContentLength: contentLength,
+                FileName: fileName,
+                Scope: "animals",
+                EntityId: animalId.ToString("N"),
+                Suffix: suffix),
+            ct).ConfigureAwait(false);
+
+        entity.PhotoKey = uploadResult.PhotoKey;
+
+        await _repository.UpdateAsync(entity, ct).ConfigureAwait(false);
+
+       //testar funcionamento do if, pode ser que o provedor ja subistitua o arquvo
+        if (!string.IsNullOrWhiteSpace(oldPhotoKey) && !string.Equals(oldPhotoKey, uploadResult.PhotoKey, StringComparison.Ordinal))
+        {
+            await _photoStorage.DeleteAsync(oldPhotoKey, ct).ConfigureAwait(false);
+        }
+
+        return uploadResult.PhotoKey;
     }
+
+    public virtual async Task<string?> GetPhotoUrlAsync(Guid animalId, TimeSpan? ttl = null, CancellationToken ct = default)
+    {
+        if (animalId == Guid.Empty) throw new BusinessRuleException("O identificador informado é inválido.");
+
+        TAnimal? entity = await GetByIdAsync(animalId, ct).ConfigureAwait(false);
+
+        if (entity is null) throw new NotFoundException("Registro não encontrado.");
+
+        if (string.IsNullOrWhiteSpace(entity.PhotoKey))
+            return null;
+
+        return await _photoStorage.GetReadUrlAsync(entity.PhotoKey, ttl, ct).ConfigureAwait(false);
+    }
+
+    public virtual async Task RemovePhotoAsync(Guid animalId, CancellationToken ct = default)
+    {
+        if (animalId == Guid.Empty) throw new BusinessRuleException("O identificador informado é inválido.");
+
+        TAnimal? entity = await GetByIdAsync(animalId, ct).ConfigureAwait(false);
+
+        if (entity is null) throw new NotFoundException("Registro não encontrado.");
+
+        if (string.IsNullOrWhiteSpace(entity.PhotoKey))
+            return;
+
+        string photoKey = entity.PhotoKey;
+
+        await _photoStorage.DeleteAsync(photoKey, ct).ConfigureAwait(false);
+
+        entity.PhotoKey = null;
+
+        await _repository.UpdateAsync(entity, ct).ConfigureAwait(false);
+    }
+
+    #endregion
+
+
+    #region Validation Methods --------------------------------------
+
 
     /// <summary>
     /// Aplica validações comuns válidas para qualquer animal.
@@ -212,4 +307,5 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
     /// <param name="entity">Entidade da espécie concreta em processo de exclusão.</param>
     /// <param name="ct">Token de cancelamento para operações assíncronas.</param>
     protected abstract Task ValidateDeleteSpecificRulesAsync(TAnimal entity, CancellationToken ct);
+    #endregion
 }

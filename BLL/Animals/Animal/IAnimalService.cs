@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BLL.Services
 {
-    public interface IAnimalService<TAnimal> : ICrudService<TAnimal>
+    public interface IAnimalService<TAnimal> : ICrudService<TAnimal>, IAnimalPhotoService<TAnimal>
         where TAnimal : AnimalEntity
     {
         Task<IReadOnlyList<TAnimal>> ListAsync(CancellationToken ct = default);
