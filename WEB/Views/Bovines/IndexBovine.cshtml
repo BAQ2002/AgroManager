@@ -4,6 +4,7 @@
 }
 
 @section Styles {
+    <link rel="stylesheet" href="~/css/components/ButtonPreset.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/filters-panel.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/FormContainer.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/FloatingTextBox.css" asp-append-version="true" />
@@ -17,8 +18,8 @@
             <h1 class="page-title">Bovines</h1>
             <p class="page-subtitle">Lista de bovinos cadastrados no AgroManager.</p>
             <div class="am-inline-actions am-inline-actions-spaced">
-                <a class="badge am-link-plain" href="/">← Voltar</a>
-                <a class="badge am-link-plain" href="/bovines/create">+ Novo Bovine</a>
+                <a class="badge am-link-plain am-neutral-button-preset" href="/">← Voltar</a>
+                <a class="badge am-link-plain am-neutral-button-preset" href="/bovines/create">+ Novo Bovine</a>
             </div>
         </div>
     </header>
@@ -139,7 +140,7 @@
                     </div>
 
                     <div class="filters-actions">
-                        <button id="clearFilters" type="button" class="badge filters-clear-action">Limpar filtros</button>
+                        <button id="clearFilters" type="button" class="badge filters-clear-action am-neutral-button-preset">Limpar filtros</button>
                     </div>
                 </fieldset>
             </div>
