@@ -6,14 +6,16 @@
     cursor: pointer;
     text-decoration: none;
     color: #000000;
-    background: #f3f4f6;
+    background: #e5e7eb;
     border: 1px solid rgba(55, 65, 81, 0.8);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.2s ease, border-width 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .am-neutral-button-preset:hover,
 .am-neutral-button-preset:focus-visible {
     color: #000000;
+    background: #d1d5db;
     border-color: #296436;
+    border-width: 2px;
     outline: none;
 }
