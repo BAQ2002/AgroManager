@@ -156,7 +156,9 @@
         wireEnumSelects();
         wireAgeUnitSelect();
 
-        document.getElementById("clearFilters").addEventListener("click", () => {
+        const clearFiltersButton = document.querySelector("[data-action=\"clear-filters\"]");
+
+        clearFiltersButton?.addEventListener("click", () => {
             document.getElementById("filterName").value = "";
             document.getElementById("filterBirthDateMin").value = "";
             document.getElementById("filterBirthDateMax").value = "";

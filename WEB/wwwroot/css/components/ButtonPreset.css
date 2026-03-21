@@ -1,4 +1,5 @@
-.am-neutral-button-preset {
+.am-neutral-button-preset,
+.button-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -12,7 +13,9 @@
 }
 
 .am-neutral-button-preset:hover,
-.am-neutral-button-preset:focus-visible {
+.am-neutral-button-preset:focus-visible,
+.button-primary:hover,
+.button-primary:focus-visible {
     color: #000000;
     background: #d1d5db;
     border-color: #296436;
