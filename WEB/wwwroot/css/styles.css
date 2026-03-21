@@ -126,6 +126,10 @@ body {
 
     .datagrid td {
         border-bottom: 1px solid rgba(203, 213, 225, 0.8); /* border-bottom: valor "1px solid rgba(203, 213, 225, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    }
+
+    .datagrid tbody td,
+    .datagrid tbody td a {
         color: #000000; /* color: valor "#000000". define uma cor. */
     }
 
