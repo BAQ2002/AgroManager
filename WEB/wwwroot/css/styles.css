@@ -81,8 +81,8 @@ body {
     margin-top: 6px; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
     border-radius: 14px; /* border-radius: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
     overflow: hidden; /* overflow: valor "hidden". */
-    border: 1px solid rgba(55, 65, 81, 0.8); /* border: valor "1px solid rgba(55, 65, 81, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    background: radial-gradient(circle at top left, #020617, #02040a); /* background: valor "radial-gradient(circle at top left, #020617, #02040a)". define um gradiente como fundo. */
+    border: 1px solid rgba(203, 213, 225, 0.9); /* border: valor "1px solid rgba(203, 213, 225, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
 }
 
 .datagrid {
@@ -108,27 +108,25 @@ body {
         font-size: 0.85rem; /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
-    .datagrid tbody tr {
-        transition: background 0.15s ease, transform 0.08s ease, box-shadow 0.08s ease; /* transition: valor "background 0.15s ease, transform 0.08s ease, box-shadow 0.08s ease". unidades: 0.15s: segundos (tempo de animação/transição); 0.08s: segundos (tempo de animação/transição). */
+    .datagrid tbody tr td {
+        transition: box-shadow 0.15s ease; /* transition: valor "box-shadow 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
     }
 
-        .datagrid tbody tr:nth-child(odd) {
-            background-color: rgba(15, 23, 42, 0.96); /* background-color: valor "rgba(15, 23, 42, 0.96)". define uma cor. */
+        .datagrid tbody tr:nth-child(odd) td {
+            background-color: #ffffff; /* background-color: valor "#ffffff". define uma cor. */
         }
 
-        .datagrid tbody tr:nth-child(even) {
-            background-color: rgba(17, 24, 39, 0.96); /* background-color: valor "rgba(17, 24, 39, 0.96)". define uma cor. */
+        .datagrid tbody tr:nth-child(even) td {
+            background-color: #f5f7f6; /* background-color: valor "#f5f7f6". define uma cor. */
         }
 
-        .datagrid tbody tr:hover {
-            background: radial-gradient(circle at left, rgba(16, 163, 127, 0.22), #020617); /* background: valor "radial-gradient(circle at left, rgba(16, 163, 127, 0.22), #020617)". define um gradiente como fundo. */
-            transform: translateY(-1px); /* transform: valor "translateY(-1px)". unidades: -1px: pixels da CSS (unidade fixa na tela). */
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.65); /* box-shadow: valor "0 4px 16px rgba(0, 0, 0, 0.65)". unidades: 4px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
+        .datagrid tbody tr:hover td {
+            box-shadow: inset 0 0 0 9999px rgba(41, 100, 54, 0.08); /* box-shadow: valor "inset 0 0 0 9999px rgba(41, 100, 54, 0.08)". unidades: 9999px: pixels da CSS (unidade fixa na tela). */
         }
 
     .datagrid td {
-        border-bottom: 1px solid rgba(31, 41, 55, 0.9); /* border-bottom: valor "1px solid rgba(31, 41, 55, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-        color: #e5e7eb; /* color: valor "#e5e7eb". define uma cor. */
+        border-bottom: 1px solid rgba(203, 213, 225, 0.8); /* border-bottom: valor "1px solid rgba(203, 213, 225, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+        color: #000000; /* color: valor "#000000". define uma cor. */
     }
 
         .datagrid td:nth-child(4) {
