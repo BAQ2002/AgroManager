@@ -108,19 +108,19 @@ body {
         font-size: 0.85rem; /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
-    .datagrid tbody tr {
+    .datagrid tbody tr td {
         transition: background-color 0.15s ease; /* transition: valor "background-color 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
     }
 
-        .datagrid tbody tr:nth-child(odd) {
+        .datagrid tbody tr:nth-child(odd) td {
             background-color: #ffffff; /* background-color: valor "#ffffff". define uma cor. */
         }
 
-        .datagrid tbody tr:nth-child(even) {
+        .datagrid tbody tr:nth-child(even) td {
             background-color: #f5f7f6; /* background-color: valor "#f5f7f6". define uma cor. */
         }
 
-        .datagrid tbody tr:hover {
+        .datagrid tbody tr:hover td {
             background-color: rgba(41, 100, 54, 0.1); /* background-color: valor "rgba(41, 100, 54, 0.1)". define uma cor. */
         }
 
