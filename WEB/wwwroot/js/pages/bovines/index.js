@@ -77,10 +77,12 @@
             <td>${x.maritalStatus ?? ""}</td>
             <td>${x.cattleType ?? ""}</td>
             <td>
-                <a class="badge am-link-plain button-primary bovine-edit-action" href="/bovines/edit/${x.id}" aria-label="Editar ${x.name ?? "bovino"}" title="Editar">
+                <a class="badge am-link-plain button-primary bovine-edit-action" href="/bovines/edit/${x.id}" aria-label="Editar ${x.name ?? "bovino"}" title="Editar ${x.name ?? "bovino"}">
                     <svg class="bovine-edit-action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M4 20h4.75L19.81 8.94l-4.75-4.75L4 15.25V20zm13.71-12.46 1.75-1.75a1 1 0 0 0 0-1.41l-1.59-1.59a1 1 0 0 0-1.41 0l-1.75 1.75 3.01 3z"></path>
+                        <path d="M3 21h3.75L17.81 9.94a2 2 0 0 0 0-2.83l-.92-.92a2 2 0 0 0-2.83 0L3 17.25V21z"></path>
+                        <path d="M13.5 6.5l4 4"></path>
                     </svg>
+                    <span>Editar</span>
                 </a>
             </td>
           </tr>

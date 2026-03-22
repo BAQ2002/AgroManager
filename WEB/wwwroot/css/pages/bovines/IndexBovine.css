@@ -151,15 +151,21 @@ body {
 
 
 .bovine-edit-action {
-    width: 34px; /* width: valor "34px". unidades: 34px: pixels da CSS (unidade fixa na tela). */
-    height: 34px; /* height: valor "34px". unidades: 34px: pixels da CSS (unidade fixa na tela). */
-    padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
+    min-height: 34px; /* min-height: valor "34px". unidades: 34px: pixels da CSS (unidade fixa na tela). */
+    padding: 0 12px; /* padding: valor "0 12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
     border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+    gap: 8px; /* gap: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
+    font-weight: 500; /* font-weight: valor "500". */
 }
 
 .bovine-edit-action-icon {
-    width: 16px; /* width: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
-    height: 16px; /* height: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
-    fill: currentColor; /* fill: valor "currentColor". usa a cor atual do texto/elemento. */
+    width: 18px; /* width: valor "18px". unidades: 18px: pixels da CSS (unidade fixa na tela). */
+    height: 18px; /* height: valor "18px". unidades: 18px: pixels da CSS (unidade fixa na tela). */
+    fill: none; /* fill: valor "none". valor neutro/ausente para essa propriedade. */
+    stroke: currentColor; /* stroke: valor "currentColor". usa a cor atual do texto/elemento. */
+    stroke-width: 1.8; /* stroke-width: valor "1.8". */
+    stroke-linecap: round; /* stroke-linecap: valor "round". */
+    stroke-linejoin: round; /* stroke-linejoin: valor "round". */
     display: block; /* display: valor "block". define o modo de layout/exibição. */
+    flex: 0 0 auto; /* flex: valor "0 0 auto". */
 }
