@@ -4,6 +4,10 @@
     ViewData["Title"] = "Editar Bovino";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/components/PrimaryButton.css" asp-append-version="true" />
+}
+
 
 
 <div class="am-page-shell">
@@ -88,8 +92,8 @@
             </div>
 
             <div class="am-form-actions">
-                <a class="badge am-link-plain" href="/bovines">Cancelar</a>
-                <button type="submit" class="badge am-button-action">Salvar</button>
+                <a class="badge am-link-plain primary-button" href="/bovines">Cancelar</a>
+                <button type="submit" class="badge am-button-action primary-button">Salvar</button>
             </div>
         </form>
     </section>
