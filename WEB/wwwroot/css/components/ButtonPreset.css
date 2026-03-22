@@ -1,5 +1,4 @@
-.am-neutral-button-preset,
-.button-primary {
+.am-neutral-button-preset {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -15,28 +14,61 @@
 }
 
 .am-neutral-button-preset:hover,
-.am-neutral-button-preset:focus-visible,
-.button-primary:hover,
-.button-primary:focus-visible {
+.am-neutral-button-preset:focus-visible {
     color: #000000;
     background: #d1d5db;
     border-color: #296436;
     outline-color: #296436;
 }
 
-.am-neutral-button-preset:focus-visible,
-.button-primary:focus-visible {
+.am-neutral-button-preset:focus-visible {
     outline-offset: 2px;
 }
 
-.button-with-icon {
-    gap: 8px;
-    text-transform: none;
-    letter-spacing: normal;
-    font-weight: 500;
+.button-primary,
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+    background: #e5e7eb;
+    border: 1px solid rgba(55, 65, 81, 0.8);
+    outline: 2px solid transparent;
+    outline-offset: 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, outline-color 0.2s ease;
 }
 
-.button-with-icon svg {
+.button-primary:hover,
+.button-primary:focus-visible,
+.primary-button:hover,
+.primary-button:focus-visible {
+    color: #000000;
+    background: #d1d5db;
+    border-color: #296436;
+    outline-color: #296436;
+}
+
+.button-primary:focus-visible,
+.primary-button:focus-visible {
+    outline-offset: 2px;
+}
+
+.button-with-icon,
+.primary-button {
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: normal;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.button-with-icon svg,
+.primary-button svg {
     width: 18px;
     height: 18px;
     fill: none;
