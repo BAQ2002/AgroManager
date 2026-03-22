@@ -148,3 +148,18 @@ body {
 .age-unit-option.active {
     background: #e2e8f0; /* background: valor "#e2e8f0". define uma cor. */
 }
+
+
+.bovine-edit-action {
+    width: 34px; /* width: valor "34px". unidades: 34px: pixels da CSS (unidade fixa na tela). */
+    height: 34px; /* height: valor "34px". unidades: 34px: pixels da CSS (unidade fixa na tela). */
+    padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
+    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+}
+
+.bovine-edit-action-icon {
+    width: 16px; /* width: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    height: 16px; /* height: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    fill: currentColor; /* fill: valor "currentColor". usa a cor atual do texto/elemento. */
+    display: block; /* display: valor "block". define o modo de layout/exibição. */
+}
