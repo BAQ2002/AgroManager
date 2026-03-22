@@ -13,8 +13,10 @@ body {
     padding: 0 16px; /* padding: valor "0 16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
 }
 
-.page {
+.bovines-page-header,
+.bovines-content-layout {
     width: min(1760px, calc(100% - 16px)); /* width: valor "min(1760px, calc(100% - 16px))". unidades: 1760px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
+    margin-inline: auto; /* margin-inline: valor "auto". centraliza horizontalmente no eixo inline. */
 }
 
 .bovines-content-layout {
