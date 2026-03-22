@@ -76,7 +76,15 @@
             <td>${formatAgeByUnit(x)}</td>
             <td>${x.maritalStatus ?? ""}</td>
             <td>${x.cattleType ?? ""}</td>
-            <td><a class="badge am-link-plain" href="/bovines/edit/${x.id}">Editar</a></td>
+            <td>
+                <a class="badge am-link-plain button-primary bovine-edit-action" href="/bovines/edit/${x.id}" aria-label="Editar ${x.name ?? "bovino"}" title="Editar ${x.name ?? "bovino"}">
+                    <svg class="bovine-edit-action-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M3 21h3.75L17.81 9.94a2 2 0 0 0 0-2.83l-.92-.92a2 2 0 0 0-2.83 0L3 17.25V21z"></path>
+                        <path d="M13.5 6.5l4 4"></path>
+                    </svg>
+                    <span>Editar</span>
+                </a>
+            </td>
           </tr>
         `).join("");
 
