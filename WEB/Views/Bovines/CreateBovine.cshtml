@@ -73,7 +73,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
+                        <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="text" placeholder=" " class="floating-field-input js-floating-control js-date-picker" data-empty-values="" autocomplete="off" />
                         <label class="floating-field-label">Nascimento</label>
                     </div>
                     <div class="am-error-text">@Html.ValidationMessageFor(m => m.BirthDate)</div>
