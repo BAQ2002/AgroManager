@@ -10,34 +10,11 @@
     max-width: 100%;
 }
 
-.filters-head {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-    transition: margin-bottom 0.2s ease;
-}
-
-.filters-head h2 {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #000000;
-}
-
-.filters-title-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .filters-actions {
     margin-top: 14px;
     display: flex;
     justify-content: flex-end;
 }
-
 
 .filters-fieldset {
     border: 0;
@@ -45,10 +22,16 @@
     padding: 0;
 }
 
-.filters-content {
-    max-height: 1400px;
-    opacity: 1;
-    margin-top: 0;
-    overflow: visible;
-    transition: max-height 0.3s ease, opacity 0.25s ease;
+.filters-legend {
+    margin: 0 0 14px;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+    float: none;
+    width: 100%;
+}
+
+.filters-form {
+    clear: both;
 }
