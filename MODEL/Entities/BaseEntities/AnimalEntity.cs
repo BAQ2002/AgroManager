@@ -7,6 +7,7 @@ namespace MODEL
     {
         #region Private Propeties --------------------------------------
         private string? _name = null; //Nome ou apelido do animal (opcional)
+        private string? _tag = null;  //Identificador visual/brinco
         private AcquisitionOrigin _origin = AcquisitionOrigin.Unknown;
         private Gender _gender = Gender.Unknown;
         private DateOnly? _birthDate = null;
@@ -21,6 +22,12 @@ namespace MODEL
         {
             get => _name;
             set { _name = value; }
+        }
+
+        public string? Tag
+        {
+            get => _tag;
+            set { _tag = string.IsNullOrWhiteSpace(value) ? null : value.Trim(); }
         }
 
         public virtual AcquisitionOrigin Origin

@@ -11,6 +11,8 @@ namespace INFRA.Persistences
             entityBuilder.ToTable("Swines");
 
             entityBuilder.Property(x => x.PorcType).HasConversion<int?>();
+            entityBuilder.Property(x => x.Breed).HasConversion<int?>(); //enum // novo
+
 
         }
     }

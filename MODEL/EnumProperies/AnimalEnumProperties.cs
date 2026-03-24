@@ -54,7 +54,20 @@ namespace MODEL
         Beef = 1, //Gado de corte
         Dairy = 2, //Gado de leite
     }
+    /// <summary>
+    /// Define Raca do bovino
+    /// </summary>
+    public enum BovineBreed
+    {
+        Unknown = 0,
+        Nelore = 1,
+        Angus = 2,
+        Hereford = 3,
+        Holandes = 4,
+        Jersey = 5,
+    }
     #endregion
+
 
     #region Swine Enum Properties
     /// <summary>
@@ -65,6 +78,17 @@ namespace MODEL
         Unknown = 0,
         Beef = 1, //Porco de corte
         Breeder = 2, //Porco matriz
+    }
+    /// <summary>
+    /// Define Raca do bovino
+    /// </summary>
+    public enum SwineBreed
+    {
+        Unknown = 0,
+        LargeWhite = 1,
+        Landrace = 2,
+        Duroc = 3,
+        Pietrain = 4,
     }
     #endregion
 }

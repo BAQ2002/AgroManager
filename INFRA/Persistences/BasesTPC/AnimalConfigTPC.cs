@@ -14,6 +14,7 @@ namespace INFRA.Persistences
             #region-Propriedades Hereditarias--------------------------------
 
             entityBuilder.Property(x => x.Name).HasMaxLength(120); //string
+            entityBuilder.Property(x => x.Tag).HasMaxLength(50); // String // novo
             entityBuilder.Property(x => x.Origin).HasConversion<int>(); //enum
             entityBuilder.Property(x => x.Gender).HasConversion<int>(); //enum
             entityBuilder.Property(x => x.BirthDate).HasColumnType("date"); //DateOnly

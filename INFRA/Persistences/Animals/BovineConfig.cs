@@ -12,6 +12,7 @@ namespace INFRA.Persistences
 
             entityBuilder.Property(x => x.MaritalStatus).HasConversion<int?>();
             entityBuilder.Property(x => x.CattleType).HasConversion<int?>();
+            entityBuilder.Property(x => x.Breed).HasConversion<int?>(); // enum //novo
         }
 
     }
