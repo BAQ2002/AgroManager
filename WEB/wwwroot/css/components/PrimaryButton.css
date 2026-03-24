@@ -6,7 +6,7 @@
     cursor: pointer;
     text-decoration: none;
     color: #000000;
-    background: #e5e7eb;
+    background: #ffffff;
     border: 1px solid rgba(55, 65, 81, 0.8);
     outline: 2px solid transparent;
     outline-offset: 0;
@@ -22,7 +22,7 @@
 }
 
 .primary-button:focus-visible {
-    outline-offset: 2px;
+    outline-offset: 15px;
 }
 
 .button-with-icon,
