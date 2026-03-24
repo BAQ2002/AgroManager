@@ -33,15 +33,23 @@ namespace INFRA
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.BovineParentages.AsNoTracking().SingleOrDefaultAsync(x => x.Id == animalId, ct);
         }
-        public async Task<BovineParentageEntity?> GetByFatherIdAsync(Guid fatherId, CancellationToken ct = default)
+        public async Task<IReadOnlyList<BovineParentageEntity>> GetByFatherIdAsync(Guid fatherId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
-            return await db.BovineParentages.AsNoTracking().SingleOrDefaultAsync(x => x.FatherId == fatherId, ct);
+            return await db.BovineParentages
+                            .AsNoTracking()
+                            .Where(x => x.FatherId == fatherId)
+                            .OrderBy(x => x.Id)
+                            .ToListAsync(ct);
         }
-        public async Task<BovineParentageEntity?> GetByMotherIdAsync(Guid motherId, CancellationToken ct = default)
+        public async Task<IReadOnlyList<BovineParentageEntity>> GetByMotherIdAsync(Guid motherId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
-            return await db.BovineParentages.AsNoTracking().SingleOrDefaultAsync(x => x.MotherId == motherId, ct);
+            return await db.BovineParentages
+                .AsNoTracking()
+                .Where(x => x.MotherId == motherId)
+                .OrderBy(x => x.Id)
+                .ToListAsync(ct);
         }
         public async Task<BovineParentageEntity?> GetBySurrogateMotherIdAsync(Guid surrogateMotherId, CancellationToken ct = default)
         {

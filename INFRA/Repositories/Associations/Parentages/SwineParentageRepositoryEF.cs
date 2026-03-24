@@ -33,15 +33,23 @@ namespace INFRA
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await db.SwineParentages.AsNoTracking().SingleOrDefaultAsync(x => x.Id == animalId, ct);
         }
-        public async Task<SwineParentageEntity?> GetByFatherIdAsync(Guid fatherId, CancellationToken ct = default)
+        public async Task<IReadOnlyList<SwineParentageEntity>> GetByFatherIdAsync(Guid fatherId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
-            return await db.SwineParentages.AsNoTracking().SingleOrDefaultAsync(x => x.FatherId == fatherId, ct);
+            return await db.SwineParentages
+                .AsNoTracking()
+                .Where(x => x.FatherId == fatherId)
+                .OrderBy(x => x.Id)
+                .ToListAsync(ct);
         }
-        public async Task<SwineParentageEntity?> GetByMotherIdAsync(Guid motherId, CancellationToken ct = default)
+        public async Task<IReadOnlyList<SwineParentageEntity>> GetByMotherIdAsync(Guid motherId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
-            return await db.SwineParentages.AsNoTracking().SingleOrDefaultAsync(x => x.MotherId == motherId, ct);
+            return await db.SwineParentages
+                .AsNoTracking()
+                .Where(x => x.MotherId == motherId)
+                .OrderBy(x => x.Id)
+                .ToListAsync(ct);
         }
         public async Task<SwineParentageEntity?> GetBySurrogateMotherIdAsync(Guid surrogateMotherId, CancellationToken ct = default)
         {
