@@ -12,6 +12,7 @@ namespace MODEL
     {
  
         Task AddAsync(TParentageEntity entity, CancellationToken ct = default);
+        Task UpdateAsync(TParentageEntity entity, CancellationToken ct = default);
         Task DeleteAsync(TParentageEntity entity, CancellationToken ct = default);
         Task<TParentageEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
         Task<IReadOnlyList<TParentageEntity>> GetByFatherIdAsync(Guid fatherId, CancellationToken ct = default);

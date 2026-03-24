@@ -13,7 +13,7 @@ namespace BLL.Services;
 /// centralizando validações comuns e delegando validações específicas para classes derivadas.
 /// </summary>
 /// <typeparam name="TAnimal">Tipo da entidade animal. Deve herdar de <see cref="AnimalEntity"/>.</typeparam>
-public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
+public abstract class AnimalService<TAnimal> : IAnimalService<TAnimal>
     where TAnimal : AnimalEntity
 {
     private readonly IAnimalRepository<TAnimal> _repository;
@@ -24,7 +24,7 @@ public abstract class AnimalServiceBase<TAnimal> : IAnimalService<TAnimal>
     /// </summary>
     /// <param name="repository">Repositório usado para leituras e gravações do tipo de animal.</param>
     /// <exception cref="ArgumentNullException">Lançada quando <paramref name="repository"/> é nulo.</exception>
-    protected AnimalServiceBase(IAnimalRepository<TAnimal> repository, IPhotoStorage photoStorage)
+    protected AnimalService(IAnimalRepository<TAnimal> repository, IPhotoStorage photoStorage)
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         _photoStorage = photoStorage ?? throw new ArgumentNullException(nameof(photoStorage)); ;

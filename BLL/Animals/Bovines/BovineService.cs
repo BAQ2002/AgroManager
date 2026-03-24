@@ -15,11 +15,11 @@ namespace BLL.Services
 
     /// <summary>
     /// Implementa regras de negócio específicas para bovinos sobre o pipeline comum de
-    /// <see cref="AnimalServiceBase{TAnimal}"/>.
+    /// <see cref="AnimalService{TAnimal}"/>.
     /// O fluxo de criação/atualização/exclusão é executado na classe base, que chama os ganchos
     /// <see cref="ValidateSpecificRules(BovineEntity)"/> e <see cref="ValidateDeleteSpecificRulesAsync(BovineEntity, CancellationToken)"/>.
     /// </summary>
-    public sealed class BovineService : AnimalServiceBase<BovineEntity>, IBovineService
+    public sealed class BovineService : AnimalService<BovineEntity>, IBovineService
     {
         /// <summary>
         /// Inicializa o serviço de bovinos delegando a persistência para um repositório que implementa
@@ -33,8 +33,8 @@ namespace BLL.Services
         /// <summary>
         /// Executa validações de domínio específicas de bovinos.
         /// Este método é chamado pela classe base antes de persistir em
-        /// <see cref="AnimalServiceBase{TAnimal}.CreateAsync(TAnimal, CancellationToken)"/> e
-        /// <see cref="AnimalServiceBase{TAnimal}.UpdateAsync(TAnimal, CancellationToken)"/>.
+        /// <see cref="AnimalService{TAnimal}.CreateAsync(TAnimal, CancellationToken)"/> e
+        /// <see cref="AnimalService{TAnimal}.UpdateAsync(TAnimal, CancellationToken)"/>.
         /// </summary>
         /// <param name="entity">Entidade bovina que será validada.</param>
         /// <exception cref="BusinessRuleException">
@@ -52,7 +52,7 @@ namespace BLL.Services
 
         /// <summary>
         /// Executa validações adicionais antes da exclusão de bovinos.
-        /// Este gancho é chamado pela base em <see cref="AnimalServiceBase{TAnimal}.DeleteAsync(Guid, CancellationToken)"/>
+        /// Este gancho é chamado pela base em <see cref="AnimalService{TAnimal}.DeleteAsync(Guid, CancellationToken)"/>
         /// após as regras comuns e antes da chamada ao repositório para remoção.
         /// </summary>
         /// <param name="entity">Entidade bovina que está no fluxo de exclusão.</param>

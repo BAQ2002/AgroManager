@@ -16,7 +16,7 @@ namespace BLL.Services
     /// <summary>
     /// Implementa regras de negócio específicas para suínos.
     /// </summary>
-    public sealed class SwineService : AnimalServiceBase<SwineEntity>, ISwineService
+    public sealed class SwineService : AnimalService<SwineEntity>, ISwineService
     {
         /// <summary>
         /// Inicializa o service de suínos utilizando o port genérico de repositório.

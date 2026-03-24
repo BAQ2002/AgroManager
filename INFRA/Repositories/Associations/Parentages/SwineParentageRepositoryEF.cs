@@ -22,6 +22,13 @@ namespace INFRA
             await db.SaveChangesAsync(ct);
         }
 
+        public async Task UpdateAsync(SwineParentageEntity entity, CancellationToken ct = default)
+        {
+            await using var db = await _factory.CreateDbContextAsync(ct);
+            db.SwineParentages.Update(entity);
+            await db.SaveChangesAsync(ct);
+        }
+
         public async Task DeleteAsync(SwineParentageEntity entity, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
