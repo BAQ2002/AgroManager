@@ -26,7 +26,7 @@ namespace BLL.Services
         /// <see cref="IAnimalRepository{TAnimal}"/> para <see cref="BovineEntity"/>.
         /// </summary>
         /// <param name="repository">Port adaptado para acesso e escrita de dados de bovinos.</param>
-        public BovineService(IAnimalRepository<BovineEntity> repository, IPhotoStorage photoStorage) : base(repository, photoStorage)
+        public BovineService(IAnimalRepository<BovineEntity> repository) : base(repository)
         {
         }
 

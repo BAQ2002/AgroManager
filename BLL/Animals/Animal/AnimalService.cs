@@ -1,5 +1,4 @@
 ﻿using BLL.Common.Exceptions;
-using Minio.DataModel.Notification;
 using MODEL;
 using System;
 using System.Collections.Generic;
@@ -17,17 +16,15 @@ public abstract class AnimalService<TAnimal> : IAnimalService<TAnimal>
     where TAnimal : AnimalEntity
 {
     private readonly IAnimalRepository<TAnimal> _repository;
-    private readonly IPhotoStorage _photoStorage;
 
     /// <summary>
     /// Inicializa o serviço base com o port de persistência.
     /// </summary>
     /// <param name="repository">Repositório usado para leituras e gravações do tipo de animal.</param>
     /// <exception cref="ArgumentNullException">Lançada quando <paramref name="repository"/> é nulo.</exception>
-    protected AnimalService(IAnimalRepository<TAnimal> repository, IPhotoStorage photoStorage)
+    protected AnimalService(IAnimalRepository<TAnimal> repository)
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-        _photoStorage = photoStorage ?? throw new ArgumentNullException(nameof(photoStorage)); ;
     }
 
 
@@ -152,88 +149,7 @@ public abstract class AnimalService<TAnimal> : IAnimalService<TAnimal>
 
     #endregion
 
-    #region Storage Methods----------------------------
 
-    public virtual async Task<string> UploadPhotoAsync(
-         Guid animalId,
-         Stream content,
-         string contentType,
-         long? contentLength,
-         string? fileName = null,
-         string? suffix = null,
-         CancellationToken ct = default)
-    {
-        // Validações de entrada
-        if (animalId == Guid.Empty) throw new BusinessRuleException("O identificador informado é inválido.");
-        if (content is null) throw new ArgumentNullException(nameof(content));
-        if (string.IsNullOrWhiteSpace(contentType)) throw new BusinessRuleException("O tipo do arquivo da foto deve ser informado.");
-
-        // *talvez faca sentido criar um metodo quue retorne a fotoKey sem trazer a entidade completa, para otimizar esse fluxo. Por ora, mantem-se a consulta completa.
-        TAnimal? entity = await GetByIdAsync(animalId, ct).ConfigureAwait(false);
-
-        if (entity is null) throw new NotFoundException("Registro não encontrado.");
-
-        string? oldPhotoKey = entity.PhotoKey;
-
-        PhotoUploadResult uploadResult = await _photoStorage.UploadAsync(
-            new PhotoUploadRequest(
-                Content: content,
-                ContentType: contentType,
-                ContentLength: contentLength,
-                FileName: fileName,
-                Scope: "animals",
-                EntityId: animalId.ToString("N"),
-                Suffix: suffix),
-            ct).ConfigureAwait(false);
-
-        entity.PhotoKey = uploadResult.PhotoKey;
-
-        await _repository.UpdateAsync(entity, ct).ConfigureAwait(false);
-
-       //testar funcionamento do if, pode ser que o provedor ja subistitua o arquvo
-        if (!string.IsNullOrWhiteSpace(oldPhotoKey) && !string.Equals(oldPhotoKey, uploadResult.PhotoKey, StringComparison.Ordinal))
-        {
-            await _photoStorage.DeleteAsync(oldPhotoKey, ct).ConfigureAwait(false);
-        }
-
-        return uploadResult.PhotoKey;
-    }
-
-    public virtual async Task<string?> GetPhotoUrlAsync(Guid animalId, TimeSpan? ttl = null, CancellationToken ct = default)
-    {
-        if (animalId == Guid.Empty) throw new BusinessRuleException("O identificador informado é inválido.");
-
-        TAnimal? entity = await GetByIdAsync(animalId, ct).ConfigureAwait(false);
-
-        if (entity is null) throw new NotFoundException("Registro não encontrado.");
-
-        if (string.IsNullOrWhiteSpace(entity.PhotoKey))
-            return null;
-
-        return await _photoStorage.GetReadUrlAsync(entity.PhotoKey, ttl, ct).ConfigureAwait(false);
-    }
-
-    public virtual async Task RemovePhotoAsync(Guid animalId, CancellationToken ct = default)
-    {
-        if (animalId == Guid.Empty) throw new BusinessRuleException("O identificador informado é inválido.");
-
-        TAnimal? entity = await GetByIdAsync(animalId, ct).ConfigureAwait(false);
-
-        if (entity is null) throw new NotFoundException("Registro não encontrado.");
-
-        if (string.IsNullOrWhiteSpace(entity.PhotoKey))
-            return;
-
-        string photoKey = entity.PhotoKey;
-
-        await _photoStorage.DeleteAsync(photoKey, ct).ConfigureAwait(false);
-
-        entity.PhotoKey = null;
-
-        await _repository.UpdateAsync(entity, ct).ConfigureAwait(false);
-    }
-
-    #endregion
 
 
     #region Validation Methods --------------------------------------

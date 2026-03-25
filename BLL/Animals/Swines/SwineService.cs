@@ -22,7 +22,7 @@ namespace BLL.Services
         /// Inicializa o service de suínos utilizando o port genérico de repositório.
         /// </summary>
         /// <param name="repository">Port adaptado para acesso a dados de suínos.</param>
-        public SwineService(IAnimalRepository<SwineEntity> repository, IPhotoStorage photoStorage) : base(repository, photoStorage)
+        public SwineService(IAnimalRepository<SwineEntity> repository) : base(repository)
         {
         }
 
