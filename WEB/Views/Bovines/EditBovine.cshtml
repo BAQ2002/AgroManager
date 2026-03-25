@@ -4,6 +4,11 @@
     ViewData["Title"] = "Editar Bovino";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/components/PrimaryButton.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components/EnumSingleSelect.css" asp-append-version="true" />
+}
+
 
 
 <div class="am-page-shell">
@@ -13,9 +18,16 @@
         <div>
             <h1 class="page-title">Editar Bovine</h1>
             <p class="page-subtitle">Modificar o registro de um bovino no banco de dados.</p>
+            <div class="am-inline-actions am-inline-actions-spaced">
+                <a class="am-link-plain primary-button" href="/bovines">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M15 18l-6-6 6-6"></path>
+                        <path d="M21 12H9"></path>
+                    </svg>
+                    <span>Voltar</span>
+                </a>
+            </div>
         </div>
-
-        <a class="badge am-link-plain" href="/bovines">← Voltar</a>
     </header>
 
     <section class="datagrid-wrapper am-panel-body">
@@ -40,22 +52,30 @@
 
                 <div>
                     <label>Sexo</label>
-                    <select name="Gender" class="am-input">
+                    <div class="enum-single-select js-single-enum-select">
+                        <input type="hidden" name="Gender" value="@Model.Gender" />
+                        <button type="button" class="enum-single-select-trigger am-input" aria-expanded="false"></button>
+                        <div class="enum-single-select-menu">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
-                            <option value="@v" selected="@(Equals(Model.Gender, v) ? "selected" : null)">@v</option>
+                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
                         }
-                    </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
                     <label>Origem</label>
-                    <select name="Origin" class="am-input">
+                    <div class="enum-single-select js-single-enum-select">
+                        <input type="hidden" name="Origin" value="@Model.Origin" />
+                        <button type="button" class="enum-single-select-trigger am-input" aria-expanded="false"></button>
+                        <div class="enum-single-select-menu">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
-                            <option value="@v" selected="@(Equals(Model.Origin, v) ? "selected" : null)">@v</option>
+                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
                         }
-                    </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
@@ -66,30 +86,38 @@
 
                 <div>
                     <label>Estado civil</label>
-                    <select name="MaritalStatus" class="am-input">
-                        <option value="">(vazio)</option>
+                    <div class="enum-single-select js-single-enum-select">
+                        <input type="hidden" name="MaritalStatus" value="@Model.MaritalStatus" />
+                        <button type="button" class="enum-single-select-trigger am-input" aria-expanded="false"></button>
+                        <div class="enum-single-select-menu">
+                        <button type="button" class="enum-single-select-option" data-value="" data-label="(vazio)">(vazio)</button>
                         @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
                         {
-                            <option value="@v" selected="@(Model.MaritalStatus.HasValue && Equals(Model.MaritalStatus.Value, v) ? "selected" : null)">@v</option>
+                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
                         }
-                    </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
                     <label>Tipo de gado</label>
-                    <select name="CattleType" class="am-input">
-                        <option value="">(vazio)</option>
+                    <div class="enum-single-select js-single-enum-select">
+                        <input type="hidden" name="CattleType" value="@Model.CattleType" />
+                        <button type="button" class="enum-single-select-trigger am-input" aria-expanded="false"></button>
+                        <div class="enum-single-select-menu">
+                        <button type="button" class="enum-single-select-option" data-value="" data-label="(vazio)">(vazio)</button>
                         @foreach (var v in Enum.GetValues(typeof(CattleType)))
                         {
-                            <option value="@v" selected="@(Model.CattleType.HasValue && Equals(Model.CattleType.Value, v) ? "selected" : null)">@v</option>
+                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
                         }
-                    </select>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="am-form-actions">
-                <a class="badge am-link-plain" href="/bovines">Cancelar</a>
-                <button type="submit" class="badge am-button-action">Salvar</button>
+                <a class="badge am-link-plain primary-button" href="/bovines">Cancelar</a>
+                <button type="submit" class="badge am-button-action primary-button">Salvar</button>
             </div>
         </form>
     </section>
@@ -100,3 +128,7 @@
     </footer>
 </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/components/enumSingleSelect.js" asp-append-version="true"></script>
+}

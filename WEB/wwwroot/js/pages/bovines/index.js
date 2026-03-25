@@ -76,7 +76,15 @@
             <td>${formatAgeByUnit(x)}</td>
             <td>${x.maritalStatus ?? ""}</td>
             <td>${x.cattleType ?? ""}</td>
-            <td><a class="badge am-link-plain" href="/bovines/edit/${x.id}">Editar</a></td>
+            <td>
+                <a class="badge am-link-plain primary-button button-with-icon bovine-edit-action" href="/bovines/edit/${x.id}" aria-label="Editar ${x.name ?? "bovino"}" title="Editar ${x.name ?? "bovino"}">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M3 21h3.75L17.81 9.94a2 2 0 0 0 0-2.83l-.92-.92a2 2 0 0 0-2.83 0L3 17.25V21z"></path>
+                        <path d="M13.5 6.5l4 4"></path>
+                    </svg>
+                    <span>Editar</span>
+                </a>
+            </td>
           </tr>
         `).join("");
 
@@ -84,12 +92,6 @@
     }
 
     function applyFilters() {
-        const toggleSwitch = document.getElementById("toggleFilters");
-        if (toggleSwitch && !toggleSwitch.checked) {
-            renderRows(allBovines);
-            return;
-        }
-
         const nameFilter = document.getElementById("filterName").value.trim().toLowerCase();
         const genders = getCheckedValues("filterGender");
         const origins = getCheckedValues("filterOrigin");
@@ -161,9 +163,10 @@
 
         wireEnumSelects();
         wireAgeUnitSelect();
-        wireFiltersPanelToggle();
 
-        document.getElementById("clearFilters").addEventListener("click", () => {
+        const clearFiltersButton = document.querySelector("[data-action=\"clear-filters\"]");
+
+        clearFiltersButton?.addEventListener("click", () => {
             document.getElementById("filterName").value = "";
             document.getElementById("filterBirthDateMin").value = "";
             document.getElementById("filterBirthDateMax").value = "";
@@ -210,25 +213,6 @@
         });
 
         updateAgeUnitLabel();
-    }
-
-    function wireFiltersPanelToggle() {
-        const toggleSwitch = document.getElementById("toggleFilters");
-        const filtersPanel = document.getElementById("filtersPanel");
-        const filtersFieldset = document.getElementById("filtersFieldset");
-        const clearFiltersButton = document.getElementById("clearFilters");
-
-        const syncFiltersState = () => {
-            const isEnabled = toggleSwitch.checked;
-            filtersPanel.classList.toggle("collapsed", !isEnabled);
-            filtersFieldset.disabled = !isEnabled;
-            clearFiltersButton.disabled = !isEnabled;
-            toggleSwitch.setAttribute("aria-expanded", isEnabled.toString());
-            applyFilters();
-        };
-
-        toggleSwitch.addEventListener("change", syncFiltersState);
-        syncFiltersState();
     }
 
     function updateEnumSelectLabel(selectElement) {
