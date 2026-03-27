@@ -94,7 +94,6 @@
                         <input type="hidden" name="MaritalStatus" value="@Model.MaritalStatus" class="js-floating-control" data-empty-values=",Unknown" />
                         <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
-                        <button type="button" class="enum-single-select-option" data-value="" data-label="(vazio)">(vazio)</button>
                         @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
                         {
                             <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
@@ -112,7 +111,6 @@
                         <input type="hidden" name="CattleType" value="@Model.CattleType" class="js-floating-control" data-empty-values=",Unknown" />
                         <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
-                        <button type="button" class="enum-single-select-option" data-value="" data-label="(vazio)">(vazio)</button>
                         @foreach (var v in Enum.GetValues(typeof(CattleType)))
                         {
                             <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>

@@ -19,9 +19,10 @@
             return;
         }
 
-        let activeOption = options.find((option) => option.dataset.value === (valueInput.value ?? ""));
+        const currentValue = valueInput.value ?? "";
+        let activeOption = options.find((option) => option.dataset.value === currentValue);
 
-        if (!activeOption) {
+        if (!activeOption && currentValue !== "") {
             activeOption = options[0];
             valueInput.value = activeOption.dataset.value ?? "";
         }
@@ -32,7 +33,9 @@
             option.setAttribute("aria-pressed", isActive ? "true" : "false");
         });
 
-        trigger.textContent = activeOption.dataset.label || activeOption.textContent?.trim() || "";
+        trigger.textContent = activeOption
+            ? (activeOption.dataset.label || activeOption.textContent?.trim() || "")
+            : "";
         valueInput.dispatchEvent(new Event("input", { bubbles: true }));
         valueInput.dispatchEvent(new Event("change", { bubbles: true }));
     };
