@@ -6,24 +6,25 @@
     cursor: pointer;
     text-decoration: none;
     color: #000000;
-    background: #ffffff;
-    border: 1px solid rgba(55, 65, 81, 0.8);
-    outline: 2px solid transparent;
+    background: #F2F2F2;
+    border: 1px solid #E5E5E5;
     outline-offset: 0;
+    outline: 2px solid transparent;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, outline-color 0.2s ease;
 }
 
-.primary-button:hover,
-.primary-button:focus-visible {
-    color: #000000;
-    background: #d1d5db;
-    border-color: #296436;
-    outline-color: #296436;
-}
+    .primary-button:hover,
+    .primary-button:focus-visible {
+        color: #000000;
+        background: #E5E5E5;
+        border-color: #296436;
+        outline-color: #296436;
+        
+    }
 
-.primary-button:focus-visible {
-    outline-offset: 15px;
-}
+    .primary-button:focus-visible {
+        outline-offset: -2px;
+    }
 
 .button-with-icon,
 .primary-button {

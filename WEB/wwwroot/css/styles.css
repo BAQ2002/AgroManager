@@ -61,7 +61,7 @@ body {
 
 .page-subtitle {
     font-size: 0.9rem; /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
-    color: #64748b; /* color: valor "#64748b". define uma cor. */
+    color: #606060; /* color: valor "#64748b". define uma cor. */
 }
 
 .badge {
