@@ -57,6 +57,7 @@ body {
     font-size: 1.5rem; /* font-size: valor "1.5rem". unidades: 1.5rem: unidade relativa ao font-size do elemento raiz (html). */
     font-weight: 600; /* font-weight: valor "600". */
     margin-bottom: 4px; /* margin-bottom: valor "4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
+    color: #000000;
 }
 
 .page-subtitle {
