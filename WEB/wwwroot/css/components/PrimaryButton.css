@@ -2,6 +2,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none; /* Remove sublinhado dos links de ação e navegação nas telas principais. */
     gap: 6px;
     cursor: pointer;
     text-decoration: none;
