@@ -139,36 +139,7 @@ body {
             font-variant-numeric: tabular-nums; /* font-variant-numeric: valor "tabular-nums". */
         }
 
-/* Status pill */
 
-.status-pill {
-    display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
-    align-items: center; /* align-items: valor "center". */
-    justify-content: center; /* justify-content: valor "center". */
-    padding: 3px 10px; /* padding: valor "3px 10px". unidades: 3px: pixels da CSS (unidade fixa na tela); 10px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 999px; /* border-radius: valor "999px". unidades: 999px: pixels da CSS (unidade fixa na tela). */
-    font-size: 0.75rem; /* font-size: valor "0.75rem". unidades: 0.75rem: unidade relativa ao font-size do elemento raiz (html). */
-    font-weight: 500; /* font-weight: valor "500". */
-    border: 1px solid transparent; /* border: valor "1px solid transparent". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-}
-
-.status-ok {
-    background: rgba(16, 163, 127, 0.1); /* background: valor "rgba(16, 163, 127, 0.1)". define uma cor. */
-    border-color: rgba(16, 163, 127, 0.7); /* border-color: valor "rgba(16, 163, 127, 0.7)". define uma cor. */
-    color: #6ee7b7; /* color: valor "#6ee7b7". define uma cor. */
-}
-
-.status-away {
-    background: rgba(234, 179, 8, 0.12); /* background: valor "rgba(234, 179, 8, 0.12)". define uma cor. */
-    border-color: rgba(250, 204, 21, 0.8); /* border-color: valor "rgba(250, 204, 21, 0.8)". define uma cor. */
-    color: #facc15; /* color: valor "#facc15". define uma cor. */
-}
-
-.status-off {
-    background: rgba(248, 113, 113, 0.08); /* background: valor "rgba(248, 113, 113, 0.08)". define uma cor. */
-    border-color: rgba(248, 113, 113, 0.8); /* border-color: valor "rgba(248, 113, 113, 0.8)". define uma cor. */
-    color: #fecaca; /* color: valor "#fecaca". define uma cor. */
-}
 
 /* Footer */
 
