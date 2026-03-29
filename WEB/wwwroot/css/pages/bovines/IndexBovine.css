@@ -3,15 +3,6 @@ body {
     padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
 }
 
-.am-topbar {
-    border-radius: 0; /* border-radius: valor "0". valor neutro/ausente para essa propriedade. */
-}
-
-.am-page-shell {
-    margin: 24px auto; /* margin: valor "24px auto". unidades: 24px: pixels da CSS (unidade fixa na tela). */
-    max-width: 1840px; /* max-width: valor "1840px". unidades: 1840px: pixels da CSS (unidade fixa na tela). */
-    padding: 0 16px; /* padding: valor "0 16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
-}
 
 .bovines-page-header,
 .bovines-content-layout {

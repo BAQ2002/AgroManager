@@ -27,7 +27,7 @@
         text-align: left; /* text-align: valor "left". */
         font-weight: 500; /* font-weight: valor "500". */
         color: #ffffff; /* color: valor "#ffffff". define uma cor. */
-        border-bottom: 1px solid rgba(15, 23, 42, 0.35); /* border-bottom: valor "1px solid rgba(15, 23, 42, 0.35)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+        border-bottom: 1px solid #E5E5E5; /* border-bottom: valor "1px solid rgba(15, 23, 42, 0.35)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
         font-size: 0.85rem; /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
@@ -48,7 +48,7 @@
     }
 
     .datagrid td {
-        border-bottom: 1px solid rgba(203, 213, 225, 0.8); /* border-bottom: valor "1px solid rgba(203, 213, 225, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+        border-bottom: 1px solid #E5E5E5; /* border-bottom: valor "1px solid rgba(203, 213, 225, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     }
 
     .datagrid tbody td,
