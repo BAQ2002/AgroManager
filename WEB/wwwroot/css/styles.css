@@ -82,7 +82,7 @@ body {
     margin-top: 6px; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
     border-radius: 14px; /* border-radius: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
     overflow: hidden; /* overflow: valor "hidden". */
-    border: 1px solid #E2E8F0; /* border: valor "1px solid rgba(203, 213, 225, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    border: 1px solid #E5E5E5; /* border: valor "1px solid rgba(203, 213, 225, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     background: #ffffff; /* background: valor "#ffffff". define uma cor. */
 }
 
@@ -188,9 +188,6 @@ body {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     gap: 10px; /* gap: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     align-items: center; /* align-items: valor "center". */
-}
-
-.am-inline-actions-spaced {
     margin: 0 0 16px; /* margin: valor "0 0 16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
 }
 

@@ -21,7 +21,7 @@
         <div>
             <h1 class="page-title">Novo Bovine</h1>
             <p class="page-subtitle">Cadastro de um bovino no banco de dados.</p>
-            <div class="am-inline-actions am-inline-actions-spaced">
+            <div class="am-inline-actions">
                 <a class="primary-button" href="/bovines">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M15 18l-6-6 6-6"></path>
@@ -33,11 +33,13 @@
         </div>
     </header>
 
-    <section class="datagrid-wrapper am-panel-body">
+    <section class="datagrid-wrapper" style="padding: 16px">
+     
         <form method="post" action="/bovines/create" class="am-form-grid">
             @Html.AntiForgeryToken()
 
             <div class="am-form-columns">
+
                 <div>
                     <div class="floating-field">
                         <input name="Name" value="@Model.Name" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />

@@ -1,13 +1,12 @@
 .filters-panel {
     margin: 8px 0 16px;
     border-radius: 18px;
-    border: 1px solid #E2E8F0;
+    border: 1px solid #E5E5E5;
     background: #ffffff;
     padding: 16px;
     box-shadow: none;
     overflow: visible;
     width: 100%;
-    max-width: 100%;
 }
 
 .filters-actions {
