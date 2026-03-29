@@ -10,7 +10,7 @@
     // Função utilitária para obter as partes internas de um select customizado.
     const getControlParts = (selectElement) => {
         // Captura o botão/trigger responsável por abrir o menu.
-        const trigger = selectElement.querySelector(".enum-single-select-trigger");
+        const trigger = selectElement.querySelector(":scope > button[type='button']");
         // Captura o input hidden que armazena o valor selecionado.
         const valueInput = selectElement.querySelector("input[type='hidden']");
         // Captura todas as opções clicáveis do menu.
@@ -85,7 +85,7 @@
     // Fecha menu do select e atualiza atributo ARIA do trigger.
     const closeSelect = (selectElement) => {
         // Localiza trigger do componente atual.
-        const trigger = selectElement.querySelector(".enum-single-select-trigger");
+        const trigger = selectElement.querySelector(":scope > button[type='button']");
         // Remove classe de abertura do menu.
         selectElement.classList.remove("open");
         // Se trigger existir, marca estado de expansão como falso.
@@ -97,7 +97,7 @@
     // Abre menu do select e atualiza atributo ARIA do trigger.
     const openSelect = (selectElement) => {
         // Localiza trigger do componente atual.
-        const trigger = selectElement.querySelector(".enum-single-select-trigger");
+        const trigger = selectElement.querySelector(":scope > button[type='button']");
         // Adiciona classe de abertura do menu.
         selectElement.classList.add("open");
         // Se trigger existir, marca estado de expansão como verdadeiro.
@@ -119,8 +119,13 @@
         // Alinha estado inicial visual com valor já presente no input hidden.
         syncOptionState(selectElement);
 
-        // Alterna abertura ao clicar no trigger.
-        trigger.addEventListener("click", () => {
+        // Alterna abertura ao clicar na área principal do componente.
+        selectElement.addEventListener("click", (event) => {
+            // Ignora cliques no menu/opções para não reabrir indevidamente.
+            if (event.target.closest(".enum-single-select-menu")) {
+                return;
+            }
+
             // Verifica se select atual está aberto no momento do clique.
             const isOpen = selectElement.classList.contains("open");
 
