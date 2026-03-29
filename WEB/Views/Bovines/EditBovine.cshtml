@@ -54,7 +54,7 @@
                     <label>Sexo</label>
                     <div class="enum-single-select js-single-enum-select">
                         <input type="hidden" name="Gender" value="@Model.Gender" />
-                        <button type="button" class="enum-single-select-trigger am-input" aria-expanded="false"></button>
+                        <button type="button" class="am-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
@@ -68,7 +68,7 @@
                     <label>Origem</label>
                     <div class="enum-single-select js-single-enum-select">
                         <input type="hidden" name="Origin" value="@Model.Origin" />
-                        <button type="button" class="enum-single-select-trigger am-input" aria-expanded="false"></button>
+                        <button type="button" class="am-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
@@ -88,7 +88,7 @@
                     <label>Estado civil</label>
                     <div class="enum-single-select js-single-enum-select">
                         <input type="hidden" name="MaritalStatus" value="@Model.MaritalStatus" />
-                        <button type="button" class="enum-single-select-trigger am-input" aria-expanded="false"></button>
+                        <button type="button" class="am-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
                         <button type="button" class="enum-single-select-option" data-value="" data-label="(vazio)">(vazio)</button>
                         @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
@@ -103,7 +103,7 @@
                     <label>Tipo de gado</label>
                     <div class="enum-single-select js-single-enum-select">
                         <input type="hidden" name="CattleType" value="@Model.CattleType" />
-                        <button type="button" class="enum-single-select-trigger am-input" aria-expanded="false"></button>
+                        <button type="button" class="am-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
                         <button type="button" class="enum-single-select-option" data-value="" data-label="(vazio)">(vazio)</button>
                         @foreach (var v in Enum.GetValues(typeof(CattleType)))

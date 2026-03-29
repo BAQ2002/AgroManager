@@ -1,8 +1,4 @@
 .enum-select {
-    position: relative;
-}
-
-.enum-select-trigger {
     cursor: pointer;
     text-align: left;
     display: flex;
@@ -47,7 +43,7 @@
     overflow-y: auto;
 }
 
-.enum-select.open .enum-select-trigger {
+.enum-select.open {
     border-width: 2px;
     border-color: #296436;
     box-shadow: none;

@@ -1,8 +1,4 @@
 .enum-single-select {
-    position: relative;
-}
-
-.enum-single-select-trigger {
     cursor: pointer;
     text-align: left;
     display: flex;
@@ -48,7 +44,7 @@
     overflow-y: auto;
 }
 
-.enum-single-select.open .enum-single-select-trigger {
+.enum-single-select.open {
     border-width: 2px;
     border-color: #296436;
     box-shadow: none;
