@@ -52,7 +52,7 @@
                     <div class="floating-field">
                         <div class="enum-single-select js-single-enum-select">
                         <input type="hidden" name="Gender" value="@Model.Gender" class="js-floating-control" data-empty-values="Unknown" />
-                        <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
+                        <button type="button" class="floating-field-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
@@ -69,7 +69,7 @@
                     <div class="floating-field">
                         <div class="enum-single-select js-single-enum-select">
                         <input type="hidden" name="Origin" value="@Model.Origin" class="js-floating-control" data-empty-values="Unknown" />
-                        <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
+                        <button type="button" class="floating-field-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
@@ -94,7 +94,7 @@
                     <div class="floating-field">
                         <div class="enum-single-select js-single-enum-select">
                         <input type="hidden" name="MaritalStatus" value="@Model.MaritalStatus" class="js-floating-control" data-empty-values=",Unknown" />
-                        <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
+                        <button type="button" class="floating-field-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
                         @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
                         {
@@ -111,7 +111,7 @@
                     <div class="floating-field">
                         <div class="enum-single-select js-single-enum-select">
                         <input type="hidden" name="CattleType" value="@Model.CattleType" class="js-floating-control" data-empty-values=",Unknown" />
-                        <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
+                        <button type="button" class="floating-field-input" aria-expanded="false"></button>
                         <div class="enum-single-select-menu">
                         @foreach (var v in Enum.GetValues(typeof(CattleType)))
                         {

@@ -337,7 +337,7 @@
     // Atualiza texto do trigger do enum-select conforme quantidade selecionada.
     function updateEnumSelectLabel(selectElement) {
         // Obtém elemento de gatilho do select.
-        const trigger = selectElement.querySelector(".enum-select-trigger");
+        const trigger = selectElement.querySelector(":scope > button[type='button']");
         // Conta itens marcados dentro do select.
         const checked = selectElement.querySelectorAll("input[type='checkbox']:checked").length;
 
@@ -366,24 +366,23 @@
         // Percorre todos os enum-selects existentes na tela.
         document.querySelectorAll(".enum-select").forEach((selectElement) => {
             // Obtém gatilho de abertura do select atual.
-            const trigger = selectElement.querySelector(".enum-select-trigger");
+            const trigger = selectElement.querySelector(":scope > button[type='button']");
 
             // Impede que clique interno feche menu por propagação.
             selectElement.addEventListener("click", (event) => {
                 event.stopPropagation();
-            });
+                // Ignora cliques no menu para manter comportamento dos checkboxes.
+                if (event.target.closest(".enum-select-menu")) {
+                    return;
+                }
 
-            // Controla abertura/fechamento ao clicar no gatilho.
-            trigger.addEventListener("click", (event) => {
-                // Impede propagação para listener global de documento.
-                event.stopPropagation();
                 // Verifica estado atual de abertura do select.
                 const isOpen = selectElement.classList.contains("open");
 
                 // Fecha outros selects que possam estar abertos.
                 document.querySelectorAll(".enum-select.open").forEach((item) => {
                     item.classList.remove("open");
-                    item.querySelector(".enum-select-trigger").setAttribute("aria-expanded", "false");
+                    item.querySelector(":scope > button[type='button']").setAttribute("aria-expanded", "false");
                 });
 
                 // Se select atual estava fechado, abre-o.
@@ -407,7 +406,7 @@
             // Percorre selects abertos para fechá-los.
             document.querySelectorAll(".enum-select.open").forEach((selectElement) => {
                 selectElement.classList.remove("open");
-                selectElement.querySelector(".enum-select-trigger").setAttribute("aria-expanded", "false");
+                selectElement.querySelector(":scope > button[type='button']").setAttribute("aria-expanded", "false");
             });
         });
     }
