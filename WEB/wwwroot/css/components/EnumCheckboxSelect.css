@@ -1,4 +1,8 @@
 .enum-select {
+    position: relative;
+}
+
+.enum-select > button[type="button"] {
     cursor: pointer;
     text-align: left;
     display: flex;
@@ -43,7 +47,7 @@
     overflow-y: auto;
 }
 
-.enum-select.open {
+.enum-select.open > button[type="button"] {
     border-width: 2px;
     border-color: #296436;
     box-shadow: none;
