@@ -5,6 +5,7 @@
 
 @section Styles {
     <link rel="stylesheet" href="~/css/components/PrimaryButton.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components/DataGrid.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/filters-panel.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/FormContainer.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/FloatingTextBox.css" asp-append-version="true" />
@@ -46,110 +47,94 @@
 
                 <div class="form-stack filters-form">
                     <div class="form-one-columns">
-                        <div class="form-field">
-                            <div class="floating-field">
-                                <input id="filterName" type="text" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
-                                <span class="floating-field-label">Nome</span>
-                            </div>
+                        
+                        <div class="floating-field">
+                            <input id="filterName" type="text" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
+                            <span class="floating-field-label">Nome</span>
                         </div>
-                    </div>
-
-                    <div class="form-two-columns">
-                        <div class="form-field">
-                            <div class="floating-field">
-                                <div class="enum-select js-enum-floating-control" data-filter="Tipo">
-                                    <button type="button" class="enum-select-trigger floating-field-input" aria-expanded="false"></button>
-                                    <div class="enum-select-menu" id="filterCattleType">
-                                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
-                                        <label><input type="checkbox" value="Beef" /> Beef</label>
-                                        <label><input type="checkbox" value="Dairy" /> Dairy</label>
-                                    </div>
-                                </div>
-                                <span class="floating-field-label">Tipo</span>
-                            </div>
-                        </div>
-
-                        <div class="form-field">
-                            <div class="floating-field">
-                                <div class="enum-select js-enum-floating-control" data-filter="Origem">
-                                    <button type="button" class="enum-select-trigger floating-field-input" aria-expanded="false"></button>
-                                    <div class="enum-select-menu" id="filterOrigin">
-                                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
-                                        <label><input type="checkbox" value="Born" /> Born</label>
-                                        <label><input type="checkbox" value="Purchased" /> Purchased</label>
-                                        <label><input type="checkbox" value="External" /> External</label>
-                                    </div>
-                                </div>
-                                <span class="floating-field-label">Origem</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-two-columns">
-                        <div class="form-field">
-                            <div class="floating-field">
-                                <div class="enum-select js-enum-floating-control" data-filter="Sexo">
-                                    <button type="button" class="enum-select-trigger floating-field-input" aria-expanded="false"></button>
-                                    <div class="enum-select-menu" id="filterGender">
-                                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
-                                        <label><input type="checkbox" value="Male" /> Male</label>
-                                        <label><input type="checkbox" value="Female" /> Female</label>
-                                    </div>
-                                </div>
-                                <span class="floating-field-label">Sexo</span>
-                            </div>
-                        </div>
-
-                        <div class="form-field">
-                            <div class="floating-field">
-                                <div class="enum-select js-enum-floating-control" data-filter="Estado">
-                                    <button type="button" class="enum-select-trigger floating-field-input" aria-expanded="false"></button>
-                                    <div class="enum-select-menu" id="filterMaritalStatus">
-                                        <label><input type="checkbox" value="Unknown" /> Unknown</label>
-                                        <label><input type="checkbox" value="Single" /> Single</label>
-                                        <label><input type="checkbox" value="Pregnant" /> Pregnant</label>
-                                        <label><input type="checkbox" value="Mother" /> Mother</label>
-                                    </div>
-                                </div>
-                                <span class="floating-field-label">Estado</span>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     <div class="form-two-columns">
 
-                        <div class="form-field" aria-label="Faixa de idade mínima">
-                            <div class="floating-field">
-                                <input id="filterAgeMin" type="number" min="0" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
-                                <span class="floating-field-label">Idade (mín.)</span>
+                        <div class="floating-field">
+                            <div class="enum-select js-enum-floating-control" data-filter="Tipo">
+                                <button type="button" class="enum-select-trigger floating-field-input" aria-expanded="false"></button>
+                                <div class="enum-select-menu" id="filterCattleType">
+                                    <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                                    <label><input type="checkbox" value="Beef" /> Beef</label>
+                                    <label><input type="checkbox" value="Dairy" /> Dairy</label>
+                                </div>
                             </div>
+                            <span class="floating-field-label">Tipo</span>
                         </div>
 
-                        <div class="form-field" aria-label="Faixa de idade máxima">
-                            <div class="floating-field">
-                                <input id="filterAgeMax" type="number" min="0" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
-                                <span class="floating-field-label">Idade (máx.)</span>
+                        <div class="floating-field">
+                            <div class="enum-select js-enum-floating-control" data-filter="Origem">
+                                <button type="button" class="enum-select-trigger floating-field-input" aria-expanded="false"></button>
+                                <div class="enum-select-menu" id="filterOrigin">
+                                    <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                                    <label><input type="checkbox" value="Born" /> Born</label>
+                                    <label><input type="checkbox" value="Purchased" /> Purchased</label>
+                                    <label><input type="checkbox" value="External" /> External</label>
+                                </div>
                             </div>
-                        </div>
+                            <span class="floating-field-label">Origem</span>
+                        </div>                  
+                    </div>
 
+                    <div class="form-two-columns">
+                        
+                        <div class="floating-field">
+                            <div class="enum-select js-enum-floating-control" data-filter="Sexo">
+                                <button type="button" class="enum-select-trigger floating-field-input" aria-expanded="false"></button>
+                                <div class="enum-select-menu" id="filterGender">
+                                    <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                                    <label><input type="checkbox" value="Male" /> Male</label>
+                                    <label><input type="checkbox" value="Female" /> Female</label>
+                                </div>
+                            </div>
+                            <span class="floating-field-label">Sexo</span>
+                        </div>
+                                            
+                        <div class="floating-field">
+                            <div class="enum-select js-enum-floating-control" data-filter="Estado">
+                                <button type="button" class="enum-select-trigger floating-field-input" aria-expanded="false"></button>
+                                <div class="enum-select-menu" id="filterMaritalStatus">
+                                    <label><input type="checkbox" value="Unknown" /> Unknown</label>
+                                    <label><input type="checkbox" value="Single" /> Single</label>
+                                    <label><input type="checkbox" value="Pregnant" /> Pregnant</label>
+                                    <label><input type="checkbox" value="Mother" /> Mother</label>
+                                </div>
+                            </div>
+                            <span class="floating-field-label">Estado</span>
+                        </div>                   
                     </div>
 
                     <div class="form-two-columns">
 
-                        <div class="form-field" aria-label="Faixa de nascimento mínima">
-                            <div class="floating-field">
-                                <input id="filterBirthDateMin" type="text" placeholder=" " class="floating-field-input js-floating-control js-date-picker" data-empty-values="" autocomplete="off" />
-                                <span class="floating-field-label">Nascimento (mín.)</span>
-                            </div>
+                        <div class="floating-field">
+                            <input id="filterAgeMin" type="number" min="0" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
+                            <span class="floating-field-label">Idade (mín.)</span>
+                        </div>
+                                  
+                        <div class="floating-field">
+                            <input id="filterAgeMax" type="number" min="0" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
+                            <span class="floating-field-label">Idade (máx.)</span>
+                        </div>                  
+                    </div>
+
+                    <div class="form-two-columns">
+
+                        <div class="floating-field">
+                            <input id="filterBirthDateMin" type="text" placeholder=" " class="floating-field-input js-floating-control js-date-picker" data-empty-values="" autocomplete="off" />
+                            <span class="floating-field-label">Nascimento (mín.)</span>
                         </div>
 
-                        <div class="form-field" aria-label="Faixa de nascimento máxima">
-                            <div class="floating-field">
-                                <input id="filterBirthDateMax" type="text" placeholder=" " class="floating-field-input js-floating-control js-date-picker" data-empty-values="" autocomplete="off" />
-                                <span class="floating-field-label">Nascimento (máx.)</span>
-                            </div>
+                        <div class="floating-field">
+                            <input id="filterBirthDateMax" type="text" placeholder=" " class="floating-field-input js-floating-control js-date-picker" data-empty-values="" autocomplete="off" />
+                            <span class="floating-field-label">Nascimento (máx.)</span>
                         </div>
-
                     </div>
                 </div>
 

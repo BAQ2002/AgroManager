@@ -1,24 +1,37 @@
-.form-one-columns,
-.form-two-columns,
-.form-three-columns,
-.form-four-columns {
-    display: grid;
-    gap: 12px;
+
+.form-container {
+    margin-top: 6px; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
+    border-radius: 14px; /* Arrendodamento da quinas da borda (14px). */
+    overflow: visible; /* Permite que elementos internos ultrapassem o limite do form-container (util para dropdowns). */
+    border: 1px solid #E5E5E5; /* Espessura (1px) e cor da borda (#E5E5E5). */
+    background: #ffffff; /* Cor do background (#ffffff). */
 }
 
+/* Define uma linha de um form-container fracionada para 1 elementos. */
 .form-one-columns {
+    display: grid;
+    gap: 12px;
     grid-template-columns: 1fr;
 }
 
+/* Define uma linha de um form-container fracionada para 2 elementos. */
 .form-two-columns {
+    display: grid;
+    gap: 12px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+/* Define uma linha de um form-container fracionada para 3 elementos. */
 .form-three-columns {
+    display: grid;
+    gap: 12px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* Define uma linha de um form-container fracionada para 4 elementos. */
 .form-four-columns {
+    display: grid;
+    gap: 12px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
@@ -29,6 +42,8 @@
 .form-responsive-md-two {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+
+
 
 @media (max-width: 1080px) {
     .form-responsive-md-two {
