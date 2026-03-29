@@ -10,6 +10,17 @@ namespace INFRA.Persistences
         {
             entityBuilder.ToTable("SwineBeefMembers");
 
+            entityBuilder.HasOne<SwineEntity>()
+                .WithMany()
+                .HasForeignKey(x => x.AnimalId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entityBuilder.HasOne<SwineBeefBatch>()
+                .WithMany()
+                .HasForeignKey(x => x.BatchId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
         }
     }
 }

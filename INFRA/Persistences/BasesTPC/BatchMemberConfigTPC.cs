@@ -23,6 +23,16 @@ namespace INFRA.Persistences
             entityBuilder.Property(x => x.BatchExitDate).HasColumnType("timestamptz"); //DateTimeOffset
             entityBuilder.Property(x => x.ExitReason).HasMaxLength(120); //string
 
+
+            entityBuilder.HasIndex(x => x.AnimalId);
+            entityBuilder.HasIndex(x => x.BatchId);
+            entityBuilder.HasIndex(x => new { x.AnimalId, x.BatchExitDate });
+
+            // Regra "apenas 1 ativo por animal" (PostgreSQL partial index)
+            entityBuilder.HasIndex(x => x.AnimalId)
+                .HasFilter("\"BatchExitDate\" IS NULL")
+                .IsUnique();
+
             #endregion------------------------------------------------
         }
     }

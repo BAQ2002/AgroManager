@@ -10,6 +10,14 @@ namespace INFRA.Persistences
         {
             entityBuilder.ToTable("BovinePastureBatchs");
 
+            entityBuilder.Property(x => x.PastureId)
+                .HasColumnType("uuid")
+                .IsRequired();
+
+            entityBuilder.HasOne<PastureEntity>()
+                .WithMany()
+                .HasForeignKey(x => x.PastureId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
