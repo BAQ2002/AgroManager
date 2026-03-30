@@ -36,15 +36,84 @@ namespace INFRA
             return await db.SwineBeefMembers.AsNoTracking().SingleOrDefaultAsync(bA => bA.Id == id, ct);
         }
 
-        public async Task<SwineBeefMember?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default)
+        public async Task<SwineBeefMember?> GetCurrentByAnimalIdAsync(Guid animalId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
-            return await db.SwineBeefMembers.AsNoTracking().SingleOrDefaultAsync(bA => bA.AnimalId == animalId, ct);
+            return await db.SwineBeefMembers
+                .AsNoTracking()
+                .Where(bA => bA.AnimalId == animalId)
+                .OrderBy(bA => bA.BatchExitDate.HasValue)
+                .ThenByDescending(bA => bA.BatchEntryDate)
+                .FirstOrDefaultAsync(ct);
         }
-        public async Task<SwineBeefMember?> GetByBatchIdAsync(Guid batchId, CancellationToken ct = default)
+        public async Task<SwineBeefMember?> GetCurrentByBatchIdAsync(Guid batchId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
-            return await db.SwineBeefMembers.AsNoTracking().SingleOrDefaultAsync(bA => bA.BatchId == batchId, ct);
+            return await db.SwineBeefMembers
+                .AsNoTracking()
+                .Where(bA => bA.BatchId == batchId)
+                .OrderBy(bA => bA.BatchExitDate.HasValue)
+                .ThenByDescending(bA => bA.BatchEntryDate)
+                .FirstOrDefaultAsync(ct);
+        }
+
+        public async Task<IReadOnlyList<SwineBeefMember>> GetHistoryByAnimalIdAsync(Guid animalId, CancellationToken ct = default)
+        {
+            await using var db = await _factory.CreateDbContextAsync(ct);
+            return await db.SwineBeefMembers
+                .AsNoTracking()
+                .Where(bA => bA.AnimalId == animalId)
+                .OrderByDescending(bA => bA.BatchEntryDate)
+                .ToListAsync(ct);
+        }
+
+        public async Task<IReadOnlyList<SwineBeefMember>> GetHistoryByBatchIdAsync(Guid batchId, CancellationToken ct = default)
+        {
+            await using var db = await _factory.CreateDbContextAsync(ct);
+            return await db.SwineBeefMembers
+                .AsNoTracking()
+                .Where(bA => bA.BatchId == batchId)
+                .OrderByDescending(bA => bA.BatchEntryDate)
+                .ToListAsync(ct);
+        }
+
+        public async Task<IReadOnlyList<SwineBeefMember>> ListActiveByBatchIdAsync(Guid batchId, CancellationToken ct = default)
+        {
+            await using var db = await _factory.CreateDbContextAsync(ct);
+            return await db.SwineBeefMembers
+                .AsNoTracking()
+                .Where(bA => bA.BatchId == batchId && bA.BatchExitDate == null)
+                .OrderByDescending(bA => bA.BatchEntryDate)
+                .ToListAsync(ct);
+        }
+
+        public async Task<bool> ExistsActiveByAnimalIdAsync(Guid animalId, CancellationToken ct = default)
+        {
+            await using var db = await _factory.CreateDbContextAsync(ct);
+            return await db.SwineBeefMembers
+                .AsNoTracking()
+                .AnyAsync(bA => bA.AnimalId == animalId && bA.BatchExitDate == null, ct);
+        }
+
+        public async Task<bool> CloseActiveMembershipAsync(Guid animalId, DateTimeOffset batchExitDate, string? exitReason, CancellationToken ct = default)
+        {
+            await using var db = await _factory.CreateDbContextAsync(ct);
+
+            SwineBeefMember? activeMembership = await db.SwineBeefMembers
+                .Where(bA => bA.AnimalId == animalId && bA.BatchExitDate == null)
+                .OrderByDescending(bA => bA.BatchEntryDate)
+                .FirstOrDefaultAsync(ct);
+
+            if (activeMembership is null)
+            {
+                return false;
+            }
+
+            activeMembership.BatchExitDate = batchExitDate;
+            activeMembership.ExitReason = exitReason;
+
+            await db.SaveChangesAsync(ct);
+            return true;
         }
     }
 }
