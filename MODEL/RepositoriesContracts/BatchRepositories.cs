@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public interface IBovinePastureBatchRepository
+    public interface IBatchRepository<TBatch>
+        where TBatch : BatchEntity
     {
-        Task AddAsync(BovinePastureBatch entity, CancellationToken ct = default);
-        Task DeleteAsync(BovinePastureBatch entity, CancellationToken ct = default);
-        Task<BovinePastureBatch?> GetByIdAsync(Guid id, CancellationToken ct = default);
+        Task AddAsync(TBatch entity, CancellationToken ct = default);
+        Task DeleteAsync(TBatch entity, CancellationToken ct = default);
+        Task<TBatch?> GetByIdAsync(Guid id, CancellationToken ct = default);
+    }
+    public interface IBovinePastureBatchRepository : IBatchRepository<BovinePastureBatch>
+    {
         Task<BovinePastureBatch?> GetByPastureIdAsync(Guid pastureId, CancellationToken ct = default);
     }
 
-    public interface ISwineBeefBatchRepository
+    public interface ISwineBeefBatchRepository : IBatchRepository<SwineBeefBatch>
     {
-        Task AddAsync(SwineBeefBatch entity, CancellationToken ct = default);
-        Task DeleteAsync(SwineBeefBatch entity, CancellationToken ct = default);
-        Task<SwineBeefBatch?> GetByIdAsync(Guid id, CancellationToken ct = default);
     }
 
 }
