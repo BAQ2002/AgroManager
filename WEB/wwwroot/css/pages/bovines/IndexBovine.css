@@ -137,8 +137,7 @@ body {
     font-weight: 600; /* font-weight: valor "600". */
 }
 
-.age-unit-option:hover,
-.age-unit-option.active {
+.age-unit-option:hover {
     background: #e2e8f0; /* background: valor "#e2e8f0". define uma cor. */
 }
 
