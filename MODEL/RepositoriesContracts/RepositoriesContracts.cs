@@ -15,16 +15,6 @@ namespace MODEL
         Task<MilkEntity?> GetByBovineIdAsync(Guid animalId, CancellationToken ct = default);
     }
 
-    public interface IBatchMemberRepository
-    {
-        Task AddAsync(BatchMemberEntity entity, CancellationToken ct = default);
-        Task DeleteAsync(BatchMemberEntity entity, CancellationToken ct = default);
-        Task<BatchMemberEntity?> GetByIdAsync(Guid id, CancellationToken ct = default);
-        Task<BatchMemberEntity?> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
-        Task<BatchMemberEntity?> GetByBatchIdAsync(Guid batchId, CancellationToken ct = default);
-    }
-
-
 }
 
 

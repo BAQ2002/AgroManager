@@ -5,34 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MODEL
-{   
-    public interface IBovinePastureMemberRepository
+{
+    public interface IBatchMemberRepository<TBatchMember>
+        where TBatchMember : BatchMemberEntity
     {
-        Task AddAsync(BovinePastureMember entity, CancellationToken ct = default);
-        Task DeleteAsync(BovinePastureMember entity, CancellationToken ct = default);
-        Task<BovinePastureMember?> GetByIdAsync(Guid id, CancellationToken ct = default);
-        Task<BovinePastureMember?> GetCurrentByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
-        Task<BovinePastureMember?> GetCurrentByBatchIdAsync(Guid batchId, CancellationToken ct = default);
-        Task<IReadOnlyList<BovinePastureMember>> GetHistoryByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
-        Task<IReadOnlyList<BovinePastureMember>> GetHistoryByBatchIdAsync(Guid batchId, CancellationToken ct = default);
-        Task<IReadOnlyList<BovinePastureMember>> ListActiveByBatchIdAsync(Guid batchId, CancellationToken ct = default);
+        Task AddAsync(TBatchMember entity, CancellationToken ct = default);
+        Task DeleteAsync(TBatchMember entity, CancellationToken ct = default);
+        Task<TBatchMember?> GetByIdAsync(Guid id, CancellationToken ct = default);
+        Task<TBatchMember?> GetCurrentByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
+        Task<TBatchMember?> GetCurrentByBatchIdAsync(Guid batchId, CancellationToken ct = default);
+        Task<IReadOnlyList<TBatchMember>> GetHistoryByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
+        Task<IReadOnlyList<TBatchMember>> GetHistoryByBatchIdAsync(Guid batchId, CancellationToken ct = default);
+        Task<IReadOnlyList<TBatchMember>> ListActiveByBatchIdAsync(Guid batchId, CancellationToken ct = default);
         Task<bool> ExistsActiveByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
         Task<bool> CloseActiveMembershipAsync(Guid animalId, DateTimeOffset batchExitDate, string? exitReason, CancellationToken ct = default);
-
-
     }
 
-    public interface ISwineBeefMemberRepository
+
+
+    public interface IBovinePastureMemberRepository : IBatchMemberRepository<BovinePastureMember>
     {
-        Task AddAsync(SwineBeefMember entity, CancellationToken ct = default);
-        Task DeleteAsync(SwineBeefMember entity, CancellationToken ct = default);
-        Task<SwineBeefMember?> GetByIdAsync(Guid id, CancellationToken ct = default);
-        Task<SwineBeefMember?> GetCurrentByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
-        Task<SwineBeefMember?> GetCurrentByBatchIdAsync(Guid batchId, CancellationToken ct = default);
-        Task<IReadOnlyList<SwineBeefMember>> GetHistoryByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
-        Task<IReadOnlyList<SwineBeefMember>> GetHistoryByBatchIdAsync(Guid batchId, CancellationToken ct = default);
-        Task<IReadOnlyList<SwineBeefMember>> ListActiveByBatchIdAsync(Guid batchId, CancellationToken ct = default);
-        Task<bool> ExistsActiveByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
-        Task<bool> CloseActiveMembershipAsync(Guid animalId, DateTimeOffset batchExitDate, string? exitReason, CancellationToken ct = default);
+    }
+
+    public interface ISwineBeefMemberRepository : IBatchMemberRepository<SwineBeefMember>
+    {
     }
 }
