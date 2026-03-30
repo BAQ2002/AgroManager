@@ -38,19 +38,6 @@
         document.querySelectorAll(".js-floating-control").forEach(syncFloatingField);
     }
 
-    // Sincroniza estado visual de um enum-select baseado em quantidade marcada.
-    function syncEnumFloatingField(selectElement) {
-        // Obtém container visual do select customizado.
-        const field = selectElement.closest(".floating-field");
-        // Se não houver container, interrompe função.
-        if (!field) return;
-
-        // Conta quantos checkboxes estão marcados no componente.
-        const checked = selectElement.querySelectorAll("input[type='checkbox']:checked").length;
-        // Marca como preenchido quando houver ao menos uma seleção.
-        field.classList.toggle("filled", checked > 0);
-    }
-
     // Converte string de data para objeto Date com validação básica.
     function toDate(value) {
         // Retorna nulo quando valor não existir.
@@ -218,11 +205,7 @@
             "#filterBirthDateMin",
             "#filterBirthDateMax",
             "#filterAgeMin",
-            "#filterAgeMax",
-            "#filterGender input[type='checkbox']",
-            "#filterOrigin input[type='checkbox']",
-            "#filterMaritalStatus input[type='checkbox']",
-            "#filterCattleType input[type='checkbox']"
+            "#filterAgeMax"
         ];
 
         // Expande seletores em elementos e registra listeners de input/change.
@@ -242,8 +225,12 @@
                 });
             });
 
-        // Conecta interações dos enum-selects de múltipla escolha.
-        wireEnumSelects();
+        // Inicializa comportamento de enum-select de múltipla escolha via componente dedicado.
+        window.EnumCheckboxSelect?.init();
+        // Reaplica filtros sempre que algum enum-select sinalizar alteração.
+        document.querySelectorAll(".enum-select").forEach((selectElement) => {
+            selectElement.addEventListener("enum-checkbox-select:change", applyFilters);
+        });
         // Conecta interação do seletor de unidade de idade.
         wireAgeUnitSelect();
 
@@ -268,7 +255,7 @@
                 x.checked = false;
             });
             // Recalcula os textos dos gatilhos dos enum-selects.
-            updateEnumSelectLabels();
+            window.EnumCheckboxSelect?.syncAll();
             // Recalcula estado visual de campos flutuantes após limpeza.
             syncFloatingFields();
 
@@ -332,83 +319,6 @@
 
         // Ajusta texto inicial da unidade ao carregar página.
         updateAgeUnitLabel();
-    }
-
-    // Atualiza texto do trigger do enum-select conforme quantidade selecionada.
-    function updateEnumSelectLabel(selectElement) {
-        // Obtém elemento de gatilho do select.
-        const trigger = selectElement.querySelector(":scope > button[type='button']");
-        // Conta itens marcados dentro do select.
-        const checked = selectElement.querySelectorAll("input[type='checkbox']:checked").length;
-
-        // Caso nenhum item esteja marcado, limpa texto do trigger.
-        if (checked === 0) {
-            trigger.textContent = "";
-            // Atualiza estado visual do campo como não preenchido.
-            syncEnumFloatingField(selectElement);
-            return;
-        }
-
-        // Escreve resumo singular/plural conforme quantidade marcada.
-        trigger.textContent = checked === 1 ? "1 selecionado" : `${checked} selecionados`;
-        // Atualiza estado visual do campo como preenchido.
-        syncEnumFloatingField(selectElement);
-    }
-
-    // Atualiza o rótulo de todos os enum-selects presentes na página.
-    function updateEnumSelectLabels() {
-        // Percorre todos os selects customizados e sincroniza cada um.
-        document.querySelectorAll(".enum-select").forEach(updateEnumSelectLabel);
-    }
-
-    // Conecta interações dos selects customizados de múltipla seleção.
-    function wireEnumSelects() {
-        // Percorre todos os enum-selects existentes na tela.
-        document.querySelectorAll(".enum-select").forEach((selectElement) => {
-            // Obtém gatilho de abertura do select atual.
-            const trigger = selectElement.querySelector(":scope > button[type='button']");
-
-            // Impede que clique interno feche menu por propagação.
-            selectElement.addEventListener("click", (event) => {
-                event.stopPropagation();
-                // Ignora cliques no menu para manter comportamento dos checkboxes.
-                if (event.target.closest(".enum-select-menu")) {
-                    return;
-                }
-
-                // Verifica estado atual de abertura do select.
-                const isOpen = selectElement.classList.contains("open");
-
-                // Fecha outros selects que possam estar abertos.
-                document.querySelectorAll(".enum-select.open").forEach((item) => {
-                    item.classList.remove("open");
-                    item.querySelector(":scope > button[type='button']").setAttribute("aria-expanded", "false");
-                });
-
-                // Se select atual estava fechado, abre-o.
-                if (!isOpen) {
-                    selectElement.classList.add("open");
-                    trigger.setAttribute("aria-expanded", "true");
-                }
-            });
-
-            // Registra reação de atualização quando checkbox muda.
-            selectElement.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
-                checkbox.addEventListener("change", () => updateEnumSelectLabel(selectElement));
-            });
-
-            // Sincroniza rótulo inicial do select atual.
-            updateEnumSelectLabel(selectElement);
-        });
-
-        // Fecha todos os selects quando houver clique fora deles.
-        document.addEventListener("click", () => {
-            // Percorre selects abertos para fechá-los.
-            document.querySelectorAll(".enum-select.open").forEach((selectElement) => {
-                selectElement.classList.remove("open");
-                selectElement.querySelector(":scope > button[type='button']").setAttribute("aria-expanded", "false");
-            });
-        });
     }
 
     // Busca dados da API e inicializa a primeira renderização da tabela.
