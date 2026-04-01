@@ -274,7 +274,7 @@
         // Obtém botão gatilho do seletor.
         const trigger = document.getElementById("ageUnitTrigger");
         // Coleta opções disponíveis de unidade.
-        const options = Array.from(select.querySelectorAll(".age-unit-option"));
+        const options = Array.from(select.querySelectorAll(".enum-single-select-option"));
 
         // Alterna abertura do menu ao clicar no gatilho.
         trigger.addEventListener("click", (event) => {

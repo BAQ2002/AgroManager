@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/css/components/FormContainer.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/FloatingTextBox.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/EnumCheckboxSelect.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components/EnumSingleSelect.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/pages/bovines/IndexBovine.css" asp-append-version="true" />
 }
 
@@ -161,15 +162,14 @@
                             <th>Nascimento</th>
                             <th>
                                 <span class="age-header-select">
-                                    <div class="age-unit-select" id="ageUnitSelect">
-                                        <button type="button" class="age-unit-trigger" id="ageUnitTrigger" aria-expanded="false" aria-label="Selecionar unidade de idade">
+                                    <div class="enum-single-select enum-single-select--age-header" id="ageUnitSelect">
+                                        <button type="button" class="enum-single-select-trigger" id="ageUnitTrigger" aria-expanded="false" aria-label="Selecionar unidade de idade">
                                             <span class="age-unit-label">Idade (<span id="ageUnitLabel">anos</span>)</span>
-                                            <span class="age-unit-trigger-icon" aria-hidden="true"></span>
                                         </button>
-                                        <div class="age-unit-menu" id="ageUnitMenu">
-                                            <button type="button" class="age-unit-option active" data-unit="years">Anos</button>
-                                            <button type="button" class="age-unit-option" data-unit="months">Meses</button>
-                                            <button type="button" class="age-unit-option" data-unit="days">Dias</button>
+                                        <div class="enum-single-select-menu" id="ageUnitMenu">
+                                            <button type="button" class="enum-single-select-option active" data-unit="years">Anos</button>
+                                            <button type="button" class="enum-single-select-option" data-unit="months">Meses</button>
+                                            <button type="button" class="enum-single-select-option" data-unit="days">Dias</button>
                                         </div>
                                     </div>
                                 </span>
