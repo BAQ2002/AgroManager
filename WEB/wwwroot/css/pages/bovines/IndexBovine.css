@@ -57,90 +57,69 @@ body {
     color: #000000; /* color: valor "#000000". define uma cor. */
 }
 
-.age-unit-select {
-    position: relative; /* position: valor "relative". */
-    display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
-}
-
-.age-unit-trigger {
-    display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
-    align-items: center; /* align-items: valor "center". */
-    gap: 6px; /* gap: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
-    border: 0; /* border: valor "0". valor neutro/ausente para essa propriedade. */
-    background: transparent; /* background: valor "transparent". define uma cor. */
-    color: inherit; /* color: valor "inherit". usa o valor global "inherit" da cascata. */
-    border-radius: 0; /* border-radius: valor "0". valor neutro/ausente para essa propriedade. */
-    padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
-    cursor: pointer; /* cursor: valor "pointer". */
-    appearance: none; /* appearance: valor "none". valor neutro/ausente para essa propriedade. */
-    position: relative; /* position: valor "relative". */
-    text-align: left; /* text-align: valor "left". */
-    font-size: inherit; /* font-size: valor "inherit". usa o valor global "inherit" da cascata. */
-    line-height: inherit; /* line-height: valor "inherit". usa o valor global "inherit" da cascata. */
-}
-
-.age-unit-trigger-icon {
-    width: 8px; /* width: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    height: 8px; /* height: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    border-right: 1.5px solid currentColor; /* border-right: valor "1.5px solid currentColor". unidades: 1.5px: pixels da CSS (unidade fixa na tela). */
-    border-bottom: 1.5px solid currentColor; /* border-bottom: valor "1.5px solid currentColor". unidades: 1.5px: pixels da CSS (unidade fixa na tela). */
-    transform: translateY(-20%) rotate(45deg); /* transform: valor "translateY(-20%) rotate(45deg)". unidades: 45deg: graus de rotação/ângulo. */
-    transition: transform 0.15s ease; /* transition: valor "transform 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
-    flex: 0 0 auto; /* flex: valor "0 0 auto". */
-}
-
 .age-unit-label {
     text-transform: uppercase; /* text-transform: valor "uppercase". */
     letter-spacing: 0.06em; /* letter-spacing: valor "0.06em". unidades: 0.06em: unidade relativa ao font-size do elemento atual. */
     font-weight: 600; /* font-weight: valor "600". */
 }
 
-.age-unit-trigger:focus-visible {
+.enum-single-select--age-header > button[type="button"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: auto;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    border-radius: 0;
+    padding: 0;
+    padding-right: 14px;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.enum-single-select--age-header::after {
+    right: 0;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right-width: 1.5px;
+    border-bottom-width: 1.5px;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+    transform: translateY(-20%) rotate(45deg);
+}
+
+.enum-single-select--age-header.open::after {
+    transform: translateY(15%) rotate(-135deg);
+}
+
+.enum-single-select--age-header > button[type="button"]:focus-visible {
     outline: 2px solid #296436; /* outline: valor "2px solid #296436". unidades: 2px: pixels da CSS (unidade fixa na tela). */
     outline-offset: 2px; /* outline-offset: valor "2px". unidades: 2px: pixels da CSS (unidade fixa na tela). */
 }
 
-.age-unit-select.open .age-unit-trigger-icon {
-    transform: translateY(15%) rotate(-135deg); /* transform: valor "translateY(15%) rotate(-135deg)". unidades: -135deg: graus de rotação/ângulo. */
+.enum-single-select--age-header .enum-single-select-menu {
+    z-index: 15;
+    left: 0;
+    right: auto;
+    width: max-content;
+    min-width: 100%;
+    border-color: rgba(148, 163, 184, 0.7);
+    background: #f8fafc;
+    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
+    padding: 6px;
 }
 
-.age-unit-menu {
-    display: none; /* display: valor "none". valor neutro/ausente para essa propriedade. */
-    position: absolute; /* position: valor "absolute". */
-    z-index: 15; /* z-index: valor "15". */
-    top: calc(100% + 6px); /* top: valor "calc(100% + 6px)". valor calculado dinamicamente com calc(). unidades: 6px: pixels da CSS (unidade fixa na tela). */
-    left: 0; /* left: valor "0". valor neutro/ausente para essa propriedade. */
-    width: 100%; /* width: valor "100%". */
-    border: 1px solid rgba(148, 163, 184, 0.7); /* border: valor "1px solid rgba(148, 163, 184, 0.7)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    background: #f8fafc; /* background: valor "#f8fafc". define uma cor. */
-    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28); /* box-shadow: valor "0 10px 22px rgba(2, 6, 23, 0.28)". unidades: 10px: pixels da CSS (unidade fixa na tela); 22px: pixels da CSS (unidade fixa na tela). */
-    padding: 6px; /* padding: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
+.enum-single-select--age-header .enum-single-select-option {
+    padding: 6px 8px;
+    color: #0f172a;
 }
 
-.age-unit-select.open .age-unit-menu {
-    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    flex-direction: column; /* flex-direction: valor "column". */
-    gap: 4px; /* gap: valor "4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
+.enum-single-select--age-header .enum-single-select-option:hover,
+.enum-single-select--age-header .enum-single-select-option.active {
+    background: #E5E5E5;
 }
-
-.age-unit-option {
-    border: 0; /* border: valor "0". valor neutro/ausente para essa propriedade. */
-    background: transparent; /* background: valor "transparent". define uma cor. */
-    text-align: left; /* text-align: valor "left". */
-    border-radius: 8px; /* border-radius: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    padding: 6px 8px; /* padding: valor "6px 8px". unidades: 6px: pixels da CSS (unidade fixa na tela); 8px: pixels da CSS (unidade fixa na tela). */
-    color: #0f172a; /* color: valor "#0f172a". define uma cor. */
-    font-size: 0.78rem; /* font-size: valor "0.78rem". unidades: 0.78rem: unidade relativa ao font-size do elemento raiz (html). */
-    line-height: 1.1; /* line-height: valor "1.1". */
-    text-transform: uppercase; /* text-transform: valor "uppercase". */
-    letter-spacing: 0.06em; /* letter-spacing: valor "0.06em". unidades: 0.06em: unidade relativa ao font-size do elemento atual. */
-    font-weight: 600; /* font-weight: valor "600". */
-}
-
-    .age-unit-option:hover {
-        background: #E5E5E5; /* background: valor "#E5E5E5". define uma cor. */
-    }
 
 
 .bovine-edit-action {
