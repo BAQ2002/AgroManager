@@ -28,11 +28,6 @@ body {
 }
 
 
-.age-header-select {
-    display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
-    align-items: center; /* align-items: valor "center". */
-    margin-left: 0; /* margin-left: valor "0". valor neutro/ausente para essa propriedade. */
-}
 
 .datagrid td:nth-child(4),
 .datagrid td:nth-child(5) {

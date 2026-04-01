@@ -272,7 +272,7 @@
         // Obtém elemento raiz do seletor customizado.
         const select = document.getElementById("ageUnitSelect");
         // Obtém botão gatilho do seletor.
-        const trigger = document.getElementById("ageUnitTrigger");
+        const trigger = document.getElementById("ageUnitSelect");
         // Coleta opções disponíveis de unidade.
         const options = Array.from(select.querySelectorAll(".enum-single-select-option"));
 
