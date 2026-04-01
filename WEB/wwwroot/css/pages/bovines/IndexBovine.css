@@ -27,6 +27,7 @@ body {
     }
 }
 
+
 .age-header-select {
     display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
     align-items: center; /* align-items: valor "center". */
@@ -137,9 +138,9 @@ body {
     font-weight: 600; /* font-weight: valor "600". */
 }
 
-.age-unit-option:hover {
-    background: #e2e8f0; /* background: valor "#e2e8f0". define uma cor. */
-}
+    .age-unit-option:hover {
+        background: #E5E5E5; /* background: valor "#E5E5E5". define uma cor. */
+    }
 
 
 .bovine-edit-action {

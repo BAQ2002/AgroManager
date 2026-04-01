@@ -34,7 +34,7 @@
 .am-profile-trigger {
     border: 1px solid rgba(148, 163, 184, 0.22); /* border: valor "1px solid rgba(148, 163, 184, 0.22)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     background: rgba(15, 23, 42, 0.78); /* background: valor "rgba(15, 23, 42, 0.78)". define uma cor. */
-    color: #e2e8f0; /* color: valor "#e2e8f0". define uma cor. */
+    color: #E5E5E5; /* color: valor "#E5E5E5". define uma cor. */
 }
 
 .am-profile-trigger:hover,

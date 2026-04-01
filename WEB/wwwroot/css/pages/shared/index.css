@@ -1,13 +1,13 @@
 :root {
-        --bg-start: #ffffff; /* --bg-start: valor "#ffffff". define uma cor. */
-        --bg-end: #f8fafc; /* --bg-end: valor "#f8fafc". define uma cor. */
-        --panel: #ffffff; /* --panel: valor "#ffffff". define uma cor. */
-        --panel-border: #e2e8f0; /* --panel-border: valor "#e2e8f0". define uma cor. */
-        --text-primary: #0f172a; /* --text-primary: valor "#0f172a". define uma cor. */
-        --text-muted: #64748b; /* --text-muted: valor "#64748b". define uma cor. */
-        --accent: #22c55e; /* --accent: valor "#22c55e". define uma cor. */
-        --accent-soft: rgba(41, 100, 54, 0.12); /* --accent-soft: valor "rgba(41, 100, 54, 0.12)". define uma cor. */
-    }
+    --bg-start: #ffffff; /* --bg-start: valor "#ffffff". define uma cor. */
+    --bg-end: #f8fafc; /* --bg-end: valor "#f8fafc". define uma cor. */
+    --panel: #ffffff; /* --panel: valor "#ffffff". define uma cor. */
+    --panel-border: #E5E5E5; /* --panel-border: valor "#E5E5E5". define uma cor. */
+    --text-primary: #0f172a; /* --text-primary: valor "#0f172a". define uma cor. */
+    --text-muted: #64748b; /* --text-muted: valor "#64748b". define uma cor. */
+    --accent: #22c55e; /* --accent: valor "#22c55e". define uma cor. */
+    --accent-soft: rgba(41, 100, 54, 0.12); /* --accent-soft: valor "rgba(41, 100, 54, 0.12)". define uma cor. */
+}
 
     body {
         min-height: 100vh; /* min-height: valor "100vh". unidades: 100vh: 1% da altura da viewport. */
@@ -25,15 +25,15 @@
     }
 
 
-    .hero {
-        width: min(1100px, 92vw); /* width: valor "min(1100px, 92vw)". valor responsivo calculado por função matemática. unidades: 1100px: pixels da CSS (unidade fixa na tela); 92vw: 1% da largura da viewport. */
-        margin: 3.5rem auto; /* margin: valor "3.5rem auto". unidades: 3.5rem: unidade relativa ao font-size do elemento raiz (html). */
-        background: #ffffff; /* background: valor "#ffffff". define uma cor. */
-        border: 1px solid #e2e8f0; /* border: valor "1px solid #e2e8f0". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-        border-radius: 24px; /* border-radius: valor "24px". unidades: 24px: pixels da CSS (unidade fixa na tela). */
-        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08); /* box-shadow: valor "0 18px 42px rgba(15, 23, 42, 0.08)". unidades: 18px: pixels da CSS (unidade fixa na tela); 42px: pixels da CSS (unidade fixa na tela). */
-        padding: 2.5rem; /* padding: valor "2.5rem". unidades: 2.5rem: unidade relativa ao font-size do elemento raiz (html). */
-    }
+.hero {
+    width: min(1100px, 92vw); /* width: valor "min(1100px, 92vw)". valor responsivo calculado por função matemática. unidades: 1100px: pixels da CSS (unidade fixa na tela); 92vw: 1% da largura da viewport. */
+    margin: 3.5rem auto; /* margin: valor "3.5rem auto". unidades: 3.5rem: unidade relativa ao font-size do elemento raiz (html). */
+    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
+    border: 1px solid #E5E5E5; /* border: valor "1px solid #E5E5E5". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    border-radius: 24px; /* border-radius: valor "24px". unidades: 24px: pixels da CSS (unidade fixa na tela). */
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08); /* box-shadow: valor "0 18px 42px rgba(15, 23, 42, 0.08)". unidades: 18px: pixels da CSS (unidade fixa na tela); 42px: pixels da CSS (unidade fixa na tela). */
+    padding: 2.5rem; /* padding: valor "2.5rem". unidades: 2.5rem: unidade relativa ao font-size do elemento raiz (html). */
+}
 
     .hero h1 {
         font-size: clamp(2rem, 4vw, 3rem); /* font-size: valor "clamp(2rem, 4vw, 3rem)". valor fluido limitado por mínimo e máximo com clamp(). unidades: 2rem: unidade relativa ao font-size do elemento raiz (html); 4vw: 1% da largura da viewport; 3rem: unidade relativa ao font-size do elemento raiz (html). */
@@ -65,11 +65,11 @@
         min-height: 180px; /* min-height: valor "180px". unidades: 180px: pixels da CSS (unidade fixa na tela). */
     }
 
-    .feature-card:hover {
-        transform: translateY(-3px); /* transform: valor "translateY(-3px)". unidades: -3px: pixels da CSS (unidade fixa na tela). */
-        border-color: rgba(34, 197, 94, 0.75); /* border-color: valor "rgba(34, 197, 94, 0.75)". define uma cor. */
-        box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12); /* box-shadow: valor "0 14px 35px rgba(15, 23, 42, 0.12)". unidades: 14px: pixels da CSS (unidade fixa na tela); 35px: pixels da CSS (unidade fixa na tela). */
-    }
+        .feature-card:hover {
+            transform: translateY(-3px); /* transform: valor "translateY(-3px)". unidades: -3px: pixels da CSS (unidade fixa na tela). */
+            border-color: #296436; /* border-color: valor "rgba(34, 197, 94, 0.75)". define uma cor. */
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12); /* box-shadow: valor "0 14px 35px rgba(15, 23, 42, 0.12)". unidades: 14px: pixels da CSS (unidade fixa na tela); 35px: pixels da CSS (unidade fixa na tela). */
+        }
 
     .feature-icon {
         width: 2.2rem; /* width: valor "2.2rem". unidades: 2.2rem: unidade relativa ao font-size do elemento raiz (html). */

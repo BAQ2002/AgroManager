@@ -40,7 +40,7 @@ body {
     border-radius: 20px; /* border-radius: valor "20px". unidades: 20px: pixels da CSS (unidade fixa na tela). */
     padding: 24px 28px 20px; /* padding: valor "24px 28px 20px". unidades: 24px: pixels da CSS (unidade fixa na tela); 28px: pixels da CSS (unidade fixa na tela); 20px: pixels da CSS (unidade fixa na tela). */
     box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08); /* box-shadow: valor "0 12px 32px rgba(15, 23, 42, 0.08)". unidades: 12px: pixels da CSS (unidade fixa na tela); 32px: pixels da CSS (unidade fixa na tela). */
-    border: 1px solid #e2e8f0; /* border: valor "1px solid #e2e8f0". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    border: 1px solid #E5E5E5; /* border: valor "1px solid #E5E5E5". unidades: 1px: pixels da CSS (unidade fixa na tela). */
 }
 
 /* Header */
