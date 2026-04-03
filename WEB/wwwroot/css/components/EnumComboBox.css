@@ -1,19 +1,21 @@
-.enum-select {
+.enum-combo-box {
+    cursor: pointer;
     position: relative;
 }
 
-.enum-select > button[type="button"] {
+.enum-combo-box > button[type="button"] {
     cursor: pointer;
     text-align: left;
     display: flex;
     align-items: center;
+    width: 100%;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
     padding-right: 34px;
     appearance: none;
     position: relative;
 }
 
-.enum-select::after {
+.enum-combo-box::after {
     content: "";
     position: absolute;
     right: 12px;
@@ -27,11 +29,11 @@
     transition: transform 0.15s ease;
 }
 
-.enum-select.open::after {
+.enum-combo-box.open::after {
     transform: translateY(-30%) rotate(-135deg);
 }
 
-.enum-select-menu {
+.enum-combo-box-menu {
     display: none;
     position: absolute;
     z-index: 12;
@@ -47,39 +49,38 @@
     overflow-y: auto;
 }
 
-.enum-select.open > button[type="button"] {
+.enum-combo-box.open > button[type="button"] {
     border-width: 2px;
     border-color: #296436;
     box-shadow: none;
 }
 
-.enum-select.open .enum-select-menu {
+.enum-combo-box.open .enum-combo-box-menu {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.enum-select-menu label {
+.enum-combo-box-option {
+    border: 0;
+    background: transparent;
     display: flex;
-    gap: 6px;
+    justify-content: space-between;
     align-items: center;
+    gap: 6px;
     font-size: 0.78rem;
     line-height: 1.1;
     letter-spacing: 0.06em;
     font-weight: 600;
     color: #000000;
-    padding: 4px 6px;
+    padding: 6px;
     border-radius: 8px;
     transition: background-color 0.15s ease;
+    cursor: pointer;
+    text-align: left;
 }
 
-.enum-select-menu label input[type="checkbox"] {
-    margin: 0;
-    width: 14px;
-    height: 14px;
-    flex: 0 0 auto;
-}
-
-.enum-select-menu label:hover {
+.enum-combo-box-option:hover,
+.enum-combo-box-option.active {
     background: #ffffff;
 }

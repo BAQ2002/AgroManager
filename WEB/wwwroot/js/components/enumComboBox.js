@@ -1,6 +1,6 @@
 (function () {
     // Coleta todos os componentes de seleção única presentes na tela.
-    const selects = Array.from(document.querySelectorAll(".js-single-enum-select"));
+    const selects = Array.from(document.querySelectorAll(".js-single-enum-combo-box"));
 
     // Se não houver componentes na página, encerra execução imediatamente.
     if (!selects.length) {
@@ -14,7 +14,7 @@
         // Captura o input hidden que armazena o valor selecionado.
         const valueInput = selectElement.querySelector("input[type='hidden']");
         // Captura todas as opções clicáveis do menu.
-        const options = Array.from(selectElement.querySelectorAll(".enum-single-select-option"));
+        const options = Array.from(selectElement.querySelectorAll(".enum-combo-box-option"));
         // Retorna objeto com os elementos para facilitar uso posterior.
         return { trigger, valueInput, options };
     };
@@ -122,7 +122,7 @@
         // Alterna abertura ao clicar na área principal do componente.
         selectElement.addEventListener("click", (event) => {
             // Ignora cliques no menu/opções para não reabrir indevidamente.
-            if (event.target.closest(".enum-single-select-menu")) {
+            if (event.target.closest(".enum-combo-box-menu")) {
                 return;
             }
 

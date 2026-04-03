@@ -7,7 +7,7 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/components/PrimaryButton.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/FloatingTextBox.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/components/EnumSingleSelect.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components/EnumComboBox.css" asp-append-version="true" />
 }
 
 
@@ -50,13 +50,13 @@
 
                 <div>
                     <div class="floating-field">
-                        <div class="enum-single-select">
+                        <div class="enum-combo-box">
                         <input type="hidden" name="Gender" value="@Model.Gender" class="js-floating-control" data-empty-values="Unknown" />
                         <button type="button" class="floating-field-input" aria-expanded="false"></button>
-                        <div class="enum-single-select-menu">
+                        <div class="enum-combo-box-menu">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
-                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
+                            <button type="button" class="enum-combo-box-option" data-value="@v" data-label="@v">@v</button>
                         }
                         </div>
                         </div>
@@ -66,13 +66,13 @@
 
                 <div>
                     <div class="floating-field">
-                        <div class="enum-single-select">
+                        <div class="enum-combo-box">
                         <input type="hidden" name="Origin" value="@Model.Origin" class="js-floating-control" data-empty-values="Unknown" />
                         <button type="button" class="floating-field-input" aria-expanded="false"></button>
-                        <div class="enum-single-select-menu">
+                        <div class="enum-combo-box-menu">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
-                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
+                            <button type="button" class="enum-combo-box-option" data-value="@v" data-label="@v">@v</button>
                         }
                         </div>
                         </div>
@@ -89,13 +89,13 @@
 
                 <div>
                     <div class="floating-field">
-                        <div class="enum-single-select">
+                        <div class="enum-combo-box">
                         <input type="hidden" name="MaritalStatus" value="@Model.MaritalStatus" class="js-floating-control" data-empty-values=",Unknown" />
                         <button type="button" class="floating-field-input" aria-expanded="false"></button>
-                        <div class="enum-single-select-menu">
+                        <div class="enum-combo-box-menu">
                         @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
                         {
-                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
+                            <button type="button" class="enum-combo-box-option" data-value="@v" data-label="@v">@v</button>
                         }
                         </div>
                         </div>
@@ -105,13 +105,13 @@
 
                 <div>
                     <div class="floating-field">
-                        <div class="enum-single-select">
+                        <div class="enum-combo-box">
                         <input type="hidden" name="CattleType" value="@Model.CattleType" class="js-floating-control" data-empty-values=",Unknown" />
                         <button type="button" class="floating-field-input" aria-expanded="false"></button>
-                        <div class="enum-single-select-menu">
+                        <div class="enum-combo-box-menu">
                         @foreach (var v in Enum.GetValues(typeof(CattleType)))
                         {
-                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
+                            <button type="button" class="enum-combo-box-option" data-value="@v" data-label="@v">@v</button>
                         }
                         </div>
                         </div>
@@ -135,6 +135,6 @@
 </div>
 
 @section Scripts {
-    <script src="~/js/components/enumSingleSelect.js" asp-append-version="true"></script>
+    <script src="~/js/components/enumComboBox.js" asp-append-version="true"></script>
     <script src="~/js/pages/bovines/create.js" asp-append-version="true"></script>
 }

@@ -1,21 +1,19 @@
-.enum-single-select {
-    cursor: pointer;
+.enum-check-box {
     position: relative;
 }
 
-.enum-single-select > button[type="button"] {
+.enum-check-box > button[type="button"] {
     cursor: pointer;
     text-align: left;
     display: flex;
     align-items: center;
-    width: 100%;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
     padding-right: 34px;
     appearance: none;
     position: relative;
 }
 
-.enum-single-select::after {
+.enum-check-box::after {
     content: "";
     position: absolute;
     right: 12px;
@@ -29,11 +27,11 @@
     transition: transform 0.15s ease;
 }
 
-.enum-single-select.open::after {
+.enum-check-box.open::after {
     transform: translateY(-30%) rotate(-135deg);
 }
 
-.enum-single-select-menu {
+.enum-check-box-menu {
     display: none;
     position: absolute;
     z-index: 12;
@@ -49,38 +47,39 @@
     overflow-y: auto;
 }
 
-.enum-single-select.open > button[type="button"] {
+.enum-check-box.open > button[type="button"] {
     border-width: 2px;
     border-color: #296436;
     box-shadow: none;
 }
 
-.enum-single-select.open .enum-single-select-menu {
+.enum-check-box.open .enum-check-box-menu {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.enum-single-select-option {
-    border: 0;
-    background: transparent;
+.enum-check-box-menu label {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 6px;
+    align-items: center;
     font-size: 0.78rem;
     line-height: 1.1;
     letter-spacing: 0.06em;
     font-weight: 600;
     color: #000000;
-    padding: 6px;
+    padding: 4px 6px;
     border-radius: 8px;
     transition: background-color 0.15s ease;
-    cursor: pointer;
-    text-align: left;
 }
 
-.enum-single-select-option:hover,
-.enum-single-select-option.active {
+.enum-check-box-menu label input[type="checkbox"] {
+    margin: 0;
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+}
+
+.enum-check-box-menu label:hover {
     background: #ffffff;
 }
