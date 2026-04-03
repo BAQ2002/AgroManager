@@ -225,11 +225,11 @@
                 });
             });
 
-        // Inicializa comportamento de enum-select de múltipla escolha via componente dedicado.
-        window.EnumCheckboxSelect?.init();
-        // Reaplica filtros sempre que algum enum-select sinalizar alteração.
-        document.querySelectorAll(".enum-select").forEach((selectElement) => {
-            selectElement.addEventListener("enum-checkbox-select:change", applyFilters);
+        // Inicializa comportamento de enum-check-box de múltipla escolha via componente dedicado.
+        window.EnumCheckBox?.init();
+        // Reaplica filtros sempre que algum enum-check-box sinalizar alteração.
+        document.querySelectorAll(".enum-check-box").forEach((selectElement) => {
+            selectElement.addEventListener("enum-check-box:change", applyFilters);
         });
         // Conecta interação do seletor de unidade de idade.
         wireAgeUnitSelect();
@@ -250,12 +250,12 @@
             // Limpa idade máxima.
             document.getElementById("filterAgeMax").value = "";
 
-            // Desmarca todos os checkboxes de enum-select.
-            document.querySelectorAll(".enum-select-menu input[type='checkbox']").forEach((x) => {
+            // Desmarca todos os checkboxes de enum-check-box.
+            document.querySelectorAll(".enum-check-box-menu input[type='checkbox']").forEach((x) => {
                 x.checked = false;
             });
-            // Recalcula os textos dos gatilhos dos enum-selects.
-            window.EnumCheckboxSelect?.syncAll();
+            // Recalcula os textos dos gatilhos dos enum-check-boxs.
+            window.EnumCheckBox?.syncAll();
             // Recalcula estado visual de campos flutuantes após limpeza.
             syncFloatingFields();
 
@@ -274,7 +274,7 @@
         // Obtém botão gatilho do seletor.
         const trigger = document.getElementById("ageUnitSelect");
         // Coleta opções disponíveis de unidade.
-        const options = Array.from(select.querySelectorAll(".enum-single-select-option"));
+        const options = Array.from(select.querySelectorAll(".enum-combo-box-option"));
 
         // Alterna abertura do menu ao clicar no gatilho.
         trigger.addEventListener("click", (event) => {

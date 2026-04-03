@@ -6,15 +6,15 @@
     };
 
     // Coleta todos os selects de múltipla escolha disponíveis na tela atual.
-    const selects = Array.from(document.querySelectorAll(".enum-select"));
+    const selects = Array.from(document.querySelectorAll(".enum-check-box"));
 
-    // Se não houver nenhum enum-select na página, não há trabalho a executar.
+    // Se não houver nenhum enum-check-box na página, não há trabalho a executar.
     if (!selects.length) {
         // Mesmo sem componentes ativos, expõe API mínima para manter contrato estável.
-        window.EnumCheckboxSelect = {
-            // Inicialização vazia para páginas sem enum-select.
+        window.EnumCheckBox = {
+            // Inicialização vazia para páginas sem enum-check-box.
             init: () => { },
-            // Sincronização vazia para páginas sem enum-select.
+            // Sincronização vazia para páginas sem enum-check-box.
             syncAll: () => { }
         };
         return;
@@ -92,7 +92,7 @@
         selects.forEach(syncTriggerLabel);
     };
 
-    // Registra eventos de interação em todos os enum-selects encontrados.
+    // Registra eventos de interação em todos os enum-check-boxs encontrados.
     const init = () => {
         // Conecta fluxo de abertura/fechamento e seleção para cada componente.
         selects.forEach((selectElement) => {
@@ -111,7 +111,7 @@
                 // Impede propagação para evitar fechamento imediato pelo listener global.
                 event.stopPropagation();
                 // Ignora cliques dentro do menu para não conflitar com escolha de opção.
-                if (event.target.closest(".enum-select-menu")) {
+                if (event.target.closest(".enum-check-box-menu")) {
                     return;
                 }
 
@@ -132,7 +132,7 @@
                     // Atualiza rótulo e estado visual imediatamente após alteração.
                     syncTriggerLabel(selectElement);
                     // Publica evento semântico para páginas reagirem (ex.: reaplicar filtros).
-                    selectElement.dispatchEvent(new CustomEvent("enum-checkbox-select:change", { bubbles: true }));
+                    selectElement.dispatchEvent(new CustomEvent("enum-check-box:change", { bubbles: true }));
                 });
             });
 
@@ -147,7 +147,7 @@
     };
 
     // Expõe API pública simples para inicialização e sincronização externa.
-    window.EnumCheckboxSelect = {
+    window.EnumCheckBox = {
         init,
         syncAll
     };
