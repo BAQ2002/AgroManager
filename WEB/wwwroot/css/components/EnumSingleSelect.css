@@ -1,4 +1,5 @@
 .enum-single-select {
+    cursor: pointer;
     position: relative;
 }
 
