@@ -52,69 +52,6 @@ body {
     color: #000000; /* color: valor "#000000". define uma cor. */
 }
 
-.age-unit-label {
-    text-transform: uppercase; /* text-transform: valor "uppercase". */
-    letter-spacing: 0.06em; /* letter-spacing: valor "0.06em". unidades: 0.06em: unidade relativa ao font-size do elemento atual. */
-    font-weight: 600; /* font-weight: valor "600". */
-}
-
-.enum-single-select--age-header > button[type="button"] {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    width: auto;
-    border: 0;
-    background: transparent;
-    color: inherit;
-    border-radius: 0;
-    padding: 0;
-    padding-right: 14px;
-    font-size: inherit;
-    line-height: inherit;
-}
-
-.enum-single-select--age-header::after {
-    right: 0;
-    top: 50%;
-    width: 8px;
-    height: 8px;
-    border-right-width: 1.5px;
-    border-bottom-width: 1.5px;
-    border-right-color: currentColor;
-    border-bottom-color: currentColor;
-    transform: translateY(-20%) rotate(45deg);
-}
-
-.enum-single-select--age-header.open::after {
-    transform: translateY(15%) rotate(-135deg);
-}
-
-.enum-single-select--age-header > button[type="button"]:focus-visible {
-    outline: 2px solid #296436; /* outline: valor "2px solid #296436". unidades: 2px: pixels da CSS (unidade fixa na tela). */
-    outline-offset: 2px; /* outline-offset: valor "2px". unidades: 2px: pixels da CSS (unidade fixa na tela). */
-}
-
-.enum-single-select--age-header .enum-single-select-menu {
-    z-index: 15;
-    left: 0;
-    right: auto;
-    width: max-content;
-    min-width: 100%;
-    border-color: rgba(148, 163, 184, 0.7);
-    background: #f8fafc;
-    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
-    padding: 6px;
-}
-
-.enum-single-select--age-header .enum-single-select-option {
-    padding: 6px 8px;
-    color: #0f172a;
-}
-
-.enum-single-select--age-header .enum-single-select-option:hover,
-.enum-single-select--age-header .enum-single-select-option.active {
-    background: #E5E5E5;
-}
 
 
 .bovine-edit-action {
