@@ -17,10 +17,6 @@ body {
     align-items: start; /* align-items: valor "start". */
 }
 
-.bovines-records-column {
-    min-width: 0; /* min-width: valor "0". valor neutro/ausente para essa propriedade. */
-}
-
 @media (max-width: 1260px) {
     .bovines-content-layout {
         grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
