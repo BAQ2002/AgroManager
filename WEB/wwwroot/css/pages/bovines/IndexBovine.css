@@ -25,10 +25,4 @@ body {
     }
 }
 
-.bovine-edit-action {
-    min-height: 34px; /* min-height: valor "34px". unidades: 34px: pixels da CSS (unidade fixa na tela). */
-    padding: 0 12px; /* padding: valor "0 12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-}
-
 /*------------------------------------------*/
