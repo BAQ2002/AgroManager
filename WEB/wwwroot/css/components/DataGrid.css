@@ -40,7 +40,7 @@
     }
 
     .datagrid tbody tr:nth-child(even) td {
-        background-color: #F2F2F2; /* background-color: valor "#F2F2F2". define uma cor. */
+        background-color: #f5f7f6; /* background-color: valor "#f5f7f6". define uma cor. */
     }
 
     .datagrid tbody tr:hover td {
@@ -56,7 +56,8 @@
         color: #000000; /* color: valor "#000000". define uma cor. */
     }
 
-    .datagrid td:nth-child(4) {
-        text-align: right; /* text-align: valor "right". */
+    .datagrid td:nth-child(4),
+    .datagrid td:nth-child(5) {
+        text-align: left; /* text-align: valor "left". */
         font-variant-numeric: tabular-nums; /* font-variant-numeric: valor "tabular-nums". */
     }
