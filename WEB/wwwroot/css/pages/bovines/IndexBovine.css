@@ -1,3 +1,5 @@
+
+/*--Seção de propriedades do Layout geral--*/
 body {
     display: block; /* display: valor "block". define o modo de layout/exibição. */
     padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
@@ -28,3 +30,5 @@ body {
     padding: 0 12px; /* padding: valor "0 12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
     border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
 }
+
+/*------------------------------------------*/

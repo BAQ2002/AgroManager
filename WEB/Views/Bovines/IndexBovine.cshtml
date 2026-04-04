@@ -6,7 +6,6 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/components/PrimaryButton.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/DataGrid.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/components/filters-panel.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/FormContainer.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/FloatingTextBox.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/EnumCheckBox.css" asp-append-version="true" />
@@ -49,15 +48,23 @@
 </header>
 
 <div class="bovines-content-layout">
-        <section id="filtersPanel" class=" filters-panel" aria-labelledby="filtersPanelTitle">
-            <fieldset class="filters-fieldset">
-                <legend id="filtersPanelTitle" class="filters-legend">Filtros de busca</legend>
+    <section class=" form-container" id="filtersPanel" aria-labelledby="filtersPanelTitle"
+             style= "margin: 8px 0 16px;
+                     border-radius: 18px;
+                     border: 1px solid #E5E5E5;
+                     background: #ffffff;
+                     padding: 16px;
+                     box-shadow: none;
+                     overflow: visible;
+                     width: 100%;">
+    
+            <label id="filtersPanelTitle" class="container-title-label">Filtros de busca</label>
 
-                <div class="form-stack filters-form">
+                <div class="form-stack">
                     <div class="form-one-columns">
                         
                         <div class="floating-field">
-                            <input id="filterName" type="text" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
+                            <input class="floating-field-input" id="filterName" type="text" placeholder=" " data-empty-values="" />
                             <span class="floating-field-label">Nome</span>
                         </div>
                         
@@ -144,18 +151,17 @@
                             <span class="floating-field-label">Nascimento (máx.)</span>
                         </div>
                     </div>
-                </div>
 
-                <div class="filters-actions">
                     <button type="button" class="primary-button" data-action="clear-filters">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="M18 6L6 18"></path>
-                            <path d="M6 6l12 12"></path>
+                           <path d="M18 6L6 18"></path>
+                          <path d="M6 6l12 12"></path>
                         </svg>
                         <span>Limpar filtros</span>
                     </button>
                 </div>
-            </fieldset>
+
+                    
         </section>
 
         <div class="bovines-records-column">

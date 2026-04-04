@@ -1,4 +1,17 @@
 
+/* Define as propriedades visuais do label de título do container. */
+.container-title-label {
+    margin: 0 0 14px;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+    float: none;
+    width: 100%;
+
+    
+}
+
 .form-container {
     margin-top: 6px; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
     border-radius: 14px; /* Arrendodamento da quinas da borda (14px). */
