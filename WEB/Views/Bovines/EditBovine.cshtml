@@ -37,7 +37,7 @@
     <form method="post" action="/bovines/edit/@Model.Id" class="form-container" style="padding: 16px">
             @Html.AntiForgeryToken()
 
-            <div class="am-error-text">
+            <div class="error-description-label">
                 @Html.ValidationSummary(false)
             </div>
 
@@ -47,7 +47,7 @@
                         <input name="Name" value="@Model.Name" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
                         <label class="floating-field-label">Nome</label>
                     </div>
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Name)</div>
+                    <div class="error-description-label">@Html.ValidationMessageFor(m => m.Name)</div>
                 </div>
 
                 <div>
