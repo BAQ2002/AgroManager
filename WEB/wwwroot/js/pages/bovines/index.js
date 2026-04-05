@@ -38,14 +38,16 @@
         document.querySelectorAll(".js-floating-control").forEach(syncFloatingField);
     }
 
-    // Converte string de data para objeto Date com validação básica.
+    // Converte string de data para Date reutilizando utilitário compartilhado do componente DataGrid.
     function toDate(value) {
-        // Retorna nulo quando valor não existir.
-        if (!value) return null;
-        // Tenta converter string para data.
-        const parsed = new Date(value);
-        // Retorna nulo se a data for inválida; caso contrário, retorna a data convertida.
-        return Number.isNaN(parsed.getTime()) ? null : parsed;
+        // Faz fallback seguro para parser local caso o componente não esteja disponível.
+        return window.DataGrid?.parseDate(value) ?? (value ? new Date(value) : null);
+    }
+
+    // Formata data no padrão brasileiro dd/mm/yyyy reutilizando utilitário compartilhado do componente DataGrid.
+    function formatBirthDate(value) {
+        // Faz fallback seguro para valor original quando componente não estiver disponível.
+        return window.DataGrid?.formatDateBr(value) ?? (value ?? "");
     }
 
     // Retorna os valores selecionados (em minúsculo) de um grupo de checkboxes.
@@ -102,7 +104,7 @@
             <td>${x.name ?? ""}</td>
             <td>${x.gender ?? ""}</td>
             <td>${x.origin ?? ""}</td>
-            <td>${x.birthDate ?? ""}</td>
+            <td>${formatBirthDate(x.birthDate)}</td>
             <td>${formatAgeByUnit(x)}</td>
             <td>${x.maritalStatus ?? ""}</td>
             <td>${x.cattleType ?? ""}</td>
