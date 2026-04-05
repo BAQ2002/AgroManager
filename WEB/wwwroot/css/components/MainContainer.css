@@ -1,0 +1,37 @@
+﻿
+
+/*Class's utilizadas para páginas que possuem um container visual principal separando o conteúdo do fundo da página.*/
+
+
+.main-container {
+    width: min(1000px, calc(100% - 48px)); /* width: valor "min(1000px, calc(100% - 48px))". valor responsivo calculado por função matemática. unidades: 1000px: pixels da CSS (unidade fixa na tela); 48px: pixels da CSS (unidade fixa na tela). */
+    margin: 24px auto; /* margin: valor "24px auto". unidades: 24px: pixels da CSS (unidade fixa na tela). */
+    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
+    border-radius: 20px; /* border-radius: valor "20px". unidades: 20px: pixels da CSS (unidade fixa na tela). */
+    padding: 24px 28px 20px; /* padding: valor "24px 28px 20px". unidades: 24px: pixels da CSS (unidade fixa na tela); 28px: pixels da CSS (unidade fixa na tela); 20px: pixels da CSS (unidade fixa na tela). */
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08); /* box-shadow: valor "0 12px 32px rgba(15, 23, 42, 0.08)". unidades: 12px: pixels da CSS (unidade fixa na tela); 32px: pixels da CSS (unidade fixa na tela). */
+    border: 1px solid #E5E5E5; /* border: valor "1px solid #E5E5E5". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+}
+
+/* Header */
+
+.main-container-header {
+    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
+    justify-content: space-between; /* justify-content: valor "space-between". */
+    align-items: flex-start; /* align-items: valor "flex-start". */
+    margin-inline: auto;
+    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    margin-bottom: 18px; /* margin-bottom: valor "18px". unidades: 18px: pixels da CSS (unidade fixa na tela). */
+}
+
+.main-container-title {
+    font-size: 1.5rem; /* font-size: valor "1.5rem". unidades: 1.5rem: unidade relativa ao font-size do elemento raiz (html). */
+    font-weight: 600; /* font-weight: valor "600". */
+    margin-bottom: 4px; /* margin-bottom: valor "4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
+    color: #000000;
+}
+
+.main-container-subtitle {
+    font-size: 0.9rem; /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
+    color: #606060; /* color: valor "#64748b". define uma cor. */
+}

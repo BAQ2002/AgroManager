@@ -105,11 +105,6 @@ body {
 }
 
 /* Shared action/form utilities */
-
-.am-link-plain {
-    text-decoration: none; /* text-decoration: valor "none". valor neutro/ausente para essa propriedade. */
-}
-
 .am-inline-actions {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     gap: 10px; /* gap: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */

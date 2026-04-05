@@ -8,31 +8,33 @@
     <link rel="stylesheet" href="~/css/components/PrimaryButton.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/FloatingTextBox.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/components/EnumComboBox.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/components/MainContainer.css" asp-append-version="true" />
 }
 
+@section Scripts {
+<script src="~/js/components/enumComboBox.js" asp-append-version="true"></script>
+<script src="~/js/pages/bovines/create.js" asp-append-version="true"></script>
+}
 
-
-<div class="am-page-shell">
-
-    <div class="page">
-    <header class="page-header">
+<div class="main-container">
+    <header class="main-container-header">
         <div>
-            <h1 class="page-title">Editar Bovine</h1>
-            <p class="page-subtitle">Modificar o registro de um bovino no banco de dados.</p>
+            <h1 class="main-container-title">Editar Bovine</h1>
+            <p class="main-container-subtitle">Modificar o registro de um bovino no banco de dados.</p>
             <div class="am-inline-actions">
                 <a class="primary-button" href="/bovines">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M15 18l-6-6 6-6"></path>
                         <path d="M21 12H9"></path>
                     </svg>
-                    <span>Voltar</span>
+                    <button-label>Voltar</button-label>
                 </a>
             </div>
         </div>
     </header>
 
-        <section class="form-container" style="padding: 16px">
-        <form method="post" action="/bovines/edit/@Model.Id" class="am-form-grid">
+
+    <form method="post" action="/bovines/edit/@Model.Id" class="form-container" style="padding: 16px">
             @Html.AntiForgeryToken()
 
             <div class="am-error-text">
@@ -125,16 +127,11 @@
                 <button type="submit" class="primary-button">Salvar</button>
             </div>
         </form>
-    </section>
 
     <footer class="footer-info">
         <span>Após salvar, você volta para a listagem.</span>
         <span>AgroManager</span>
     </footer>
 </div>
-</div>
 
-@section Scripts {
-    <script src="~/js/components/enumComboBox.js" asp-append-version="true"></script>
-    <script src="~/js/pages/bovines/create.js" asp-append-version="true"></script>
-}
+
