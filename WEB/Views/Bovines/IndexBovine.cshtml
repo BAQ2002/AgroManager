@@ -48,8 +48,7 @@
 </header>
 
 <div class="bovines-content-layout">
-    <section class=" form-container" id="filtersPanel" aria-labelledby="filtersPanelTitle"
-             style= "margin: 8px 0 16px;
+    <section class=" form-container" id="filtersPanel" aria-labelledby="filtersPanelTitle" style= "margin: 8px 0 16px;
                      border-radius: 18px;
                      border: 1px solid #E5E5E5;
                      background: #ffffff;
@@ -58,7 +57,7 @@
                      overflow: visible;
                      width: 100%;">
     
-            <label id="filtersPanelTitle" class="container-title-label">Filtros de busca</label>
+            <label class="container-title-label" id="filtersPanelTitle">Filtros de busca</label>
 
                 <div class="form-stack">
                     <div class="form-one-columns">
@@ -74,7 +73,7 @@
 
                         <div class="floating-field">
                             <div class="enum-check-box" data-filter="Tipo">
-                                <button type="button" class="floating-field-input" aria-expanded="false"></button>
+                                <button class="floating-field-input" type="button" aria-expanded="false"></button>
                                 <div class="enum-check-box-menu" id="filterCattleType">
                                     <label><input type="checkbox" value="Unknown" /> Unknown</label>
                                     <label><input type="checkbox" value="Beef" /> Beef</label>
@@ -86,7 +85,7 @@
 
                         <div class="floating-field">
                             <div class="enum-check-box" data-filter="Origem">
-                                <button type="button" class="floating-field-input" aria-expanded="false"></button>
+                                <button class="floating-field-input" type="button" aria-expanded="false"></button>
                                 <div class="enum-check-box-menu" id="filterOrigin">
                                     <label><input type="checkbox" value="Unknown" /> Unknown</label>
                                     <label><input type="checkbox" value="Born" /> Born</label>
@@ -102,7 +101,7 @@
                         
                         <div class="floating-field">
                             <div class="enum-check-box" data-filter="Sexo">
-                                <button type="button" class="floating-field-input" aria-expanded="false"></button>
+                                <button class="floating-field-input" type="button" aria-expanded="false"></button>
                                 <div class="enum-check-box-menu" id="filterGender">
                                     <label><input type="checkbox" value="Unknown" /> Unknown</label>
                                     <label><input type="checkbox" value="Male" /> Male</label>
@@ -114,7 +113,7 @@
                                             
                         <div class="floating-field">
                             <div class="enum-check-box" data-filter="Estado">
-                                <button type="button" class="floating-field-input" aria-expanded="false"></button>
+                                <button class="floating-field-input" type="button" aria-expanded="false"></button>
                                 <div class="enum-check-box-menu" id="filterMaritalStatus">
                                     <label><input type="checkbox" value="Unknown" /> Unknown</label>
                                     <label><input type="checkbox" value="Single" /> Single</label>
@@ -129,12 +128,12 @@
                     <div class="form-two-columns">
 
                         <div class="floating-field">
-                            <input id="filterAgeMin" type="number" min="0" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
+                            <input class="floating-field-input js-floating-control" id="filterAgeMin" type="number" min="0" placeholder=" " data-empty-values="" />
                             <span class="floating-field-label">Idade (mín.)</span>
                         </div>
                                   
                         <div class="floating-field">
-                            <input id="filterAgeMax" type="number" min="0" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
+                            <input class="floating-field-input js-floating-control" id="filterAgeMax" type="number" min="0" placeholder=" " data-empty-values="" />
                             <span class="floating-field-label">Idade (máx.)</span>
                         </div>                  
                     </div>
@@ -142,17 +141,17 @@
                     <div class="form-two-columns">
 
                         <div class="floating-field">
-                            <input id="filterBirthDateMin" type="text" placeholder=" " class="floating-field-input js-floating-control js-date-picker" data-empty-values="" autocomplete="off" />
+                            <input class="floating-field-input js-floating-control js-date-picker" id="filterBirthDateMin" type="text" placeholder=" " data-empty-values="" autocomplete="off" />
                             <span class="floating-field-label">Nascimento (mín.)</span>
                         </div>
 
                         <div class="floating-field">
-                            <input id="filterBirthDateMax" type="text" placeholder=" " class="floating-field-input js-floating-control js-date-picker" data-empty-values="" autocomplete="off" />
+                            <input class="floating-field-input js-floating-control js-date-picker" id="filterBirthDateMax" type="text" placeholder=" " data-empty-values="" autocomplete="off" />
                             <span class="floating-field-label">Nascimento (máx.)</span>
                         </div>
                     </div>
 
-                    <button type="button" style="width: 33%; margin-left: auto" class="primary-button" data-action="clear-filters">
+                    <button class="primary-button" type="button" style="width: 33%; margin-left: auto" data-action="clear-filters">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M18 6L6 18"></path>
                             <path d="M6 6l12 12"></path>
@@ -178,9 +177,9 @@
                             <div class="enum-combo-box" id="ageUnitSelect">
                                 <span style="color: #ffffff"> Idade  (<span id="ageUnitLabel">anos</span>)</span>
                                 <div class="enum-combo-box-menu" id="ageUnitMenu">
-                                    <button type="button" class="enum-combo-box-option active" data-unit="years">Anos</button>
-                                    <button type="button" class="enum-combo-box-option" data-unit="months">Meses</button>
-                                    <button type="button" class="enum-combo-box-option" data-unit="days">Dias</button>
+                                    <button class="enum-combo-box-option active" type="button" data-unit="years">Anos</button>
+                                    <button class="enum-combo-box-option" type="button" data-unit="months">Meses</button>
+                                    <button class="enum-combo-box-option" type="button" data-unit="days">Dias</button>
                                 </div>
                             </div>
                                

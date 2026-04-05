@@ -1,4 +1,4 @@
-﻿@model AgroManager.WEB.Controllers.BovineViewModel
+@model AgroManager.WEB.Controllers.BovineViewModel
 @using MODEL
 @{
     ViewData["Title"] = "Novo Bovine";
@@ -34,14 +34,14 @@
         </div>
     </header>
     
-    <form method="post" action="/bovines/create" class="form-container" style="padding: 16px">
+    <form class="form-container" method="post" action="/bovines/create" style="padding: 16px">
         @Html.AntiForgeryToken()
 
         <div class="am-form-columns">
 
             <div>
                 <div class="floating-field">
-                    <input name="Name" value="@Model.Name" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
+                    <input class="floating-field-input js-floating-control" name="Name" value="@Model.Name" placeholder=" " data-empty-values="" />
                     <label class="floating-field-label">Nome</label>
                 </div>
                 <div class="error-description-label">@Html.ValidationMessageFor(m => m.Name)</div>
@@ -50,12 +50,12 @@
             <div>
                 <div class="floating-field">
                     <div class="enum-combo-box">
-                        <input type="hidden" name="Gender" value="@Model.Gender" class="js-floating-control" data-empty-values="Unknown" />
-                        <button type="button" class="floating-field-input" aria-expanded="false"></button>
+                        <input class="js-floating-control" type="hidden" name="Gender" value="@Model.Gender" data-empty-values="Unknown" />
+                        <button class="floating-field-input" type="button" aria-expanded="false"></button>
                         <div class="enum-combo-box-menu">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
-                            <button type="button" class="enum-combo-box-option" data-value="@v" data-label="@v">@v</button>
+                            <button class="enum-combo-box-option" type="button" data-value="@v" data-label="@v">@v</button>
                         }
                         </div>
                     </div>
@@ -67,12 +67,12 @@
             <div>
                 <div class="floating-field">
                             <div class="enum-combo-box">
-                        <input type="hidden" name="Origin" value="@Model.Origin" class="js-floating-control" data-empty-values="Unknown" />
-                        <button type="button" class="floating-field-input" aria-expanded="false"></button>
+                        <input class="js-floating-control" type="hidden" name="Origin" value="@Model.Origin" data-empty-values="Unknown" />
+                        <button class="floating-field-input" type="button" aria-expanded="false"></button>
                         <div class="enum-combo-box-menu">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
-                            <button type="button" class="enum-combo-box-option" data-value="@v" data-label="@v">@v</button>
+                            <button class="enum-combo-box-option" type="button" data-value="@v" data-label="@v">@v</button>
                         }
                         </div>
                         </div>
@@ -83,7 +83,7 @@
 
             <div>
                 <div class="floating-field">
-                    <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
+                    <input class="floating-field-input js-floating-control" name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " data-empty-values="" />
                     <label class="floating-field-label">Nascimento</label>
                 </div>
                 <div class="error-description-label">@Html.ValidationMessageFor(m => m.BirthDate)</div>
@@ -92,12 +92,12 @@
             <div>
                 <div class="floating-field">
                         <div class="enum-combo-box">
-                    <input type="hidden" name="MaritalStatus" value="@Model.MaritalStatus" class="js-floating-control" data-empty-values=",Unknown" />
-                    <button type="button" class="floating-field-input" aria-expanded="false"></button>
+                    <input class="js-floating-control" type="hidden" name="MaritalStatus" value="@Model.MaritalStatus" data-empty-values=",Unknown" />
+                    <button class="floating-field-input" type="button" aria-expanded="false"></button>
                     <div class="enum-combo-box-menu">
                     @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
                     {
-                        <button type="button" class="enum-combo-box-option" data-value="@v" data-label="@v">@v</button>
+                        <button class="enum-combo-box-option" type="button" data-value="@v" data-label="@v">@v</button>
                     }
                     </div>
                     </div>
@@ -109,12 +109,12 @@
             <div>
                 <div class="floating-field">
                         <div class="enum-combo-box">
-                    <input type="hidden" name="CattleType" value="@Model.CattleType" class="js-floating-control" data-empty-values=",Unknown" />
-                    <button type="button" class="floating-field-input" aria-expanded="false"></button>
+                    <input class="js-floating-control" type="hidden" name="CattleType" value="@Model.CattleType" data-empty-values=",Unknown" />
+                    <button class="floating-field-input" type="button" aria-expanded="false"></button>
                     <div class="enum-combo-box-menu">
                     @foreach (var v in Enum.GetValues(typeof(CattleType)))
                     {
-                        <button type="button" class="enum-combo-box-option" data-value="@v" data-label="@v">@v</button>
+                        <button class="enum-combo-box-option" type="button" data-value="@v" data-label="@v">@v</button>
                     }
                     </div>
                     </div>
@@ -126,7 +126,7 @@
 
         <div class="am-form-actions">
             <a class="primary-button" href="/bovines">Cancelar</a>
-            <button type="submit" class="primary-button">Salvar</button>
+            <button class="primary-button" type="submit">Salvar</button>
         </div>
     </form>
 
@@ -135,5 +135,4 @@
         <span>AgroManager</span>
     </footer>  
 </div>
-
 
