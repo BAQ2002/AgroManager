@@ -22,7 +22,7 @@
         <form method="post" action="/swines/create" class="am-form-grid">
             @Html.AntiForgeryToken()
 
-            <div class="am-error-text">
+            <div class="error-description-label">
                 @Html.ValidationSummary(false)
             </div>
 
@@ -30,7 +30,7 @@
                 <div>
                     <label>Nome</label>
                     <input name="Name" value="@Model.Name" class="am-input" />
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Name)</div>
+                    <div class="error-description-label">@Html.ValidationMessageFor(m => m.Name)</div>
                 </div>
 
                 <div>
