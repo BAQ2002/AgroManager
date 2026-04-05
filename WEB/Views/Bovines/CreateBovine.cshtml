@@ -19,12 +19,9 @@
 
 <div class="main-container">
     <header class="main-container-header">
+        <div>
             <title-label class="main-container-title">Novo Bovine</title-label>
-
-            <subtitle-label class="main-container-subtitle">
-                Cadastro de um bovino no banco de dados.
-            </subtitle-label>
-
+            <p class="main-container-subtitle">Criar um registro de um bovino no banco de dados.</p>
             <div class="am-inline-actions">
                 <a class="primary-button" href="/bovines">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -34,8 +31,8 @@
                     <button-label>Voltar</button-label>
                 </a>
             </div>
+        </div>
     </header>
-
     
     <form method="post" action="/bovines/create" class="form-container" style="padding: 16px">
         @Html.AntiForgeryToken()
