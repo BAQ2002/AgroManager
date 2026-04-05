@@ -80,7 +80,10 @@
     text-align: left;
 }
 
-.enum-combo-box-option:hover,
+.enum-combo-box-option:hover {
+    background: #E5E5E5;
+}
+
 .enum-combo-box-option.active {
     background: #ffffff;
 }
