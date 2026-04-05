@@ -22,8 +22,8 @@
 
     // Marca estado visual de preenchimento do campo flutuante pai de cada select.
     const syncFloatingState = (selectElement) => {
-        // Localiza o container visual responsável pela label flutuante.
-        const field = selectElement.closest(".floating-field");
+        
+        const field = selectElement.closest(".floating-field");//Localiza o container visual responsável pela label flutuante.
         // Se não existir container, interrompe para evitar erro de acesso.
         if (!field) {
             return;
@@ -31,8 +31,8 @@
 
         // Conta quantos checkboxes estão efetivamente marcados no componente.
         const checkedCount = selectElement.querySelectorAll("input[type='checkbox']:checked").length;
-        // Ativa classe de preenchido quando ao menos um item estiver selecionado.
-        field.classList.toggle("filled", checkedCount > 0);
+        
+        field.classList.toggle("filled", checkedCount > 0); //Ativa classe de preenchido quando ao menos um item estiver selecionado.
     };
 
     // Atualiza texto do gatilho do select conforme quantidade de itens marcados.
@@ -64,13 +64,15 @@
 
     // Fecha um único select e atualiza metadados de acessibilidade do gatilho.
     const closeSelect = (selectElement) => {
-        // Captura gatilho principal para atualizar aria-expanded.
-        const trigger = selectElement.querySelector(":scope > button[type='button']");
-        // Remove marcador visual de aberto.
-        selectElement.classList.remove("open");
-        // Se houver gatilho, explicita estado fechado para leitores de tela.
-        if (trigger) {
-            trigger.setAttribute("aria-expanded", "false");
+        
+        const trigger = selectElement.querySelector         //Captura gatilho principal para atualizar aria-expanded.
+                 (":scope > button[type='button']");
+        
+        selectElement.classList.remove("open");             //Remove marcador visual de aberto. 
+       
+        if (trigger)                                        //Se houver gatilho.
+        {
+            trigger.setAttribute("aria-expanded", "false"); //Explicita estado fechado para leitores de tela.
         }
     };
 
@@ -78,10 +80,11 @@
     const openSelect = (selectElement) => {
         // Captura gatilho principal para atualizar aria-expanded.
         const trigger = selectElement.querySelector(":scope > button[type='button']");
-        // Adiciona marcador visual de aberto.
-        selectElement.classList.add("open");
-        // Se houver gatilho, explicita estado aberto para leitores de tela.
-        if (trigger) {
+        
+        selectElement.classList.add("open");// Adiciona marcador visual de aberto.
+        
+        if (trigger) //Se houver gatilho, explicita estado aberto para leitores de tela.
+        {
             trigger.setAttribute("aria-expanded", "true");
         }
     };

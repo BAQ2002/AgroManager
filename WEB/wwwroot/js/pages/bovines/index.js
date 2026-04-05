@@ -46,56 +46,52 @@
 
     // Formata data no padrão brasileiro dd/mm/yyyy reutilizando utilitário compartilhado do componente DataGrid.
     function formatBirthDate(value) {
-        // Faz fallback seguro para valor original quando componente não estiver disponível.
-        return window.DataGrid?.formatDateBr(value) ?? (value ?? "");
+        
+        return window.DataGrid?.formatDateBr(value) ?? (value ?? ""); //Faz fallback seguro para valor original quando componente não estiver disponível.
     }
 
     // Retorna os valores selecionados (em minúsculo) de um grupo de checkboxes.
     function getCheckedValues(containerId) {
-        // Coleta checkboxes marcados dentro do container informado e transforma em array de valores.
-        return Array.from(document.querySelectorAll(`#${containerId} input[type='checkbox']:checked`)).map((x) => x.value.toLowerCase());
+        
+        return Array.from(document.querySelectorAll             //Coleta checkboxes  marcados 
+            (`#${containerId} input[type='checkbox']:checked`)) //dentro do container informado
+            .map((x) => x.value.toLowerCase());                 //e transforma em array de valores.
     }
 
     // Obtém idade de um item de acordo com a unidade ativa.
     function getAgeByUnit(item) {
-        // Se unidade ativa for dias, retorna campo correspondente.
-        if (currentAgeUnit === "days") return item.ageInDays;
-        // Se unidade ativa for meses, retorna campo correspondente.
-        if (currentAgeUnit === "months") return item.ageInMonths;
-        // Caso padrão: retorna anos quando disponível com fallback para `age`.
-        return item.ageInYears ?? item.age;
+        
+        if (currentAgeUnit === "days") return item.ageInDays;     //Se unidade ativa for dias, retorna campo correspondente.      
+        if (currentAgeUnit === "months") return item.ageInMonths; //Se unidade ativa for meses, retorna campo correspondente.      
+        return item.ageInYears ?? item.age;                       //Caso padrão: retorna anos quando disponível com fallback para `age`.
     }
 
     // Retorna rótulo textual da unidade de idade atual.
     function getAgeUnitLabel() {
-        // Mapeia unidade "days" para texto em português.
-        if (currentAgeUnit === "days") return "dias";
-        // Mapeia unidade "months" para texto em português.
-        if (currentAgeUnit === "months") return "meses";
-        // Retorna texto padrão para anos.
-        return "anos";
+
+        if (currentAgeUnit === "days") return "dias";    //Mapeia unidade "days" para texto em português.     
+        if (currentAgeUnit === "months") return "meses"; //Mapeia unidade "months" para texto em português.       
+        return "anos";                                   //Retorna texto padrão para anos.
     }
 
     // Formata idade de um item para exibição amigável na tabela.
     function formatAgeByUnit(item) {
-        // Obtém valor da idade na unidade selecionada.
-        const value = getAgeByUnit(item);
-        // Para valores nulos/vazios, retorna string vazia para não poluir tabela.
-        if (value === null || value === undefined || value === "") return "";
-        // Combina número e unidade em uma única string.
-        return `${value} ${getAgeUnitLabel()}`;
+        
+        const value = getAgeByUnit(item);                                     //Obtém valor da idade na unidade selecionada.    
+        if (value === null || value === undefined || value === "") return ""; //Para valores nulos/vazios, retorna string vazia para não poluir tabela.
+        return `${value} ${getAgeUnitLabel()}`;                               //Combina número e unidade em uma única string.
     }
 
     // Atualiza texto do cabeçalho que indica unidade ativa de idade.
     function updateAgeUnitLabel() {
-        // Obtém elemento de rótulo da unidade no DOM.
-        const label = document.getElementById("ageUnitLabel");
+        
+        const label = document.getElementById("ageUnitLabel");// Obtém elemento de rótulo da unidade no DOM.
         // Atualiza apenas quando elemento existir na página.
         if (label) {
             label.textContent = getAgeUnitLabel();
         }
     }
-
+   
     // Renderiza linhas da tabela de bovinos e contador de resultados.
     function renderRows(data) {
         // Gera HTML das linhas dinamicamente a partir do array recebido.
@@ -126,73 +122,49 @@
 
     // Aplica todos os filtros selecionados sobre a lista em memória.
     function applyFilters() {
-        // Lê filtro textual de nome.
-        const nameFilter = document.getElementById("filterName").value.trim().toLowerCase();
-        // Lê gêneros selecionados.
-        const genders = getCheckedValues("filterGender");
-        // Lê origens selecionadas.
-        const origins = getCheckedValues("filterOrigin");
-        // Lê estados civis selecionados.
-        const maritalStatuses = getCheckedValues("filterMaritalStatus");
-        // Lê tipos de gado selecionados.
-        const cattleTypes = getCheckedValues("filterCattleType");
+        
+        const nameFilter = document.getElementById("filterName")         //Lê filtro textual de nome.
+                           .value.trim().toLowerCase();                  //Valor trimado para LowerCase.
+        const genders = getCheckedValues("filterGender");                //Lê gêneros selecionados.        
+        const origins = getCheckedValues("filterOrigin");                //Lê origens selecionadas.       
+        const maritalStatuses = getCheckedValues("filterMaritalStatus"); //Lê estados civis selecionados.       
+        const cattleTypes = getCheckedValues("filterCattleType");        //Lê tipos de gado selecionados.
 
         // Converte data mínima informada para Date.
         const birthDateMin = toDate(document.getElementById("filterBirthDateMin").value);
         // Converte data máxima informada para Date.
         const birthDateMax = toDate(document.getElementById("filterBirthDateMax").value);
 
-        // Lê idade mínima em formato bruto de string.
-        const ageMinRaw = document.getElementById("filterAgeMin").value;
-        // Lê idade máxima em formato bruto de string.
-        const ageMaxRaw = document.getElementById("filterAgeMax").value;
-        // Converte idade mínima para número ou nulo.
-        const ageMin = ageMinRaw === "" ? null : Number(ageMinRaw);
-        // Converte idade máxima para número ou nulo.
-        const ageMax = ageMaxRaw === "" ? null : Number(ageMaxRaw);
+        const ageMinRaw = document.getElementById("filterAgeMin").value; //Lê idade mínima em formato bruto de string.       
+        const ageMaxRaw = document.getElementById("filterAgeMax").value; //Lê idade máxima em formato bruto de string.     
+        const ageMin = ageMinRaw === "" ? null : Number(ageMinRaw);      //Converte idade mínima para número ou nulo.     
+        const ageMax = ageMaxRaw === "" ? null : Number(ageMaxRaw);      //Converte idade máxima para número ou nulo.
 
         // Filtra coleção completa de bovinos usando todas as regras ativas.
         const filtered = allBovines.filter((x) => {
-            // Normaliza nome para comparação case-insensitive.
-            const name = (x.name ?? "").toLowerCase();
-            // Normaliza gênero para comparação case-insensitive.
-            const gender = (x.gender ?? "").toLowerCase();
-            // Normaliza origem para comparação case-insensitive.
-            const origin = (x.origin ?? "").toLowerCase();
-            // Normaliza estado civil para comparação case-insensitive.
-            const maritalStatus = (x.maritalStatus ?? "").toLowerCase();
-            // Normaliza tipo de gado para comparação case-insensitive.
-            const cattleType = (x.cattleType ?? "").toLowerCase();
-            // Converte data de nascimento do item para Date.
-            const birthDate = toDate(x.birthDate);
-            // Obtém idade na unidade ativa.
-            const ageRaw = getAgeByUnit(x);
+            
+            const name = (x.name ?? "").toLowerCase();                   //Normaliza nome para comparação case-insensitive.
+            const gender = (x.gender ?? "").toLowerCase();               //Normaliza gênero para comparação case-insensitive.
+            const origin = (x.origin ?? "").toLowerCase();               //Normaliza origem para comparação case-insensitive.            
+            const maritalStatus = (x.maritalStatus ?? "").toLowerCase(); //Normaliza estado civil para comparação case-insensitive.            
+            const cattleType = (x.cattleType ?? "").toLowerCase();       //Normaliza tipo de gado para comparação case-insensitive.            
+            const birthDate = toDate(x.birthDate);                       //Converte data de nascimento do item para Date.
+            const ageRaw = getAgeByUnit(x);                              //Obtém idade na unidade ativa.
+
             // Normaliza idade numérica para comparações de faixa.
             const age = ageRaw === null || ageRaw === undefined || ageRaw === "" ? null : Number(ageRaw);
-
-            // Rejeita item quando filtro de nome não for atendido.
-            if (nameFilter && !name.includes(nameFilter)) return false;
-            // Rejeita item quando gênero não estiver entre os selecionados.
-            if (genders.length && !genders.includes(gender)) return false;
-            // Rejeita item quando origem não estiver entre as selecionadas.
-            if (origins.length && !origins.includes(origin)) return false;
-            // Rejeita item quando estado civil não estiver entre os selecionados.
-            if (maritalStatuses.length && !maritalStatuses.includes(maritalStatus)) return false;
-            // Rejeita item quando tipo de gado não estiver entre os selecionados.
-            if (cattleTypes.length && !cattleTypes.includes(cattleType)) return false;
-
-            // Rejeita item quando data for menor que o mínimo permitido.
-            if (birthDateMin && (!birthDate || birthDate < birthDateMin)) return false;
-            // Rejeita item quando data for maior que o máximo permitido.
-            if (birthDateMax && (!birthDate || birthDate > birthDateMax)) return false;
-
-            // Rejeita item quando idade for menor que o mínimo permitido.
-            if (ageMin !== null && (age === null || age < ageMin)) return false;
-            // Rejeita item quando idade for maior que o máximo permitido.
-            if (ageMax !== null && (age === null || age > ageMax)) return false;
-
-            // Mantém item quando passou por todas as validações.
-            return true;
+        
+            if (nameFilter && !name.includes(nameFilter)) return false;                           //Rejeita item quando filtro de nome não for atendido.            
+            if (genders.length && !genders.includes(gender)) return false;                        //Rejeita item quando gênero não estiver entre os selecionados.            
+            if (origins.length && !origins.includes(origin)) return false;                        //Rejeita item quando origem não estiver entre as selecionadas.           
+            if (maritalStatuses.length && !maritalStatuses.includes(maritalStatus)) return false; //Rejeita item quando estado civil não estiver entre os selecionados.         
+            if (cattleTypes.length && !cattleTypes.includes(cattleType)) return false;            //Rejeita item quando tipo de gado não estiver entre os selecionados.
+            if (birthDateMin && (!birthDate || birthDate < birthDateMin)) return false;           //Rejeita item quando data for menor que o mínimo permitido.      
+            if (birthDateMax && (!birthDate || birthDate > birthDateMax)) return false;           //Rejeita item quando data for maior que o máximo permitido.     
+            if (ageMin !== null && (age === null || age < ageMin)) return false;                  //Rejeita item quando idade for menor que o mínimo permitido.           
+            if (ageMax !== null && (age === null || age > ageMax)) return false;                  //Rejeita item quando idade for maior que o máximo permitido.
+         
+            return true;// Mantém item quando passou por todas as validações.
         });
 
         // Renderiza tabela apenas com itens filtrados.

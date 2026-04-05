@@ -74,7 +74,7 @@ body {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     justify-content: space-between; /* justify-content: valor "space-between". */
     font-size: 0.8rem; /* font-size: valor "0.8rem". unidades: 0.8rem: unidade relativa ao font-size do elemento raiz (html). */
-    color: #64748b; /* color: valor "#64748b". define uma cor. */
+    color: #606060; /* color: valor "#64748b". define uma cor. */
     gap: 8px; /* gap: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
 }
 
@@ -117,10 +117,6 @@ body {
     margin: 0 0 16px; /* margin: valor "0 0 16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-panel-body {
-    padding: 16px; /* padding: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
-}
-
 .am-form-grid {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     flex-direction: column; /* flex-direction: valor "column". */
@@ -134,16 +130,6 @@ body {
 }
 
 
-
-.am-input {
-    width: 100%; /* width: valor "100%". */
-    padding: 10px; /* padding: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    border: 1px solid rgba(148, 163, 184, 0.6); /* border: valor "1px solid rgba(148, 163, 184, 0.6)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    background: #f8fafc; /* background: valor "#f8fafc". define uma cor. */
-    color: #0f172a; /* color: valor "#0f172a". define uma cor. */
-}
-
 .am-error-text {
     color: #fca5a5; /* color: valor "#fca5a5". define uma cor. */
 }
@@ -153,10 +139,6 @@ body {
     gap: 10px; /* gap: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     justify-content: flex-end; /* justify-content: valor "flex-end". */
     margin-top: 8px; /* margin-top: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-}
-
-.am-button-action {
-    cursor: pointer; /* cursor: valor "pointer". */
 }
 
 @media (max-width: 860px) {
