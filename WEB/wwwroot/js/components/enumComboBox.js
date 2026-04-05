@@ -1,6 +1,6 @@
 (function () {
     // Coleta todos os componentes de seleção única presentes na tela.
-    const selects = Array.from(document.querySelectorAll(".js-enum-combo-box"));
+    const selects = Array.from(document.querySelectorAll(".enum-combo-box"));
 
     // Se não houver componentes na página, encerra execução imediatamente.
     if (!selects.length) {
