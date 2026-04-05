@@ -44,7 +44,7 @@
                     <input name="Name" value="@Model.Name" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
                     <label class="floating-field-label">Nome</label>
                 </div>
-                <div class="am-error-text">@Html.ValidationMessageFor(m => m.Name)</div>
+                <div class="error-description-label">@Html.ValidationMessageFor(m => m.Name)</div>
             </div>
 
             <div>
@@ -61,7 +61,7 @@
                     </div>
                         <label class="floating-field-label">Sexo</label>
                     </div>
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Gender)</div>
+                    <div class="error-description-label">@Html.ValidationMessageFor(m => m.Gender)</div>
             </div>
 
             <div>
@@ -78,7 +78,7 @@
                         </div>
                         <label class="floating-field-label">Origem</label>
                     </div>
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Origin)</div>
+                    <div class="error-description-label">@Html.ValidationMessageFor(m => m.Origin)</div>
             </div>
 
             <div>
@@ -86,7 +86,7 @@
                     <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
                     <label class="floating-field-label">Nascimento</label>
                 </div>
-                <div class="am-error-text">@Html.ValidationMessageFor(m => m.BirthDate)</div>
+                <div class="error-description-label">@Html.ValidationMessageFor(m => m.BirthDate)</div>
             </div>
 
             <div>
@@ -103,7 +103,7 @@
                     </div>
                     <label class="floating-field-label">Estado civil</label>
                 </div>
-                <div class="am-error-text">@Html.ValidationMessageFor(m => m.MaritalStatus)</div>
+                <div class="error-description-label">@Html.ValidationMessageFor(m => m.MaritalStatus)</div>
             </div>
 
             <div>
@@ -120,7 +120,7 @@
                     </div>
                     <label class="floating-field-label">Tipo de gado</label>
                 </div>
-                <div class="am-error-text">@Html.ValidationMessageFor(m => m.CattleType)</div>
+                <div class="error-description-label">@Html.ValidationMessageFor(m => m.CattleType)</div>
             </div>
         </div>
 
