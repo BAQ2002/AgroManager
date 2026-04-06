@@ -84,7 +84,7 @@
 
                 <div>
                     <div class="floating-field">
-                        <input class="floating-field-input js-floating-control" name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " data-empty-values="" />
+                        <input class="floating-field-input js-floating-control js-date-picker" name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="text" placeholder=" " data-empty-values="" autocomplete="off" />
                         <label class="floating-field-label">Nascimento</label>
                     </div>
                 </div>
@@ -133,4 +133,3 @@
         <span>AgroManager</span>
     </footer>
 </div>
-
