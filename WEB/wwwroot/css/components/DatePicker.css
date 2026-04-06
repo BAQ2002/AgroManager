@@ -1,0 +1,39 @@
+.flatpickr-calendar {
+    border: 1px solid #E5E5E5;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+}
+
+.flatpickr-months {
+    background: #296436;
+    border-radius: 12px 12px 0 0;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month input.cur-year,
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    color: #ffffff;
+    fill: #ffffff;
+}
+
+.flatpickr-weekday {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+    background: #296436;
+    border-color: #296436;
+}
+
+.flatpickr-day.today {
+    border-color: #296436;
+}
+
+.flatpickr-day:hover {
+    background: #d6e8da;
+    border-color: #d6e8da;
+}
