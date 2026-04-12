@@ -2,8 +2,17 @@
     // Coleta todos os componentes de seleção única presentes na tela.
     const selects = Array.from(document.querySelectorAll(".enum-combo-box"));
 
-    // Se não houver componentes na página, encerra execução imediatamente.
+    // Mantém controle para evitar registrar listeners duplicados quando init for chamado mais de uma vez.
+    let initialized = false;
+
+    // Se não houver componentes na página, expõe API vazia para manter contrato estável.
     if (!selects.length) {
+        window.EnumComboBox = {
+            // Inicialização vazia para páginas sem enum-combo-box.
+            init: () => { },
+            // Sincronização vazia para páginas sem enum-combo-box.
+            syncAll: () => { }
+        };
         return;
     }
 
@@ -106,67 +115,92 @@
         }
     };
 
-    // Registra comportamento de cada componente encontrado na página.
-    selects.forEach((selectElement) => {
-        // Obtém partes internas necessárias para interação.
-        const { trigger, options } = getControlParts(selectElement);
+    // Recalcula estado visual de todos os componentes.
+    const syncAll = () => {
+        selects.forEach((selectElement) => {
+            syncOptionState(selectElement);
+        });
+    };
 
-        // Se componentes mínimos não existirem, ignora este select.
-        if (!trigger || !options.length) {
+    // Registra comportamento de cada componente encontrado na página.
+    const init = () => {
+        // Evita duplicação de listeners quando init for chamado mais de uma vez.
+        if (initialized) {
             return;
         }
 
-        // Alinha estado inicial visual com valor já presente no input hidden.
-        syncOptionState(selectElement);
+        selects.forEach((selectElement) => {
+            // Obtém partes internas necessárias para interação.
+            const { trigger, options } = getControlParts(selectElement);
 
-        // Alterna abertura ao clicar na área principal do componente.
-        selectElement.addEventListener("click", (event) => {
-            // Ignora cliques no menu/opções para não reabrir indevidamente.
-            if (event.target.closest(".enum-combo-box-menu")) {
+            // Se componentes mínimos não existirem, ignora este select.
+            if (!trigger || !options.length) {
                 return;
             }
 
-            // Verifica se select atual está aberto no momento do clique.
-            const isOpen = selectElement.classList.contains("open");
+            // Alinha estado inicial visual com valor já presente no input hidden.
+            syncOptionState(selectElement);
 
-            // Fecha todos os selects antes de decidir abrir o atual.
-            selects.forEach(closeSelect);
-
-            // Se estava fechado, abre o select clicado.
-            if (!isOpen) {
-                openSelect(selectElement);
-            }
-        });
-
-        // Registra clique para cada opção do menu.
-        options.forEach((option) => {
-            // Ao clicar em uma opção, atualiza valor selecionado.
-            option.addEventListener("click", () => {
-                // Busca o input hidden associado ao select atual.
-                const valueInput = selectElement.querySelector("input[type='hidden']");
-                // Se input não existir, não há como persistir seleção.
-                if (!valueInput) {
+            // Alterna abertura ao clicar na área principal do componente.
+            selectElement.addEventListener("click", (event) => {
+                // Ignora cliques no menu/opções para não reabrir indevidamente.
+                if (event.target.closest(".enum-combo-box-menu")) {
                     return;
                 }
 
-                // Copia valor da opção clicada para o input hidden.
-                valueInput.value = option.dataset.value ?? "";
-                // Atualiza estado visual após mudança de valor.
-                syncOptionState(selectElement);
-                // Fecha menu após seleção para concluir interação.
-                closeSelect(selectElement);
+                // Verifica se select atual está aberto no momento do clique.
+                const isOpen = selectElement.classList.contains("open");
+
+                // Fecha todos os selects antes de decidir abrir o atual.
+                selects.forEach(closeSelect);
+
+                // Se estava fechado, abre o select clicado.
+                if (!isOpen) {
+                    openSelect(selectElement);
+                }
+            });
+
+            // Registra clique para cada opção do menu.
+            options.forEach((option) => {
+                // Ao clicar em uma opção, atualiza valor selecionado.
+                option.addEventListener("click", () => {
+                    // Busca o input hidden associado ao select atual.
+                    const valueInput = selectElement.querySelector("input[type='hidden']");
+                    // Se input não existir, não há como persistir seleção.
+                    if (!valueInput) {
+                        return;
+                    }
+
+                    // Copia valor da opção clicada para o input hidden.
+                    valueInput.value = option.dataset.value ?? "";
+                    // Atualiza estado visual após mudança de valor.
+                    syncOptionState(selectElement);
+                    // Fecha menu após seleção para concluir interação.
+                    closeSelect(selectElement);
+                });
             });
         });
-    });
 
-    // Fecha selects ao clicar fora de cada componente.
-    document.addEventListener("click", (event) => {
-        // Percorre todos os selects para validar se clique foi externo.
-        selects.forEach((selectElement) => {
-            // Se o clique ocorrer fora do componente, fecha o menu.
-            if (!selectElement.contains(event.target)) {
-                closeSelect(selectElement);
-            }
+        // Fecha selects ao clicar fora de cada componente.
+        document.addEventListener("click", (event) => {
+            // Percorre todos os selects para validar se clique foi externo.
+            selects.forEach((selectElement) => {
+                // Se o clique ocorrer fora do componente, fecha o menu.
+                if (!selectElement.contains(event.target)) {
+                    closeSelect(selectElement);
+                }
+            });
         });
-    });
+
+        initialized = true;
+    };
+
+    // Expõe API pública simples para inicialização e sincronização externa.
+    window.EnumComboBox = {
+        init,
+        syncAll
+    };
+
+    // Mantém compatibilidade com páginas legadas que apenas importam o script.
+    init();
 })();
