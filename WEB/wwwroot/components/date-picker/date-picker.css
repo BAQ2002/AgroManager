@@ -121,7 +121,7 @@
 
 span.flatpickr-weekday {
     color: #27242d;
-    font-size: 31%;
+    font-size: 1.12rem;
     font-weight: 500;
 }
 
@@ -137,7 +137,7 @@ span.flatpickr-weekday {
 
 .flatpickr-day {
     color: #27242d;
-    font-size: 35%;
+    font-size: 1.12rem;
     border-radius: 999px;
     border-color: transparent;
     margin-top: 6px;
@@ -177,8 +177,26 @@ span.flatpickr-weekday {
     justify-content: center;
 }
 
-.flatpickr-footer {
-    display: none;
+.flatpickr-action-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    padding: 10px 8px 4px;
+}
+
+.flatpickr-action-button {
+    border: 0;
+    background: transparent;
+    color: #6650a4;
+    font-size: 1.95rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 8px 10px;
+    border-radius: 999px;
+}
+
+.flatpickr-action-button:hover {
+    background: rgba(102, 80, 164, 0.12);
 }
 
 .flatpickr-calendar .flatpickr-monthDropdown-months,

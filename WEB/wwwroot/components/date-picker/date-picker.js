@@ -78,6 +78,38 @@
         currentMonth.insertBefore(nextMonthButton, yearDisplay);
     }
 
+
+    function ensureActionButtons(instance) {
+        const calendar = instance?.calendarContainer;
+
+        if (!calendar || calendar.querySelector(".flatpickr-action-row")) {
+            return;
+        }
+
+        const actionRow = document.createElement("div");
+        actionRow.className = "flatpickr-action-row";
+
+        const cancelButton = document.createElement("button");
+        cancelButton.type = "button";
+        cancelButton.className = "flatpickr-action-button is-cancel";
+        cancelButton.textContent = "Cancel";
+        cancelButton.addEventListener("click", function () {
+            instance.clear();
+            instance.close();
+        });
+
+        const okButton = document.createElement("button");
+        okButton.type = "button";
+        okButton.className = "flatpickr-action-button is-confirm";
+        okButton.textContent = "OK";
+        okButton.addEventListener("click", function () {
+            instance.close();
+        });
+
+        actionRow.append(cancelButton, okButton);
+        calendar.appendChild(actionRow);
+    }
+
     // Inicializa datepickers apenas quando a biblioteca Flatpickr estiver disponível.
     if (!window.flatpickr) {
         return;
@@ -104,6 +136,7 @@
                 updateMonthIcons(instance);
                 repositionNextMonthButton(instance);
                 ensureYearButtons(instance);
+                ensureActionButtons(instance);
             },
             onMonthChange: function (_, __, instance) {
                 updateMonthIcons(instance);
