@@ -18,6 +18,12 @@
 .flatpickr-months .flatpickr-next-month {
     position: static;
     padding: 0.25rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .flatpickr-months .flatpickr-month {
@@ -34,15 +40,54 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.35rem;
+    gap: 0.5rem;
 }
 
 .flatpickr-current-month .flatpickr-monthDropdown-months,
 .flatpickr-current-month input.cur-year,
+.flatpickr-current-month .flatpickr-prev-year,
+.flatpickr-current-month .flatpickr-next-year,
 .flatpickr-months .flatpickr-prev-month,
 .flatpickr-months .flatpickr-next-month {
     color: #ffffff;
     fill: #ffffff;
+}
+
+.flatpickr-months .flatpickr-prev-month svg,
+.flatpickr-months .flatpickr-next-month svg,
+.flatpickr-current-month .flatpickr-prev-year svg,
+.flatpickr-current-month .flatpickr-next-year svg {
+    width: 16px;
+    height: 16px;
+}
+
+.flatpickr-months .flatpickr-prev-month svg path,
+.flatpickr-months .flatpickr-next-month svg path,
+.flatpickr-current-month .flatpickr-prev-year svg path,
+.flatpickr-current-month .flatpickr-next-year svg path {
+    stroke: currentColor;
+    stroke-width: 1.9;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.flatpickr-current-month .flatpickr-prev-year,
+.flatpickr-current-month .flatpickr-next-year {
+    border: 0;
+    background: transparent;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.flatpickr-current-month .numInputWrapper {
+    display: inline-flex;
+    align-items: center;
 }
 
 .flatpickr-weekday {
