@@ -125,14 +125,30 @@ span.flatpickr-weekday {
     font-weight: 500;
 }
 
+.flatpickr-rContainer,
+.flatpickr-weekdays,
 .flatpickr-days {
     width: 100%;
+    max-width: 100%;
+}
+
+.flatpickr-weekdaycontainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+span.flatpickr-weekday {
+    width: 100%;
+    text-align: center;
 }
 
 .dayContainer {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .flatpickr-day {
@@ -141,6 +157,9 @@ span.flatpickr-weekday {
     border-radius: 999px;
     border-color: transparent;
     margin-top: 6px;
+    width: 100%;
+    max-width: 44px;
+    justify-self: center;
 }
 
 .flatpickr-day.prevMonthDay,
