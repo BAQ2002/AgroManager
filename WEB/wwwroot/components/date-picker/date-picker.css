@@ -9,6 +9,21 @@
     border-radius: 12px 12px 0 0;
 }
 
+.flatpickr-months .flatpickr-month {
+    position: relative;
+}
+
+.flatpickr-months .flatpickr-current-month {
+    left: 2.25rem;
+    right: 2.5rem;
+    width: auto;
+    padding-left: 0;
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.35rem;
+}
+
 .flatpickr-current-month .flatpickr-monthDropdown-months,
 .flatpickr-current-month input.cur-year,
 .flatpickr-months .flatpickr-prev-month,
