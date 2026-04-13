@@ -1,8 +1,8 @@
 (function () {
-    function createIconMarkup(direction, isDouble) {
+    function createIconMarkup(direction) {
         const path = direction === "left"
-            ? (isDouble ? "M14.8 5.2L9 11l5.8 5.8M10.8 5.2L5 11l5.8 5.8" : "M13.5 5.2L7.7 11l5.8 5.8")
-            : (isDouble ? "M9.2 5.2L15 11l-5.8 5.8M5.2 5.2L11 11l-5.8 5.8" : "M8.5 5.2L14.3 11l-5.8 5.8");
+            ? "M12.8 5.2L7 11l5.8 5.8"
+            : "M7.2 5.2L13 11l-5.8 5.8";
 
         return `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="${path}" /></svg>`;
     }
@@ -24,7 +24,7 @@
             prevYearButton.type = "button";
             prevYearButton.className = "flatpickr-prev-year";
             prevYearButton.setAttribute("aria-label", "Ano anterior");
-            prevYearButton.innerHTML = createIconMarkup("left", true);
+            prevYearButton.innerHTML = createIconMarkup("left");
             prevYearButton.addEventListener("click", function () {
                 instance.changeYear(-1);
                 instance.redraw();
@@ -37,7 +37,7 @@
             nextYearButton.type = "button";
             nextYearButton.className = "flatpickr-next-year";
             nextYearButton.setAttribute("aria-label", "Próximo ano");
-            nextYearButton.innerHTML = createIconMarkup("right", true);
+            nextYearButton.innerHTML = createIconMarkup("right");
             nextYearButton.addEventListener("click", function () {
                 instance.changeYear(1);
                 instance.redraw();
@@ -52,11 +52,11 @@
         const nextMonthButton = calendar?.querySelector(".flatpickr-next-month");
 
         if (previousMonthButton) {
-            previousMonthButton.innerHTML = createIconMarkup("left", false);
+            previousMonthButton.innerHTML = createIconMarkup("left");
         }
 
         if (nextMonthButton) {
-            nextMonthButton.innerHTML = createIconMarkup("right", false);
+            nextMonthButton.innerHTML = createIconMarkup("right");
         }
     }
 
