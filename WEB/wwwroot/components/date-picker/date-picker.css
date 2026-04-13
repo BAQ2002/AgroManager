@@ -7,6 +7,34 @@
 .flatpickr-months {
     background: #296436;
     border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    padding: 0 0.5rem;
+}
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    position: static;
+    padding: 0.25rem;
+}
+
+.flatpickr-months .flatpickr-month {
+    width: auto;
+    height: auto;
+    flex: 0 0 auto;
+}
+
+.flatpickr-months .flatpickr-current-month {
+    position: static;
+    width: auto;
+    padding: 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.35rem;
 }
 
 .flatpickr-months .flatpickr-month {
