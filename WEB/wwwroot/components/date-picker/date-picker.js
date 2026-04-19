@@ -26,7 +26,7 @@
             prevYearButton.setAttribute("aria-label", "Ano anterior");
             prevYearButton.innerHTML = createIconMarkup("left");
             prevYearButton.addEventListener("click", function () {
-                instance.changeYear(-1);
+                instance.changeYear(instance.currentYear - 1);
                 instance.redraw();
             });
             currentMonth.insertBefore(prevYearButton, yearDisplay);
@@ -39,7 +39,7 @@
             nextYearButton.setAttribute("aria-label", "Próximo ano");
             nextYearButton.innerHTML = createIconMarkup("right");
             nextYearButton.addEventListener("click", function () {
-                instance.changeYear(1);
+                instance.changeYear(instance.currentYear + 1);
                 instance.redraw();
             });
             currentMonth.insertBefore(nextYearButton, yearDisplay.nextSibling);
