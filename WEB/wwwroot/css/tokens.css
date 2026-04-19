@@ -3,16 +3,16 @@
     --color-white: #ffffff;
     --color-black: #000000;
     --color-border: #E5E5E5;
-
     /* Text */
     --color-text-primary: #0f172a;
     --color-text-secondary: #606060;
     --color-text-inverse: #f8fafc;
-
+    /* Text */
+    --color-text-primary-hover-background: #E5E5E5;
+    --color-text-secondary-hover-background: #E5E5E5;
     /* Brand */
     --color-primary: #296436;
     --color-primary-soft: #E5E5E5;
-
     /* Feedback */
     --color-danger-soft: #fca5a5;
 }
