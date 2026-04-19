@@ -2,12 +2,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* Remove sublinhado dos links de ação e navegação nas telas principais. */
-    gap: 6px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #000000;
-    background: #F2F2F2;
+    color: var(--color-black);
+    border: 1px solid var(--color-border);
+        color: var(--color-black);
+        background: var(--color-border);
+        border-color: var(--color-primary);
+        outline-color: var(--color-primary);
     border: 1px solid #E5E5E5;
     outline-offset: 0;
     outline: 2px solid transparent;

@@ -1,7 +1,7 @@
 
-/* Define as propriedades visuais do label de título do container. */
-.container-title-label {
-    margin: 0 0 14px;
+    color: var(--color-black);
+    border: 1px solid var(--color-border); /* Espessura (1px) e cor da borda (var(--color-border)). */
+    background: var(--color-white); /* Cor do background (var(--color-white)). */
     padding: 0;
     font-size: 1rem;
     font-weight: 600;

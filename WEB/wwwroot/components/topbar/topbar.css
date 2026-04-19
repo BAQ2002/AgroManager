@@ -27,20 +27,20 @@
 .am-topbar-brand {
     font-weight: 700; /* font-weight: valor "700". */
     letter-spacing: 0.02em; /* letter-spacing: valor "0.02em". unidades: 0.02em: unidade relativa ao font-size do elemento atual. */
-    color: #f8fafc; /* color: valor "#f8fafc". define uma cor. */
+    color: var(--color-text-inverse); /* color: valor "var(--color-text-inverse)". define uma cor. */
     text-decoration: none; /* text-decoration: valor "none". valor neutro/ausente para essa propriedade. */
 }
 
 .am-profile-trigger {
     border: 1px solid rgba(148, 163, 184, 0.22); /* border: valor "1px solid rgba(148, 163, 184, 0.22)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     background: rgba(15, 23, 42, 0.78); /* background: valor "rgba(15, 23, 42, 0.78)". define uma cor. */
-    color: #E5E5E5; /* color: valor "#E5E5E5". define uma cor. */
+    color: var(--color-border); /* color: valor "var(--color-border)". define uma cor. */
 }
 
 .am-profile-trigger:hover,
 .am-profile-trigger:focus {
     background: rgba(30, 41, 59, 0.9); /* background: valor "rgba(30, 41, 59, 0.9)". define uma cor. */
-    color: #fff; /* color: valor "#fff". define uma cor. */
+    color: var(--color-white); /* color: valor "var(--color-white)". define uma cor. */
 }
 
 @media (max-width: 760px) {
