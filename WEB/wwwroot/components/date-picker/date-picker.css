@@ -8,6 +8,10 @@
     width: 530px;
 }
 
+.flatpickr-calendar.open {
+    box-shadow: 0 14px 32px rgba(39, 36, 45, 0.24);
+}
+
 .flatpickr-calendar.is-scaled {
     transform: scale(var(--dp-scale));
     transform-origin: top left;
