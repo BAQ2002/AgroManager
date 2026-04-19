@@ -4,8 +4,8 @@
     margin-top: 6px; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
     border-radius: 14px; /* border-radius: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
     overflow: hidden; /* overflow: valor "hidden". */
-    border: 1px solid #E5E5E5; /* border: valor "1px solid rgba(203, 213, 225, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
+    border: 1px solid var(--color-border); /* border: valor "1px solid rgba(203, 213, 225, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    background: var(--color-white); /* background: valor "var(--color-white)". define uma cor. */
 }
 
 .datagrid {
@@ -15,7 +15,7 @@
 }
 
     .datagrid thead {
-        background: #296436; /* background: valor "#296436". define uma cor. */
+        background: var(--color-primary); /* background: valor "var(--color-primary)". define uma cor. */
     }
 
     .datagrid th,
@@ -26,8 +26,8 @@
     .datagrid th {
         text-align: left; /* text-align: valor "left". */
         font-weight: 500; /* font-weight: valor "500". */
-        color: #ffffff; /* color: valor "#ffffff". define uma cor. */
-        border-bottom: 1px solid #E5E5E5; /* border-bottom: valor "1px solid rgba(15, 23, 42, 0.35)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+        color: var(--color-white); /* color: valor "var(--color-white)". define uma cor. */
+        border-bottom: 1px solid var(--color-border); /* border-bottom: valor "1px solid rgba(15, 23, 42, 0.35)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
         font-size: 0.85rem; /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
@@ -36,7 +36,7 @@
     }
 
     .datagrid tbody tr:nth-child(odd) td {
-        background-color: #ffffff; /* background-color: valor "#ffffff". define uma cor. */
+        background-color: var(--color-white); /* background-color: valor "var(--color-white)". define uma cor. */
     }
 
     .datagrid tbody tr:nth-child(even) td {
@@ -48,12 +48,12 @@
     }
 
     .datagrid td {
-        border-bottom: 1px solid #E5E5E5; /* border-bottom: valor "1px solid rgba(203, 213, 225, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+        border-bottom: 1px solid var(--color-border); /* border-bottom: valor "1px solid rgba(203, 213, 225, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     }
 
     .datagrid tbody td,
     .datagrid tbody td a {
-        color: #000000; /* color: valor "#000000". define uma cor. */
+        color: var(--color-black); /* color: valor "var(--color-black)". define uma cor. */
     }
 
     .datagrid td:nth-child(4),

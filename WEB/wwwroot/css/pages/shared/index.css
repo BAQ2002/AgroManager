@@ -1,9 +1,9 @@
 :root {
-    --bg-start: #ffffff; /* --bg-start: valor "#ffffff". define uma cor. */
-    --bg-end: #f8fafc; /* --bg-end: valor "#f8fafc". define uma cor. */
-    --panel: #ffffff; /* --panel: valor "#ffffff". define uma cor. */
-    --panel-border: #E5E5E5; /* --panel-border: valor "#E5E5E5". define uma cor. */
-    --text-primary: #0f172a; /* --text-primary: valor "#0f172a". define uma cor. */
+    --bg-start: var(--color-white); /* --bg-start: valor "var(--color-white)". define uma cor. */
+    --bg-end: var(--color-text-inverse); /* --bg-end: valor "var(--color-text-inverse)". define uma cor. */
+    --panel: var(--color-white); /* --panel: valor "var(--color-white)". define uma cor. */
+    --panel-border: var(--color-border); /* --panel-border: valor "var(--color-border)". define uma cor. */
+    --text-primary: var(--color-text-primary); /* --text-primary: valor "var(--color-text-primary)". define uma cor. */
     --text-muted: #64748b; /* --text-muted: valor "#64748b". define uma cor. */
     --accent: #22c55e; /* --accent: valor "#22c55e". define uma cor. */
     --accent-soft: rgba(41, 100, 54, 0.12); /* --accent-soft: valor "rgba(41, 100, 54, 0.12)". define uma cor. */
@@ -28,8 +28,8 @@
 .hero {
     width: min(1100px, 92vw); /* width: valor "min(1100px, 92vw)". valor responsivo calculado por função matemática. unidades: 1100px: pixels da CSS (unidade fixa na tela); 92vw: 1% da largura da viewport. */
     margin: 3.5rem auto; /* margin: valor "3.5rem auto". unidades: 3.5rem: unidade relativa ao font-size do elemento raiz (html). */
-    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
-    border: 1px solid #E5E5E5; /* border: valor "1px solid #E5E5E5". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    background: var(--color-white); /* background: valor "var(--color-white)". define uma cor. */
+    border: 1px solid var(--color-border); /* border: valor "1px solid var(--color-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     border-radius: 24px; /* border-radius: valor "24px". unidades: 24px: pixels da CSS (unidade fixa na tela). */
     box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08); /* box-shadow: valor "0 18px 42px rgba(15, 23, 42, 0.08)". unidades: 18px: pixels da CSS (unidade fixa na tela); 42px: pixels da CSS (unidade fixa na tela). */
     padding: 2.5rem; /* padding: valor "2.5rem". unidades: 2.5rem: unidade relativa ao font-size do elemento raiz (html). */

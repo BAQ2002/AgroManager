@@ -20,7 +20,7 @@
 
 .feature-card:hover {
     transform: translateY(-3px); /* transform: valor "translateY(-3px)". unidades: -3px: pixels da CSS (unidade fixa na tela). */
-    border-color: #296436; /* border-color: valor "rgba(34, 197, 94, 0.75)". define uma cor. */
+    border-color: var(--color-primary); /* border-color: valor "rgba(34, 197, 94, 0.75)". define uma cor. */
     box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12); /* box-shadow: valor "0 14px 35px rgba(15, 23, 42, 0.12)". unidades: 14px: pixels da CSS (unidade fixa na tela); 35px: pixels da CSS (unidade fixa na tela). */
 }
 
@@ -32,7 +32,7 @@
     align-items: center; /* align-items: valor "center". */
     justify-content: center; /* justify-content: valor "center". */
     background: var(--accent-soft); /* background: valor "var(--accent-soft)". */
-    color: #296436; /* color: valor "#296436". define uma cor. */
+    color: var(--color-primary); /* color: valor "var(--color-primary)". define uma cor. */
     margin-bottom: 0.9rem; /* margin-bottom: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
@@ -53,7 +53,7 @@
     gap: .4rem; /* gap: valor ".4rem". unidades: .4rem: unidade relativa ao font-size do elemento raiz (html). */
     align-items: center; /* align-items: valor "center". */
     margin-top: .85rem; /* margin-top: valor ".85rem". unidades: .85rem: unidade relativa ao font-size do elemento raiz (html). */
-    color: #296436; /* color: valor "#296436". define uma cor. */
+    color: var(--color-primary); /* color: valor "var(--color-primary)". define uma cor. */
     font-size: .86rem; /* font-size: valor ".86rem". unidades: .86rem: unidade relativa ao font-size do elemento raiz (html). */
     font-weight: 500; /* font-weight: valor "500". */
 }
