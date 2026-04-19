@@ -1,10 +1,16 @@
 .flatpickr-calendar {
+    --dp-scale: 1;
     border: 0;
     border-radius: 24px;
     box-shadow: none;
     background: #ede7f2;
     padding: 14px 18px 12px;
     width: 530px;
+}
+
+.flatpickr-calendar.is-scaled {
+    transform: scale(var(--dp-scale));
+    transform-origin: top left;
 }
 
 .flatpickr-months {
