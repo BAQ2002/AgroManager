@@ -1,8 +1,8 @@
 ﻿/* DataGrid */
 
 .datagrid-wrapper {
-    margin-top: 6px; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 14px; /* border-radius: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
+    margin-top: 0.375rem; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
+    border-radius: var(--radius-lg); /* border-radius: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
     overflow: hidden; /* overflow: valor "hidden". */
     border: 1px solid var(--color-border); /* border: valor "1px solid rgba(203, 213, 225, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     background: var(--color-white); /* background: valor "var(--color-white)". define uma cor. */
@@ -20,7 +20,7 @@
 
     .datagrid th,
     .datagrid td {
-        padding: 10px 14px; /* padding: valor "10px 14px". unidades: 10px: pixels da CSS (unidade fixa na tela); 14px: pixels da CSS (unidade fixa na tela). */
+        padding: var(--space-2-5) var(--size-icon-md); /* padding: valor "10px 14px". unidades: 10px: pixels da CSS (unidade fixa na tela); 14px: pixels da CSS (unidade fixa na tela). */
     }
 
     .datagrid th {

@@ -18,5 +18,5 @@ html {
 }
 
 body {
-  margin-bottom: 60px; /* margin-bottom: valor "60px". unidades: 60px: pixels da CSS (unidade fixa na tela). */
+  margin-bottom: 3.75rem; /* margin-bottom: valor "60px". unidades: 60px: pixels da CSS (unidade fixa na tela). */
 }
