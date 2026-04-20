@@ -129,6 +129,9 @@
 
         window.flatpickr(element, {
             dateFormat: "Y-m-d",
+            altInput: true,
+            altFormat: "d/m/Y",
+            altInputClass: element.className,
             allowInput: true,
             disableMobile: true,
             clickOpens: true,
