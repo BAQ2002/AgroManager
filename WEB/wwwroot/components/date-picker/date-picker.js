@@ -137,12 +137,6 @@
                 repositionNextMonthButton(instance);
                 ensureYearButtons(instance);
                 ensureActionButtons(instance);
-
-                const configuredScale = parseFloat(element.dataset.dpScale);
-                if (!Number.isNaN(configuredScale) && configuredScale > 0) {
-                    instance.calendarContainer.style.setProperty("--dp-scale", configuredScale.toString());
-                    instance.calendarContainer.classList.add("is-scaled");
-                }
             },
             onMonthChange: function (_, __, instance) {
                 updateMonthIcons(instance);
