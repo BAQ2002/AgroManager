@@ -11,7 +11,7 @@
 .datagrid {
     width: 100%; /* width: valor "100%". */
     border-collapse: collapse; /* border-collapse: valor "collapse". */
-    font-size: 0.9rem; /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
+    font-size: var(--font-size-body-sm); /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
     .datagrid thead {
@@ -28,7 +28,7 @@
         font-weight: 500; /* font-weight: valor "500". */
         color: var(--color-white); /* color: valor "var(--color-white)". define uma cor. */
         border-bottom: 1px solid var(--color-border); /* border-bottom: valor "1px solid rgba(15, 23, 42, 0.35)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-        font-size: 0.85rem; /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
+        font-size: var(--font-size-caption-sm); /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
     .datagrid tbody tr td {

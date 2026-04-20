@@ -1,10 +1,10 @@
 html {
-  font-size: 14px; /* font-size: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
+  font-size: var(--font-size-root-mobile); /* font-size: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px; /* font-size: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    font-size: var(--font-size-root-desktop); /* font-size: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
   }
 }
 

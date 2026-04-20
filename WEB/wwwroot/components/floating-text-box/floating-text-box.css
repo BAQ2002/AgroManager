@@ -10,7 +10,7 @@
     color: var(--color-black);
     border-radius: var(--radius-md);
     padding: var(--space-4) var(--space-3) var(--space-2);
-    font-size: 0.95rem;
+    font-size: var(--font-size-body-md);
     box-shadow: none;
 }
 
@@ -44,13 +44,13 @@
     line-height: 1.1;
     transition: all 0.2s ease;
     pointer-events: none;
-    font-size: 0.95rem;
+    font-size: var(--font-size-body-md);
 }
 
 .floating-field:focus-within .floating-field-label,
 .floating-field.filled .floating-field-label {
     top: 0;
     transform: translateY(-50%);
-    font-size: 12px;
+    font-size: var(--font-size-floating-label-active);
     color: var(--color-black);
 }
