@@ -32,7 +32,8 @@
     }
 
     .datagrid tbody tr td {
-        transition: box-shadow 0.15s ease, border-bottom-color 0.15s ease; /* transition: valor "box-shadow 0.15s ease, border-bottom-color 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
+        transition: background-color 0.15s ease, border-color 0.15s ease; /* transition: valor "background-color 0.15s ease, border-color 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
+        border-top: 1px solid transparent; /* border-top: valor "1px solid transparent". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     }
 
     .datagrid tbody tr:nth-child(odd) td {
@@ -43,13 +44,38 @@
         background-color: #f5f7f6; /* background-color: valor "#f5f7f6". define uma cor. */
     }
 
+    .datagrid tbody tr:hover {
+        box-shadow: 0 12px 14px -12px rgba(0, 0, 0, 0.5); /* box-shadow: valor "0 12px 14px -12px rgba(0, 0, 0, 0.5)". unidades: 12px/14px: pixels da CSS (unidade fixa na tela). */
+    }
+
     .datagrid tbody tr:hover td {
-        box-shadow: inset 0 0 0 9999px rgba(41, 100, 54, 0.08), inset 0 -9px 12px -12px rgba(41, 100, 54, 0.5); /* box-shadow: valor "inset 0 0 0 9999px rgba(41, 100, 54, 0.08), inset 0 -9px 12px -12px rgba(41, 100, 54, 0.5)". unidades: 9999px: pixels da CSS (unidade fixa na tela); 9px/12px: pixels da CSS (unidade fixa na tela). */
+        background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-white)); /* background-color: valor "color-mix(in srgb, var(--color-primary) 8%, var(--color-white))". define uma cor. */
+        border-top-color: var(--color-primary); /* border-top-color: valor "var(--color-primary)". define uma cor. */
         border-bottom-color: var(--color-primary); /* border-bottom-color: valor "var(--color-primary)". define uma cor. */
     }
 
     .datagrid td {
         border-bottom: 1px solid var(--color-border); /* border-bottom: valor "1px solid rgba(203, 213, 225, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    }
+
+    .datagrid tbody td:first-child {
+        border-left: 1px solid transparent; /* border-left: valor "1px solid transparent". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    }
+
+    .datagrid tbody td:last-child {
+        border-right: 1px solid transparent; /* border-right: valor "1px solid transparent". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    }
+
+    .datagrid tbody tr:hover td:first-child {
+        border-left-color: var(--color-primary); /* border-left-color: valor "var(--color-primary)". define uma cor. */
+        border-top-left-radius: var(--radius-md); /* border-top-left-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+        border-bottom-left-radius: var(--radius-md); /* border-bottom-left-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+    }
+
+    .datagrid tbody tr:hover td:last-child {
+        border-right-color: var(--color-primary); /* border-right-color: valor "var(--color-primary)". define uma cor. */
+        border-top-right-radius: var(--radius-md); /* border-top-right-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+        border-bottom-right-radius: var(--radius-md); /* border-bottom-right-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     }
 
     .datagrid tbody td,
