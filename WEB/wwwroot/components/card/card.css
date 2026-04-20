@@ -37,7 +37,7 @@
 }
 
 .feature-card h2 {
-    font-size: 1.15rem; /* font-size: valor "1.15rem". unidades: 1.15rem: unidade relativa ao font-size do elemento raiz (html). */
+    font-size: var(--font-size-title-md); /* font-size: valor "1.15rem". unidades: 1.15rem: unidade relativa ao font-size do elemento raiz (html). */
     font-weight: 600; /* font-weight: valor "600". */
     margin-bottom: .45rem; /* margin-bottom: valor ".45rem". unidades: .45rem: unidade relativa ao font-size do elemento raiz (html). */
 }
@@ -45,7 +45,7 @@
 .feature-card p {
     margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
     color: var(--text-muted); /* color: valor "var(--text-muted)". */
-    font-size: .94rem; /* font-size: valor ".94rem". unidades: .94rem: unidade relativa ao font-size do elemento raiz (html). */
+    font-size: var(--font-size-caption-lg); /* font-size: valor ".94rem". unidades: .94rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
 .tag {
@@ -54,6 +54,6 @@
     align-items: center; /* align-items: valor "center". */
     margin-top: .85rem; /* margin-top: valor ".85rem". unidades: .85rem: unidade relativa ao font-size do elemento raiz (html). */
     color: var(--color-primary); /* color: valor "var(--color-primary)". define uma cor. */
-    font-size: .86rem; /* font-size: valor ".86rem". unidades: .86rem: unidade relativa ao font-size do elemento raiz (html). */
+    font-size: var(--font-size-caption-md); /* font-size: valor ".86rem". unidades: .86rem: unidade relativa ao font-size do elemento raiz (html). */
     font-weight: 500; /* font-weight: valor "500". */
 }

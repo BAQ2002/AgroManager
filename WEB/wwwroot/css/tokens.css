@@ -52,4 +52,25 @@
     --container-wide: 110rem;    /* 1760px */
     --container-ultra: 118.75rem; /* 1900px */
     --calendar-width: 33.125rem; /* 530px */
+
+
+    /* Typography - font sizes */
+    --font-size-root-mobile: 14px;
+    --font-size-root-desktop: 16px;
+    --font-size-hero-title: clamp(2rem, 4vw, 3rem);
+    --font-size-title-lg: 1.5rem;
+    --font-size-title-md: 1.15rem;
+    --font-size-body-lg: 1rem;
+    --font-size-body-md: 0.95rem;
+    --font-size-body-sm: 0.9rem;
+    --font-size-body-xs: 0.8rem;
+    --font-size-caption-lg: 0.94rem;
+    --font-size-caption-md: 0.86rem;
+    --font-size-caption-sm: 0.85rem;
+    --font-size-button-sm: 0.75rem;
+    --font-size-option-sm: 0.78rem;
+    --font-size-floating-label-active: 12px;
+    --font-size-calendar-header: 40px;
+    --font-size-calendar-month-year: 37%;
+    --font-size-calendar-day: 1.12rem;
 }

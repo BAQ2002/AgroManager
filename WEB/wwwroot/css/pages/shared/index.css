@@ -36,7 +36,7 @@
 }
 
     .hero h1 {
-        font-size: clamp(2rem, 4vw, 3rem); /* font-size: valor "clamp(2rem, 4vw, 3rem)". valor fluido limitado por mínimo e máximo com clamp(). unidades: 2rem: unidade relativa ao font-size do elemento raiz (html); 4vw: 1% da largura da viewport; 3rem: unidade relativa ao font-size do elemento raiz (html). */
+        font-size: var(--font-size-hero-title); /* font-size: valor "clamp(2rem, 4vw, 3rem)". valor fluido limitado por mínimo e máximo com clamp(). unidades: 2rem: unidade relativa ao font-size do elemento raiz (html); 4vw: 1% da largura da viewport; 3rem: unidade relativa ao font-size do elemento raiz (html). */
         margin-bottom: 0.6rem; /* margin-bottom: valor "0.6rem". unidades: 0.6rem: unidade relativa ao font-size do elemento raiz (html). */
         font-weight: 700; /* font-weight: valor "700". */
     }

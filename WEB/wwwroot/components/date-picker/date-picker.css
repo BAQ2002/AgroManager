@@ -41,7 +41,7 @@
     grid-template-columns: auto auto 1fr auto auto auto;
     align-items: center;
     column-gap: var(--space-3);
-    font-size: 40px;
+    font-size: var(--font-size-calendar-header);
 }
 
 .flatpickr-months .flatpickr-prev-month,
@@ -86,7 +86,7 @@
 .flatpickr-current-month .flatpickr-monthDropdown-months,
 .flatpickr-current-month input.cur-year {
     color: var(--color-text-secondary);
-    font-size: 37%;
+    font-size: var(--font-size-calendar-month-year);
     font-weight: 600;
     line-height: 1;
 }
@@ -131,7 +131,7 @@
 
 span.flatpickr-weekday {
     color: var(--color-text-primary);
-    font-size: 1.12rem;
+    font-size: var(--font-size-calendar-day);
     font-weight: 500;
 }
 
@@ -163,7 +163,7 @@ span.flatpickr-weekday {
 
 .flatpickr-day {
     color: var(--color-text-primary);
-    font-size: 1.12rem;
+    font-size: var(--font-size-calendar-day);
     border-radius: var(--radius-pill);
     border-color: transparent;
     width: 3rem;
@@ -225,7 +225,7 @@ span.flatpickr-weekday {
     border: 0;
     background: transparent;
     color: var(--color-primary);
-    font-size: 1rem;
+    font-size: var(--font-size-body-lg);
     font-weight: bold;
     line-height: 1;
     padding: var(--space-2) var(--space-2-5);
