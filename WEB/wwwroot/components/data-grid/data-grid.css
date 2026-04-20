@@ -3,14 +3,15 @@
 .datagrid-wrapper {
     margin-top: 0.375rem; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
     border-radius: var(--radius-lg); /* border-radius: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
-    overflow: hidden; /* overflow: valor "hidden". */
+    overflow: visible; /* overflow: valor "visible". permite exibir o box-shadow das linhas em hover fora dos limites da tabela. */
     border: 1px solid var(--color-border); /* border: valor "1px solid rgba(203, 213, 225, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     background: var(--color-white); /* background: valor "var(--color-white)". define uma cor. */
 }
 
 .datagrid {
     width: 100%; /* width: valor "100%". */
-    border-collapse: collapse; /* border-collapse: valor "collapse". */
+    border-collapse: separate; /* border-collapse: valor "separate". evita colapso de bordas entre linhas para preservar a borda superior no hover. */
+    border-spacing: 0; /* border-spacing: valor "0". mantém o layout sem espaçamento entre células mesmo com border-collapse separado. */
     font-size: var(--font-size-body-sm); /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
