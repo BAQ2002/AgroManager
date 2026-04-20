@@ -68,14 +68,10 @@
 
     .datagrid tbody tr:hover td:first-child {
         border-left-color: var(--color-primary); /* border-left-color: valor "var(--color-primary)". define uma cor. */
-        border-top-left-radius: var(--radius-md); /* border-top-left-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-        border-bottom-left-radius: var(--radius-md); /* border-bottom-left-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     }
 
     .datagrid tbody tr:hover td:last-child {
         border-right-color: var(--color-primary); /* border-right-color: valor "var(--color-primary)". define uma cor. */
-        border-top-right-radius: var(--radius-md); /* border-top-right-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-        border-bottom-right-radius: var(--radius-md); /* border-bottom-right-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     }
 
     .datagrid tbody td,
