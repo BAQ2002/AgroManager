@@ -30,19 +30,19 @@
 
 .button-with-icon,
 .primary-button {
-    gap: 8px;
+    gap: var(--space-2);
     font-size: 0.75rem;
     font-weight: 500;
     text-transform: none;
     letter-spacing: normal;
-    padding: 4px 12px;
-    border-radius: 999px;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-pill);
 }
 
 .button-with-icon svg,
 .primary-button svg {
-    width: 18px;
-    height: 18px;
+    width: var(--space-5);
+    height: var(--space-5);
     fill: none;
     stroke: currentColor;
     stroke-width: 1.8;

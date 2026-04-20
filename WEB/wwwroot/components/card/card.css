@@ -3,7 +3,7 @@
 .cards-grid {
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
     grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(3, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: 1rem; /* gap: valor "1rem". unidades: 1rem: unidade relativa ao font-size do elemento raiz (html). */
+    gap: var(--space-4); /* gap: valor "var(--space-4)". unidades: var(--space-4): unidade relativa ao font-size do elemento raiz (html). */
 }
 
 .feature-card {
@@ -12,10 +12,10 @@
     color: inherit; /* color: valor "inherit". usa o valor global "inherit" da cascata. */
     background: var(--panel); /* background: valor "var(--panel)". */
     border: 1px solid var(--panel-border); /* border: valor "1px solid var(--panel-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 16px; /* border-radius: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    border-radius: var(--radius-xl); /* border-radius: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
     padding: 1.2rem; /* padding: valor "1.2rem". unidades: 1.2rem: unidade relativa ao font-size do elemento raiz (html). */
     transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; /* transition: valor "transform .2s ease, border-color .2s ease, box-shadow .2s ease". unidades: .2s: segundos (tempo de animação/transição). */
-    min-height: 180px; /* min-height: valor "180px". unidades: 180px: pixels da CSS (unidade fixa na tela). */
+    min-height: 11.25rem; /* min-height: valor "180px". unidades: 180px: pixels da CSS (unidade fixa na tela). */
 }
 
 .feature-card:hover {
@@ -27,7 +27,7 @@
 .feature-icon {
     width: 2.2rem; /* width: valor "2.2rem". unidades: 2.2rem: unidade relativa ao font-size do elemento raiz (html). */
     height: 2.2rem; /* height: valor "2.2rem". unidades: 2.2rem: unidade relativa ao font-size do elemento raiz (html). */
-    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+    border-radius: var(--radius-md); /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
     align-items: center; /* align-items: valor "center". */
     justify-content: center; /* justify-content: valor "center". */

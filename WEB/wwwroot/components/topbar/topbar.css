@@ -1,10 +1,10 @@
 .am-page-shell {
     width: 100%; /* width: valor "100%". */
-    max-width: 1000px; /* max-width: valor "1000px". unidades: 1000px: pixels da CSS (unidade fixa na tela). */
+    max-width: var(--container-narrow); /* max-width: valor "1000px". unidades: 1000px: pixels da CSS (unidade fixa na tela). */
     margin: 0 auto; /* margin: valor "0 auto". */
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     flex-direction: column; /* flex-direction: valor "column". */
-    gap: 16px; /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    gap: var(--space-4); /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
 }
 
 .am-topbar {
@@ -45,6 +45,6 @@
 
 @media (max-width: 760px) {
     .am-topbar {
-        padding: 0.75rem 1rem; /* padding: valor "0.75rem 1rem". unidades: 0.75rem: unidade relativa ao font-size do elemento raiz (html); 1rem: unidade relativa ao font-size do elemento raiz (html). */
+        padding: var(--space-3) var(--space-4); /* padding: valor "var(--space-3) var(--space-4)". unidades: var(--space-3): unidade relativa ao font-size do elemento raiz (html); var(--space-4): unidade relativa ao font-size do elemento raiz (html). */
     }
 }
