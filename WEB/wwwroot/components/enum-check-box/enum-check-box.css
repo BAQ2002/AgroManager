@@ -48,8 +48,7 @@
 }
 
 .enum-check-box.open > button[type="button"] {
-    border-width: 2px;
-    border-color: var(--color-primary);
+    border: 2px solid var(--color-primary);
     box-shadow: none;
 }
 

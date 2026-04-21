@@ -1,4 +1,4 @@
-﻿
+
 
 .cards-grid {
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
@@ -20,7 +20,7 @@
 
 .feature-card:hover {
     transform: translateY(-3px); /* transform: valor "translateY(-3px)". unidades: -3px: pixels da CSS (unidade fixa na tela). */
-    border-color: var(--color-primary); /* border-color: valor "rgba(34, 197, 94, 0.75)". define uma cor. */
+    border: 1px solid var(--color-primary); /* border: valor "1px solid rgba(34, 197, 94, 0.75)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12); /* box-shadow: valor "0 14px 35px rgba(15, 23, 42, 0.12)". unidades: 14px: pixels da CSS (unidade fixa na tela); 35px: pixels da CSS (unidade fixa na tela). */
 }
 
