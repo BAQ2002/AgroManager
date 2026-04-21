@@ -20,7 +20,7 @@
     box-sizing: border-box; /* box-sizing: valor "border-box". */
     padding: 0.9rem 1.4rem; /* padding: valor "0.9rem 1.4rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html); 1.4rem: unidade relativa ao font-size do elemento raiz (html). */
     backdrop-filter: blur(16px); /* backdrop-filter: valor "blur(16px)". unidades: 16px: pixels da CSS (unidade fixa na tela). */
-    background: var(--color-topbar-overlay); /* background: valor "var(--color-topbar-overlay)". define uma cor. */
+    background: var(--color-background-secondary); /* background: valor "var(--color-topbar-overlay)". define uma cor. */
     border-bottom: 1px solid var(--color-topbar-border); /* border-bottom: valor "1px solid var(--color-topbar-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
 }
 

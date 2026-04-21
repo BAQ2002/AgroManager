@@ -3,14 +3,23 @@
     --color-white: #ffffff;
     --color-black: #000000;
     --color-border: #E5E5E5;
+    /* Backgrounds */
+
+    --color-background-primary: #FFFFFF;
+    --color-background-secondary: #F2F2F2;
+    /*--color-background-primary-dark: #FFFFFF;
+    --color-background-secondary-dark: #FFFFFF; 
+
     /* Text */
     --color-text-primary: #0f172a;
     --color-text-secondary: #606060;
     --color-text-inverse: #f8fafc;
-    /* Text */
+    /* Text : Hover */
+
     --color-text-primary-hover-background: #E5E5E5;
     --color-text-secondary-hover-background: #E5E5E5;
     /* Brand */
+
     --color-primary: #296436;
     --color-primary-soft: #E5E5E5;
     /* Feedback */
@@ -24,45 +33,39 @@
     --color-topbar-border: rgba(148, 163, 184, 0.22);
     --color-topbar-surface: rgba(15, 23, 42, 0.78);
     --color-topbar-surface-hover: rgba(30, 41, 59, 0.9);
-
     /* Spacing scale (4px baseline) */
     --space-0: 0rem;
-    --space-1: 0.25rem;   /* 4px */
-    --space-2: 0.5rem;    /* 8px */
+    --space-1: 0.25rem; /* 4px */
+    --space-2: 0.5rem; /* 8px */
     --space-2-5: 0.625rem; /* 10px */
-    --space-3: 0.75rem;   /* 12px */
-    --space-4: 1rem;      /* 16px */
-    --space-5: 1.125rem;  /* 18px */
-    --space-6: 1.25rem;   /* 20px */
-    --space-7: 1.5rem;    /* 24px */
-    --space-8: 1.75rem;   /* 28px */
-    --space-12: 3rem;     /* 48px */
-
+    --space-3: 0.75rem; /* 12px */
+    --space-4: 1rem; /* 16px */
+    --space-5: 1.125rem; /* 18px */
+    --space-6: 1.25rem; /* 20px */
+    --space-7: 1.5rem; /* 24px */
+    --space-8: 1.75rem; /* 28px */
+    --space-12: 3rem; /* 48px */
     /* Radius */
-    --radius-sm: 0.5rem;   /* 8px */
+    --radius-sm: 0.5rem; /* 8px */
     --radius-md: 0.625rem; /* 10px */
     --radius-lg: 0.875rem; /* 14px */
-    --radius-xl: 1rem;     /* 16px */
+    --radius-xl: 1rem; /* 16px */
     --radius-2xl: 1.25rem; /* 20px */
-    --radius-3xl: 1.5rem;  /* 24px */
+    --radius-3xl: 1.5rem; /* 24px */
     --radius-pill: 62.4375rem; /* 999px */
-
     /* Sizing */
-    --size-control-sm: 1.125rem;   /* 18px */
-    --size-control-md: 2.125rem;   /* 34px */
-    --size-field-md: 2.625rem;     /* 42px */
-    --size-icon-sm: 0.5rem;        /* 8px */
-    --size-icon-md: 0.875rem;      /* 14px */
-    --size-icon-lg: 1.1875rem;     /* 19px */
-    --size-calendar-day: 2.75rem;  /* 44px */
-
+    --size-control-sm: 1.125rem; /* 18px */
+    --size-control-md: 2.125rem; /* 34px */
+    --size-field-md: 2.625rem; /* 42px */
+    --size-icon-sm: 0.5rem; /* 8px */
+    --size-icon-md: 0.875rem; /* 14px */
+    --size-icon-lg: 1.1875rem; /* 19px */
+    --size-calendar-day: 2.75rem; /* 44px */
     /* Containers */
     --container-narrow: 62.5rem; /* 1000px */
-    --container-wide: 110rem;    /* 1760px */
+    --container-wide: 110rem; /* 1760px */
     --container-ultra: 118.75rem; /* 1900px */
     --calendar-width: 33.125rem; /* 530px */
-
-
     /* Typography - font sizes */
     --font-size-root-mobile: 14px;
     --font-size-root-desktop: 16px;
