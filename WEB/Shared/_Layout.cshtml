@@ -32,57 +32,7 @@
 <body data-current-controller="@ViewContext.RouteData.Values["controller"]">
 
     <!-- NAVBAR SUPERIOR -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-            <div class="container-fluid">
-
-                <!-- Nome da aplicação -->
-                <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
-                    AgroManager
-                </a>
-
-                <!-- Botão Mobile -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Conteúdo Navbar -->
-                <div class="collapse navbar-collapse" id="mainNavbar">
-
-                    <!-- Menu esquerdo -->
-                    <ul class="navbar-nav me-auto">
-
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">
-                                Início
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Bovine" asp-action="Index">
-                                Bovinos
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Swines" asp-action="Index">
-                                Suínos
-                            </a>
-                        </li>
-
-                    </ul>
-
-                    <!-- Botão usuário canto direito -->
-                    <div class="d-flex">
-                        <a class="btn btn-outline-light" asp-controller="Account" asp-action="Login" title="Conta">
-                            <i class="bi bi-person-circle fs-5"></i>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </nav>
-    </header>
+    @await Html.PartialAsync("~/Views/Shared/_Topbar.cshtml")
 
     <div class="am-app-shell">
         <aside class="am-sidebar" aria-label="Menu lateral">
