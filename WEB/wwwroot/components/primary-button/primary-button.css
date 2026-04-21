@@ -7,7 +7,7 @@
     text-decoration: none;
     color: var(--color-black);
     background: var(--color-border);
-    border-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
     outline-color: var(--color-primary);
     border: 1px solid var(--color-border);
     outline-offset: 0;
@@ -19,7 +19,7 @@
     .primary-button:focus-visible {
         color: var(--color-black);
         background: var(--color-border);
-        border-color: var(--color-primary);
+        border: 1px solid var(--color-primary);
         outline-color: var(--color-primary);
         
     }
