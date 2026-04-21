@@ -56,11 +56,6 @@
     function renderSidebar(sidebarRoot, config, currentController) {
         sidebarRoot.innerHTML = "";
 
-        const title = document.createElement("span");
-        title.className = "am-sidebar-title-label";
-        title.textContent = config.title || "Navegação";
-        sidebarRoot.appendChild(title);
-
         (config.sections || []).forEach((section) => {
             sidebarRoot.appendChild(createSection(section, currentController));
         });
