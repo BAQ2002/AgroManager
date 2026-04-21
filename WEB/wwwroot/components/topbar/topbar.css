@@ -10,7 +10,7 @@
 .am-topbar {
     position: sticky; /* position: valor "sticky". */
     top: 0; /* top: valor "0". valor neutro/ausente para essa propriedade. */
-    z-index: 10; /* z-index: valor "10". */
+    z-index: 30; /* z-index: valor "30". */
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     align-items: center; /* align-items: valor "center". */
     justify-content: space-between; /* justify-content: valor "space-between". */
