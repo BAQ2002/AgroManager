@@ -84,25 +84,27 @@
         </nav>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div class="@pageContainerClass mt-4">
-        <div class="am-app-shell">
-            <aside class="am-sidebar" aria-label="Menu lateral">
-                <nav class="js-am-sidebar-root"></nav>
-            </aside>
+    <div class="am-app-shell">
+        <aside class="am-sidebar" aria-label="Menu lateral">
+            <nav class="js-am-sidebar-root"></nav>
+        </aside>
 
-            <main class="am-sidebar-main" role="main">
-                @RenderBody()
-            </main>
+        <!-- CONTEÚDO PRINCIPAL -->
+        <div class="am-sidebar-main">
+            <div class="@pageContainerClass mt-4">
+                <main role="main">
+                    @RenderBody()
+                </main>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="border-top footer text-muted mt-5">
+                <div class="container text-center py-3">
+                    &copy; 2026 - AgroManager
+                </div>
+            </footer>
         </div>
     </div>
-
-    <!-- FOOTER -->
-    <footer class="border-top footer text-muted mt-5">
-        <div class="container text-center py-3">
-            &copy; 2026 - AgroManager
-        </div>
-    </footer>
 
     <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

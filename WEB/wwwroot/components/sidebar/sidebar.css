@@ -1,18 +1,18 @@
 .am-app-shell {
-    display: grid;
-    grid-template-columns: calc(var(--space-12) * 6) 1fr;
-    gap: var(--space-4);
-    align-items: start;
+    width: 100%;
 }
 
 .am-sidebar {
-    position: sticky;
-    top: var(--space-4);
+    position: fixed;
+    left: 0;
+    top: calc(var(--space-12) + var(--space-2));
+    width: calc(var(--space-12) * 6);
+    height: calc(100vh - (var(--space-12) + var(--space-2)));
+    overflow-y: auto;
     padding: var(--space-4) var(--space-3);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border-right: 1px solid var(--color-border);
     background: var(--color-surface-alt);
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    z-index: 20;
 }
 
 .am-sidebar-title-label {
@@ -81,15 +81,20 @@
 }
 
 .am-sidebar-main {
+    margin-left: calc((var(--space-12) * 6) + var(--space-4));
     min-width: 0;
 }
 
 @media (max-width: 960px) {
-    .am-app-shell {
-        grid-template-columns: 1fr;
-    }
-
     .am-sidebar {
         position: static;
+        width: auto;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .am-sidebar-main {
+        margin-left: 0;
     }
 }
