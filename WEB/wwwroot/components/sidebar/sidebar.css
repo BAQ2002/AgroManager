@@ -1,0 +1,95 @@
+.am-app-shell {
+    display: grid;
+    grid-template-columns: calc(var(--space-12) * 6) 1fr;
+    gap: var(--space-4);
+    align-items: start;
+}
+
+.am-sidebar {
+    position: sticky;
+    top: var(--space-4);
+    padding: var(--space-4) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: var(--color-surface-alt);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.am-sidebar-title-label {
+    display: block;
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-caption-lg);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.am-sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.am-sidebar-section + .am-sidebar-section {
+    margin-top: var(--space-4);
+}
+
+.am-sidebar-section-label {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-size: var(--font-size-caption-sm);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.am-sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.am-sidebar-nav-button {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: var(--space-2) var(--space-3);
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.am-sidebar-nav-button:hover,
+.am-sidebar-nav-button:focus-visible {
+    background: var(--color-primary-soft);
+    border-color: var(--color-border);
+    color: var(--color-primary);
+}
+
+.am-sidebar-nav-button.is-active {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.am-sidebar-nav-label {
+    font-size: var(--font-size-body-sm);
+    font-weight: 500;
+}
+
+.am-sidebar-main {
+    min-width: 0;
+}
+
+@media (max-width: 960px) {
+    .am-app-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .am-sidebar {
+        position: static;
+    }
+}

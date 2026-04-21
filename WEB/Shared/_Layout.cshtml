@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/tokens.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/components/topbar/topbar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/components/sidebar/sidebar.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
     <link rel="stylesheet" href="~/components/date-picker/date-picker.css" asp-append-version="true" />
 
@@ -28,7 +29,7 @@
     };
 }
 
-<body>
+<body data-current-controller="@ViewContext.RouteData.Values["controller"]">
 
     <!-- NAVBAR SUPERIOR -->
     <header>
@@ -85,9 +86,15 @@
 
     <!-- CONTEÚDO PRINCIPAL -->
     <div class="@pageContainerClass mt-4">
-        <main role="main">
-            @RenderBody()
-        </main>
+        <div class="am-app-shell">
+            <aside class="am-sidebar" aria-label="Menu lateral">
+                <nav class="js-am-sidebar-root"></nav>
+            </aside>
+
+            <main class="am-sidebar-main" role="main">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
     <!-- FOOTER -->
@@ -103,6 +110,41 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
     <script src="~/components/date-picker/date-picker.js" asp-append-version="true"></script>
+    <script src="~/components/sidebar/sidebar.js" asp-append-version="true"></script>
+    <script id="am-sidebar-config" type="application/json">
+        @Html.Raw(System.Text.Json.JsonSerializer.Serialize(new
+        {
+            title = "Navegação",
+            sections = new object[]
+            {
+                new
+                {
+                    label = "Principal",
+                    links = new object[]
+                    {
+                        new { label = "Início", href = Url.Action("Index", "Home"), controller = "Home" }
+                    }
+                },
+                new
+                {
+                    label = "Gestão de rebanho",
+                    links = new object[]
+                    {
+                        new { label = "Bovinos", href = Url.Action("Index", "Bovine"), controller = "Bovine" },
+                        new { label = "Suínos", href = Url.Action("Index", "Swines"), controller = "Swines" }
+                    }
+                },
+                new
+                {
+                    label = "Acesso",
+                    links = new object[]
+                    {
+                        new { label = "Conta", href = Url.Action("Login", "Account"), controller = "Account" }
+                    }
+                }
+            }
+        }))
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 
