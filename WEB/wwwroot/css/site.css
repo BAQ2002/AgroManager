@@ -9,7 +9,7 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb; /* box-shadow: valor "0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb". unidades: 0.1rem: unidade relativa ao font-size do elemento raiz (html); 0.25rem: unidade relativa ao font-size do elemento raiz (html). */
+  box-shadow: 0 0 0 0.1rem var(--color-white), 0 0 0 0.25rem var(--color-focus-ring); /* box-shadow: valor "0 0 0 0.1rem var(--color-white), 0 0 0 0.25rem var(--color-focus-ring)". unidades: 0.1rem: unidade relativa ao font-size do elemento raiz (html); 0.25rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
 html {

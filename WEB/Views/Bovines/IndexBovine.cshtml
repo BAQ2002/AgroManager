@@ -14,8 +14,8 @@
 
     <style>
         #ageUnitSelect::after {
-            border-right-color: #ffffff;
-            border-bottom-color: #ffffff;
+            border-right-color: var(--color-white);
+            border-bottom-color: var(--color-white);
         }
     </style>
 }
@@ -50,8 +50,8 @@
 <div class="bovines-content-layout">
     <section class=" form-container" id="filtersPanel" aria-labelledby="filtersPanelTitle" style= "margin: 8px 0 16px;
                      border-radius: 18px;
-                     border: 1px solid #E5E5E5;
-                     background: #ffffff;
+                     border: 1px solid var(--color-border);
+                     background: var(--color-white);
                      padding: 16px;
                      box-shadow: none;
                      overflow: visible;
@@ -175,7 +175,7 @@
                             <th>
 
                             <div class="enum-combo-box" id="ageUnitSelect">
-                                <span style="color: #ffffff"> Idade  (<span id="ageUnitLabel">anos</span>)</span>
+                                <span style="color: var(--color-white)"> Idade  (<span id="ageUnitLabel">anos</span>)</span>
                                 <div class="enum-combo-box-menu" id="ageUnitMenu">
                                     <button class="enum-combo-box-option active" type="button" data-unit="years">Anos</button>
                                     <button class="enum-combo-box-option" type="button" data-unit="months">Meses</button>
