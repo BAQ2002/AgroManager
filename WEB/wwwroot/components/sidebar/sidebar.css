@@ -1,0 +1,100 @@
+.am-app-shell {
+    width: 100%;
+}
+
+.am-sidebar {
+    position: fixed;
+    left: 0;
+    top: calc(var(--space-12) + var(--space-2));
+    width: calc(var(--space-12) * 6);
+    height: calc(100vh - (var(--space-12) + var(--space-2)));
+    overflow-y: auto;
+    padding: var(--space-4) var(--space-3);
+    border-right: 1px solid var(--color-border);
+    background: var(--color-surface-alt);
+    z-index: 20;
+}
+
+.am-sidebar-title-label {
+    display: block;
+    margin-bottom: var(--space-3);
+    font-size: var(--font-size-caption-lg);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.am-sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.am-sidebar-section + .am-sidebar-section {
+    margin-top: var(--space-4);
+}
+
+.am-sidebar-section-label {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-size: var(--font-size-caption-sm);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.am-sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.am-sidebar-nav-button {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: var(--space-2) var(--space-3);
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.am-sidebar-nav-button:hover,
+.am-sidebar-nav-button:focus-visible {
+    background: var(--color-primary-soft);
+    border-color: var(--color-border);
+    color: var(--color-primary);
+}
+
+.am-sidebar-nav-button.is-active {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.am-sidebar-nav-label {
+    font-size: var(--font-size-body-sm);
+    font-weight: 500;
+}
+
+.am-sidebar-main {
+    margin-left: calc((var(--space-12) * 6) + var(--space-4));
+    min-width: 0;
+}
+
+@media (max-width: 960px) {
+    .am-sidebar {
+        position: static;
+        width: auto;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .am-sidebar-main {
+        margin-left: 0;
+    }
+}
