@@ -36,6 +36,17 @@
     margin-bottom: 0.9rem; /* margin-bottom: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
+
+.feature-icon-svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
 .feature-card h2 {
     font-size: var(--font-size-title-md); /* font-size: valor "1.15rem". unidades: 1.15rem: unidade relativa ao font-size do elemento raiz (html). */
     font-weight: 600; /* font-weight: valor "600". */
