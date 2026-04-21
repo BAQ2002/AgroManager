@@ -44,7 +44,7 @@
 
 .feature-card p {
     margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
-    color: var(--text-muted); /* color: valor "var(--text-muted)". */
+    color: var(--color-text-secondary); /* color: valor "var(--color-text-secondary)". */
     font-size: var(--font-size-caption-lg); /* font-size: valor ".94rem". unidades: .94rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 

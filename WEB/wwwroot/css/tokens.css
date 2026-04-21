@@ -15,6 +15,15 @@
     --color-primary-soft: #E5E5E5;
     /* Feedback */
     --color-danger-soft: #fca5a5;
+    --color-link: #0077cc;
+    --color-focus-ring: #258cfb;
+    --color-legacy-primary-bg: #1b6ec2;
+    --color-legacy-primary-border: #1861ac;
+    --color-surface-alt: #f5f7f6;
+    --color-topbar-overlay: rgba(2, 6, 23, 0.7);
+    --color-topbar-border: rgba(148, 163, 184, 0.22);
+    --color-topbar-surface: rgba(15, 23, 42, 0.78);
+    --color-topbar-surface-hover: rgba(30, 41, 59, 0.9);
 
     /* Spacing scale (4px baseline) */
     --space-0: 0rem;

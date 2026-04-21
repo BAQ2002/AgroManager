@@ -4,16 +4,16 @@
     --panel: var(--color-white); /* --panel: valor "var(--color-white)". define uma cor. */
     --panel-border: var(--color-border); /* --panel-border: valor "var(--color-border)". define uma cor. */
     --text-primary: var(--color-text-primary); /* --text-primary: valor "var(--color-text-primary)". define uma cor. */
-    --text-muted: #64748b; /* --text-muted: valor "#64748b". define uma cor. */
-    --accent: #22c55e; /* --accent: valor "#22c55e". define uma cor. */
-    --accent-soft: rgba(41, 100, 54, 0.12); /* --accent-soft: valor "rgba(41, 100, 54, 0.12)". define uma cor. */
+    --text-muted: var(--color-text-secondary); /* --text-muted: valor "var(--color-text-secondary)". define uma cor. */
+    --accent: var(--color-primary); /* --accent: valor "var(--color-primary)". define uma cor. */
+    --accent-soft: color-mix(in srgb, var(--color-primary) 12%, var(--color-white)); /* --accent-soft: valor "color-mix(in srgb, var(--color-primary) 12%, var(--color-white))". define uma cor. */
 }
 
     body {
         min-height: 100vh; /* min-height: valor "100vh". unidades: 100vh: 1% da altura da viewport. */
         margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
         background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%); /* background: valor "linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%)". define um gradiente como fundo. unidades: 180deg: graus de rotação/ângulo. */
-        color: var(--text-primary); /* color: valor "var(--text-primary)". */
+        color: var(--color-text-primary); /* color: valor "var(--color-text-primary)". */
         padding-bottom: 2rem; /* padding-bottom: valor "2rem". unidades: 2rem: unidade relativa ao font-size do elemento raiz (html). */
         font-family: "Inter", "Segoe UI", sans-serif; /* font-family: valor ""Inter", "Segoe UI", sans-serif". */
     }
@@ -42,7 +42,7 @@
     }
 
     .hero p {
-        color: var(--text-muted); /* color: valor "var(--text-muted)". */
+        color: var(--color-text-secondary); /* color: valor "var(--color-text-secondary)". */
         max-width: 60ch; /* max-width: valor "60ch". unidades: 60ch: largura do caractere "0" da fonte atual. */
         margin-bottom: 2rem; /* margin-bottom: valor "2rem". unidades: 2rem: unidade relativa ao font-size do elemento raiz (html). */
     }
