@@ -32,6 +32,11 @@
         font-size: var(--font-size-caption-sm); /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
+    .datagrid tbody tr {
+        position: relative; /* position: valor "relative". permite elevar a linha no empilhamento durante o hover. */
+        transition: box-shadow 0.15s ease; /* transition: valor "box-shadow 0.15s ease". suaviza a sombra aplicada no hover da linha. */
+    }
+
     .datagrid tbody tr td {
         transition: background-color 0.15s ease, border-color 0.15s ease; /* transition: valor "background-color 0.15s ease, border-color 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
         border-top: 1px solid transparent; /* border-top: valor "1px solid transparent". unidades: 1px: pixels da CSS (unidade fixa na tela). */
@@ -46,6 +51,7 @@
     }
 
     .datagrid tbody tr:hover {
+        z-index: 2; /* z-index: valor "2". garante que a linha em hover fique acima das demais para exibir a sombra em todas as linhas. */
         box-shadow: 0 12px 14px -12px rgba(0, 0, 0, 0.5); /* box-shadow: valor "0 12px 14px -12px rgba(0, 0, 0, 0.5)". unidades: 12px/14px: pixels da CSS (unidade fixa na tela). */
     }
 
