@@ -31,16 +31,26 @@
     font-size: var(--font-size-caption-sm);
 }
 
-.datagrid-scroll {
-    max-height: 420px;
-    overflow-y: auto;
-}
-
 .datagrid {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
+    table-layout: fixed;
     font-size: var(--font-size-body-sm);
+}
+
+.datagrid thead,
+.datagrid tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.datagrid tbody {
+    display: block;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    height: var(--datagrid-body-height, 320px);
 }
 
 .datagrid thead {
@@ -53,9 +63,6 @@
 }
 
 .datagrid th {
-    position: sticky;
-    top: 0;
-    z-index: 3;
     text-align: left;
     font-weight: 500;
     color: var(--color-white);

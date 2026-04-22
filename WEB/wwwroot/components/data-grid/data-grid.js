@@ -73,6 +73,13 @@
             if (currentPage < 1) currentPage = 1;
         }
 
+        function updateBodyHeight() {
+            const firstRow = rowsElement.querySelector("tr");
+            const rowHeight = firstRow?.getBoundingClientRect().height || 44;
+            const bodyHeight = Math.max(rowHeight * pageSize, rowHeight);
+            rowsElement.style.height = `${bodyHeight}px`;
+        }
+
         function updateFooter() {
             const total = allRows.length;
             const visible = getVisibleRows().length;
@@ -92,11 +99,13 @@
 
             if (!visibleRows.length) {
                 rowsElement.innerHTML = `<tr><td colspan="99">${config.emptyMessage || "Nenhum registro encontrado."}</td></tr>`;
+                updateBodyHeight();
                 updateFooter();
                 return;
             }
 
             rowsElement.innerHTML = visibleRows.map(config.rowTemplate).join("");
+            updateBodyHeight();
             updateFooter();
         }
 
