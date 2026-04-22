@@ -165,37 +165,50 @@
 
         <div class="bovines-records-column">
             <section class="datagrid-wrapper">
-                <table class="datagrid">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Sexo</th>
-                            <th>Origem</th>
-                            <th>Nascimento</th>
-                            <th>
+                <div class="datagrid-toolbar">
+                    <label for="bovinesPageSize">Registros por página</label>
+                    <select class="datagrid-page-size" id="bovinesPageSize">
+                        <option value="10">10</option>
+                        <option value="25" selected>25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
 
-                            <div class="enum-combo-box" id="ageUnitSelect">
-                                <span style="color: var(--color-white)"> Idade  (<span id="ageUnitLabel">anos</span>)</span>
-                                <div class="enum-combo-box-menu" id="ageUnitMenu">
-                                    <button class="enum-combo-box-option active" type="button" data-unit="years">Anos</button>
-                                    <button class="enum-combo-box-option" type="button" data-unit="months">Meses</button>
-                                    <button class="enum-combo-box-option" type="button" data-unit="days">Dias</button>
+                <div class="datagrid-scroll">
+                    <table class="datagrid">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Sexo</th>
+                                <th>Origem</th>
+                                <th>Nascimento</th>
+                                <th>
+
+                                <div class="enum-combo-box" id="ageUnitSelect">
+                                    <span style="color: var(--color-white)"> Idade  (<span id="ageUnitLabel">anos</span>)</span>
+                                    <div class="enum-combo-box-menu" id="ageUnitMenu">
+                                        <button class="enum-combo-box-option active" type="button" data-unit="years">Anos</button>
+                                        <button class="enum-combo-box-option" type="button" data-unit="months">Meses</button>
+                                        <button class="enum-combo-box-option" type="button" data-unit="days">Dias</button>
+                                    </div>
                                 </div>
-                            </div>
-                               
-                            </th>
-                            <th>Estado</th>
-                            <th>Tipo</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="rows"></tbody>
-                </table>
+
+                                </th>
+                                <th>Estado</th>
+                                <th>Tipo</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rows"></tbody>
+                    </table>
+                </div>
             </section>
 
             <footer class="footer-info">
                 <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
-                <span id="count">0 registro(s) exibidos</span>
+                <span id="bovinesPageInfo">Página 1 de 1</span>
+                <span id="count">Mostrando 0 de 0 registro(s)</span>
             </footer>
         </div>
 </div>
