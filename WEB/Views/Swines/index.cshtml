@@ -1,5 +1,9 @@
-﻿@{
+@{
 ViewData["Title"] = "Swines";
+}
+
+@section Styles {
+<link rel="stylesheet" href="~/components/data-grid/data-grid.css" asp-append-version="true" />
 }
 
 
@@ -18,28 +22,40 @@ ViewData["Title"] = "Swines";
     </header>
 
     <section class="datagrid-wrapper">
+        <div class="datagrid-toolbar">
+            <label for="swinesPageSize">Registros por página</label>
+            <select class="datagrid-page-size" id="swinesPageSize">
+                <option value="10">10</option>
+                <option value="25" selected>25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+
         <table class="datagrid">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Sexo</th>
-                    <th>Origem</th>
-                    <th>Nascimento</th>
-                    <th>Idade</th>
-                    <th>Tipo</th>
-                </tr>
-            </thead>
-            <tbody id="rows"></tbody>
-        </table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sexo</th>
+                        <th>Origem</th>
+                        <th>Nascimento</th>
+                        <th>Idade</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody id="rows"></tbody>
+            </table>
     </section>
 
     <footer class="footer-info">
         <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
-        <span id="count">0 registro(s) exibidos</span>
+        <span id="swinesPageInfo">Página 1 de 1</span>
+        <span id="count">Mostrando 0 de 0 registro(s)</span>
     </footer>
 </div>
 </div>
 
 @section Scripts {
+<script src="~/components/data-grid/data-grid.js" asp-append-version="true"></script>
 <script src="~/js/pages/swines/index.js" asp-append-version="true"></script>
 }

@@ -1,93 +1,132 @@
 ﻿/* DataGrid */
 
 .datagrid-wrapper {
-    margin-top: 0.375rem; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
-    border-radius: var(--radius-lg); /* border-radius: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
-    overflow: hidden; /* overflow: valor "visible". permite exibir o box-shadow das linhas em hover fora dos limites da tabela. */
-    border: 1px solid var(--color-border); /* border: valor "1px solid rgba(203, 213, 225, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    background: var(--color-white); /* background: valor "var(--color-white)". define uma cor. */
+    margin-top: 0.375rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-white);
+}
+
+.datagrid-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0.875rem;
+    border-bottom: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface-alt) 45%, var(--color-white));
+}
+
+.datagrid-toolbar label {
+    color: var(--color-black);
+    font-size: var(--font-size-caption-sm);
+}
+
+.datagrid-page-size {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.25rem 0.5rem;
+    background: var(--color-white);
+    font-size: var(--font-size-caption-sm);
 }
 
 .datagrid {
-    width: 100%; /* width: valor "100%". */
-    border-collapse: separate; /* border-collapse: valor "separate". evita colapso de bordas entre linhas para preservar a borda superior no hover. */
-    border-spacing: 0; /* border-spacing: valor "0". mantém o layout sem espaçamento entre células mesmo com border-collapse separado. */
-    font-size: var(--font-size-body-sm); /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    font-size: var(--font-size-body-sm);
 }
 
-    .datagrid thead {
-        background: var(--color-primary); /* background: valor "var(--color-primary)". define uma cor. */
-    }
+.datagrid thead,
+.datagrid tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
 
-    .datagrid th,
-    .datagrid td {
-        padding: var(--space-2-5) var(--size-icon-md); /* padding: valor "10px 14px". unidades: 10px: pixels da CSS (unidade fixa na tela); 14px: pixels da CSS (unidade fixa na tela). */
-    }
+.datagrid tbody {
+    display: block;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    height: var(--datagrid-body-height, 320px);
+}
 
-    .datagrid th {
-        text-align: left; /* text-align: valor "left". */
-        font-weight: 500; /* font-weight: valor "500". */
-        color: var(--color-white); /* color: valor "var(--color-white)". define uma cor. */
-        border-bottom: 1px solid var(--color-border); /* border-bottom: valor "1px solid rgba(15, 23, 42, 0.35)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-        font-size: var(--font-size-caption-sm); /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
-    }
+.datagrid thead {
+    background: var(--color-primary);
+}
 
-    .datagrid tbody tr {
-        position: relative; /* position: valor "relative". permite elevar a linha no empilhamento durante o hover. */
-        transition: box-shadow 0.15s ease; /* transition: valor "box-shadow 0.15s ease". suaviza a sombra aplicada no hover da linha. */
-    }
+.datagrid th,
+.datagrid td {
+    padding: var(--space-2-5) var(--size-icon-md);
+}
 
-    .datagrid tbody tr td {
-        transition: background-color 0.15s ease, border-color 0.15s ease; /* transition: valor "background-color 0.15s ease, border-color 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
-        border-top: 1px solid transparent; /* border-top: valor "1px solid transparent". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    }
+.datagrid th {
+    text-align: left;
+    font-weight: 500;
+    color: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--font-size-caption-sm);
+    background: var(--color-primary);
+}
 
-    .datagrid tbody tr:nth-child(odd) td {
-        background-color: var(--color-white); /* background-color: valor "var(--color-white)". define uma cor. */
-    }
+.datagrid tbody tr {
+    position: relative;
+    transition: box-shadow 0.15s ease;
+}
 
-    .datagrid tbody tr:nth-child(even) td {
-        background-color: var(--color-surface-alt); /* background-color: valor "var(--color-surface-alt)". define uma cor. */
-    }
+.datagrid tbody tr td {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    border-top: 1px solid transparent;
+}
 
-    .datagrid tbody tr:hover {
-        z-index: 2; /* z-index: valor "2". garante que a linha em hover fique acima das demais para exibir a sombra em todas as linhas. */
-        box-shadow: 0 12px 14px -12px rgba(0, 0, 0, 0.5); /* box-shadow: valor "0 12px 14px -12px rgba(0, 0, 0, 0.5)". unidades: 12px/14px: pixels da CSS (unidade fixa na tela). */
-    }
+.datagrid tbody tr:nth-child(odd) td {
+    background-color: var(--color-white);
+}
 
-    .datagrid tbody tr:hover td {
-        background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-white)); /* background-color: valor "color-mix(in srgb, var(--color-primary) 8%, var(--color-white))". define uma cor. */
-        border-top-color: var(--color-primary); /* border-top-color: valor "var(--color-primary)". define uma cor. */
-        border-bottom-color: var(--color-primary); /* border-bottom-color: valor "var(--color-primary)". define uma cor. */
-    }
+.datagrid tbody tr:nth-child(even) td {
+    background-color: var(--color-surface-alt);
+}
 
-    .datagrid td {
-        border-bottom: 1px solid var(--color-border); /* border-bottom: valor "1px solid rgba(203, 213, 225, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    }
+.datagrid tbody tr:hover {
+    z-index: 2;
+    box-shadow: 0 12px 14px -12px rgba(0, 0, 0, 0.5);
+}
 
-    .datagrid tbody td:first-child {
-        border-left: 1px solid transparent; /* border-left: valor "1px solid transparent". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    }
+.datagrid tbody tr:hover td {
+    background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-white));
+    border-top-color: var(--color-primary);
+    border-bottom-color: var(--color-primary);
+}
 
-    .datagrid tbody td:last-child {
-        border-right: 1px solid transparent; /* border-right: valor "1px solid transparent". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    }
+.datagrid td {
+    border-bottom: 1px solid var(--color-border);
+}
 
-    .datagrid tbody tr:hover td:first-child {
-        border-left-color: var(--color-primary); /* border-left-color: valor "var(--color-primary)". define uma cor. */
-    }
+.datagrid tbody td:first-child {
+    border-left: 1px solid transparent;
+}
 
-    .datagrid tbody tr:hover td:last-child {
-        border-right-color: var(--color-primary); /* border-right-color: valor "var(--color-primary)". define uma cor. */
-    }
+.datagrid tbody td:last-child {
+    border-right: 1px solid transparent;
+}
 
-    .datagrid tbody td,
-    .datagrid tbody td a {
-        color: var(--color-black); /* color: valor "var(--color-black)". define uma cor. */
-    }
+.datagrid tbody tr:hover td:first-child {
+    border-left-color: var(--color-primary);
+}
 
-    .datagrid td:nth-child(4),
-    .datagrid td:nth-child(5) {
-        text-align: left; /* text-align: valor "left". */
-        font-variant-numeric: tabular-nums; /* font-variant-numeric: valor "tabular-nums". */
-    }
+.datagrid tbody tr:hover td:last-child {
+    border-right-color: var(--color-primary);
+}
+
+.datagrid tbody td,
+.datagrid tbody td a {
+    color: var(--color-black);
+}
+
+.datagrid td:nth-child(4),
+.datagrid td:nth-child(5) {
+    text-align: left;
+    font-variant-numeric: tabular-nums;
+}

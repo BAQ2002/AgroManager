@@ -1,21 +1,18 @@
 (function () {
     // Converte string de data (ISO, dd-mm-yyyy ou dd/mm/yyyy) para objeto Date com validação básica.
     function parseDate(value) {
-        
-        if (!value) return null;                                                // Retorna nulo quando valor não existir.
+        if (!value) return null;
 
-        const normalized = String(value).trim();                                // Remove espaços extras para evitar falhas de parsing.      
-        const localMatch = normalized.match(/^(\d{2})[/-](\d{2})[/-](\d{4})$/); // Detecta formatos locais com separador "/" ou "-": dd/mm/yyyy ou dd-mm-yyyy.
+        const normalized = String(value).trim();
+        const localMatch = normalized.match(/^(\d{2})[/-](\d{2})[/-](\d{4})$/);
 
         if (localMatch) {
-            
-            const day = Number(localMatch[1]);   //Extrai dia da string.
-            const month = Number(localMatch[2]); //Extrai mês da string.
-            const year = Number(localMatch[3]);  //Extrai ano da string.
-            
-            const parsedLocal = new Date(year, month - 1, day); //Cria data usando timezone local para evitar deslocamentos.
+            const day = Number(localMatch[1]);
+            const month = Number(localMatch[2]);
+            const year = Number(localMatch[3]);
 
-            //Valida consistência para bloquear datas inválidas como 31/02/2025.
+            const parsedLocal = new Date(year, month - 1, day);
+
             if (
                 parsedLocal.getFullYear() === year &&
                 parsedLocal.getMonth() === month - 1 &&
@@ -24,29 +21,142 @@
                 return parsedLocal;
             }
         }
-      
-        const parsed = new Date(normalized);                   //Tenta converter formatos nativos (ex.: yyyy-mm-dd da API).  
-        return Number.isNaN(parsed.getTime()) ? null : parsed; //Retorna nulo se a data for inválida; caso contrário, retorna a data convertida.
+
+        const parsed = new Date(normalized);
+        return Number.isNaN(parsed.getTime()) ? null : parsed;
     }
 
-    //Formata uma data para exibição no padrão brasileiro dd/mm/yyyy.
+    // Formata uma data para exibição no padrão brasileiro dd/mm/yyyy.
     function formatDateBr(value) {
-        
-        const date = parseDate(value);   //Converte valor recebido para Date; quando inválido, exibe texto original para não ocultar informação.
+        const date = parseDate(value);
         if (!date) return value ?? "";
 
-        //Garante dois dígitos para dia e mês.
         const day = String(date.getDate()).padStart(2, "0");
         const month = String(date.getMonth() + 1).padStart(2, "0");
         const year = String(date.getFullYear());
 
-       
-        return `${day}/${month}/${year}`; //Retorna data formatada no padrão desejado.
+        return `${day}/${month}/${year}`;
     }
 
-    //Expõe API pública para reutilização nas páginas que renderizam DataGrid.
+    // Cria uma instância de datagrid com paginação client-side.
+    function create(config) {
+        const rowsElement = document.querySelector(config.rowsSelector);
+        const countElement = config.countSelector ? document.querySelector(config.countSelector) : null;
+        const pageSizeElement = config.pageSizeSelector ? document.querySelector(config.pageSizeSelector) : null;
+        const pageInfoElement = config.paginationInfoSelector ? document.querySelector(config.paginationInfoSelector) : null;
+
+        if (!rowsElement) {
+            throw new Error("DataGrid: rowsSelector não encontrado.");
+        }
+
+        if (typeof config.rowTemplate !== "function") {
+            throw new Error("DataGrid: rowTemplate é obrigatório e deve ser função.");
+        }
+
+        let allRows = Array.isArray(config.data) ? config.data : [];
+        let currentPage = 1;
+        let pageSize = Number(pageSizeElement?.value || config.initialPageSize || 25);
+
+        function getTotalPages() {
+            return Math.max(1, Math.ceil(allRows.length / pageSize));
+        }
+
+        function getVisibleRows() {
+            const start = (currentPage - 1) * pageSize;
+            const end = start + pageSize;
+            return allRows.slice(start, end);
+        }
+
+        function clampCurrentPage() {
+            const totalPages = getTotalPages();
+            if (currentPage > totalPages) currentPage = totalPages;
+            if (currentPage < 1) currentPage = 1;
+        }
+
+        function updateBodyHeight() {
+            const firstRow = rowsElement.querySelector("tr");
+            const rowHeight = firstRow?.getBoundingClientRect().height || 44;
+            const bodyHeight = Math.max(rowHeight * pageSize, rowHeight);
+            rowsElement.style.height = `${bodyHeight}px`;
+        }
+
+        function updateFooter() {
+            const total = allRows.length;
+            const visible = getVisibleRows().length;
+
+            if (countElement) {
+                countElement.innerText = `Mostrando ${visible} de ${total} registro(s)`;
+            }
+
+            if (pageInfoElement) {
+                pageInfoElement.innerText = `Página ${currentPage} de ${getTotalPages()}`;
+            }
+        }
+
+        function render() {
+            clampCurrentPage();
+            const visibleRows = getVisibleRows();
+
+            if (!visibleRows.length) {
+                rowsElement.innerHTML = `<tr><td colspan="99">${config.emptyMessage || "Nenhum registro encontrado."}</td></tr>`;
+                updateBodyHeight();
+                updateFooter();
+                return;
+            }
+
+            rowsElement.innerHTML = visibleRows.map(config.rowTemplate).join("");
+            updateBodyHeight();
+            updateFooter();
+        }
+
+        function setData(data, options = {}) {
+            allRows = Array.isArray(data) ? data : [];
+
+            if (options.resetPage !== false) {
+                currentPage = 1;
+            }
+
+            render();
+        }
+
+        function setPage(page) {
+            currentPage = Number(page);
+            render();
+        }
+
+        function setPageSize(size) {
+            const nextSize = Number(size);
+            if (!Number.isFinite(nextSize) || nextSize <= 0) return;
+
+            pageSize = nextSize;
+            currentPage = 1;
+            render();
+        }
+
+        pageSizeElement?.addEventListener("change", () => {
+            setPageSize(pageSizeElement.value);
+        });
+
+        render();
+
+        return {
+            setData,
+            setPage,
+            setPageSize,
+            refresh: render,
+            getState: () => ({
+                currentPage,
+                pageSize,
+                totalRows: allRows.length,
+                totalPages: getTotalPages()
+            })
+        };
+    }
+
+    // Expõe API pública para reutilização nas páginas que renderizam DataGrid.
     window.DataGrid = {
         parseDate,
-        formatDateBr
+        formatDateBr,
+        create
     };
 })();
