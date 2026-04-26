@@ -40,11 +40,8 @@
 .feature-icon-svg {
     width: 1.6rem;
     height: 1.6rem;
-    stroke: currentColor;
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
+    display: block;
+    object-fit: contain;
 }
 
 .feature-card h2 {
