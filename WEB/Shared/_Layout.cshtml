@@ -21,6 +21,7 @@
 
 @{
     var pageWidth = ViewData["PageMaxWidth"] as string;
+    var currentController = (ViewContext.RouteData.Values["controller"]?.ToString() ?? string.Empty).ToLowerInvariant();
     var pageContainerClass = pageWidth switch
     {
         "wide" => "am-page-container am-page-container-wide",
@@ -32,11 +33,54 @@
 <body data-current-controller="@ViewContext.RouteData.Values["controller"]">
 
     <!-- NAVBAR SUPERIOR -->
-    @await Html.PartialAsync("~/Views/Shared/_Topbar.cshtml")
+    <header class="am-topbar">
+        <a class="am-topbar-brand" asp-controller="Home" asp-action="Index">AgroManager</a>
+
+        <div class="dropdown">
+            <button class="btn am-profile-trigger rounded-pill d-flex align-items-center gap-2 px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Acessar conta">
+                <i class="bi bi-person-circle fs-5"></i>
+                <span>Conta</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Acessar conta</a></li>
+                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Perfil</a></li>
+            </ul>
+        </div>
+    </header>
 
     <div class="am-app-shell">
         <aside class="am-sidebar" aria-label="Menu lateral">
-            <nav class="js-am-sidebar-root"></nav>
+            <nav>
+                <section class="am-sidebar-section">
+                    <span class="am-sidebar-section-label">Principal</span>
+                    <div class="am-sidebar-links">
+                        <a class="am-sidebar-nav-button @(currentController == "home" ? "is-active" : string.Empty)" asp-controller="Home" asp-action="Index">
+                            <span class="am-sidebar-nav-label">Início</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="am-sidebar-section">
+                    <span class="am-sidebar-section-label">Gestão de rebanho</span>
+                    <div class="am-sidebar-links">
+                        <a class="am-sidebar-nav-button @(currentController == "bovine" ? "is-active" : string.Empty)" asp-controller="Bovines" asp-action="Index">
+                            <span class="am-sidebar-nav-label">Bovinos</span>
+                        </a>
+                        <a class="am-sidebar-nav-button @(currentController == "swines" ? "is-active" : string.Empty)" asp-controller="Swines" asp-action="Index">
+                            <span class="am-sidebar-nav-label">Suínos</span>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="am-sidebar-section">
+                    <span class="am-sidebar-section-label">Acesso</span>
+                    <div class="am-sidebar-links">
+                        <a class="am-sidebar-nav-button @(currentController == "account" ? "is-active" : string.Empty)" asp-controller="Account" asp-action="Login">
+                            <span class="am-sidebar-nav-label">Conta</span>
+                        </a>
+                    </div>
+                </section>
+            </nav>
         </aside>
 
         <!-- CONTEÚDO PRINCIPAL -->
@@ -62,41 +106,6 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
     <script src="~/components/date-picker/date-picker.js" asp-append-version="true"></script>
-    <script src="~/components/sidebar/sidebar.js" asp-append-version="true"></script>
-    <script id="am-sidebar-config" type="application/json">
-        @Html.Raw(System.Text.Json.JsonSerializer.Serialize(new
-        {
-            sections = new object[]
-            {
-                new
-                {
-                    label = "Principal",
-                    links = new object[]
-                    {
-                        new { label = "Início", href = Url.Action("Index", "Home"), controller = "Home" }
-                    }
-                },
-                new
-                {
-                    label = "Gestão de rebanho",
-                    links = new object[]
-                    {
-                        new { label = "Bovinos", href = Url.Action("Index", "Bovines"), controller = "Bovine" },
-                        new { label = "Suínos", href = Url.Action("Index", "Swines"), controller = "Swines" }
-                    }
-                },
-                new
-                {
-                    label = "Acesso",
-                    links = new object[]
-                    {
-                        new { label = "Conta", href = Url.Action("Login", "Account"), controller = "Account" }
-                    }
-                }
-            }
-        }))
-    </script>
-
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>
