@@ -34,7 +34,9 @@
 
     <!-- Top Bar -->
     <header class="am-topbar">
-        <a class="am-topbar-brand" asp-controller="Home" asp-action="Index">AgroManager</a>
+        <a class="am-topbar-brand" asp-controller="Home" asp-action="Index" aria-label="AgroManager">
+            <img src="~/assets/agromanager-logo.svg" alt="AgroManager" class="am-topbar-brand-logo" />
+        </a>
 
         <div class="dropdown">
             <button class="btn am-profile-trigger rounded-pill d-flex align-items-center gap-2 px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Acessar conta">
