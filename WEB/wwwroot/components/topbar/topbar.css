@@ -1,6 +1,3 @@
-:root {
-    --am-topbar-height: 82px;
-}
 
 .am-page-shell {
     width: 100%; /* width: valor "100%". */
@@ -19,8 +16,7 @@
     align-items: center; /* align-items: valor "center". */
     justify-content: space-between; /* justify-content: valor "space-between". */
     width: 100vw; /* width: valor "100vw". unidades: 100vw: 1% da largura da viewport. */
-    margin-left: calc(50% - 50vw); /* margin-left: valor "calc(50% - 50vw)". valor calculado dinamicamente com calc(). unidades: 50vw: 1% da largura da viewport. */
-    margin-right: calc(50% - 50vw); /* margin-right: valor "calc(50% - 50vw)". valor calculado dinamicamente com calc(). unidades: 50vw: 1% da largura da viewport. */
+    height: var(--am-topbar-height);
     box-sizing: border-box; /* box-sizing: valor "border-box". */
     padding: 0.9rem 1.4rem; /* padding: valor "0.9rem 1.4rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html); 1.4rem: unidade relativa ao font-size do elemento raiz (html). */
     backdrop-filter: blur(16px); /* backdrop-filter: valor "blur(16px)". unidades: 16px: pixels da CSS (unidade fixa na tela). */
@@ -38,7 +34,7 @@
 }
 
 .am-topbar-brand-logo {
-    height: 52px;
+    height: auto;
     width: auto;
     display: block;
 }
