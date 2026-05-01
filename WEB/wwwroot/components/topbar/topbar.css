@@ -1,3 +1,7 @@
+:root {
+    --am-topbar-height: 82px;
+}
+
 .am-page-shell {
     width: 100%; /* width: valor "100%". */
     max-width: var(--container-narrow); /* max-width: valor "1000px". unidades: 1000px: pixels da CSS (unidade fixa na tela). */
@@ -10,7 +14,7 @@
 .am-topbar {
     position: sticky; /* position: valor "sticky". */
     top: 0; /* top: valor "0". valor neutro/ausente para essa propriedade. */
-    z-index: 30; /* z-index: valor "30". */
+    z-index: 50; /* z-index: valor "50". */
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     align-items: center; /* align-items: valor "center". */
     justify-content: space-between; /* justify-content: valor "space-between". */
