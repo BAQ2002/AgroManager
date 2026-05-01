@@ -1,0 +1,55 @@
+@{
+    ViewData["Title"] = "Bovinos";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/shared/index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/components/card/card.css" asp-append-version="true" />
+}
+
+<div class="home-shell">
+    <main class="hero">
+        <h1>Módulo de Bovinos</h1>
+        <p>
+            Acesse rapidamente os principais recursos para gestão do rebanho bovino.
+        </p>
+
+        <section class="cards-grid" aria-label="Funcionalidades de bovinos">
+            <a class="feature-card" asp-controller="Bovines" asp-action="IndexBovine">
+                <span class="feature-icon" aria-hidden="true">
+                    <img class="feature-icon-svg" src="~/assets/icons/bovines.svg" alt="" />
+                </span>
+                <h2>Ver registros</h2>
+                <p>Abra a listagem completa de bovinos cadastrados.</p>
+                <span class="tag">Acessar <i class="bi bi-arrow-right-short"></i></span>
+            </a>
+
+            <article class="feature-card" aria-disabled="true">
+                <span class="feature-icon" aria-hidden="true">
+                    <img class="feature-icon-svg" src="~/assets/icons/bovines.svg" alt="" />
+                </span>
+                <h2>Vendas</h2>
+                <p>Controle de vendas de bovinos (ainda não implementado).</p>
+                <span class="tag">Em breve</span>
+            </article>
+
+            <article class="feature-card" aria-disabled="true">
+                <span class="feature-icon" aria-hidden="true">
+                    <img class="feature-icon-svg" src="~/assets/icons/bovines.svg" alt="" />
+                </span>
+                <h2>Lucro e gastos</h2>
+                <p>Acompanhe resultados financeiros do módulo bovino (ainda não implementado).</p>
+                <span class="tag">Em breve</span>
+            </article>
+
+            <article class="feature-card" aria-disabled="true">
+                <span class="feature-icon" aria-hidden="true">
+                    <img class="feature-icon-svg" src="~/assets/icons/bovines.svg" alt="" />
+                </span>
+                <h2>Produção de Leite</h2>
+                <p>Monitore produção leiteira por período e por animal.</p>
+                <span class="tag">Em breve</span>
+            </article>
+        </section>
+    </main>
+</div>

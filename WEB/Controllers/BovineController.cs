@@ -25,12 +25,18 @@ public sealed class BovinesController : Controller
         _bovineService = bovineService;
     }
 
+    [HttpGet("/bovines")]
+    public IActionResult Index()
+    {
+        return View();
+    }
+
     /// <summary>
     /// Renderiza a página principal de bovinos.
     /// A tabela da tela é populada de forma assíncrona pelo endpoint <see cref="List(CancellationToken)"/>.
     /// </summary>
     /// <returns><see cref="ViewResult"/> para a view padrão de index de bovinos.</returns>
-    [HttpGet("/bovines")]
+    [HttpGet("/bovines/records")]
     public IActionResult IndexBovine()
     {
         return View();
@@ -113,7 +119,7 @@ public sealed class BovinesController : Controller
 
             await _bovineService.CreateAsync(entity, cancellationToken);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexBovine));
         }
         catch (BusinessRuleException ex)
         {
@@ -210,7 +216,7 @@ public sealed class BovinesController : Controller
         {
             await _bovineService.UpdateAsync(entity, CancellationToken);
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(IndexBovine));
         }
         catch (BusinessRuleException ex)
         {
@@ -316,3 +322,8 @@ public sealed class BovineViewModel
 
     public CattleType? CattleType { get; set; }
 }
+    [HttpGet("/bovines")]
+    public IActionResult Index()
+    {
+        return View();
+    }
