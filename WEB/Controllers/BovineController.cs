@@ -72,6 +72,8 @@ public sealed class BovinesController : Controller
         return Ok(data);
     }
 
+    
+
     /// <summary>
     /// Renderiza a página de cadastro inicializando uma nova instância de <see cref="BovineViewModel"/>
     /// para preencher o formulário da view.
@@ -322,8 +324,4 @@ public sealed class BovineViewModel
 
     public CattleType? CattleType { get; set; }
 }
-    [HttpGet("/bovines")]
-    public IActionResult Index()
-    {
-        return View();
-    }
+    
