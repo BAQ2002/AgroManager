@@ -25,10 +25,18 @@
 }
 
 .am-topbar-brand {
-    font-weight: 700; /* font-weight: valor "700". */
-    letter-spacing: 0.02em; /* letter-spacing: valor "0.02em". unidades: 0.02em: unidade relativa ao font-size do elemento atual. */
-    color: var(--color-text-inverse); /* color: valor "var(--color-text-inverse)". define uma cor. */
     text-decoration: none; /* text-decoration: valor "none". valor neutro/ausente para essa propriedade. */
+}
+
+.am-topbar-brand {
+    display: inline-flex;
+    align-items: center;
+}
+
+.am-topbar-brand-logo {
+    height: 52px;
+    width: auto;
+    display: block;
 }
 
 .am-profile-trigger {
