@@ -1,5 +1,5 @@
 (function () {
-    const SIDEBAR_CONFIG_ID = "sidebar-config";
+    const SIDEBAR_CONFIG_ID = "am-sidebar-config";
 
     function parseSidebarConfig() {
         const configElement = document.getElementById(SIDEBAR_CONFIG_ID);
@@ -16,7 +16,7 @@
 
     function createNavLink(link, currentController) {
         const item = document.createElement("a");
-        item.className = "sidebar-nav-button";
+        item.className = "am-sidebar-nav-button";
         item.href = link.href || "#";
 
         const normalizedController = (currentController || "").toLowerCase();
@@ -26,7 +26,7 @@
         }
 
         const label = document.createElement("span");
-        label.className = "sidebar-nav-label";
+        label.className = "am-sidebar-nav-label";
         label.textContent = link.label || "Link";
 
         item.appendChild(label);
@@ -35,15 +35,15 @@
 
     function createSection(section, currentController) {
         const sectionElement = document.createElement("section");
-        sectionElement.className = "sidebar-section";
+        sectionElement.className = "am-sidebar-section";
 
         const sectionLabel = document.createElement("span");
-        sectionLabel.className = "sidebar-section-label";
+        sectionLabel.className = "am-sidebar-section-label";
         sectionLabel.textContent = section.label || "Seção";
         sectionElement.appendChild(sectionLabel);
 
         const linksContainer = document.createElement("div");
-        linksContainer.className = "sidebar-links";
+        linksContainer.className = "am-sidebar-links";
 
         (section.links || []).forEach((link) => {
             linksContainer.appendChild(createNavLink(link, currentController));
@@ -62,7 +62,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-        const sidebarRoot = document.querySelector(".js-sidebar-root");
+        const sidebarRoot = document.querySelector(".js-am-sidebar-root");
         if (!sidebarRoot) {
             return;
         }

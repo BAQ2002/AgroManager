@@ -22,7 +22,7 @@
         <div>
             <title-label class="main-container-title">Novo Bovine</title-label>
             <p class="main-container-subtitle">Criar um registro de um bovino no banco de dados.</p>
-            <div class="inline-actions">
+            <div class="am-inline-actions">
                 <a class="primary-button" href="/bovines">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M15 18l-6-6 6-6"></path>
@@ -37,7 +37,7 @@
     <form class="form-container" method="post" action="/bovines/create" style="padding: 16px">
         @Html.AntiForgeryToken()
 
-        <div class="form-columns">
+        <div class="am-form-columns">
 
             <div>
                 <div class="floating-field">
@@ -124,7 +124,7 @@
             </div>
         </div>
 
-        <div class="form-actions">
+        <div class="am-form-actions">
             <a class="primary-button" href="/bovines">Cancelar</a>
             <button class="primary-button" type="submit">Salvar</button>
         </div>
