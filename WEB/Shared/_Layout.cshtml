@@ -34,7 +34,7 @@
 
     <!-- Top Bar -->
     <header class="am-topbar">
-        <a class="am-topbar-brand" asp-controller="Home" asp-action="Index" aria-label="AgroManager">
+        <a class="am-topbar-brand" href="@Url.Action("Index", "Home")" aria-label="AgroManager">
             <img src="~/assets/icons/agro-manager-logo.svg" alt="AgroManager" class="am-topbar-brand-logo" />
         </a>
 
@@ -44,8 +44,8 @@
                 <span>Conta</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Acessar conta</a></li>
-                <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Perfil</a></li>
+                <li><a class="dropdown-item" href="@Url.Action("Login", "Account")">Acessar conta</a></li>
+                <li><a class="dropdown-item" href="@Url.Action("Login", "Account")">Perfil</a></li>
             </ul>
         </div>
     </header>
@@ -57,7 +57,7 @@
                 <section class="am-sidebar-section">
                     <span class="am-sidebar-section-label">Principal</span>
                     <div class="am-sidebar-links">
-                        <a class="am-sidebar-nav-button @(currentController == "home" ? "is-active" : string.Empty)" asp-controller="Home" asp-action="Index">
+                        <a class="am-sidebar-nav-button @(currentController == "home" ? "is-active" : string.Empty)" href="@Url.Action("Index", "Home")">
                             <span class="am-sidebar-nav-label">Início</span>
                         </a>
                     </div>
@@ -66,10 +66,10 @@
                 <section class="am-sidebar-section">
                     <span class="am-sidebar-section-label">Gestão de rebanho</span>
                     <div class="am-sidebar-links">
-                        <a class="am-sidebar-nav-button @(currentController == "bovine" ? "is-active" : string.Empty)" asp-controller="Bovines" asp-action="Index">
+                        <a class="am-sidebar-nav-button @(currentController == "bovines" ? "is-active" : string.Empty)" href="@Url.Action("IndexBovine", "Bovines")">
                             <span class="am-sidebar-nav-label">Bovinos</span>
                         </a>
-                        <a class="am-sidebar-nav-button @(currentController == "swines" ? "is-active" : string.Empty)" asp-controller="Swines" asp-action="Index">
+                        <a class="am-sidebar-nav-button @(currentController == "swines" ? "is-active" : string.Empty)" href="@Url.Action("Index", "Swines")">
                             <span class="am-sidebar-nav-label">Suínos</span>
                         </a>
                     </div>
@@ -78,7 +78,7 @@
                 <section class="am-sidebar-section">
                     <span class="am-sidebar-section-label">Acesso</span>
                     <div class="am-sidebar-links">
-                        <a class="am-sidebar-nav-button @(currentController == "account" ? "is-active" : string.Empty)" asp-controller="Account" asp-action="Login">
+                        <a class="am-sidebar-nav-button @(currentController == "account" ? "is-active" : string.Empty)" href="@Url.Action("Login", "Account")">
                             <span class="am-sidebar-nav-label">Conta</span>
                         </a>
                     </div>
