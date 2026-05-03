@@ -21,7 +21,7 @@
         <div>
             <h1 class="main-container-title">Editar Bovine</h1>
             <p class="main-container-subtitle">Modificar o registro de um bovino no banco de dados.</p>
-            <div class="inline-actions">
+            <div class="am-inline-actions">
                 <a class="primary-button" href="/bovines">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M15 18l-6-6 6-6"></path>
@@ -41,7 +41,7 @@
                 @Html.ValidationSummary(false)
             </div>
 
-            <div class="form-columns">
+            <div class="am-form-columns">
                 <div>
                     <div class="floating-field">
                         <input class="floating-field-input js-floating-control" name="Name" value="@Model.Name" placeholder=" " data-empty-values="" />
@@ -122,7 +122,7 @@
                 </div>
             </div>
 
-            <div class="form-actions">
+            <div class="am-form-actions">
                 <a class="primary-button" href="/bovines">Cancelar</a>
                 <button class="primary-button" type="submit">Salvar</button>
             </div>

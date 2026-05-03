@@ -1,13 +1,13 @@
-.app-shell {
+.am-app-shell {
     width: 100%;
 }
 
-.sidebar {
+.am-sidebar {
     position: fixed;
     left: 0;
-    top: var(--topbar-height);
+    top: var(--am-topbar-height);
     width: calc(var(--space-12) * 6);
-    height: calc(100vh - var(--topbar-height));
+    height: calc(100vh - var(--am-topbar-height));
     overflow-y: auto;
     padding: var(--space-4) var(--space-3);
     border-right: 1px solid var(--color-border);
@@ -15,7 +15,7 @@
     z-index: 20;
 }
 
-.sidebar-title-label {
+.am-sidebar-title-label {
     display: block;
     margin-bottom: var(--space-3);
     font-size: var(--font-size-caption-lg);
@@ -24,17 +24,17 @@
     color: var(--color-primary);
 }
 
-.sidebar-section {
+.am-sidebar-section {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
 }
 
-.sidebar-section + .sidebar-section {
+.am-sidebar-section + .am-sidebar-section {
     margin-top: var(--space-4);
 }
 
-.sidebar-section-label {
+.am-sidebar-section-label {
     display: block;
     margin-bottom: var(--space-1);
     font-size: var(--font-size-caption-sm);
@@ -42,13 +42,13 @@
     color: var(--color-text-secondary);
 }
 
-.sidebar-links {
+.am-sidebar-links {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
 }
 
-.sidebar-nav-button {
+.am-sidebar-nav-button {
     width: 100%;
     display: inline-flex;
     align-items: center;
@@ -62,31 +62,31 @@
     transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
-.sidebar-nav-button:hover,
-.sidebar-nav-button:focus-visible {
+.am-sidebar-nav-button:hover,
+.am-sidebar-nav-button:focus-visible {
     background: var(--color-primary-soft);
     border-color: var(--color-border);
     color: var(--color-primary);
 }
 
-.sidebar-nav-button.is-active {
+.am-sidebar-nav-button.is-active {
     background: var(--color-primary-soft);
     border-color: var(--color-primary);
     color: var(--color-primary);
 }
 
-.sidebar-nav-label {
+.am-sidebar-nav-label {
     font-size: var(--font-size-body-sm);
     font-weight: 500;
 }
 
-.sidebar-main {
+.am-sidebar-main {
     margin-left: calc((var(--space-12) * 6) + var(--space-4));
     min-width: 0;
 }
 
 @media (max-width: 960px) {
-    .sidebar {
+    .am-sidebar {
         position: static;
         width: auto;
         height: auto;
@@ -94,7 +94,7 @@
         border-bottom: 1px solid var(--color-border);
     }
 
-    .sidebar-main {
+    .am-sidebar-main {
         margin-left: 0;
     }
 }

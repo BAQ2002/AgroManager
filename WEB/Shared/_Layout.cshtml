@@ -24,22 +24,22 @@
     var currentController = (ViewContext.RouteData.Values["controller"]?.ToString() ?? string.Empty).ToLowerInvariant();
     var pageContainerClass = pageWidth switch
     {
-        "wide" => "page-container page-container-wide",
-        "full" => "page-container page-container-full",
-        _ => "page-container"
+        "wide" => "am-page-container am-page-container-wide",
+        "full" => "am-page-container am-page-container-full",
+        _ => "am-page-container"
     };
 }
 
 <body data-current-controller="@ViewContext.RouteData.Values["controller"]">
 
     <!-- Top Bar -->
-    <header class="topbar">
-        <a class="topbar-brand" href="@Url.Action("Index", "Home")" aria-label="AgroManager">
-            <img src="~/assets/icons/agro-manager-logo.svg" alt="AgroManager" class="topbar-brand-logo" />
+    <header class="am-topbar">
+        <a class="am-topbar-brand" href="@Url.Action("Index", "Home")" aria-label="AgroManager">
+            <img src="~/assets/icons/agro-manager-logo.svg" alt="AgroManager" class="am-topbar-brand-logo" />
         </a>
 
         <div class="dropdown">
-            <button class="btn profile-trigger rounded-pill d-flex align-items-center gap-2 px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Acessar conta">
+            <button class="btn am-profile-trigger rounded-pill d-flex align-items-center gap-2 px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Acessar conta">
                 <i class="bi bi-person-circle fs-5"></i>
                 <span>Conta</span>
             </button>
@@ -51,35 +51,35 @@
     </header>
 
     <!-- Side Bar -->
-    <div class="app-shell">
-        <aside class="sidebar" aria-label="Menu lateral">
+    <div class="am-app-shell">
+        <aside class="am-sidebar" aria-label="Menu lateral">
             <nav>
-                <section class="sidebar-section">
-                    <span class="sidebar-section-label">Principal</span>
-                    <div class="sidebar-links">
-                        <a class="sidebar-nav-button @(currentController == "home" ? "is-active" : string.Empty)" href="@Url.Action("Index", "Home")">
-                            <span class="sidebar-nav-label">Início</span>
+                <section class="am-sidebar-section">
+                    <span class="am-sidebar-section-label">Principal</span>
+                    <div class="am-sidebar-links">
+                        <a class="am-sidebar-nav-button @(currentController == "home" ? "is-active" : string.Empty)" href="@Url.Action("Index", "Home")">
+                            <span class="am-sidebar-nav-label">Início</span>
                         </a>
                     </div>
                 </section>
 
-                <section class="sidebar-section">
-                    <span class="sidebar-section-label">Gestão de rebanho</span>
-                    <div class="sidebar-links">
-                        <a class="sidebar-nav-button @(currentController == "bovines" ? "is-active" : string.Empty)" href="@Url.Action("IndexBovine", "Bovines")">
-                            <span class="sidebar-nav-label">Bovinos</span>
+                <section class="am-sidebar-section">
+                    <span class="am-sidebar-section-label">Gestão de rebanho</span>
+                    <div class="am-sidebar-links">
+                        <a class="am-sidebar-nav-button @(currentController == "bovines" ? "is-active" : string.Empty)" href="@Url.Action("IndexBovine", "Bovines")">
+                            <span class="am-sidebar-nav-label">Bovinos</span>
                         </a>
-                        <a class="sidebar-nav-button @(currentController == "swines" ? "is-active" : string.Empty)" href="@Url.Action("Index", "Swines")">
-                            <span class="sidebar-nav-label">Suínos</span>
+                        <a class="am-sidebar-nav-button @(currentController == "swines" ? "is-active" : string.Empty)" href="@Url.Action("Index", "Swines")">
+                            <span class="am-sidebar-nav-label">Suínos</span>
                         </a>
                     </div>
                 </section>
 
-                <section class="sidebar-section">
-                    <span class="sidebar-section-label">Acesso</span>
-                    <div class="sidebar-links">
-                        <a class="sidebar-nav-button @(currentController == "account" ? "is-active" : string.Empty)" href="@Url.Action("Login", "Account")">
-                            <span class="sidebar-nav-label">Conta</span>
+                <section class="am-sidebar-section">
+                    <span class="am-sidebar-section-label">Acesso</span>
+                    <div class="am-sidebar-links">
+                        <a class="am-sidebar-nav-button @(currentController == "account" ? "is-active" : string.Empty)" href="@Url.Action("Login", "Account")">
+                            <span class="am-sidebar-nav-label">Conta</span>
                         </a>
                     </div>
                 </section>
@@ -87,7 +87,7 @@
         </aside>
 
         <!-- CONTEÚDO PRINCIPAL -->
-        <div class="sidebar-main">
+        <div class="am-sidebar-main">
             <div class="@pageContainerClass mt-4">
                 <main role="main">
                     @RenderBody()
