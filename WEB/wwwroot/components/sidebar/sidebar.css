@@ -6,7 +6,7 @@
     position: fixed;
     left: 0;
     top: var(--am-topbar-height);
-    width: calc(var(--space-12) * 6);
+    width: var(--side-bar-width);
     height: calc(100vh - var(--am-topbar-height));
     overflow-y: auto;
     padding: var(--space-4) var(--space-3);
