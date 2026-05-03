@@ -40,15 +40,16 @@
 }
 
 .am-profile-trigger {
-    border: 1px solid var(--color-topbar-border); /* border: valor "1px solid var(--color-topbar-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    background: var(--color-topbar-surface); /* background: valor "var(--color-topbar-surface)". define uma cor. */
-    color: var(--color-border); /* color: valor "var(--color-border)". define uma cor. */
+    border: 1px solid var(--color-border); /* border: valor "1px solid var(--color-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    background: var(--color-border); /* background: valor "var(--color-border)". define uma cor. */
+    color: var(--color-black); /* color: valor "var(--color-black)". define uma cor. */
 }
 
 .am-profile-trigger:hover,
 .am-profile-trigger:focus {
-    background: var(--color-topbar-surface-hover); /* background: valor "var(--color-topbar-surface-hover)". define uma cor. */
-    color: var(--color-white); /* color: valor "var(--color-white)". define uma cor. */
+    background: var(--color-border); /* background: valor "var(--color-border)". define uma cor. */
+    border: 1px solid var(--color-primary); /* border: valor "1px solid var(--color-primary)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    color: var(--color-black); /* color: valor "var(--color-black)". define uma cor. */
 }
 
 @media (max-width: 760px) {
