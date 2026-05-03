@@ -34,8 +34,8 @@
 }
 
 .am-topbar-brand-logo {
-    height: auto;
-    width: auto;
+    height: var(--topbar-brand-height);
+    width: var(--topbar-brand-width);
     display: block;
 }
 
