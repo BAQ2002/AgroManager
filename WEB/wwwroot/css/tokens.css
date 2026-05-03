@@ -45,6 +45,7 @@
     --space-7: 1.5rem; /* 24px */
     --space-8: 1.75rem; /* 28px */
     --space-12: 3rem; /* 48px */
+    --page-horizontal-margin: 1.5rem;
     /* Radius */
     --radius-sm: 0.5rem; /* 8px */
     --radius-md: 0.625rem; /* 10px */
