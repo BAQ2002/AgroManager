@@ -15,7 +15,7 @@
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     align-items: center; /* align-items: valor "center". */
     justify-content: space-between; /* justify-content: valor "space-between". */
-    width: 100vw; /* width: valor "100vw". unidades: 100vw: 1% da largura da viewport. */
+    width: 100%; /* width: valor "100vw". unidades: 100vw: 1% da largura da viewport. */
     height: var(--am-topbar-height);
     box-sizing: border-box; /* box-sizing: valor "border-box". */
     padding: 0.9rem 1.4rem; /* padding: valor "0.9rem 1.4rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html); 1.4rem: unidade relativa ao font-size do elemento raiz (html). */
