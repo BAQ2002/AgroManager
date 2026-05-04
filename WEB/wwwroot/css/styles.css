@@ -54,14 +54,14 @@ body {
 }
 
 .page-title {
-    font-size: var(--font-size-title-lg); /* font-size: valor "1.5rem". unidades: 1.5rem: unidade relativa ao font-size do elemento raiz (html). */
+    font-size: var(--font-size-title-large); /* font-size: valor "1.5rem". unidades: 1.5rem: unidade relativa ao font-size do elemento raiz (html). */
     font-weight: 600; /* font-weight: valor "600". */
     margin-bottom: var(--space-1); /* margin-bottom: valor "4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
     color: var(--color-black);
 }
 
 .page-subtitle {
-    font-size: var(--font-size-body-sm); /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
+    font-size: var(--font-size-body-small); /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
     color: var(--color-text-secondary); /* color: valor "#64748b". define uma cor. */
 }
 

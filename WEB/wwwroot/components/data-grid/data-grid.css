@@ -2,7 +2,7 @@
 
 .datagrid-wrapper {
     margin-top: 0.375rem;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-large);
     overflow: hidden;
     border: 1px solid var(--color-border);
     background: var(--color-white);
@@ -20,7 +20,7 @@
 
 .datagrid-toolbar label {
     color: var(--color-black);
-    font-size: var(--font-size-caption-sm);
+    font-size: var(--font-size-caption-small);
 }
 
 .datagrid-page-size {
@@ -28,7 +28,7 @@
     border-radius: 8px;
     padding: 0.25rem 0.5rem;
     background: var(--color-white);
-    font-size: var(--font-size-caption-sm);
+    font-size: var(--font-size-caption-small);
 }
 
 .datagrid {
@@ -36,7 +36,7 @@
     border-collapse: separate;
     border-spacing: 0;
     table-layout: fixed;
-    font-size: var(--font-size-body-sm);
+    font-size: var(--font-size-body-small);
 }
 
 .datagrid thead,
@@ -59,7 +59,7 @@
 
 .datagrid th,
 .datagrid td {
-    padding: var(--space-2-5) var(--size-icon-md);
+    padding: var(--space-2-5) var(--size-icon-medium);
 }
 
 .datagrid th {
@@ -67,7 +67,7 @@
     font-weight: 500;
     color: var(--color-white);
     border-bottom: 1px solid var(--color-border);
-    font-size: var(--font-size-caption-sm);
+    font-size: var(--font-size-caption-small);
     background: var(--color-primary);
 }
 
@@ -141,7 +141,7 @@
     border-radius: 8px;
     background: var(--color-white);
     padding: 0.25rem 0.625rem;
-    font-size: var(--font-size-caption-sm);
+    font-size: var(--font-size-caption-small);
 }
 
 .datagrid-page-button:disabled {

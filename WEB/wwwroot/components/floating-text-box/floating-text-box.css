@@ -4,13 +4,13 @@
 
 .floating-field-input {
     width: 100%;
-    height: var(--size-field-md);
+    height: var(--size-field-medium);
     border: 1px solid var(--color-border);
     background: var(--color-white);
     color: var(--color-black);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-medium);
     padding: var(--space-4) var(--space-3) var(--space-2);
-    font-size: var(--font-size-body-md);
+    font-size: var(--font-size-body-medium);
     box-shadow: none;
 }
 
@@ -43,7 +43,7 @@
     line-height: 1.1;
     transition: all 0.2s ease;
     pointer-events: none;
-    font-size: var(--font-size-body-md);
+    font-size: var(--font-size-body-medium);
 }
 
 .floating-field:focus-within .floating-field-label,

@@ -18,7 +18,7 @@
 .sidebar-title-label {
     display: block;
     margin-bottom: var(--space-3);
-    font-size: var(--font-size-caption-lg);
+    font-size: var(--font-size-caption-large);
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--color-primary);
@@ -37,7 +37,7 @@
 .sidebar-section-label {
     display: block;
     margin-bottom: var(--space-1);
-    font-size: var(--font-size-caption-sm);
+    font-size: var(--font-size-caption-small);
     font-weight: 600;
     color: var(--color-text-secondary);
 }
@@ -54,7 +54,7 @@
     align-items: center;
     gap: var(--space-2);
     border: 1px solid transparent;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-medium);
     background: transparent;
     color: var(--color-text-primary);
     text-decoration: none;
@@ -76,7 +76,7 @@
     }
 
 .sidebar-nav-label {
-    font-size: var(--font-size-body-sm);
+    font-size: var(--font-size-body-small);
     font-weight: 500;
 }
 
