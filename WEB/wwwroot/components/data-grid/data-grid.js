@@ -78,8 +78,20 @@
         function updateBodyHeight() {
             const firstRow = rowsElement.querySelector("tr");
             const rowHeight = firstRow?.getBoundingClientRect().height || 44;
-            const bodyHeight = Math.max(rowHeight * pageSize, rowHeight);
-            rowsElement.style.height = `${bodyHeight}px`;
+            const rowsPerPage = Number(pageSizeElement?.value || pageSize || config.initialPageSize || 25);
+            const safeRowsPerPage = Math.max(rowsPerPage, 1);
+            const configuredVisibleRows = Number(config.bodyHeightRows);
+            const defaultVisibleRows = Math.min(safeRowsPerPage, 10);
+            const visibleRows = Number.isFinite(configuredVisibleRows) && configuredVisibleRows > 0
+                ? configuredVisibleRows
+                : defaultVisibleRows;
+            const defaultBodyHeight = rowHeight * visibleRows;
+            const configuredBodyHeight = Number(config.bodyHeight);
+            const bodyHeight = Number.isFinite(configuredBodyHeight) && configuredBodyHeight > 0
+                ? configuredBodyHeight
+                : defaultBodyHeight;
+
+            rowsElement.style.setProperty("--datagrid-body-height", `${bodyHeight}px`);
         }
 
         function updateFooter() {
