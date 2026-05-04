@@ -1,5 +1,5 @@
 
-.am-page-shell {
+.page-shell {
     width: 100%; /* width: valor "100%". */
     max-width: var(--container-narrow); /* max-width: valor "1000px". unidades: 1000px: pixels da CSS (unidade fixa na tela). */
     margin: 0 auto; /* margin: valor "0 auto". */
@@ -8,7 +8,7 @@
     gap: var(--space-4); /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-topbar {
+.topbar {
     position: sticky; /* position: valor "sticky". */
     top: 0; /* top: valor "0". valor neutro/ausente para essa propriedade. */
     z-index: 50; /* z-index: valor "50". */
@@ -24,36 +24,36 @@
     border-bottom: 1px solid var(--color-topbar-border); /* border-bottom: valor "1px solid var(--color-topbar-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-topbar-brand {
+.topbar-brand {
     text-decoration: none; /* text-decoration: valor "none". valor neutro/ausente para essa propriedade. */
 }
 
-.am-topbar-brand {
+.topbar-brand {
     display: inline-flex;
     align-items: center;
 }
 
-.am-topbar-brand-logo {
+.topbar-brand-logo {
     height: var(--topbar-brand-height);
     width: var(--topbar-brand-width);
     display: block;
 }
 
-.am-profile-trigger {
+.profile-trigger {
     border: 1px solid var(--color-border); /* border: valor "1px solid var(--color-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     background: var(--color-border); /* background: valor "var(--color-border)". define uma cor. */
     color: var(--color-black); /* color: valor "var(--color-black)". define uma cor. */
 }
 
-.am-profile-trigger:hover,
-.am-profile-trigger:focus {
+.profile-trigger:hover,
+.profile-trigger:focus {
     background: var(--color-border); /* background: valor "var(--color-border)". define uma cor. */
     border: 1px solid var(--color-primary); /* border: valor "1px solid var(--color-primary)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     color: var(--color-black); /* color: valor "var(--color-black)". define uma cor. */
 }
 
 @media (max-width: 760px) {
-    .am-topbar {
+    .topbar {
         padding: var(--space-3) var(--space-4); /* padding: valor "var(--space-3) var(--space-4)". unidades: var(--space-3): unidade relativa ao font-size do elemento raiz (html); var(--space-4): unidade relativa ao font-size do elemento raiz (html). */
     }
 }
