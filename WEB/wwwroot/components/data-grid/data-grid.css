@@ -130,3 +130,21 @@
     text-align: left;
     font-variant-numeric: tabular-nums;
 }
+
+.datagrid-pagination-actions {
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+.datagrid-page-button {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-white);
+    padding: 0.25rem 0.625rem;
+    font-size: var(--font-size-caption-sm);
+}
+
+.datagrid-page-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

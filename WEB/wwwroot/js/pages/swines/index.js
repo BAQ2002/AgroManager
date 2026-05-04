@@ -4,6 +4,8 @@
         countSelector: "#count",
         pageSizeSelector: "#swinesPageSize",
         paginationInfoSelector: "#swinesPageInfo",
+        prevPageSelector: "#swinesPrevPage",
+        nextPageSelector: "#swinesNextPage",
         data: [],
         rowTemplate: (x) => `
       <tr>
