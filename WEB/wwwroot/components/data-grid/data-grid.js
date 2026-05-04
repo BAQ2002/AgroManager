@@ -78,7 +78,8 @@
         function updateBodyHeight() {
             const firstRow = rowsElement.querySelector("tr");
             const rowHeight = firstRow?.getBoundingClientRect().height || 44;
-            const defaultBodyHeight = rowHeight * 7;
+            const rowsPerPage = Number(pageSizeElement?.value || pageSize || config.initialPageSize || 25);
+            const defaultBodyHeight = rowHeight * Math.max(rowsPerPage, 1);
             const configuredBodyHeight = Number(config.bodyHeight);
             const bodyHeight = Number.isFinite(configuredBodyHeight) && configuredBodyHeight > 0
                 ? configuredBodyHeight
