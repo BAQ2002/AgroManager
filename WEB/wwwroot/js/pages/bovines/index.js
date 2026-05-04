@@ -9,6 +9,8 @@
         countSelector: "#count",
         pageSizeSelector: "#bovinesPageSize",
         paginationInfoSelector: "#bovinesPageInfo",
+        prevPageSelector: "#bovinesPrevPage",
+        nextPageSelector: "#bovinesNextPage",
         data: [],
         rowTemplate: (x) => `
           <tr>

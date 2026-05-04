@@ -44,6 +44,8 @@
         const countElement = config.countSelector ? document.querySelector(config.countSelector) : null;
         const pageSizeElement = config.pageSizeSelector ? document.querySelector(config.pageSizeSelector) : null;
         const pageInfoElement = config.paginationInfoSelector ? document.querySelector(config.paginationInfoSelector) : null;
+        const prevPageButton = config.prevPageSelector ? document.querySelector(config.prevPageSelector) : null;
+        const nextPageButton = config.nextPageSelector ? document.querySelector(config.nextPageSelector) : null;
 
         if (!rowsElement) {
             throw new Error("DataGrid: rowsSelector não encontrado.");
@@ -91,6 +93,17 @@
             if (pageInfoElement) {
                 pageInfoElement.innerText = `Página ${currentPage} de ${getTotalPages()}`;
             }
+
+            const isFirstPage = currentPage <= 1;
+            const isLastPage = currentPage >= getTotalPages();
+
+            if (prevPageButton) {
+                prevPageButton.disabled = isFirstPage;
+            }
+
+            if (nextPageButton) {
+                nextPageButton.disabled = isLastPage;
+            }
         }
 
         function render() {
@@ -135,6 +148,16 @@
 
         pageSizeElement?.addEventListener("change", () => {
             setPageSize(pageSizeElement.value);
+        });
+
+        prevPageButton?.addEventListener("click", () => {
+            if (currentPage <= 1) return;
+            setPage(currentPage - 1);
+        });
+
+        nextPageButton?.addEventListener("click", () => {
+            if (currentPage >= getTotalPages()) return;
+            setPage(currentPage + 1);
         });
 
         render();
