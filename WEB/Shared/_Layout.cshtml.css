@@ -35,7 +35,7 @@ a {
 }
 
 button.accept-policy {
-  font-size: var(--font-size-body-lg); /* font-size: valor "1rem". unidades: 1rem: unidade relativa ao font-size do elemento raiz (html). */
+  font-size: var(--font-size-body-large); /* font-size: valor "1rem". unidades: 1rem: unidade relativa ao font-size do elemento raiz (html). */
   line-height: inherit; /* line-height: valor "inherit". usa o valor global "inherit" da cascata. */
 }
 
