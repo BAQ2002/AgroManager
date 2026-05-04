@@ -94,6 +94,42 @@
             rowsElement.style.setProperty("--datagrid-body-height", `${bodyHeight}px`);
         }
 
+        function buildPageMarkers(totalPages) {
+            if (!pageInfoElement) return;
+
+            const maxVisiblePages = 5;
+            pageInfoElement.innerHTML = "";
+
+            const appendPageButton = (pageNumber, isActive = false) => {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = `datagrid-page-marker${isActive ? " is-active" : ""}`;
+                button.textContent = String(pageNumber);
+                button.setAttribute("aria-label", `Ir para página ${pageNumber}`);
+                button.setAttribute("aria-current", isActive ? "page" : "false");
+                button.addEventListener("click", () => setPage(pageNumber));
+                pageInfoElement.appendChild(button);
+            };
+
+            const appendEllipsisButton = () => {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "datagrid-page-marker datagrid-page-marker-ellipsis";
+                button.textContent = "...";
+                button.setAttribute("aria-label", `Ir para última página (${totalPages})`);
+                button.addEventListener("click", () => setPage(totalPages));
+                pageInfoElement.appendChild(button);
+            };
+
+            if (totalPages <= maxVisiblePages) {
+                for (let page = 1; page <= totalPages; page += 1) appendPageButton(page, page === currentPage);
+                return;
+            }
+
+            for (let page = 1; page <= maxVisiblePages; page += 1) appendPageButton(page, page === currentPage);
+            appendEllipsisButton();
+        }
+
         function updateFooter() {
             const total = allRows.length;
             const visible = getVisibleRows().length;
@@ -102,9 +138,7 @@
                 countElement.innerText = `Mostrando ${visible} de ${total} registro(s)`;
             }
 
-            if (pageInfoElement) {
-                pageInfoElement.innerText = `Página ${currentPage} de ${getTotalPages()}`;
-            }
+            buildPageMarkers(getTotalPages());
 
             const isFirstPage = currentPage <= 1;
             const isLastPage = currentPage >= getTotalPages();
