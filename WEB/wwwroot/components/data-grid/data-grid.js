@@ -79,7 +79,13 @@
             const firstRow = rowsElement.querySelector("tr");
             const rowHeight = firstRow?.getBoundingClientRect().height || 44;
             const rowsPerPage = Number(pageSizeElement?.value || pageSize || config.initialPageSize || 25);
-            const defaultBodyHeight = rowHeight * Math.max(rowsPerPage, 1);
+            const safeRowsPerPage = Math.max(rowsPerPage, 1);
+            const configuredVisibleRows = Number(config.bodyHeightRows);
+            const defaultVisibleRows = Math.min(safeRowsPerPage, 10);
+            const visibleRows = Number.isFinite(configuredVisibleRows) && configuredVisibleRows > 0
+                ? configuredVisibleRows
+                : defaultVisibleRows;
+            const defaultBodyHeight = rowHeight * visibleRows;
             const configuredBodyHeight = Number(config.bodyHeight);
             const bodyHeight = Number.isFinite(configuredBodyHeight) && configuredBodyHeight > 0
                 ? configuredBodyHeight
