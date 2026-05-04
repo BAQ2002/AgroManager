@@ -1,8 +1,8 @@
-.am-app-shell {
+.app-shell {
     width: 100%;
 }
 
-.am-sidebar {
+.sidebar {
     position: fixed;
     left: 0;
     top: var(--am-topbar-height);
@@ -15,7 +15,7 @@
     z-index: 20;
 }
 
-.am-sidebar-title-label {
+.sidebar-title-label {
     display: block;
     margin-bottom: var(--space-3);
     font-size: var(--font-size-caption-lg);
@@ -24,17 +24,17 @@
     color: var(--color-primary);
 }
 
-.am-sidebar-section {
+.sidebar-section {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
 }
 
-    .am-sidebar-section + .am-sidebar-section {
+    .sidebar-section + .sidebar-section {
         margin-top: var(--space-4);
     }
 
-.am-sidebar-section-label {
+.sidebar-section-label {
     display: block;
     margin-bottom: var(--space-1);
     font-size: var(--font-size-caption-sm);
@@ -42,13 +42,13 @@
     color: var(--color-text-secondary);
 }
 
-.am-sidebar-links {
+.sidebar-links {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
 }
 
-.am-sidebar-nav-button {
+.sidebar-nav-button {
     width: 100%;
     display: inline-flex;
     align-items: center;
@@ -62,31 +62,31 @@
     transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
-    .am-sidebar-nav-button:hover,
-    .am-sidebar-nav-button:focus-visible {
+    .sidebar-nav-button:hover,
+    .sidebar-nav-button:focus-visible {
         background: var(--color-primary-soft);
         border-color: var(--color-border);
         color: var(--color-primary);
     }
 
-    .am-sidebar-nav-button.is-active {
+    .sidebar-nav-button.is-active {
         background: var(--color-primary-soft);
         border-color: var(--color-primary);
         color: var(--color-primary);
     }
 
-.am-sidebar-nav-label {
+.sidebar-nav-label {
     font-size: var(--font-size-body-sm);
     font-weight: 500;
 }
 
-.am-sidebar-main {
+.sidebar-main {
     margin-left: var(--side-bar-width);
     min-width: 0;
 }
 
 @media (max-width: 960px) {
-    .am-sidebar {
+    .sidebar {
         position: static;
         width: auto;
         height: auto;
@@ -94,7 +94,7 @@
         border-bottom: 1px solid var(--color-border);
     }
 
-    .am-sidebar-main {
+    .sidebar-main {
         margin-left: 0;
     }
 }

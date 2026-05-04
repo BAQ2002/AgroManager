@@ -12,7 +12,7 @@ body {
     color: var(--color-text-primary); /* color: valor "var(--color-text-primary)". define uma cor. */
 }
 
-.am-page-container {
+.page-container {
     width: min(var(--container-wide), calc(100% - var(--space-7))); /* width: valor "min(1760px, calc(100% - 24px))". unidades: 1760px: pixels da CSS (unidade fixa na tela); 24px: pixels da CSS (unidade fixa na tela). */
     margin-left: auto; /* margin-left: valor "auto". */
     margin-right: auto; /* margin-right: valor "auto". */
@@ -20,13 +20,13 @@ body {
     padding-right: var(--space-3); /* padding-right: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-page-container-wide {
+.page-container-wide {
     width: min(var(--container-ultra), calc(100% - var(--space-4))); /* width: valor "min(1900px, calc(100% - 16px))". unidades: 1900px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
     padding-left: var(--space-2); /* padding-left: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
     padding-right: var(--space-2); /* padding-right: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-page-container-full {
+.page-container-full {
     width: 100%; /* width: valor "100%". */
     max-width: none; /* max-width: valor "none". valor neutro/ausente para essa propriedade. */
     padding-left: var(--space-3); /* padding-left: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
@@ -105,20 +105,20 @@ body {
 }
 
 /* Shared action/form utilities */
-.am-inline-actions {
+.inline-actions {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     gap: var(--space-2-5); /* gap: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     align-items: center; /* align-items: valor "center". */
     margin: 0 0 var(--space-4); /* margin: valor "0 0 16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-form-grid {
+.form-grid {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     flex-direction: column; /* flex-direction: valor "column". */
     gap: var(--space-3); /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-form-columns {
+.form-columns {
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
     grid-template-columns: 1fr 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
     gap: var(--space-3); /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
@@ -129,7 +129,7 @@ body {
     color: var(--color-danger-soft); /* color: valor "var(--color-danger-soft)". define uma cor. */
 }
 
-.am-form-actions {
+.form-actions {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     gap: var(--space-2-5); /* gap: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     justify-content: flex-end; /* justify-content: valor "flex-end". */
@@ -137,7 +137,7 @@ body {
 }
 
 @media (max-width: 860px) {
-    .am-form-columns {
+    .form-columns {
         grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
     }
 }
