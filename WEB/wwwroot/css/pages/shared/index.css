@@ -14,7 +14,7 @@
         margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
         background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%); /* background: valor "linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%)". define um gradiente como fundo. unidades: 180deg: graus de rotação/ângulo. */
         color: var(--color-text-primary); /* color: valor "var(--color-text-primary)". */
-        padding-bottom: 2rem; /* padding-bottom: valor "2rem". unidades: 2rem: unidade relativa ao font-size do elemento raiz (html). */
+        padding-bottom: 0; /* padding-bottom: valor "2rem". unidades: 2rem: unidade relativa ao font-size do elemento raiz (html). */
         font-family: "Inter", "Segoe UI", sans-serif; /* font-family: valor ""Inter", "Segoe UI", sans-serif". */
     }
 
