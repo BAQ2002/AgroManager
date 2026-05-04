@@ -50,10 +50,10 @@ ViewData["Title"] = "Swines";
     <footer class="footer-info">
         <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
         <div class="datagrid-pagination-actions" aria-label="Paginação">
-            <button type="button" class="datagrid-page-button" id="swinesPrevPage">Anterior</button>
-            <button type="button" class="datagrid-page-button" id="swinesNextPage">Próxima</button>
+            <button type="button" class="datagrid-page-button" id="swinesPrevPage" aria-label="Página anterior">‹</button>
+            <div class="datagrid-page-markers" id="swinesPageInfo" aria-label="Páginas"></div>
+            <button type="button" class="datagrid-page-button" id="swinesNextPage" aria-label="Próxima página">›</button>
         </div>
-        <span id="swinesPageInfo">Página 1 de 1</span>
         <span id="count">Mostrando 0 de 0 registro(s)</span>
     </footer>
 </div>

@@ -133,18 +133,58 @@
 
 .datagrid-pagination-actions {
     display: inline-flex;
+    align-items: center;
     gap: 0.5rem;
+    justify-content: center;
+    width: 100%;
 }
 
 .datagrid-page-button {
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    background: var(--color-white);
-    padding: 0.25rem 0.625rem;
-    font-size: var(--font-size-caption-small);
+    border: 0;
+    background: transparent;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-black);
+    font-size: var(--font-size-body-small);
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .datagrid-page-button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.datagrid-page-markers {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.datagrid-page-marker {
+    border: 0;
+    border-radius: 6px;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--color-primary);
+    font-size: var(--font-size-caption-small);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.datagrid-page-marker.is-active {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.datagrid-page-marker-ellipsis {
+    color: var(--color-black);
 }
