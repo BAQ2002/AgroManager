@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BLL.Common.Exceptions;
+using MODEL;
 
-namespace BLL.Batchs
+namespace BLL.Batchs;
+
+public interface IBovinePastureBatchService : IBatchService<BovinePastureBatch>
 {
-    internal class BovinePastureBatchService
+}
+
+public sealed class BovinePastureBatchService : BatchService<BovinePastureBatch, IBovinePastureBatchRepository>, IBovinePastureBatchService
+{
+    public BovinePastureBatchService(IBovinePastureBatchRepository repository)
+        : base(repository)
     {
+    }
+
+    protected override void ValidateSpecificRules(BovinePastureBatch entity)
+    {
+        if (entity.PastureId == Guid.Empty)
+            throw new BusinessRuleException("A pastagem do lote deve ser informada.");
     }
 }
