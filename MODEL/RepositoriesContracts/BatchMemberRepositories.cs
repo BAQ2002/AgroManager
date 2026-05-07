@@ -13,7 +13,6 @@ namespace MODEL
         Task DeleteAsync(TBatchMember entity, CancellationToken ct = default);
         Task<TBatchMember?> GetByIdAsync(Guid id, CancellationToken ct = default);
         Task<TBatchMember?> GetCurrentByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
-        Task<TBatchMember?> GetCurrentByBatchIdAsync(Guid batchId, CancellationToken ct = default);
         Task<IReadOnlyList<TBatchMember>> GetHistoryByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
         Task<IReadOnlyList<TBatchMember>> GetHistoryByBatchIdAsync(Guid batchId, CancellationToken ct = default);
         Task<IReadOnlyList<TBatchMember>> ListActiveByBatchIdAsync(Guid batchId, CancellationToken ct = default);

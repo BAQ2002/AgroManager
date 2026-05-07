@@ -46,17 +46,7 @@ namespace INFRA
                 .ThenByDescending(bA => bA.BatchEntryDate)
                 .FirstOrDefaultAsync(ct);
         }
-        public async Task<SwineBeefMember?> GetCurrentByBatchIdAsync(Guid batchId, CancellationToken ct = default)
-        {
-            await using var db = await _factory.CreateDbContextAsync(ct);
-            return await db.SwineBeefMembers
-                .AsNoTracking()
-                .Where(bA => bA.BatchId == batchId)
-                .OrderBy(bA => bA.BatchExitDate.HasValue)
-                .ThenByDescending(bA => bA.BatchEntryDate)
-                .FirstOrDefaultAsync(ct);
-        }
-
+    
         public async Task<IReadOnlyList<SwineBeefMember>> GetHistoryByAnimalIdAsync(Guid animalId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
