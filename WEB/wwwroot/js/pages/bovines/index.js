@@ -140,7 +140,33 @@
             return true;
         });
 
-        grid.setData(filtered);
+        grid.setData(sortData(filtered));
+    }
+
+    // Ordena os dados filtrados conforme seletores da barra da tabela.
+    function sortData(items) {
+        const sortBy = document.getElementById("bovinesSortBy")?.value ?? "name";
+        const direction = document.getElementById("bovinesSortDirection")?.value ?? "asc";
+        const factor = direction === "desc" ? -1 : 1;
+
+        return [...items].sort((a, b) => {
+            let left = "";
+            let right = "";
+
+            if (sortBy === "birthDate") {
+                left = toDate(a.birthDate)?.getTime() ?? Number.MIN_SAFE_INTEGER;
+                right = toDate(b.birthDate)?.getTime() ?? Number.MIN_SAFE_INTEGER;
+            } else if (sortBy === "age") {
+                left = getAgeByUnit(a);
+                right = getAgeByUnit(b);
+            } else {
+                left = (a[sortBy] ?? "").toString().toLowerCase();
+                right = (b[sortBy] ?? "").toString().toLowerCase();
+            }
+
+            if (left === right) return 0;
+            return left > right ? factor : -factor;
+        });
     }
 
     // Conecta eventos dos filtros e da ação de limpar filtros.
@@ -166,6 +192,11 @@
                     applyFilters();
                 });
             });
+
+        ["#bovinesSortBy", "#bovinesSortDirection"].forEach((selector) => {
+            const element = document.querySelector(selector);
+            element?.addEventListener("change", applyFilters);
+        });
 
         window.EnumCheckBox?.init();
         document.querySelectorAll(".enum-check-box").forEach((selectElement) => {
