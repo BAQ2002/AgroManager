@@ -178,7 +178,9 @@
 
         clearFiltersButton?.addEventListener("click", () => {
             document.getElementById("filterName").value = "";
+            document.getElementById("filterBirthDateMin")._flatpickr?.clear();
             document.getElementById("filterBirthDateMin").value = "";
+            document.getElementById("filterBirthDateMax")._flatpickr?.clear();
             document.getElementById("filterBirthDateMax").value = "";
             document.getElementById("filterAgeMin").value = "";
             document.getElementById("filterAgeMax").value = "";
