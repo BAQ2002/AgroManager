@@ -9,7 +9,7 @@
 }
 
 .form-container-title {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: var(--space-2);
     padding: 0rem;
@@ -21,11 +21,16 @@
 }
 
 .form-container-label {
+    display: inline-flex;
+    align-items: center;
     font-size: 1.25rem;
     font-weight: 600;
+    line-height: 1;
 }
 
 .form-container-title-icon {
+    display: block;
+    flex: 0 0 auto;
     height: 1.5rem; 
     width: 1.5rem; 
 }
@@ -68,4 +73,3 @@
         grid-template-columns: 1fr;
     }
 }
-
