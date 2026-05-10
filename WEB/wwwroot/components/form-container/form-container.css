@@ -9,10 +9,15 @@
 }
 
 .form-container-title {
-    display:inline;
-    align-content: center;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     padding: 0rem;
-    
+}
+
+.form-container-title > * {
+    margin: 0;
+    vertical-align: middle;
 }
 
 .form-container-label {
