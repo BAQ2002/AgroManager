@@ -66,6 +66,7 @@
     --am-topbar-height: 4rem;
     --topbar-brand-height: 3rem;
     --topbar-brand-width: 13.7rem;
+    --filters-container-width: 22.5rem; /* 360px */
     /* Containers */
     --container-narrow: 62.5rem; /* 1000px */
     --container-wide: 110rem; /* 1760px */
