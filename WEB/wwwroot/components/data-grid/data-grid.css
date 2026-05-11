@@ -59,7 +59,7 @@
 
 .datagrid th,
 .datagrid td {
-    padding: var(--space-2-5) var(--size-icon-medium);
+    padding: var(--space-075) var(--size-icon-medium);
 }
 
 .datagrid th {

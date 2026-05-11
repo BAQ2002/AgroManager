@@ -57,6 +57,6 @@
 
         .hero {
             margin-top: 2.2rem; /* margin-top: valor "2.2rem". unidades: 2.2rem: unidade relativa ao font-size do elemento raiz (html). */
-            padding: var(--space-7); /* padding: valor "var(--space-7)". unidades: var(--space-7): unidade relativa ao font-size do elemento raiz (html). */
+            padding: var(--space-150); /* padding: valor "var(--space-150)". unidades: var(--space-150): unidade relativa ao font-size do elemento raiz (html). */
         }
     }

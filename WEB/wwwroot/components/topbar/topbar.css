@@ -5,7 +5,7 @@
     margin: 0 auto; /* margin: valor "0 auto". */
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     flex-direction: column; /* flex-direction: valor "column". */
-    gap: var(--space-4); /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    gap: var(--space-100); /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
 }
 
 .topbar {
@@ -54,6 +54,6 @@
 
 @media (max-width: 760px) {
     .topbar {
-        padding: var(--space-3) var(--space-4); /* padding: valor "var(--space-3) var(--space-4)". unidades: var(--space-3): unidade relativa ao font-size do elemento raiz (html); var(--space-4): unidade relativa ao font-size do elemento raiz (html). */
+        padding: var(--space-075) var(--space-100); /* padding: valor "var(--space-075) var(--space-100)". unidades: var(--space-075): unidade relativa ao font-size do elemento raiz (html); var(--space-100): unidade relativa ao font-size do elemento raiz (html). */
     }
 }
