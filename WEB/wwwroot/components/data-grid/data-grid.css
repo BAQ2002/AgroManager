@@ -81,12 +81,8 @@
     border-top: 1px solid transparent;
 }
 
-.datagrid tbody tr:nth-child(odd) td {
+.datagrid tbody tr td {
     background-color: var(--color-white);
-}
-
-.datagrid tbody tr:nth-child(even) td {
-    background-color: var(--color-surface-alt);
 }
 
 .datagrid tbody tr:hover {
