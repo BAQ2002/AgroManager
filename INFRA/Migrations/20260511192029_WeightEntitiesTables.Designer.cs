@@ -3,6 +3,7 @@ using System;
 using INFRA;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace INFRA.Migrations
 {
     [DbContext(typeof(AgroManagerDbContext))]
-    partial class AgroManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260511192029_WeightEntitiesTables")]
+    partial class WeightEntitiesTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
