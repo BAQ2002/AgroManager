@@ -23,6 +23,12 @@ public class AgroManagerDbContext : DbContext
     public DbSet<MilkEntity> MilkRecords => Set<MilkEntity>();
     public DbSet<PastureEntity> Pastures => Set<PastureEntity>();
 
+    #region Weight Entities -------------------------------------------------------- 
+    public DbSet<BovineWeight> BovineWeightRecords => Set<BovineWeight>();
+    public DbSet<SwineWeight> SwineWeightRecords => Set<SwineWeight>();
+    #endregion--------------------------------------------------------------------------
+
+
     #region Batch Entities -------------------------------------------------------- 
 
     public DbSet<BovinePastureBatch> BovinePastureBatchs => Set<BovinePastureBatch>();
