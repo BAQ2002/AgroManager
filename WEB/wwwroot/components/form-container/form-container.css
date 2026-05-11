@@ -1,6 +1,6 @@
 .form-container {
     display: grid;
-    gap: var(--space-3);
+    gap: var(--space-075);
    
     border-radius: var(--radius-large); /* Arrendodamento da quinas da borda (14px). */
     overflow: visible; /* Permite que elementos internos ultrapassem o limite do form-container (util para dropdowns). */
@@ -11,7 +11,7 @@
 .form-container-title {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: var(--space-050);
     padding: 0rem;
 }
 
@@ -38,28 +38,28 @@
 /* Define uma linha de um form-container fracionada para 1 elementos. */
 .form-one-columns {
     display: grid;
-    gap: var(--space-3);
+    gap: var(--space-075);
     grid-template-columns: 1fr;
 }
 
 /* Define uma linha de um form-container fracionada para 2 elementos. */
 .form-two-columns {
     display: grid;
-    gap: var(--space-3);
+    gap: var(--space-075);
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 /* Define uma linha de um form-container fracionada para 3 elementos. */
 .form-three-columns {
     display: grid;
-    gap: var(--space-3);
+    gap: var(--space-075);
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 /* Define uma linha de um form-container fracionada para 4 elementos. */
 .form-four-columns {
     display: grid;
-    gap: var(--space-3);
+    gap: var(--space-075);
     grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 

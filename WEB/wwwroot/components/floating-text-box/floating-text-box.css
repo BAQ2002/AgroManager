@@ -9,7 +9,7 @@
     background: var(--color-white);
     color: var(--color-black);
     border-radius: var(--radius-medium);
-    padding: var(--space-4) var(--space-3) var(--space-2);
+    padding: var(--space-100) var(--space-075) var(--space-050);
     font-size: var(--font-size-body-medium);
     box-shadow: none;
 }
@@ -38,7 +38,7 @@
     top: 50%;
     transform: translateY(-50%);
     background: var(--color-white);
-    padding: 0 var(--space-1);
+    padding: 0 var(--space-025);
     color: var(--color-black);
     line-height: 1.1;
     transition: all 0.2s ease;
