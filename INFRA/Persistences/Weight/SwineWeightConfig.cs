@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace INFRA.Persistences.Weight
 {
-    internal class SwineWeightConfig
+    internal class SwineWeightConfig : IEntityTypeConfiguration<SwineWeight>
     {
         public void Configure(EntityTypeBuilder<SwineWeight> entityBuilder)
         {
