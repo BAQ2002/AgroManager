@@ -8,14 +8,14 @@ body {
 
 .bovines-page-header,
 .bovines-content-layout {
-    width: min(var(--container-wide), calc(100% - var(--space-4))); /* width: valor "min(1760px, calc(100% - 16px))". unidades: 1760px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
+    width: min(var(--container-wide), calc(100% - var(--space-100))); /* width: valor "min(1760px, calc(100% - 16px))". unidades: 1760px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
     margin-inline: auto; /* margin-inline: valor "auto". centraliza horizontalmente no eixo inline. */
 }
 
 .bovines-content-layout {
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
     grid-template-columns: minmax(360px, 360px) minmax(0, 1fr); /* grid-template-columns: valor "minmax(360px, 440px) minmax(0, 1fr)". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: var(--space-4); /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    gap: var(--space-100); /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
     align-items: start; /* align-items: valor "start". */
 }
 

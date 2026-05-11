@@ -32,19 +32,19 @@
 
 .button-with-icon,
 .primary-button {
-    gap: var(--space-2);
+    gap: var(--space-050);
     font-size: var(--font-size-button-small);
     font-weight: 500;
     text-transform: none;
     letter-spacing: normal;
-    padding: var(--space-1) var(--space-3);
+    padding: var(--space-025) var(--space-075);
     border-radius: var(--radius-pill);
 }
 
 .button-with-icon svg,
 .primary-button svg {
-    width: var(--space-5);
-    height: var(--space-5);
+    width: var(--space-125);
+    height: var(--space-125);
     fill: none;
     stroke: currentColor;
     stroke-width: 1.8;

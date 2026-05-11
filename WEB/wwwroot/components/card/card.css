@@ -3,7 +3,7 @@
 .cards-grid {
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
     grid-template-columns: repeat(3, minmax(0, 1fr)); /* grid-template-columns: valor "repeat(3, minmax(0, 1fr))". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: var(--space-4); /* gap: valor "var(--space-4)". unidades: var(--space-4): unidade relativa ao font-size do elemento raiz (html). */
+    gap: var(--space-100); /* gap: valor "var(--space-100)". unidades: var(--space-100): unidade relativa ao font-size do elemento raiz (html). */
 }
 
 .feature-card {
