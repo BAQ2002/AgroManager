@@ -169,32 +169,35 @@
         <div class="bovines-records-column">
         <section class="datagrid-wrapper box-shadow-light">
                 <div class="datagrid-header-container">
-                    <div class="datagrid-toolbar">
-                    <label for="bovinesPageSize">Registros por página</label>
-                    <select class="datagrid-page-size" id="bovinesPageSize">
-                        <option value="10">10</option>
-                        <option value="15" selected>15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                    </select>
-                    <label for="bovinesSortBy">Ordenar por</label>
-                    <select class="datagrid-page-size" id="bovinesSortBy">
-                        <option value="name">Nome</option>
-                        <option value="gender">Sexo</option>
-                        <option value="origin">Origem</option>
-                        <option value="birthDate">Nascimento</option>
-                        <option value="age">Idade</option>
-                        <option value="maritalStatus">Estado</option>
-                        <option value="cattleType">Tipo</option>
-                    </select>
-                    <select class="datagrid-page-size" id="bovinesSortDirection" aria-label="Direção da ordenação">
-                        <option value="asc" selected>Crescente</option>
-                        <option value="desc">Decrescente</option>
-                    </select>
-                    </div>
-
                     <table class="datagrid">
                         <thead>
+                            <tr class="datagrid-toolbar-row">
+                                <th colspan="8">
+                                    <div class="datagrid-toolbar">
+                                        <label for="bovinesPageSize">Registros por página</label>
+                                        <select class="datagrid-page-size" id="bovinesPageSize">
+                                            <option value="10">10</option>
+                                            <option value="15" selected>15</option>
+                                            <option value="20">20</option>
+                                            <option value="25">25</option>
+                                        </select>
+                                        <label for="bovinesSortBy">Ordenar por</label>
+                                        <select class="datagrid-page-size" id="bovinesSortBy">
+                                            <option value="name">Nome</option>
+                                            <option value="gender">Sexo</option>
+                                            <option value="origin">Origem</option>
+                                            <option value="birthDate">Nascimento</option>
+                                            <option value="age">Idade</option>
+                                            <option value="maritalStatus">Estado</option>
+                                            <option value="cattleType">Tipo</option>
+                                        </select>
+                                        <select class="datagrid-page-size" id="bovinesSortDirection" aria-label="Direção da ordenação">
+                                            <option value="asc" selected>Crescente</option>
+                                            <option value="desc">Decrescente</option>
+                                        </select>
+                                    </div>
+                                </th>
+                            </tr>
                             <tr>
                                 <th>Nome</th>
                                 <th>Sexo</th>

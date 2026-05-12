@@ -9,14 +9,13 @@
 }
 
 .datagrid-toolbar {
-    border-radius: var(--radius-large) var(--radius-large) 0 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 0.875rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--color-white) 35%, transparent);
-    background: color-mix(in srgb, var(--color-primary) 90%, var(--color-white));
+    padding: 0;
+    border-bottom: 0;
+    background: transparent;
 }
 
 .datagrid-toolbar label {
@@ -75,6 +74,12 @@
     border-bottom: 1px solid var(--color-border);
     font-size: var(--font-size-caption-small);
     background: var(--color-primary);
+}
+
+.datagrid-toolbar-row th {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-white) 35%, transparent);
 }
 
 .datagrid tbody tr {
