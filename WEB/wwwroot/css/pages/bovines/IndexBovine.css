@@ -12,6 +12,11 @@ body {
     margin-inline: auto; /* margin-inline: valor "auto". centraliza horizontalmente no eixo inline. */
 }
 
+/* Alinha topo do DataGrid com o painel de filtros (8px de offset em ambos). */
+.bovines-records-column .datagrid-wrapper {
+    margin-top: 0.5rem;
+}
+
 .bovines-content-layout {
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
     grid-template-columns: minmax(360px, 360px) minmax(0, 1fr); /* grid-template-columns: valor "minmax(360px, 440px) minmax(0, 1fr)". unidades: 1fr: fração do espaço disponível no grid. */
