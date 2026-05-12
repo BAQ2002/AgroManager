@@ -168,7 +168,8 @@
 
         <div class="bovines-records-column">
             <section class="datagrid-wrapper">
-                <div class="datagrid-toolbar">
+                <div class="datagrid-header-container">
+                    <div class="datagrid-toolbar">
                     <label for="bovinesPageSize">Registros por página</label>
                     <select class="datagrid-page-size" id="bovinesPageSize">
                         <option value="10">10</option>
@@ -190,9 +191,9 @@
                         <option value="asc" selected>Crescente</option>
                         <option value="desc">Decrescente</option>
                     </select>
-                </div>
+                    </div>
 
-                <table class="datagrid">
+                    <table class="datagrid">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -218,6 +219,7 @@
                         </thead>
                         <tbody id="rows"></tbody>
                     </table>
+                </div>
             </section>
 
             <footer class="footer-info">

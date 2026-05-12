@@ -9,26 +9,32 @@
 }
 
 .datagrid-toolbar {
+    border-radius: var(--radius-large) var(--radius-large) 0 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 0.875rem;
-    border-bottom: 1px solid var(--color-border);
-    background: color-mix(in srgb, var(--color-surface-alt) 45%, var(--color-white));
+    border-bottom: 1px solid color-mix(in srgb, var(--color-white) 35%, transparent);
+    background: color-mix(in srgb, var(--color-primary) 90%, var(--color-white));
 }
 
 .datagrid-toolbar label {
-    color: var(--color-black);
+    color: var(--color-white);
     font-size: var(--font-size-caption-small);
 }
 
 .datagrid-page-size {
-    border: 1px solid var(--color-border);
+    border: 1px solid color-mix(in srgb, var(--color-white) 30%, transparent);
     border-radius: 8px;
     padding: 0.25rem 0.5rem;
-    background: var(--color-white);
+    background: color-mix(in srgb, var(--color-primary) 75%, var(--color-white));
+    color: var(--color-white);
     font-size: var(--font-size-caption-small);
+}
+
+.datagrid-header-container {
+    background: var(--color-primary);
 }
 
 .datagrid {
