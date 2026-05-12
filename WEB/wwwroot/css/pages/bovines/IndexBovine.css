@@ -20,7 +20,7 @@ body {
 .bovines-content-layout {
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
     grid-template-columns: minmax(360px, 360px) minmax(0, 1fr); /* grid-template-columns: valor "minmax(360px, 440px) minmax(0, 1fr)". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: var(--space-100); /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    gap: var(--space-150); /* gap: valor "24px". unidades: 24px: pixels da CSS (unidade fixa na tela). */
     align-items: start; /* align-items: valor "start". */
 }
 
