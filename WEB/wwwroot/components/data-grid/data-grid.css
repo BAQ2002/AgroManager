@@ -19,7 +19,7 @@
 }
 
 .datagrid-toolbar label {
-    color: var(--color-white);
+    color: var(--color-black);
     font-size: var(--font-size-caption-small);
 }
 
@@ -67,14 +67,14 @@
     padding: var(--space-075) var(--size-icon-medium);
 }
 
-.datagrid th {
-    text-align: left;
-    font-weight: 500;
-    color: var(--color-white);
-    border-bottom: 1px solid var(--color-border);
-    font-size: var(--font-size-caption-small);
-    background: var(--color-primary);
-}
+    .datagrid th {
+        text-align: left;
+        font-weight: 500;
+        color: var(--color-black);
+        border-bottom: 1px solid var(--color-border);
+        font-size: var(--font-size-caption-small);
+        background: var(--color-white);
+    }
 
 .datagrid-toolbar-row th {
     padding-top: 0.75rem;

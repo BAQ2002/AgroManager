@@ -165,65 +165,62 @@
         </button>
        
     </section>
+        
+    <div class="bovines-records-column">
+    <section class="datagrid-wrapper box-shadow-light">
 
-        <div class="bovines-records-column">
-        <section class="datagrid-wrapper box-shadow-light">
-                <div class="datagrid-header-container">
-                    <table class="datagrid">
-                        <thead>
-                            <tr class="datagrid-toolbar-row">
-                                <th colspan="8">
-                                    <div class="datagrid-toolbar">
-                                        <label for="bovinesPageSize">Registros por página</label>
-                                        <select class="datagrid-page-size" id="bovinesPageSize">
-                                            <option value="10">10</option>
-                                            <option value="15" selected>15</option>
-                                            <option value="20">20</option>
-                                            <option value="25">25</option>
-                                        </select>
-                                        <label for="bovinesSortBy">Ordenar por</label>
-                                        <select class="datagrid-page-size" id="bovinesSortBy">
-                                            <option value="name">Nome</option>
-                                            <option value="gender">Sexo</option>
-                                            <option value="origin">Origem</option>
-                                            <option value="birthDate">Nascimento</option>
-                                            <option value="age">Idade</option>
-                                            <option value="maritalStatus">Estado</option>
-                                            <option value="cattleType">Tipo</option>
-                                        </select>
-                                        <select class="datagrid-page-size" id="bovinesSortDirection" aria-label="Direção da ordenação">
-                                            <option value="asc" selected>Crescente</option>
-                                            <option value="desc">Decrescente</option>
-                                        </select>
-                                    </div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Sexo</th>
-                                <th>Origem</th>
-                                <th>Nascimento</th>
-                                <th>
+            <div class ="datagrid-toolbar">
+                <label for="bovinesPageSize">Registros por página</label>
+                <select class="datagrid-page-size" id="bovinesPageSize">
+                    <option value="10">10</option>
+                    <option value="15" selected>15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select>
 
-                                <div class="enum-combo-box" id="ageUnitSelect">
-                                    <span style="color: var(--color-white)"> Idade  (<span id="ageUnitLabel">anos</span>)</span>
-                                    <div class="enum-combo-box-menu" id="ageUnitMenu">
-                                        <button class="enum-combo-box-option active" type="button" data-unit="years">Anos</button>
-                                        <button class="enum-combo-box-option" type="button" data-unit="months">Meses</button>
-                                        <button class="enum-combo-box-option" type="button" data-unit="days">Dias</button>
-                                    </div>
-                                </div>
+                <label for="bovinesSortBy">Ordenar por</label>
+                <select class="datagrid-page-size" id="bovinesSortBy">
+                    <option value="name">Nome</option>
+                    <option value="gender">Sexo</option>
+                    <option value="origin">Origem</option>
+                    <option value="birthDate">Nascimento</option>
+                    <option value="age">Idade</option>
+                    <option value="maritalStatus">Estado</option>
+                    <option value="cattleType">Tipo</option>
+                </select>
 
-                                </th>
-                                <th>Estado</th>
-                                <th>Tipo</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody id="rows"></tbody>
-                    </table>
-                </div>
-            </section>
+                <select class="datagrid-page-size" id="bovinesSortDirection" aria-label="Direção da ordenação">
+                    <option value="asc" selected>Crescente</option>
+                    <option value="desc">Decrescente</option>
+                </select>
+        </div>
+        <table class="datagrid">
+            
+            <thead>
+                 <tr>                
+                     <th>Nome</th>
+                     <th>Sexo</th>
+                     <th>Origem</th>
+                     <th>Nascimento</th>
+                     <th>
+                         <div class="enum-combo-box" id="ageUnitSelect">
+                             <span style="color: var(--color-white)"> Idade  (<span id="ageUnitLabel">anos</span>)</span>
+                             <div class="enum-combo-box-menu" id="ageUnitMenu">
+                                 <button class="enum-combo-box-option active" type="button" data-unit="years">Anos</button>
+                                 <button class="enum-combo-box-option" type="button" data-unit="months">Meses</button>
+                                 <button class="enum-combo-box-option" type="button" data-unit="days">Dias</button>
+                             </div>
+                         </div>
+
+                     </th>
+                     <th>Estado</th>
+                     <th>Tipo</th>
+                     <th>Ações</th>
+                 </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+        </table>
+     </section>
 
             <footer class="footer-info">
                 <span>Fonte dos dados: Postgres (Docker) via EF Core.</span>
