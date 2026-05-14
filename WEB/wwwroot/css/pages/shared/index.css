@@ -6,7 +6,8 @@
     --text-primary: var(--color-text-primary); /* --text-primary: valor "var(--color-text-primary)". define uma cor. */
     --text-muted: var(--color-text-secondary); /* --text-muted: valor "var(--color-text-secondary)". define uma cor. */
     --accent: var(--color-primary); /* --accent: valor "var(--color-primary)". define uma cor. */
-    --accent-soft: color-mix(in srgb, var(--color-primary) 12%, var(--color-white)); /* --accent-soft: valor "color-mix(in srgb, var(--color-primary) 12%, var(--color-white))". define uma cor. */
+    --accent-soft: color-mix(in srgb, var(--color-primary) 12%, var(--color-white));
+    --swines-soft: color-mix(in srgb, var(--color-swines) 12%, var(--color-white)); /* --accent-soft: valor "color-mix(in srgb, var(--color-primary) 12%, var(--color-white))". define uma cor. */
 }
 
     body {
