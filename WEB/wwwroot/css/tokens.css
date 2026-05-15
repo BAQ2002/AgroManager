@@ -21,8 +21,12 @@
     /* Module Color */
     --color-bovines: #296436;
     --color-bovines-soft: #E5ECE7;
+    /*--------------------------*/
     --color-swines: #FF7F7F;
     --color-swines-soft: color-mix(in srgb, var(--color-swines) 12%, var(--color-white));
+    /*--------------------------*/
+    --color-batches: #3B82F6;
+    --color-batches-soft: color-mix(in srgb, var(--color-batches) 12%, var(--color-white));
     /* Brand */
     --color-primary: #296436;
     --color-primary-soft: #E5E5E5;

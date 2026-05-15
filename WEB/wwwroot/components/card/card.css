@@ -31,13 +31,20 @@
     display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
     align-items: center; /* align-items: valor "center". */
     justify-content: center; /* justify-content: valor "center". */
-    background: var(--color-background-secondary); /* background: valor "var(--accent-soft)". */
+    background: var(--accent-soft); /* background: valor "var(--accent-soft)". */
     color: var(--color-primary); /* color: valor "var(--color-primary)". define uma cor. */
     margin-bottom: 0.9rem; /* margin-bottom: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
+ .feature-icon:bovines-color {
+    background: var(--color-bovines-soft);
+    color: var(--color-bovines-soft);
+}
 
-
+swines-color {
+    background: var(--color-swines-soft); 
+    color: var(--color-swines-soft); 
+}
 
 .feature-icon-svg {
     width: 2.8rem;
