@@ -52,6 +52,11 @@
     margin-bottom: .45rem; /* margin-bottom: valor ".45rem". unidades: .45rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
+
+.feature-card:hover h2 {
+    color: var(--feature-accent);
+}
+
 .feature-card p {
     margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
     color: var(--color-text-secondary); /* color: valor "var(--color-text-secondary)". */
