@@ -11,7 +11,9 @@
     text-decoration: none; /* text-decoration: valor "none". valor neutro/ausente para essa propriedade. */
     color: inherit; /* color: valor "inherit". usa o valor global "inherit" da cascata. */
     background: var(--panel); /* background: valor "var(--panel)". */
-    border: 1px solid var(--panel-border); /* border: valor "1px solid var(--panel-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    border: 1px solid var(--panel-border);
+    --feature-accent: var(--color-primary);
+    --feature-icon-background: var(--accent-soft); /* border: valor "1px solid var(--panel-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     border-radius: var(--radius-xl); /* border-radius: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
     padding: 1.2rem; /* padding: valor "1.2rem". unidades: 1.2rem: unidade relativa ao font-size do elemento raiz (html). */
     transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; /* transition: valor "transform .2s ease, border-color .2s ease, box-shadow .2s ease". unidades: .2s: segundos (tempo de animação/transição). */
@@ -20,7 +22,7 @@
 
 .feature-card:hover {
     transform: translateY(-3px); /* transform: valor "translateY(-3px)". unidades: -3px: pixels da CSS (unidade fixa na tela). */
-    border: 1px solid var(--color-primary); /* border: valor "1px solid rgba(34, 197, 94, 0.75)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    border: 1px solid var(--feature-accent); /* border: valor "1px solid rgba(34, 197, 94, 0.75)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
     box-shadow: 0 14px 35px rgba(15, 23, 42, 0.12); /* box-shadow: valor "0 14px 35px rgba(15, 23, 42, 0.12)". unidades: 14px: pixels da CSS (unidade fixa na tela); 35px: pixels da CSS (unidade fixa na tela). */
 }
 
@@ -31,20 +33,11 @@
     display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
     align-items: center; /* align-items: valor "center". */
     justify-content: center; /* justify-content: valor "center". */
-    background: var(--accent-soft); /* background: valor "var(--accent-soft)". */
+    background: var(--feature-icon-background); /* background: valor "var(--accent-soft)". */
     color: var(--color-primary); /* color: valor "var(--color-primary)". define uma cor. */
     margin-bottom: 0.9rem; /* margin-bottom: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
 }
 
- .feature-icon:bovines-color {
-    background: var(--color-bovines-soft);
-    color: var(--color-bovines-soft);
-}
-
-swines-color {
-    background: var(--color-swines-soft); 
-    color: var(--color-swines-soft); 
-}
 
 .feature-icon-svg {
     width: 2.8rem;
