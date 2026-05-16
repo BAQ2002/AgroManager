@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MODEL;
 
-namespace BLL.BatchMembers
+namespace BLL.BatchMembers;
+
+public interface ISwineBeefMemberService : IBatchMemberService<SwineBeefMember>
 {
-    internal class SwineBeefMemberService
+}
+
+public sealed class SwineBeefMemberService : BatchMemberService<SwineBeefMember, ISwineBeefMemberRepository>, ISwineBeefMemberService
+{
+    public SwineBeefMemberService(ISwineBeefMemberRepository repository)
+        : base(repository)
     {
     }
 }

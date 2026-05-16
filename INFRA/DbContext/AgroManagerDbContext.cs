@@ -23,6 +23,12 @@ public class AgroManagerDbContext : DbContext
     public DbSet<MilkEntity> MilkRecords => Set<MilkEntity>();
     public DbSet<PastureEntity> Pastures => Set<PastureEntity>();
 
+    #region Weight Entities -------------------------------------------------------- 
+    public DbSet<BovineWeight> BovineWeightRecords => Set<BovineWeight>();
+    public DbSet<SwineWeight> SwineWeightRecords => Set<SwineWeight>();
+    #endregion--------------------------------------------------------------------------
+
+
     #region Batch Entities -------------------------------------------------------- 
 
     public DbSet<BovinePastureBatch> BovinePastureBatchs => Set<BovinePastureBatch>();
@@ -44,6 +50,7 @@ public class AgroManagerDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Aplica mapeamentos via Fluent API
+        // as configurações de cada entidade sao aplicadas aqui (ex.: BovineConfig, SwineConfig, MilkRecordConfig, PastureConfig...)
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AgroManagerDbContext).Assembly);
 
         modelBuilder.Entity<AnimalEntity>().UseTpcMappingStrategy();
@@ -51,8 +58,6 @@ public class AgroManagerDbContext : DbContext
         modelBuilder.Entity<BatchEntity>().UseTpcMappingStrategy();
         modelBuilder.Entity<BatchMemberEntity>().UseTpcMappingStrategy();
 
-        modelBuilder.ApplyConfiguration(new BovineConfig());
-        modelBuilder.ApplyConfiguration(new BovineParentageConfig());
 
         // raiz
         // Convenções úteis (ex.: snake_case — opcional)

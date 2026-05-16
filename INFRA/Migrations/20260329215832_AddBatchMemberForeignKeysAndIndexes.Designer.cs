@@ -3,6 +3,7 @@ using System;
 using INFRA;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace INFRA.Migrations
 {
     [DbContext(typeof(AgroManagerDbContext))]
-    partial class AgroManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260329215832_AddBatchMemberForeignKeysAndIndexes")]
+    partial class AddBatchMemberForeignKeysAndIndexes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,34 +142,6 @@ namespace INFRA.Migrations
                     b.UseTpcMappingStrategy();
                 });
 
-            modelBuilder.Entity("MODEL.BovineWeight", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("BovineId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateOnly>("OccurrenceDate")
-                        .HasColumnType("date");
-
-                    b.Property<DateTimeOffset?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<float>("Weight")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BovineId", "OccurrenceDate");
-
-                    b.ToTable("BovineWeightRecords", (string)null);
-                });
-
             modelBuilder.Entity("MODEL.MilkEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -248,34 +223,6 @@ namespace INFRA.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Pastures");
-                });
-
-            modelBuilder.Entity("MODEL.SwineWeight", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateOnly>("OccurrenceDate")
-                        .HasColumnType("date");
-
-                    b.Property<Guid>("SwineId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTimeOffset?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<float>("Weight")
-                        .HasColumnType("real");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SwineId", "OccurrenceDate");
-
-                    b.ToTable("SwineWeightRecords", (string)null);
                 });
 
             modelBuilder.Entity("MODEL.BovineEntity", b =>
@@ -366,29 +313,11 @@ namespace INFRA.Migrations
                     b.ToTable("SwineParentages", (string)null);
                 });
 
-            modelBuilder.Entity("MODEL.BovineWeight", b =>
-                {
-                    b.HasOne("MODEL.BovineEntity", null)
-                        .WithMany()
-                        .HasForeignKey("BovineId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("MODEL.MilkEntity", b =>
                 {
                     b.HasOne("MODEL.BovineEntity", null)
                         .WithMany()
                         .HasForeignKey("BovineId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MODEL.SwineWeight", b =>
-                {
-                    b.HasOne("MODEL.SwineEntity", null)
-                        .WithMany()
-                        .HasForeignKey("SwineId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
