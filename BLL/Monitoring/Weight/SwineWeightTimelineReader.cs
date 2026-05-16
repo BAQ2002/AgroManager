@@ -3,34 +3,25 @@
 namespace BLL.Monitoring.Weight
 {
     /// <summary>
-    /// Swine-specific timeline reader backed by <see cref="ISwineWeightRepository"/>.
+    /// Swine-specific tracker that delegates persistence reads to <see cref="ISwineWeightRepository"/>
+    /// while reusing transversal timeline rules from <see cref="WeightTrackerBase{TWeight}"/>.
     /// </summary>
-    public sealed class SwineWeightTimelineReader : ISwineWeightTimelineReader
+    public sealed class SwineWeightTracker : WeightTrackerBase<SwineWeight>, ISwineWeightTracker
     {
         private readonly ISwineWeightRepository _repository;
 
-        public SwineWeightTimelineReader(ISwineWeightRepository repository)
+        /// <summary>
+        /// Creates a tracker bound to one swine id.
+        /// </summary>
+        /// <param name="animalId">Swine identifier used for all read operations.</param>
+        /// <param name="repository">Repository adapter responsible for swine weight persistence.</param>
+        public SwineWeightTracker(Guid animalId, ISwineWeightRepository repository) : base(animalId)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-        public async Task<IReadOnlyList<WeightPoint>> GetHistoryAsync(Guid animalId, CancellationToken ct = default)
-        {
-            IReadOnlyList<SwineWeight> entries = await _repository.GetByAnimalIdAsync(animalId, ct).ConfigureAwait(false);
-            return entries
-                .OrderBy(w => w.OccurrenceDate)
-                .Select(w => new WeightPoint(w.OccurrenceDate, w.Weight))
-                .ToList();
-        }
-
-        public async Task<WeightPoint?> GetLatestAsync(Guid animalId, CancellationToken ct = default)
-        {
-            IReadOnlyList<SwineWeight> entries = await _repository.GetByAnimalIdAsync(animalId, ct).ConfigureAwait(false);
-            SwineWeight? latest = entries
-                .OrderByDescending(w => w.OccurrenceDate)
-                .FirstOrDefault();
-
-            return latest is null ? null : new WeightPoint(latest.OccurrenceDate, latest.Weight);
-        }
+        /// <inheritdoc />
+        protected override Task<IReadOnlyList<SwineWeight>> ReadEntriesAsync(Guid animalId, CancellationToken ct = default)
+            => _repository.GetByAnimalIdAsync(animalId, ct);
     }
 }
