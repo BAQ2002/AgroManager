@@ -195,3 +195,47 @@
 .datagrid-page-marker-ellipsis {
     color: var(--color-black);
 }
+
+.datagrid-sort-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem;
+    position: relative;
+}
+
+.datagrid-sort-priority-btn,
+.datagrid-sort-direction-btn {
+    min-width: 2rem;
+    height: 1.6rem;
+    padding: 0 0.35rem;
+    border-radius: 6px;
+}
+
+.datagrid-sort-priority-btn {
+    font-size: var(--font-size-caption-small);
+}
+
+.datagrid-sort-menu {
+    position: absolute;
+    z-index: 20;
+    display: none;
+    margin-top: 0.2rem;
+    min-width: 6rem;
+}
+
+.datagrid-sort-menu.open {
+    display: grid;
+}
+
+th[data-sort-key] {
+    position: relative;
+}
+
+th[data-sort-key] [data-menu="priority"] {
+    left: 0;
+}
+
+th[data-sort-key] [data-menu="direction"] {
+    right: 0;
+}

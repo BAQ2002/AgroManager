@@ -3,6 +3,7 @@
     let allBovines = [];
     // Define unidade de idade padrão usada nos filtros e na renderização.
     let currentAgeUnit = "years";
+    let sortState = [];
 
     const grid = window.DataGrid.create({
         rowsSelector: "#rows",
@@ -143,29 +144,126 @@
         grid.setData(sortData(filtered));
     }
 
-    // Ordena os dados filtrados conforme seletores da barra da tabela.
+    // Ordena os dados filtrados conforme prioridade e direção de cada coluna.
     function sortData(items) {
-        const sortBy = document.getElementById("bovinesSortBy")?.value ?? "name";
-        const direction = document.getElementById("bovinesSortDirection")?.value ?? "asc";
-        const factor = direction === "desc" ? -1 : 1;
-
         return [...items].sort((a, b) => {
-            let left = "";
-            let right = "";
+            for (const rule of sortState) {
+                const factor = rule.direction === "desc" ? -1 : 1;
+                let left = "";
+                let right = "";
 
-            if (sortBy === "birthDate") {
-                left = toDate(a.birthDate)?.getTime() ?? Number.MIN_SAFE_INTEGER;
-                right = toDate(b.birthDate)?.getTime() ?? Number.MIN_SAFE_INTEGER;
-            } else if (sortBy === "age") {
-                left = getAgeByUnit(a);
-                right = getAgeByUnit(b);
-            } else {
-                left = (a[sortBy] ?? "").toString().toLowerCase();
-                right = (b[sortBy] ?? "").toString().toLowerCase();
+                if (rule.key === "birthDate") {
+                    left = toDate(a.birthDate)?.getTime() ?? Number.MIN_SAFE_INTEGER;
+                    right = toDate(b.birthDate)?.getTime() ?? Number.MIN_SAFE_INTEGER;
+                } else if (rule.key === "age") {
+                    left = getAgeByUnit(a);
+                    right = getAgeByUnit(b);
+                } else {
+                    left = (a[rule.key] ?? "").toString().toLowerCase();
+                    right = (b[rule.key] ?? "").toString().toLowerCase();
+                }
+
+                if (left !== right) {
+                    return left > right ? factor : -factor;
+                }
             }
 
-            if (left === right) return 0;
-            return left > right ? factor : -factor;
+            return 0;
+        });
+    }
+
+    function getSortHeaders() {
+        return Array.from(document.querySelectorAll(".datagrid thead th[data-sort-key]"));
+    }
+
+    function renderSortPriorityMenus() {
+        const headers = getSortHeaders();
+        const maxPriority = headers.length;
+
+        headers.forEach((header, index) => {
+            const priorityMenu = header.querySelector('[data-menu="priority"]');
+            const priorityBtn = header.querySelector('.datagrid-sort-priority-btn');
+            priorityMenu.innerHTML = "";
+
+            for (let position = 1; position <= maxPriority; position += 1) {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = `enum-combo-box-option${position === (index + 1) ? " active" : ""}`;
+                button.dataset.value = String(position - 1);
+                button.textContent = `${position}°`;
+                priorityMenu.appendChild(button);
+            }
+
+            priorityBtn.textContent = `${index + 1}°`;
+        });
+    }
+
+    function syncSortDirectionMenus() {
+        getSortHeaders().forEach((header, index) => {
+            const direction = sortState[index].direction;
+            header.querySelectorAll('[data-menu="direction"] .enum-combo-box-option').forEach((option) => {
+                option.classList.toggle("active", option.dataset.value === direction);
+            });
+        });
+    }
+
+    function wireSortMenus() {
+        const headers = getSortHeaders();
+        sortState = headers.map((header) => ({ key: header.dataset.sortKey, direction: "asc" }));
+        renderSortPriorityMenus();
+        syncSortDirectionMenus();
+
+        headers.forEach((header) => {
+            const priorityBtn = header.querySelector('.datagrid-sort-priority-btn');
+            const directionBtn = header.querySelector('.datagrid-sort-direction-btn');
+            const priorityMenu = header.querySelector('[data-menu="priority"]');
+            const directionMenu = header.querySelector('[data-menu="direction"]');
+
+            const closeMenus = () => {
+                priorityMenu.classList.remove("open");
+                directionMenu.classList.remove("open");
+            };
+
+            priorityBtn.addEventListener("click", (event) => {
+                event.stopPropagation();
+                directionMenu.classList.remove("open");
+                priorityMenu.classList.toggle("open");
+            });
+
+            directionBtn.addEventListener("click", (event) => {
+                event.stopPropagation();
+                priorityMenu.classList.remove("open");
+                directionMenu.classList.toggle("open");
+            });
+
+            priorityMenu.addEventListener("click", (event) => {
+                const option = event.target.closest(".enum-combo-box-option");
+                if (!option) return;
+                const targetIndex = Number(option.dataset.value);
+                const currentIndex = sortState.findIndex((x) => x.key === header.dataset.sortKey);
+                if (targetIndex === currentIndex) return closeMenus();
+
+                const [item] = sortState.splice(currentIndex, 1);
+                sortState.splice(targetIndex, 0, item);
+                renderSortPriorityMenus();
+                syncSortDirectionMenus();
+                closeMenus();
+                applyFilters();
+            });
+
+            directionMenu.addEventListener("click", (event) => {
+                const option = event.target.closest(".enum-combo-box-option");
+                if (!option) return;
+                const currentIndex = sortState.findIndex((x) => x.key === header.dataset.sortKey);
+                sortState[currentIndex].direction = option.dataset.value;
+                syncSortDirectionMenus();
+                closeMenus();
+                applyFilters();
+            });
+        });
+
+        document.addEventListener("click", () => {
+            document.querySelectorAll('.datagrid-sort-menu.open').forEach((menu) => menu.classList.remove("open"));
         });
     }
 
@@ -192,11 +290,6 @@
                     applyFilters();
                 });
             });
-
-        ["#bovinesSortBy", "#bovinesSortDirection"].forEach((selector) => {
-            const element = document.querySelector(selector);
-            element?.addEventListener("change", applyFilters);
-        });
 
         window.EnumCheckBox?.init();
         document.querySelectorAll(".enum-check-box").forEach((selectElement) => {
@@ -269,5 +362,6 @@
     }
 
     wireFilters();
+    wireSortMenus();
     load();
 })();
