@@ -1,20 +1,28 @@
 (async function () {
-    async function load() {
-        const res = await fetch("/api/swines");
-        const data = await res.json();
-
-        document.getElementById("rows").innerHTML = data.map(x => `
+    const grid = window.DataGrid.create({
+        rowsSelector: "#rows",
+        countSelector: "#count",
+        pageSizeSelector: "#swinesPageSize",
+        paginationInfoSelector: "#swinesPageInfo",
+        prevPageSelector: "#swinesPrevPage",
+        nextPageSelector: "#swinesNextPage",
+        data: [],
+        rowTemplate: (x) => `
       <tr>
         <td>${x.name ?? ""}</td>
         <td>${x.gender ?? ""}</td>
         <td>${x.origin ?? ""}</td>
-        <td>${x.birthDate ?? ""}</td>
+        <td>${window.DataGrid?.formatDateBr(x.birthDate) ?? (x.birthDate ?? "")}</td>
         <td>${x.age ?? ""}</td>
         <td>${x.porcType ?? ""}</td>
       </tr>
-    `).join("");
+    `
+    });
 
-        document.getElementById("count").innerText = `${data.length} registro(s) exibidos`;
+    async function load() {
+        const res = await fetch("/api/swines");
+        const data = await res.json();
+        grid.setData(data);
     }
 
     await load();

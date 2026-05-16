@@ -1,33 +1,27 @@
+
+/*--Seção de propriedades do Layout geral--*/
 body {
     display: block; /* display: valor "block". define o modo de layout/exibição. */
     padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
 }
 
-.am-topbar {
-    border-radius: 0; /* border-radius: valor "0". valor neutro/ausente para essa propriedade. */
-}
-
-.am-page-shell {
-    margin: 24px auto; /* margin: valor "24px auto". unidades: 24px: pixels da CSS (unidade fixa na tela). */
-    max-width: 1840px; /* max-width: valor "1840px". unidades: 1840px: pixels da CSS (unidade fixa na tela). */
-    padding: 0 16px; /* padding: valor "0 16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
-}
 
 .bovines-page-header,
 .bovines-content-layout {
-    width: min(1760px, calc(100% - 16px)); /* width: valor "min(1760px, calc(100% - 16px))". unidades: 1760px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
+    width: min(var(--container-wide), calc(100% - var(--space-100))); /* width: valor "min(1760px, calc(100% - 16px))". unidades: 1760px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
     margin-inline: auto; /* margin-inline: valor "auto". centraliza horizontalmente no eixo inline. */
+}
+
+/* Alinha topo do DataGrid com o painel de filtros (8px de offset em ambos). */
+.bovines-records-column .datagrid-wrapper {
+    margin-top: 0.5rem;
 }
 
 .bovines-content-layout {
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
-    grid-template-columns: minmax(360px, 440px) minmax(0, 1fr); /* grid-template-columns: valor "minmax(360px, 440px) minmax(0, 1fr)". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: 16px; /* gap: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
+    grid-template-columns: minmax(360px, 360px) minmax(0, 1fr); /* grid-template-columns: valor "minmax(360px, 440px) minmax(0, 1fr)". unidades: 1fr: fração do espaço disponível no grid. */
+    gap: var(--space-150); /* gap: valor "24px". unidades: 24px: pixels da CSS (unidade fixa na tela). */
     align-items: start; /* align-items: valor "start". */
-}
-
-.bovines-records-column {
-    min-width: 0; /* min-width: valor "0". valor neutro/ausente para essa propriedade. */
 }
 
 @media (max-width: 1260px) {
@@ -36,124 +30,4 @@ body {
     }
 }
 
-.age-header-select {
-    display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
-    align-items: center; /* align-items: valor "center". */
-    margin-left: 0; /* margin-left: valor "0". valor neutro/ausente para essa propriedade. */
-}
-
-.datagrid td:nth-child(4),
-.datagrid td:nth-child(5) {
-    text-align: left; /* text-align: valor "left". */
-    font-variant-numeric: tabular-nums; /* font-variant-numeric: valor "tabular-nums". */
-}
-
-.bovines-records-column .datagrid tbody tr:nth-child(odd) td {
-    background-color: #ffffff; /* background-color: valor "#ffffff". define uma cor. */
-}
-
-.bovines-records-column .datagrid tbody tr:nth-child(even) td {
-    background-color: #f5f7f6; /* background-color: valor "#f5f7f6". define uma cor. */
-}
-
-.bovines-records-column .datagrid tbody tr:hover td {
-    box-shadow: inset 0 0 0 9999px rgba(41, 100, 54, 0.08); /* box-shadow: valor "inset 0 0 0 9999px rgba(41, 100, 54, 0.08)". unidades: 9999px: pixels da CSS (unidade fixa na tela). */
-}
-
-.bovines-records-column .datagrid tbody td,
-.bovines-records-column .datagrid tbody td a {
-    color: #000000; /* color: valor "#000000". define uma cor. */
-}
-
-.age-unit-select {
-    position: relative; /* position: valor "relative". */
-    display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
-}
-
-.age-unit-trigger {
-    display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
-    align-items: center; /* align-items: valor "center". */
-    gap: 6px; /* gap: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
-    border: 0; /* border: valor "0". valor neutro/ausente para essa propriedade. */
-    background: transparent; /* background: valor "transparent". define uma cor. */
-    color: inherit; /* color: valor "inherit". usa o valor global "inherit" da cascata. */
-    border-radius: 0; /* border-radius: valor "0". valor neutro/ausente para essa propriedade. */
-    padding: 0; /* padding: valor "0". valor neutro/ausente para essa propriedade. */
-    cursor: pointer; /* cursor: valor "pointer". */
-    appearance: none; /* appearance: valor "none". valor neutro/ausente para essa propriedade. */
-    position: relative; /* position: valor "relative". */
-    text-align: left; /* text-align: valor "left". */
-    font-size: inherit; /* font-size: valor "inherit". usa o valor global "inherit" da cascata. */
-    line-height: inherit; /* line-height: valor "inherit". usa o valor global "inherit" da cascata. */
-}
-
-.age-unit-trigger-icon {
-    width: 8px; /* width: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    height: 8px; /* height: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    border-right: 1.5px solid currentColor; /* border-right: valor "1.5px solid currentColor". unidades: 1.5px: pixels da CSS (unidade fixa na tela). */
-    border-bottom: 1.5px solid currentColor; /* border-bottom: valor "1.5px solid currentColor". unidades: 1.5px: pixels da CSS (unidade fixa na tela). */
-    transform: translateY(-20%) rotate(45deg); /* transform: valor "translateY(-20%) rotate(45deg)". unidades: 45deg: graus de rotação/ângulo. */
-    transition: transform 0.15s ease; /* transition: valor "transform 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
-    flex: 0 0 auto; /* flex: valor "0 0 auto". */
-}
-
-.age-unit-label {
-    text-transform: uppercase; /* text-transform: valor "uppercase". */
-    letter-spacing: 0.06em; /* letter-spacing: valor "0.06em". unidades: 0.06em: unidade relativa ao font-size do elemento atual. */
-    font-weight: 600; /* font-weight: valor "600". */
-}
-
-.age-unit-trigger:focus-visible {
-    outline: 2px solid #296436; /* outline: valor "2px solid #296436". unidades: 2px: pixels da CSS (unidade fixa na tela). */
-    outline-offset: 2px; /* outline-offset: valor "2px". unidades: 2px: pixels da CSS (unidade fixa na tela). */
-}
-
-.age-unit-select.open .age-unit-trigger-icon {
-    transform: translateY(15%) rotate(-135deg); /* transform: valor "translateY(15%) rotate(-135deg)". unidades: -135deg: graus de rotação/ângulo. */
-}
-
-.age-unit-menu {
-    display: none; /* display: valor "none". valor neutro/ausente para essa propriedade. */
-    position: absolute; /* position: valor "absolute". */
-    z-index: 15; /* z-index: valor "15". */
-    top: calc(100% + 6px); /* top: valor "calc(100% + 6px)". valor calculado dinamicamente com calc(). unidades: 6px: pixels da CSS (unidade fixa na tela). */
-    left: 0; /* left: valor "0". valor neutro/ausente para essa propriedade. */
-    width: 100%; /* width: valor "100%". */
-    border: 1px solid rgba(148, 163, 184, 0.7); /* border: valor "1px solid rgba(148, 163, 184, 0.7)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    background: #f8fafc; /* background: valor "#f8fafc". define uma cor. */
-    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28); /* box-shadow: valor "0 10px 22px rgba(2, 6, 23, 0.28)". unidades: 10px: pixels da CSS (unidade fixa na tela); 22px: pixels da CSS (unidade fixa na tela). */
-    padding: 6px; /* padding: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
-}
-
-.age-unit-select.open .age-unit-menu {
-    display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    flex-direction: column; /* flex-direction: valor "column". */
-    gap: 4px; /* gap: valor "4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
-}
-
-.age-unit-option {
-    border: 0; /* border: valor "0". valor neutro/ausente para essa propriedade. */
-    background: transparent; /* background: valor "transparent". define uma cor. */
-    text-align: left; /* text-align: valor "left". */
-    border-radius: 8px; /* border-radius: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    padding: 6px 8px; /* padding: valor "6px 8px". unidades: 6px: pixels da CSS (unidade fixa na tela); 8px: pixels da CSS (unidade fixa na tela). */
-    color: #0f172a; /* color: valor "#0f172a". define uma cor. */
-    font-size: 0.78rem; /* font-size: valor "0.78rem". unidades: 0.78rem: unidade relativa ao font-size do elemento raiz (html). */
-    line-height: 1.1; /* line-height: valor "1.1". */
-    text-transform: uppercase; /* text-transform: valor "uppercase". */
-    letter-spacing: 0.06em; /* letter-spacing: valor "0.06em". unidades: 0.06em: unidade relativa ao font-size do elemento atual. */
-    font-weight: 600; /* font-weight: valor "600". */
-}
-
-.age-unit-option:hover,
-.age-unit-option.active {
-    background: #e2e8f0; /* background: valor "#e2e8f0". define uma cor. */
-}
-
-
-.bovine-edit-action {
-    min-height: 34px; /* min-height: valor "34px". unidades: 34px: pixels da CSS (unidade fixa na tela). */
-    padding: 0 12px; /* padding: valor "0 12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-}
+/*------------------------------------------*/

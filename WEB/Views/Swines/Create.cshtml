@@ -1,4 +1,4 @@
-﻿@model AgroManager.WEB.Controllers.SwineViewModel
+@model AgroManager.WEB.Controllers.SwineViewModel
 @using MODEL
 @{
     ViewData["Title"] = "Novo Swine";
@@ -6,7 +6,7 @@
 
 
 
-<div class="am-page-shell">
+<div class="page-shell">
 
     <div class="page">
     <header class="page-header">
@@ -15,32 +15,32 @@
             <p class="page-subtitle">Cadastro de um suíno no banco de dados.</p>
         </div>
 
-        <a class="badge am-link-plain" href="/swines">← Voltar</a>
+            <a class="link-plain primary-button" href="/swines">← Voltar</a>
     </header>
 
-    <section class="datagrid-wrapper am-panel-body">
-        <form method="post" action="/swines/create" class="am-form-grid">
+    <section class="datagrid-wrapper panel-body">
+        <form class="form-grid" method="post" action="/swines/create">
             @Html.AntiForgeryToken()
 
-            <div class="am-error-text">
+            <div class="error-description-label">
                 @Html.ValidationSummary(false)
             </div>
 
-            <div class="am-form-columns">
+            <div class="form-columns">
                 <div>
                     <label>Nome</label>
-                    <input name="Name" value="@Model.Name" class="am-input" />
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Name)</div>
+                    <input class="input" name="Name" value="@Model.Name" />
+                    <div class="error-description-label">@Html.ValidationMessageFor(m => m.Name)</div>
                 </div>
 
                 <div>
                     <label>Idade</label>
-                    <input name="Age" value="@Model.Age" type="number" class="am-input" />
+                    <input class="input" name="Age" value="@Model.Age" type="number" />
                 </div>
 
                 <div>
                     <label>Sexo</label>
-                    <select name="Gender" class="am-input">
+                    <select class="input" name="Gender">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
                             <option value="@v" selected="@(Equals(Model.Gender, v) ? "selected" : null)">@v</option>
@@ -50,7 +50,7 @@
 
                 <div>
                     <label>Origem</label>
-                    <select name="Origin" class="am-input">
+                    <select class="input" name="Origin">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
                             <option value="@v" selected="@(Equals(Model.Origin, v) ? "selected" : null)">@v</option>
@@ -60,13 +60,12 @@
 
                 <div>
                     <label>Nascimento</label>
-                    <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date"
-                           class="am-input" />
+                    <input class="input js-date-picker" name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="text" autocomplete="off" />
                 </div>
 
                 <div>
                     <label>Tipo (PorcType)</label>
-                    <select name="PorcType" class="am-input">
+                    <select class="input" name="PorcType">
                         <option value="">(vazio)</option>
                         @foreach (var v in Enum.GetValues(typeof(PorcType)))
                         {
@@ -76,9 +75,9 @@
                 </div>
             </div>
 
-            <div class="am-form-actions">
-                <a class="badge am-link-plain" href="/swines">Cancelar</a>
-                <button type="submit" class="badge am-button-action">Salvar</button>
+            <div class="form-actions">
+                    <a class="link-plain primary-button" href="/swines">Cancelar</a>
+                    <button class="primary-button" type="submit">Salvar</button>
             </div>
         </form>
     </section>

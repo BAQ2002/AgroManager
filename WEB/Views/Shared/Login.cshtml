@@ -1,10 +1,10 @@
-﻿@{
+@{
     ViewData["Title"] = "Login";
 }
 
 
 
-<div class="am-page-shell">
+<div class="page-shell">
 
     <div class="row justify-content-center">
 
@@ -22,12 +22,12 @@
 
                     <div class="mb-3">
                         <label>Email</label>
-                        <input type="email" name="email" class="form-control" required />
+                        <input class="form-control" type="email" name="email" required />
                     </div>
 
                     <div class="mb-3">
                         <label>Senha</label>
-                        <input type="password" name="password" class="form-control" required />
+                        <input class="form-control" type="password" name="password" required />
                     </div>
 
                     @if (ViewBag.Error != null)
@@ -37,7 +37,7 @@
                         </div>
                     }
 
-                    <button type="submit" class="btn btn-dark w-100">
+                    <button class="btn btn-dark w-100" type="submit">
                         Entrar
                     </button>
 

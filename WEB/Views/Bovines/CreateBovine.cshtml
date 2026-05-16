@@ -1,4 +1,4 @@
-﻿@model AgroManager.WEB.Controllers.BovineViewModel
+@model AgroManager.WEB.Controllers.BovineViewModel
 @using MODEL
 @{
     ViewData["Title"] = "Novo Bovine";
@@ -6,140 +6,132 @@
 
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/components/PrimaryButton.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/components/FloatingTextBox.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/components/EnumSingleSelect.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/components/primary-button/primary-button.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/components/floating-text-box/floating-text-box.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/components/enum-combo-box/enum-combo-box.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/components/main-container/main-container.css" asp-append-version="true" />
 }
 
+@section Scripts {
+    <script src="~/components/enum-combo-box/enum-combo-box.js" asp-append-version="true"></script>
+    <script src="~/js/pages/bovines/create.js" asp-append-version="true"></script>
+}
 
-
-
-
-<div class="am-page-shell">
-    <div class="page">
-    <header class="page-header">
+<div class="main-container">
+    <header class="main-container-header">
         <div>
-            <h1 class="page-title">Novo Bovine</h1>
-            <p class="page-subtitle">Cadastro de um bovino no banco de dados.</p>
-            <div class="am-inline-actions am-inline-actions-spaced">
-                <a class="am-link-plain primary-button" href="/bovines">
+            <title-label class="main-container-title">Novo Bovine</title-label>
+            <p class="main-container-subtitle">Criar um registro de um bovino no banco de dados.</p>
+            <div class="inline-actions">
+                <a class="primary-button" href="/bovines">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M15 18l-6-6 6-6"></path>
                         <path d="M21 12H9"></path>
                     </svg>
-                    <span>Voltar</span>
+                    <button-label>Voltar</button-label>
                 </a>
             </div>
         </div>
     </header>
+    
+    <form class="form-container" method="post" action="/bovines/create" style="padding: 16px">
+        @Html.AntiForgeryToken()
 
-    <section class="datagrid-wrapper am-panel-body">
-        <form method="post" action="/bovines/create" class="am-form-grid">
-            @Html.AntiForgeryToken()
+        <div class="form-columns">
 
-            <div class="am-form-columns">
-                <div>
-                    <div class="floating-field">
-                        <input name="Name" value="@Model.Name" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
-                        <label class="floating-field-label">Nome</label>
-                    </div>
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Name)</div>
+            <div>
+                <div class="floating-field">
+                    <input class="floating-field-input js-floating-control" name="Name" value="@Model.Name" placeholder=" " data-empty-values="" />
+                    <label class="floating-field-label">Nome</label>
                 </div>
+                <div class="error-description-label">@Html.ValidationMessageFor(m => m.Name)</div>
+            </div>
 
-                <div>
-                    <div class="floating-field">
-                        <div class="enum-single-select js-single-enum-select">
-                        <input type="hidden" name="Gender" value="@Model.Gender" class="js-floating-control" data-empty-values="Unknown" />
-                        <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
-                        <div class="enum-single-select-menu">
+            <div>
+                <div class="floating-field">
+                    <div class="enum-combo-box">
+                        <input class="js-floating-control" type="hidden" name="Gender" value="@Model.Gender" data-empty-values="Unknown" />
+                        <button class="floating-field-input" type="button" aria-expanded="false"></button>
+                        <div class="enum-combo-box-menu">
                         @foreach (var v in Enum.GetValues(typeof(Gender)))
                         {
-                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
+                            <button class="enum-combo-box-option" type="button" data-value="@v" data-label="@v">@v</button>
                         }
                         </div>
-                        </div>
+                    </div>
                         <label class="floating-field-label">Sexo</label>
                     </div>
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Gender)</div>
-                </div>
+                    <div class="error-description-label">@Html.ValidationMessageFor(m => m.Gender)</div>
+            </div>
 
-                <div>
-                    <div class="floating-field">
-                        <div class="enum-single-select js-single-enum-select">
-                        <input type="hidden" name="Origin" value="@Model.Origin" class="js-floating-control" data-empty-values="Unknown" />
-                        <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
-                        <div class="enum-single-select-menu">
+            <div>
+                <div class="floating-field">
+                            <div class="enum-combo-box">
+                        <input class="js-floating-control" type="hidden" name="Origin" value="@Model.Origin" data-empty-values="Unknown" />
+                        <button class="floating-field-input" type="button" aria-expanded="false"></button>
+                        <div class="enum-combo-box-menu">
                         @foreach (var v in Enum.GetValues(typeof(AcquisitionOrigin)))
                         {
-                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
+                            <button class="enum-combo-box-option" type="button" data-value="@v" data-label="@v">@v</button>
                         }
                         </div>
                         </div>
                         <label class="floating-field-label">Origem</label>
                     </div>
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.Origin)</div>
-                </div>
-
-                <div>
-                    <div class="floating-field">
-                        <input name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="date" placeholder=" " class="floating-field-input js-floating-control" data-empty-values="" />
-                        <label class="floating-field-label">Nascimento</label>
-                    </div>
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.BirthDate)</div>
-                </div>
-
-                <div>
-                    <div class="floating-field">
-                        <div class="enum-single-select js-single-enum-select">
-                        <input type="hidden" name="MaritalStatus" value="@Model.MaritalStatus" class="js-floating-control" data-empty-values=",Unknown" />
-                        <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
-                        <div class="enum-single-select-menu">
-                        <button type="button" class="enum-single-select-option" data-value="" data-label="(vazio)">(vazio)</button>
-                        @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
-                        {
-                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
-                        }
-                        </div>
-                        </div>
-                        <label class="floating-field-label">Estado civil</label>
-                    </div>
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.MaritalStatus)</div>
-                </div>
-
-                <div>
-                    <div class="floating-field">
-                        <div class="enum-single-select js-single-enum-select">
-                        <input type="hidden" name="CattleType" value="@Model.CattleType" class="js-floating-control" data-empty-values=",Unknown" />
-                        <button type="button" class="enum-single-select-trigger floating-field-input" aria-expanded="false"></button>
-                        <div class="enum-single-select-menu">
-                        <button type="button" class="enum-single-select-option" data-value="" data-label="(vazio)">(vazio)</button>
-                        @foreach (var v in Enum.GetValues(typeof(CattleType)))
-                        {
-                            <button type="button" class="enum-single-select-option" data-value="@v" data-label="@v">@v</button>
-                        }
-                        </div>
-                        </div>
-                        <label class="floating-field-label">Tipo de gado</label>
-                    </div>
-                    <div class="am-error-text">@Html.ValidationMessageFor(m => m.CattleType)</div>
-                </div>
+                    <div class="error-description-label">@Html.ValidationMessageFor(m => m.Origin)</div>
             </div>
 
-            <div class="am-form-actions">
-                <a class="badge am-link-plain primary-button" href="/bovines">Cancelar</a>
-                <button type="submit" class="badge am-button-action primary-button">Salvar</button>
+            <div>
+                <div class="floating-field">
+                    <input class="floating-field-input js-floating-control js-date-picker" name="BirthDate" value="@(Model.BirthDate?.ToString("yyyy-MM-dd"))" type="text" placeholder=" " data-empty-values="" autocomplete="off" />
+                    <label class="floating-field-label">Nascimento</label>
+                </div>
+                <div class="error-description-label">@Html.ValidationMessageFor(m => m.BirthDate)</div>
             </div>
-        </form>
-    </section>
+
+            <div>
+                <div class="floating-field">
+                        <div class="enum-combo-box">
+                    <input class="js-floating-control" type="hidden" name="MaritalStatus" value="@Model.MaritalStatus" data-empty-values=",Unknown" />
+                    <button class="floating-field-input" type="button" aria-expanded="false"></button>
+                    <div class="enum-combo-box-menu">
+                    @foreach (var v in Enum.GetValues(typeof(MaritalStatus)))
+                    {
+                        <button class="enum-combo-box-option" type="button" data-value="@v" data-label="@v">@v</button>
+                    }
+                    </div>
+                    </div>
+                    <label class="floating-field-label">Estado civil</label>
+                </div>
+                <div class="error-description-label">@Html.ValidationMessageFor(m => m.MaritalStatus)</div>
+            </div>
+
+            <div>
+                <div class="floating-field">
+                        <div class="enum-combo-box">
+                    <input class="js-floating-control" type="hidden" name="CattleType" value="@Model.CattleType" data-empty-values=",Unknown" />
+                    <button class="floating-field-input" type="button" aria-expanded="false"></button>
+                    <div class="enum-combo-box-menu">
+                    @foreach (var v in Enum.GetValues(typeof(CattleType)))
+                    {
+                        <button class="enum-combo-box-option" type="button" data-value="@v" data-label="@v">@v</button>
+                    }
+                    </div>
+                    </div>
+                    <label class="floating-field-label">Tipo de gado</label>
+                </div>
+                <div class="error-description-label">@Html.ValidationMessageFor(m => m.CattleType)</div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <a class="primary-button" href="/bovines">Cancelar</a>
+            <button class="primary-button" type="submit">Salvar</button>
+        </div>
+    </form>
 
     <footer class="footer-info">
         <span>Após salvar, você volta para a listagem.</span>
         <span>AgroManager</span>
-    </footer>
-</div>
-
-@section Scripts {
-<script src="~/js/components/enumSingleSelect.js" asp-append-version="true"></script>
-<script src="~/js/pages/bovines/create.js" asp-append-version="true"></script>
-}
+    </footer>  
 </div>

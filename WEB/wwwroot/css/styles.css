@@ -8,39 +8,39 @@
 body {
     min-height: 100vh; /* min-height: valor "100vh". unidades: 100vh: 1% da altura da viewport. */
     margin: 0; /* margin: valor "0". valor neutro/ausente para essa propriedade. */
-    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
-    color: #0f172a; /* color: valor "#0f172a". define uma cor. */
+    background: var(--color-white); /* background: valor "var(--color-white)". define uma cor. */
+    color: var(--color-text-primary); /* color: valor "var(--color-text-primary)". define uma cor. */
 }
 
-.am-page-container {
-    width: min(1760px, calc(100% - 24px)); /* width: valor "min(1760px, calc(100% - 24px))". unidades: 1760px: pixels da CSS (unidade fixa na tela); 24px: pixels da CSS (unidade fixa na tela). */
+.page-container {
+    width: min(var(--container-wide), calc(100% - var(--space-150))); /* width: valor "min(1760px, calc(100% - 24px))". unidades: 1760px: pixels da CSS (unidade fixa na tela); 24px: pixels da CSS (unidade fixa na tela). */
     margin-left: auto; /* margin-left: valor "auto". */
     margin-right: auto; /* margin-right: valor "auto". */
-    padding-left: 12px; /* padding-left: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-    padding-right: 12px; /* padding-right: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    padding-left: var(--space-075); /* padding-left: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    padding-right: var(--space-075); /* padding-right: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-page-container-wide {
-    width: min(1900px, calc(100% - 16px)); /* width: valor "min(1900px, calc(100% - 16px))". unidades: 1900px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
-    padding-left: 8px; /* padding-left: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-    padding-right: 8px; /* padding-right: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
+.page-container-wide {
+    width: min(var(--container-ultra), calc(100% - var(--space-100))); /* width: valor "min(1900px, calc(100% - 16px))". unidades: 1900px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
+    padding-left: var(--space-050); /* padding-left: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
+    padding-right: var(--space-050); /* padding-right: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-page-container-full {
+.page-container-full {
     width: 100%; /* width: valor "100%". */
     max-width: none; /* max-width: valor "none". valor neutro/ausente para essa propriedade. */
-    padding-left: 12px; /* padding-left: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-    padding-right: 12px; /* padding-right: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    padding-left: var(--space-075); /* padding-left: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    padding-right: var(--space-075); /* padding-right: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
 }
 
 .page {
-    width: min(1000px, calc(100% - 48px)); /* width: valor "min(1000px, calc(100% - 48px))". valor responsivo calculado por função matemática. unidades: 1000px: pixels da CSS (unidade fixa na tela); 48px: pixels da CSS (unidade fixa na tela). */
-    margin: 24px auto; /* margin: valor "24px auto". unidades: 24px: pixels da CSS (unidade fixa na tela). */
-    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
-    border-radius: 20px; /* border-radius: valor "20px". unidades: 20px: pixels da CSS (unidade fixa na tela). */
-    padding: 24px 28px 20px; /* padding: valor "24px 28px 20px". unidades: 24px: pixels da CSS (unidade fixa na tela); 28px: pixels da CSS (unidade fixa na tela); 20px: pixels da CSS (unidade fixa na tela). */
+    width: min(var(--container-narrow), calc(100% - var(--space-300))); /* width: valor "min(1000px, calc(100% - 48px))". valor responsivo calculado por função matemática. unidades: 1000px: pixels da CSS (unidade fixa na tela); 48px: pixels da CSS (unidade fixa na tela). */
+    margin: var(--space-150) auto; /* margin: valor "24px auto". unidades: 24px: pixels da CSS (unidade fixa na tela). */
+    background: var(--color-white); /* background: valor "var(--color-white)". define uma cor. */
+    border-radius: var(--radius-2xl); /* border-radius: valor "20px". unidades: 20px: pixels da CSS (unidade fixa na tela). */
+    padding: var(--space-150) var(--space-175) var(--space-125); /* padding: valor "24px 28px 20px". unidades: 24px: pixels da CSS (unidade fixa na tela); 28px: pixels da CSS (unidade fixa na tela); 20px: pixels da CSS (unidade fixa na tela). */
     box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08); /* box-shadow: valor "0 12px 32px rgba(15, 23, 42, 0.08)". unidades: 12px: pixels da CSS (unidade fixa na tela); 32px: pixels da CSS (unidade fixa na tela). */
-    border: 1px solid #e2e8f0; /* border: valor "1px solid #e2e8f0". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+    border: 1px solid var(--color-border); /* border: valor "1px solid var(--color-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
 }
 
 /* Header */
@@ -49,135 +49,33 @@ body {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     justify-content: space-between; /* justify-content: valor "space-between". */
     align-items: flex-start; /* align-items: valor "flex-start". */
-    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
-    margin-bottom: 18px; /* margin-bottom: valor "18px". unidades: 18px: pixels da CSS (unidade fixa na tela). */
+    gap: var(--space-075); /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    margin-bottom: var(--space-100); /* margin-bottom: valor aproximado de 18px ajustado para 16px na nova escala. */
 }
 
 .page-title {
-    font-size: 1.5rem; /* font-size: valor "1.5rem". unidades: 1.5rem: unidade relativa ao font-size do elemento raiz (html). */
+    font-size: var(--font-size-title-large); /* font-size: valor "1.5rem". unidades: 1.5rem: unidade relativa ao font-size do elemento raiz (html). */
     font-weight: 600; /* font-weight: valor "600". */
-    margin-bottom: 4px; /* margin-bottom: valor "4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
+    margin-bottom: var(--space-025); /* margin-bottom: valor "4px". unidades: 4px: pixels da CSS (unidade fixa na tela). */
+    color: var(--color-black);
 }
 
 .page-subtitle {
-    font-size: 0.9rem; /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
-    color: #64748b; /* color: valor "#64748b". define uma cor. */
+    font-size: var(--font-size-body-small); /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
+    color: var(--color-text-secondary); /* color: valor "#64748b". define uma cor. */
 }
 
-.badge {
-    font-size: 0.75rem; /* font-size: valor "0.75rem". unidades: 0.75rem: unidade relativa ao font-size do elemento raiz (html). */
-    text-transform: uppercase; /* text-transform: valor "uppercase". */
-    letter-spacing: 0.08em; /* letter-spacing: valor "0.08em". unidades: 0.08em: unidade relativa ao font-size do elemento atual. */
-    padding: 4px 12px; /* padding: valor "4px 12px". unidades: 4px: pixels da CSS (unidade fixa na tela); 12px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 999px; /* border-radius: valor "999px". unidades: 999px: pixels da CSS (unidade fixa na tela). */
-    border: 1px solid rgba(16, 163, 127, 0.6); /* border: valor "1px solid rgba(16, 163, 127, 0.6)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    color: #bbf7d0; /* color: valor "#bbf7d0". define uma cor. */
-    background: linear-gradient( 135deg, rgba(16, 163, 127, 0.3), rgba(15, 23, 42, 0.9) ); /* background: valor "linear-gradient( 135deg, rgba(16, 163, 127, 0.3), rgba(15, 23, 42, 0.9) )". define um gradiente como fundo. unidades: 135deg: graus de rotação/ângulo. */
-}
 
-/* DataGrid */
-
-.datagrid-wrapper {
-    margin-top: 6px; /* margin-top: valor "6px". unidades: 6px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 14px; /* border-radius: valor "14px". unidades: 14px: pixels da CSS (unidade fixa na tela). */
-    overflow: hidden; /* overflow: valor "hidden". */
-    border: 1px solid #E2E8F0; /* border: valor "1px solid rgba(203, 213, 225, 0.9)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    background: #ffffff; /* background: valor "#ffffff". define uma cor. */
-}
-
-.datagrid {
-    width: 100%; /* width: valor "100%". */
-    border-collapse: collapse; /* border-collapse: valor "collapse". */
-    font-size: 0.9rem; /* font-size: valor "0.9rem". unidades: 0.9rem: unidade relativa ao font-size do elemento raiz (html). */
-}
-
-    .datagrid thead {
-        background: #296436; /* background: valor "#296436". define uma cor. */
-    }
-
-    .datagrid th,
-    .datagrid td {
-        padding: 10px 14px; /* padding: valor "10px 14px". unidades: 10px: pixels da CSS (unidade fixa na tela); 14px: pixels da CSS (unidade fixa na tela). */
-    }
-
-    .datagrid th {
-        text-align: left; /* text-align: valor "left". */
-        font-weight: 500; /* font-weight: valor "500". */
-        color: #ffffff; /* color: valor "#ffffff". define uma cor. */
-        border-bottom: 1px solid rgba(15, 23, 42, 0.35); /* border-bottom: valor "1px solid rgba(15, 23, 42, 0.35)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-        font-size: 0.85rem; /* font-size: valor "0.85rem". unidades: 0.85rem: unidade relativa ao font-size do elemento raiz (html). */
-    }
-
-    .datagrid tbody tr td {
-        transition: box-shadow 0.15s ease; /* transition: valor "box-shadow 0.15s ease". unidades: 0.15s: segundos (tempo de animação/transição). */
-    }
-
-        .datagrid tbody tr:nth-child(odd) td {
-            background-color: #ffffff; /* background-color: valor "#ffffff". define uma cor. */
-        }
-
-        .datagrid tbody tr:nth-child(even) td {
-            background-color: #f5f7f6; /* background-color: valor "#f5f7f6". define uma cor. */
-        }
-
-        .datagrid tbody tr:hover td {
-            box-shadow: inset 0 0 0 9999px rgba(41, 100, 54, 0.08); /* box-shadow: valor "inset 0 0 0 9999px rgba(41, 100, 54, 0.08)". unidades: 9999px: pixels da CSS (unidade fixa na tela). */
-        }
-
-    .datagrid td {
-        border-bottom: 1px solid rgba(203, 213, 225, 0.8); /* border-bottom: valor "1px solid rgba(203, 213, 225, 0.8)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    }
-
-    .datagrid tbody td,
-    .datagrid tbody td a {
-        color: #000000; /* color: valor "#000000". define uma cor. */
-    }
-
-        .datagrid td:nth-child(4) {
-            text-align: right; /* text-align: valor "right". */
-            font-variant-numeric: tabular-nums; /* font-variant-numeric: valor "tabular-nums". */
-        }
-
-/* Status pill */
-
-.status-pill {
-    display: inline-flex; /* display: valor "inline-flex". define o modo de layout/exibição. */
-    align-items: center; /* align-items: valor "center". */
-    justify-content: center; /* justify-content: valor "center". */
-    padding: 3px 10px; /* padding: valor "3px 10px". unidades: 3px: pixels da CSS (unidade fixa na tela); 10px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 999px; /* border-radius: valor "999px". unidades: 999px: pixels da CSS (unidade fixa na tela). */
-    font-size: 0.75rem; /* font-size: valor "0.75rem". unidades: 0.75rem: unidade relativa ao font-size do elemento raiz (html). */
-    font-weight: 500; /* font-weight: valor "500". */
-    border: 1px solid transparent; /* border: valor "1px solid transparent". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-}
-
-.status-ok {
-    background: rgba(16, 163, 127, 0.1); /* background: valor "rgba(16, 163, 127, 0.1)". define uma cor. */
-    border-color: rgba(16, 163, 127, 0.7); /* border-color: valor "rgba(16, 163, 127, 0.7)". define uma cor. */
-    color: #6ee7b7; /* color: valor "#6ee7b7". define uma cor. */
-}
-
-.status-away {
-    background: rgba(234, 179, 8, 0.12); /* background: valor "rgba(234, 179, 8, 0.12)". define uma cor. */
-    border-color: rgba(250, 204, 21, 0.8); /* border-color: valor "rgba(250, 204, 21, 0.8)". define uma cor. */
-    color: #facc15; /* color: valor "#facc15". define uma cor. */
-}
-
-.status-off {
-    background: rgba(248, 113, 113, 0.08); /* background: valor "rgba(248, 113, 113, 0.08)". define uma cor. */
-    border-color: rgba(248, 113, 113, 0.8); /* border-color: valor "rgba(248, 113, 113, 0.8)". define uma cor. */
-    color: #fecaca; /* color: valor "#fecaca". define uma cor. */
-}
 
 /* Footer */
 
 .footer-info {
-    margin-top: 10px; /* margin-top: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+    margin-top: var(--space-075); /* margin-top: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     justify-content: space-between; /* justify-content: valor "space-between". */
-    font-size: 0.8rem; /* font-size: valor "0.8rem". unidades: 0.8rem: unidade relativa ao font-size do elemento raiz (html). */
-    color: #64748b; /* color: valor "#64748b". define uma cor. */
-    gap: 8px; /* gap: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
+    font-size: var(--font-size-body-xs); /* font-size: valor "0.8rem". unidades: 0.8rem: unidade relativa ao font-size do elemento raiz (html). */
+    color: var(--color-text-secondary); /* color: valor "#64748b". define uma cor. */
+    gap: var(--space-050); /* gap: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
 }
 
     .footer-info span {
@@ -188,7 +86,7 @@ body {
 
 @media (max-width: 720px) {
     .page {
-        padding: 18px 16px; /* padding: valor "18px 16px". unidades: 18px: pixels da CSS (unidade fixa na tela); 16px: pixels da CSS (unidade fixa na tela). */
+        padding: var(--space-100) var(--space-100); /* padding: valor aproximado de 18px 16px ajustado para 16px 16px na nova escala. */
     }
 
     .page-header {
@@ -197,75 +95,49 @@ body {
     }
 
     .datagrid {
-        font-size: 0.8rem; /* font-size: valor "0.8rem". unidades: 0.8rem: unidade relativa ao font-size do elemento raiz (html). */
+        font-size: var(--font-size-body-xs); /* font-size: valor "0.8rem". unidades: 0.8rem: unidade relativa ao font-size do elemento raiz (html). */
     }
 
         .datagrid th,
         .datagrid td {
-            padding: 8px 10px; /* padding: valor "8px 10px". unidades: 8px: pixels da CSS (unidade fixa na tela); 10px: pixels da CSS (unidade fixa na tela). */
+            padding: var(--space-050) var(--space-075); /* padding: valor "8px 10px". unidades: 8px: pixels da CSS (unidade fixa na tela); 10px: pixels da CSS (unidade fixa na tela). */
         }
 }
 
 /* Shared action/form utilities */
-
-.am-link-plain {
-    text-decoration: none; /* text-decoration: valor "none". valor neutro/ausente para essa propriedade. */
-}
-
-.am-inline-actions {
+.inline-actions {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    gap: 10px; /* gap: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+    gap: var(--space-050); /* gap: valor aproximado de 10px ajustado para 8px na nova escala. */
     align-items: center; /* align-items: valor "center". */
+    margin: 0 0 var(--space-100); /* margin: valor "0 0 16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-inline-actions-spaced {
-    margin: 0 0 16px; /* margin: valor "0 0 16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
-}
-
-.am-panel-body {
-    padding: 16px; /* padding: valor "16px". unidades: 16px: pixels da CSS (unidade fixa na tela). */
-}
-
-.am-form-grid {
+.form-grid {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
     flex-direction: column; /* flex-direction: valor "column". */
-    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    gap: var(--space-075); /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
 }
 
-.am-form-columns {
+.form-columns {
     display: grid; /* display: valor "grid". define o modo de layout/exibição. */
     grid-template-columns: 1fr 1fr; /* grid-template-columns: valor "1fr 1fr". unidades: 1fr: fração do espaço disponível no grid. */
-    gap: 12px; /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
+    gap: var(--space-075); /* gap: valor "12px". unidades: 12px: pixels da CSS (unidade fixa na tela). */
 }
 
 
-
-.am-input {
-    width: 100%; /* width: valor "100%". */
-    padding: 10px; /* padding: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    border-radius: 10px; /* border-radius: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
-    border: 1px solid rgba(148, 163, 184, 0.6); /* border: valor "1px solid rgba(148, 163, 184, 0.6)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
-    background: #f8fafc; /* background: valor "#f8fafc". define uma cor. */
-    color: #0f172a; /* color: valor "#0f172a". define uma cor. */
+.error-description-label {
+    color: var(--color-danger-soft); /* color: valor "var(--color-danger-soft)". define uma cor. */
 }
 
-.am-error-text {
-    color: #fca5a5; /* color: valor "#fca5a5". define uma cor. */
-}
-
-.am-form-actions {
+.form-actions {
     display: flex; /* display: valor "flex". define o modo de layout/exibição. */
-    gap: 10px; /* gap: valor "10px". unidades: 10px: pixels da CSS (unidade fixa na tela). */
+    gap: var(--space-050); /* gap: valor aproximado de 10px ajustado para 8px na nova escala. */
     justify-content: flex-end; /* justify-content: valor "flex-end". */
-    margin-top: 8px; /* margin-top: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
-}
-
-.am-button-action {
-    cursor: pointer; /* cursor: valor "pointer". */
+    margin-top: var(--space-050); /* margin-top: valor "8px". unidades: 8px: pixels da CSS (unidade fixa na tela). */
 }
 
 @media (max-width: 860px) {
-    .am-form-columns {
+    .form-columns {
         grid-template-columns: 1fr; /* grid-template-columns: valor "1fr". unidades: 1fr: fração do espaço disponível no grid. */
     }
 }
