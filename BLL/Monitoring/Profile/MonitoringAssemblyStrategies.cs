@@ -1,5 +1,4 @@
 ﻿using MODEL;
-using BLL.Monitoring.Weight;
 
 namespace BLL.Monitoring.Profile
 {
