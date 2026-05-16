@@ -1,12 +1,12 @@
 ﻿using MODEL;
 
-namespace BLL.Monitoring.Weight
+namespace BLL 
 {
     /// <summary>
     /// Swine-specific tracker that delegates persistence reads to <see cref="ISwineWeightRepository"/>
     /// while reusing transversal timeline rules from <see cref="WeightTrackerBase{TWeight}"/>.
     /// </summary>
-    public sealed class SwineWeightTracker : WeightTrackerBase<SwineWeight>, ISwineWeightTracker
+    public class SwineWeightTracker : WeightTrackerBase<SwineWeight>, ISwineWeightTracker
     {
         private readonly ISwineWeightRepository _repository;
 
@@ -25,3 +25,5 @@ namespace BLL.Monitoring.Weight
             => _repository.GetByAnimalIdAsync(animalId, ct);
     }
 }
+
+
