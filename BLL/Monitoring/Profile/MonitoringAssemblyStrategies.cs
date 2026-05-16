@@ -1,5 +1,5 @@
 ﻿using MODEL;
-
+using BLL.Monitoring.Weight;
 
 namespace BLL.Monitoring.Profile
 {
@@ -8,11 +8,15 @@ namespace BLL.Monitoring.Profile
     /// </summary>
     public sealed class BovineMonitoringAssemblyStrategy : IMonitoringAssemblyStrategy
     {
-        private readonly IBovineWeightTimelineReader _weightReader;
+        private readonly IBovineWeightRepository _weightRepository;
 
-        public BovineMonitoringAssemblyStrategy(IBovineWeightTimelineReader weightReader)
+        /// <summary>
+        /// Initializes the strategy with the bovine weight persistence adapter.
+        /// </summary>
+        /// <param name="weightRepository">Repository used to create bovine-bound trackers.</param>
+        public BovineMonitoringAssemblyStrategy(IBovineWeightRepository weightRepository)
         {
-            _weightReader = weightReader ?? throw new ArgumentNullException(nameof(weightReader));
+            _weightRepository = weightRepository ?? throw new ArgumentNullException(nameof(weightRepository));
         }
 
         public Type AnimalType => typeof(BovineEntity);
@@ -24,7 +28,8 @@ namespace BLL.Monitoring.Profile
             if (animal is not BovineEntity bovine)
                 throw new ArgumentException("Invalid animal type for bovine strategy.", nameof(animal));
 
-            yield return new WeightMonitoringCapability(new WeightTracker(bovine.Id, _weightReader));
+            IBovineWeightTracker tracker = new BovineWeightTracker(bovine.Id, _weightRepository);
+            yield return new WeightMonitoringCapability(tracker);
         }
     }
 
@@ -33,11 +38,15 @@ namespace BLL.Monitoring.Profile
     /// </summary>
     public sealed class SwineMonitoringAssemblyStrategy : IMonitoringAssemblyStrategy
     {
-        private readonly ISwineWeightTimelineReader _weightReader;
+        private readonly ISwineWeightRepository _weightRepository;
 
-        public SwineMonitoringAssemblyStrategy(ISwineWeightTimelineReader weightReader)
+        /// <summary>
+        /// Initializes the strategy with the swine weight persistence adapter.
+        /// </summary>
+        /// <param name="weightRepository">Repository used to create swine-bound trackers.</param>
+        public SwineMonitoringAssemblyStrategy(ISwineWeightRepository weightRepository)
         {
-            _weightReader = weightReader ?? throw new ArgumentNullException(nameof(weightReader));
+            _weightRepository = weightRepository ?? throw new ArgumentNullException(nameof(weightRepository));
         }
 
         public Type AnimalType => typeof(SwineEntity);
@@ -49,7 +58,8 @@ namespace BLL.Monitoring.Profile
             if (animal is not SwineEntity swine)
                 throw new ArgumentException("Invalid animal type for swine strategy.", nameof(animal));
 
-            yield return new WeightMonitoringCapability(new WeightTracker(swine.Id, _weightReader));
+            ISwineWeightTracker tracker = new SwineWeightTracker(swine.Id, _weightRepository);
+            yield return new WeightMonitoringCapability(tracker);
         }
     }
 }

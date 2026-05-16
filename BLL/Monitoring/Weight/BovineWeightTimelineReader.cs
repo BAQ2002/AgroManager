@@ -1,35 +1,84 @@
 ﻿using MODEL;
+
 namespace BLL.Monitoring.Weight
 {
     /// <summary>
-    /// Bovine-specific timeline reader backed by <see cref="IBovineWeightRepository"/>.
+    /// Base tracker implementation that centralizes transversal read rules for weight timelines,
+    /// including deterministic history ordering and latest-point extraction.
     /// </summary>
-    public sealed class BovineWeightTimelineReader : IBovineWeightTimelineReader
+    /// <typeparam name="TWeight">Concrete weight entity type associated with the animal species.</typeparam>
+    internal abstract class WeightTrackerBase<TWeight> : IWeightTracker
+        where TWeight : WeightEntity
     {
-        private readonly IBovineWeightRepository _repository;
+        private readonly Guid _animalId;
 
-        public BovineWeightTimelineReader(IBovineWeightRepository repository)
+        /// <summary>
+        /// Initializes the tracker bound to a single animal identifier.
+        /// </summary>
+        /// <param name="animalId">Unique identifier of the animal whose timeline will be queried.</param>
+        protected WeightTrackerBase(Guid animalId)
         {
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _animalId = animalId;
         }
 
-        public async Task<IReadOnlyList<WeightPoint>> GetHistoryAsync(Guid animalId, CancellationToken ct = default)
+        /// <summary>
+        /// Reads raw weight entries from the species-specific repository.
+        /// </summary>
+        /// <param name="animalId">Animal identifier used by repository filters.</param>
+        /// <param name="ct">Cancellation token for async flow control.</param>
+        /// <returns>Raw weight entries returned by the underlying persistence adapter.</returns>
+        protected abstract Task<IReadOnlyList<TWeight>> ReadEntriesAsync(Guid animalId, CancellationToken ct = default);
+
+        /// <summary>
+        /// Returns the ordered historical timeline from oldest to newest point.
+        /// </summary>
+        /// <param name="ct">Cancellation token for async flow control.</param>
+        /// <returns>Normalized timeline points sorted by occurrence date ascending.</returns>
+        public async Task<IReadOnlyList<WeightPoint>> GetHistoryAsync(CancellationToken ct = default)
         {
-            IReadOnlyList<BovineWeight> entries = await _repository.GetByAnimalIdAsync(animalId, ct).ConfigureAwait(false);
+            IReadOnlyList<TWeight> entries = await ReadEntriesAsync(_animalId, ct).ConfigureAwait(false);
             return entries
                 .OrderBy(w => w.OccurrenceDate)
                 .Select(w => new WeightPoint(w.OccurrenceDate, w.Weight))
                 .ToList();
         }
 
-        public async Task<WeightPoint?> GetLatestAsync(Guid animalId, CancellationToken ct = default)
+        /// <summary>
+        /// Returns the most recent weight point for the bound animal.
+        /// </summary>
+        /// <param name="ct">Cancellation token for async flow control.</param>
+        /// <returns>The latest point when available; otherwise <see langword="null"/>.</returns>
+        public async Task<WeightPoint?> GetLatestAsync(CancellationToken ct = default)
         {
-            IReadOnlyList<BovineWeight> entries = await _repository.GetByAnimalIdAsync(animalId, ct).ConfigureAwait(false);
-            BovineWeight? latest = entries
+            IReadOnlyList<TWeight> entries = await ReadEntriesAsync(_animalId, ct).ConfigureAwait(false);
+            TWeight? latest = entries
                 .OrderByDescending(w => w.OccurrenceDate)
                 .FirstOrDefault();
 
             return latest is null ? null : new WeightPoint(latest.OccurrenceDate, latest.Weight);
         }
+    }
+
+    /// <summary>
+    /// Bovine-specific tracker that delegates persistence reads to <see cref="IBovineWeightRepository"/>
+    /// while reusing transversal timeline rules from <see cref="WeightTrackerBase{TWeight}"/>.
+    /// </summary>
+    public sealed class BovineWeightTracker : WeightTrackerBase<BovineWeight>, IBovineWeightTracker
+    {
+        private readonly IBovineWeightRepository _repository;
+
+        /// <summary>
+        /// Creates a tracker bound to one bovine id.
+        /// </summary>
+        /// <param name="animalId">Bovine identifier used for all read operations.</param>
+        /// <param name="repository">Repository adapter responsible for bovine weight persistence.</param>
+        public BovineWeightTracker(Guid animalId, IBovineWeightRepository repository) : base(animalId)
+        {
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        }
+
+        /// <inheritdoc />
+        protected override Task<IReadOnlyList<BovineWeight>> ReadEntriesAsync(Guid animalId, CancellationToken ct = default)
+            => _repository.GetByAnimalIdAsync(animalId, ct);
     }
 }
