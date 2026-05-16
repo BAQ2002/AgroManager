@@ -144,7 +144,7 @@
         grid.setData(sortData(filtered));
     }
 
-    // Ordena os dados filtrados conforme prioridade e direção de cada coluna.
+    // Ordena os dados filtrados pela sequência fixa das colunas e direção de cada uma.
     function sortData(items) {
         return [...items].sort((a, b) => {
             for (const rule of sortState) {
@@ -176,28 +176,6 @@
         return Array.from(document.querySelectorAll(".datagrid thead th[data-sort-key]"));
     }
 
-    function renderSortPriorityMenus() {
-        const headers = getSortHeaders();
-        const maxPriority = headers.length;
-
-        headers.forEach((header, index) => {
-            const priorityMenu = header.querySelector('[data-menu="priority"]');
-            const priorityBtn = header.querySelector('.datagrid-sort-priority-btn');
-            priorityMenu.innerHTML = "";
-
-            for (let position = 1; position <= maxPriority; position += 1) {
-                const button = document.createElement("button");
-                button.type = "button";
-                button.className = `enum-combo-box-option${position === (index + 1) ? " active" : ""}`;
-                button.dataset.value = String(position - 1);
-                button.textContent = `${position}°`;
-                priorityMenu.appendChild(button);
-            }
-
-            priorityBtn.textContent = `${index + 1}°`;
-        });
-    }
-
     function syncSortDirectionMenus() {
         getSortHeaders().forEach((header, index) => {
             const direction = sortState[index].direction;
@@ -210,45 +188,19 @@
     function wireSortMenus() {
         const headers = getSortHeaders();
         sortState = headers.map((header) => ({ key: header.dataset.sortKey, direction: "asc" }));
-        renderSortPriorityMenus();
         syncSortDirectionMenus();
 
         headers.forEach((header) => {
-            const priorityBtn = header.querySelector('.datagrid-sort-priority-btn');
             const directionBtn = header.querySelector('.datagrid-sort-direction-btn');
-            const priorityMenu = header.querySelector('[data-menu="priority"]');
             const directionMenu = header.querySelector('[data-menu="direction"]');
 
             const closeMenus = () => {
-                priorityMenu.classList.remove("open");
                 directionMenu.classList.remove("open");
             };
 
-            priorityBtn.addEventListener("click", (event) => {
-                event.stopPropagation();
-                directionMenu.classList.remove("open");
-                priorityMenu.classList.toggle("open");
-            });
-
             directionBtn.addEventListener("click", (event) => {
                 event.stopPropagation();
-                priorityMenu.classList.remove("open");
                 directionMenu.classList.toggle("open");
-            });
-
-            priorityMenu.addEventListener("click", (event) => {
-                const option = event.target.closest(".enum-combo-box-option");
-                if (!option) return;
-                const targetIndex = Number(option.dataset.value);
-                const currentIndex = sortState.findIndex((x) => x.key === header.dataset.sortKey);
-                if (targetIndex === currentIndex) return closeMenus();
-
-                const [item] = sortState.splice(currentIndex, 1);
-                sortState.splice(targetIndex, 0, item);
-                renderSortPriorityMenus();
-                syncSortDirectionMenus();
-                closeMenus();
-                applyFilters();
             });
 
             directionMenu.addEventListener("click", (event) => {
