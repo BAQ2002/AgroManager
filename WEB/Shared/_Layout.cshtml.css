@@ -1,4 +1,4 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
@@ -8,26 +8,26 @@ a.navbar-brand {
 }
 
 a {
-  color: #0077cc; /* color: valor "#0077cc". define uma cor. */
+  color: var(--color-link); /* color: valor "var(--color-link)". define uma cor. */
 }
 
 .btn-primary {
-  color: #fff; /* color: valor "#fff". define uma cor. */
-  background-color: #1b6ec2; /* background-color: valor "#1b6ec2". define uma cor. */
-  border-color: #1861ac; /* border-color: valor "#1861ac". define uma cor. */
+  color: var(--color-white); /* color: valor "var(--color-white)". define uma cor. */
+  background-color: var(--color-legacy-primary-bg); /* background-color: valor "var(--color-legacy-primary-bg)". define uma cor. */
+  border: 1px solid var(--color-legacy-primary-border); /* border: valor "1px solid var(--color-legacy-primary-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff; /* color: valor "#fff". define uma cor. */
-  background-color: #1b6ec2; /* background-color: valor "#1b6ec2". define uma cor. */
-  border-color: #1861ac; /* border-color: valor "#1861ac". define uma cor. */
+  color: var(--color-white); /* color: valor "var(--color-white)". define uma cor. */
+  background-color: var(--color-legacy-primary-bg); /* background-color: valor "var(--color-legacy-primary-bg)". define uma cor. */
+  border: 1px solid var(--color-legacy-primary-border); /* border: valor "1px solid var(--color-legacy-primary-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5; /* border-top: valor "1px solid #e5e5e5". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+  border-top: 1px solid var(--color-border); /* border-top: valor "1px solid var(--color-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5; /* border-bottom: valor "1px solid #e5e5e5". unidades: 1px: pixels da CSS (unidade fixa na tela). */
+  border-bottom: 1px solid var(--color-border); /* border-bottom: valor "1px solid var(--color-border)". unidades: 1px: pixels da CSS (unidade fixa na tela). */
 }
 
 .box-shadow {
@@ -35,7 +35,7 @@ a {
 }
 
 button.accept-policy {
-  font-size: 1rem; /* font-size: valor "1rem". unidades: 1rem: unidade relativa ao font-size do elemento raiz (html). */
+  font-size: var(--font-size-body-large); /* font-size: valor "1rem". unidades: 1rem: unidade relativa ao font-size do elemento raiz (html). */
   line-height: inherit; /* line-height: valor "inherit". usa o valor global "inherit" da cascata. */
 }
 
