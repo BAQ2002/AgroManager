@@ -10,4 +10,8 @@
     <ProjectReference Include="..\MODEL\MODEL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Animals\NovaPasta\" />
+  </ItemGroup>
+
 </Project>

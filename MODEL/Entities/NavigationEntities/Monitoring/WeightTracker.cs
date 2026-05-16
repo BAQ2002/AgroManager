@@ -5,37 +5,12 @@ namespace MODEL
     /// <summary>
     /// Immutable weight measurement point (date + value) used by monitoring timelines.
     /// </summary>
-    public sealed record WeightPoint(DateOnly Date, float Value);
-
-    #region ------------------ INTERFACES -------------------------------------------
-    /// <summary>
-    /// Reader contract for retrieving ordered weight timelines and latest weight points.
-    /// </summary>
-    public interface IWeightTimelineReader
-    {
-        Task<IReadOnlyList<WeightPoint>> GetHistoryAsync(Guid animalId, CancellationToken ct = default);
-        Task<WeightPoint?> GetLatestAsync(Guid animalId, CancellationToken ct = default);
-    }
-    public interface IBovineWeightTimelineReader : IWeightTimelineReader
-    {
-    }
-    public interface ISwineWeightTimelineReader : IWeightTimelineReader
-    {
-    }
+    public sealed record WeightRecord(DateOnly Date, float Value);
 
     /// <summary>
-    /// Logical tracker for querying an animal weight history and latest point.
-    /// </summary>
-    public interface IWeightTracker
-    {
-        Task<IReadOnlyList<WeightPoint>> GetHistoryAsync(CancellationToken ct = default);
-        Task<WeightPoint?> GetLatestAsync(CancellationToken ct = default);
-    }
-    #endregion
-
-
-    /// <summary>
-    /// Non-persistent weight tracker that delegates reads to a timeline reader bound to an animal id.
+    /// Classe de navegação não presistente que delega a leitura
+    /// para um <see cref="IWeightTimelineReader"/> a partir de
+    /// um <see cref="AnimalEntity"/>.Id.
     /// </summary>
     public sealed class WeightTracker : IWeightTracker
     {
@@ -48,10 +23,10 @@ namespace MODEL
             _reader = reader ?? throw new ArgumentNullException(nameof(reader));
         }
 
-        public Task<IReadOnlyList<WeightPoint>> GetHistoryAsync(CancellationToken ct = default)
+        public Task<IReadOnlyList<WeightRecord>> GetHistoryAsync(CancellationToken ct = default)
         => _reader.GetHistoryAsync(_animalId, ct);
 
-        public Task<WeightPoint?> GetLatestAsync(CancellationToken ct = default)
+        public Task<WeightRecord?> GetLatestAsync(CancellationToken ct = default)
         => _reader.GetLatestAsync(_animalId, ct);
     }
 
