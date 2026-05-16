@@ -33,12 +33,19 @@
 .button-with-icon,
 .primary-button {
     gap: var(--space-050);
-    font-size: var(--font-size-button-small);
+    font-size: var(--font-size-body-medium);
     font-weight: 500;
     text-transform: none;
     letter-spacing: normal;
     padding: var(--space-025) var(--space-075);
     border-radius: var(--radius-pill);
+}
+
+.primary-button-svg {
+    width: var(--font-size-body-medium);
+    height: var(--font-size-body-medium);
+    display: block;
+    object-fit: contain;
 }
 
 .button-with-icon svg,

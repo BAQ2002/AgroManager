@@ -92,8 +92,8 @@
     --font-size-caption-large: 0.94rem;
     --font-size-caption-medium: 0.86rem;
     --font-size-caption-small: 0.85rem;
-    --font-size-button-small: 0.75rem;
-    --font-size-option-small: 0.78rem;
+    --font-size-button-small: 1rem;
+    --font-size-option-small: 0.9rem;
     --font-size-floating-label-active: 12px;
     --font-size-calendar-header: 40px;
     --font-size-calendar-month-year: 37%;

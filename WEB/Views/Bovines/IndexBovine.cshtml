@@ -28,18 +28,12 @@
         <div class="inline-actions">
 
             <a class="primary-button" href="/">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M15 18l-6-6 6-6"></path>
-                    <path d="M21 12H9"></path>
-                </svg>
+                <img class="primary-button-svg" src="~/assets/icons/back_icon.svg" alt="" />
                 <button-label>Voltar</button-label>
             </a>
 
             <a class="primary-button" href="/bovines/create">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M12 5v14"></path>
-                    <path d="M5 12h14"></path>
-                </svg>
+                <img class="primary-button-svg" src="~/assets/icons/addIcon.svg" alt="" />
                 <button-label>Novo Bovine</button-label>
             </a>
 
@@ -157,10 +151,7 @@
         </div>
 
         <button class="primary-button" type="button" style="width: 100%; margin-left: auto" data-action="clear-filters">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M18 6L6 18"></path>
-                <path d="M6 6l12 12"></path>
-            </svg>
+            <img class="primary-button-svg" src="~/assets/icons/deleteIcon.svg" alt="" />
             <button-label>Limpar filtros</button-label>
         </button>
        
@@ -179,15 +170,17 @@
                 </select>
 
                 <label for="bovinesSortBy">Ordenar por</label>
-                <select class="datagrid-page-size" id="bovinesSortBy">
-                    <option value="name">Nome</option>
-                    <option value="gender">Sexo</option>
-                    <option value="origin">Origem</option>
-                    <option value="birthDate">Nascimento</option>
-                    <option value="age">Idade</option>
-                    <option value="maritalStatus">Estado</option>
-                    <option value="cattleType">Tipo</option>
-                </select>
+                <<div class="enum-combo-box" id="bovinesSortBy">
+                    <div class="enum-combo-box-menu">
+                        <button class="enum-combo-box-option active" type="button" data-unit="Nome">Nome</button>
+                        <button class="enum-combo-box-option active" type="button" data-unit="Sexo">Sexo</button>
+                        <button class="enum-combo-box-option active" type="button" data-unit="Origem">Origem</button>
+                        <button class="enum-combo-box-option active" type="button" data-unit="Nascimento">Nascimento</button>
+                        <button class="enum-combo-box-option active" type="button" data-unit="Idade">Idade</button>
+                        <button class="enum-combo-box-option active" type="button" data-unit="Estado">Estado</button>
+                        <button class="enum-combo-box-option active" type="button" data-unit="Tipo">Tipo</button>
+                    </div>
+                </div>
 
                 <select class="datagrid-page-size" id="bovinesSortDirection" aria-label="Direção da ordenação">
                     <option value="asc" selected>Crescente</option>
