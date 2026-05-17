@@ -18,6 +18,11 @@
     background: transparent;
 }
 
+.datagrid-header {
+    background-color: #E5ECE7;
+    color: #E5ECE7;
+    background-color: #E5ECE7;
+}
 .datagrid-toolbar label {
     color: var(--color-black);
     font-size: var(--font-size-caption-small);

@@ -160,7 +160,12 @@
     <div class="bovines-records-column">
     <section class="datagrid-wrapper box-shadow-light">
 
-            <div class ="datagrid-toolbar">
+            
+        <table class="datagrid">
+                <thead class="datagrid-header" style="border-top-left-radius: 18px; 
+                                                      border-top-right-radius: 18px; 
+                                                      border: 1px solid var(--color-border);">
+
                 <label for="bovinesPageSize">Registros por página</label>
                 <select class="datagrid-page-size" id="bovinesPageSize">
                     <option value="10">10</option>
@@ -168,20 +173,107 @@
                     <option value="20">20</option>
                     <option value="25">25</option>
                 </select>
-        </div>
-        <table class="datagrid">
-            
-            <thead>
-                 <tr>                
-                     <th data-sort-key="name">
-                         <div class="datagrid-sort-header"><span>Nome</span><button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Nome"><img class="primary-button-svg" src="~/assets/icons/filter_by_icon.svg" alt="" /></button></div><div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction"><button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button><button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button></div>
+                   
+                 <tr>
+                        <th data-sort-key="name" style="background-color: #E5ECE7;">
+                         <div class="datagrid-sort-header">
+                             <span>Nome</span>
+                             <button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Nome">
+                                    <img src="~/assets/icons/order_by_ascending.svg" alt="" />
+                                    <img src="~/assets/icons/order_by_descending.svg" alt="" />
+                             </button>
+                         </div>
+                         <div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction">
+                             <button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button>
+                             <button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button>
+                         </div>
                      </th>
-                     <th data-sort-key="gender"><div class="datagrid-sort-header"><span>Sexo</span><button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Sexo"><img class="primary-button-svg" src="~/assets/icons/filter_by_icon.svg" alt="" /></button></div><div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction"><button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button><button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button></div></th>
-                     <th data-sort-key="origin"><div class="datagrid-sort-header"><span>Origem</span><button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Origem"><img class="primary-button-svg" src="~/assets/icons/filter_by_icon.svg" alt="" /></button></div><div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction"><button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button><button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button></div></th>
-                     <th data-sort-key="birthDate"><div class="datagrid-sort-header"><span>Nascimento</span><button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Nascimento"><img class="primary-button-svg" src="~/assets/icons/filter_by_icon.svg" alt="" /></button></div><div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction"><button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button><button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button></div></th>
-                     <th data-sort-key="age"><div class="datagrid-sort-header"><div class="enum-combo-box" id="ageUnitSelect"><span style="color: var(--color-black)"> Idade (<span id="ageUnitLabel">anos</span>)</span><div class="enum-combo-box-menu" id="ageUnitMenu"><button class="enum-combo-box-option active" type="button" data-unit="years">Anos</button><button class="enum-combo-box-option" type="button" data-unit="months">Meses</button><button class="enum-combo-box-option" type="button" data-unit="days">Dias</button></div></div><button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Idade"><img class="primary-button-svg" src="~/assets/icons/filter_by_icon.svg" alt="" /></button></div><div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction"><button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button><button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button></div></th>
-                     <th data-sort-key="maritalStatus"><div class="datagrid-sort-header"><span>Estado</span><button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Estado"><img class="primary-button-svg" src="~/assets/icons/filter_by_icon.svg" alt="" /></button></div><div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction"><button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button><button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button></div></th>
-                     <th data-sort-key="cattleType"><div class="datagrid-sort-header"><span>Tipo</span><button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Tipo"><img class="primary-button-svg" src="~/assets/icons/filter_by_icon.svg" alt="" /></button></div><div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction"><button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button><button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button></div></th>
+
+                     <th data-sort-key="gender">
+                         <div class="datagrid-sort-header">
+                             <span>Sexo</span>
+                             <button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Sexo">
+                                <img src="~/assets/icons/order_by_ascending.svg" alt="" />
+                                <img src="~/assets/icons/order_by_descending.svg" alt="" />
+                             </button>
+                         </div>
+                         <div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction">
+                             <button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button>
+                             <button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button>
+                         </div>
+                     </th>
+
+                     <th data-sort-key="origin">
+                         <div class="datagrid-sort-header">
+                             <span>Origem</span>
+                             <button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Origem">
+                                 <img src="~/assets/icons/order_by_ascending.svg" alt="" />
+                                 <img src="~/assets/icons/order_by_descending.svg" alt="" />
+                             </button>                           
+                         </div>
+                         <div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction">
+                             <button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button>
+                             <button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button>
+                         </div>
+                     </th>
+                     <th data-sort-key="birthDate">
+                         <div class="datagrid-sort-header">
+                             <span>Nascimento</span>
+                             <button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Nascimento">
+                                 <img src="~/assets/icons/order_by_ascending.svg" alt="" />
+                                 <img src="~/assets/icons/order_by_descending.svg" alt="" />
+                             </button>
+                          </div>
+                          <div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction">
+                             <button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button>
+                             <button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button>
+                         </div>            
+                     </th>
+                     <th data-sort-key="age">
+                         <div class="datagrid-sort-header">
+                             <div class="enum-combo-box" id="ageUnitSelect">
+                                 <span style="color: var(--color-black)"> Idade (<span id="ageUnitLabel">anos</span>)</span>
+                                 <div class="enum-combo-box-menu" id="ageUnitMenu">
+                                     <button class="enum-combo-box-option active" type="button" data-unit="years">Anos</button>
+                                     <button class="enum-combo-box-option" type="button" data-unit="months">Meses</button>
+                                     <button class="enum-combo-box-option" type="button" data-unit="days">Dias</button>
+                                 </div>
+                             </div>
+                             <button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Idade">
+                                 <img src="~/assets/icons/order_by_ascending.svg" alt="" />
+                                 <img src="~/assets/icons/order_by_descending.svg" alt="" />
+                             </button>
+                         </div>
+                         <div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction">
+                             <button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button>
+                             <button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button>
+                         </div>
+                     </th>
+                     <th data-sort-key="maritalStatus">
+                         <div class="datagrid-sort-header">
+                             <span>Estado</span>
+                             <button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Estado">
+                                 <img src="~/assets/icons/order_by_ascending.svg" alt="" />
+                                 <img src="~/assets/icons/order_by_descending.svg" alt="" />
+                             </button>
+                         </div>
+                         <div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction">
+                             <button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button>
+                             <button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button>
+                         </div>
+                     </th>
+                     <th data-sort-key="cattleType">
+                         <div class="datagrid-sort-header"><span>Tipo</span>
+                             <button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Tipo">
+                                <img src="~/assets/icons/order_by_ascending.svg" alt="" />
+                                <img src="~/assets/icons/order_by_descending.svg" alt="" />
+                             </button>
+                         </div>
+                         <div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction">
+                             <button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button>
+                             <button class="enum-combo-box-option" type="button" data-value="desc">Decrescente</button>
+                         </div>
+                     </th>
                      <th>Ações</th>
                  </tr>
             </thead>
