@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="~/components/floating-text-box/floating-text-box.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/components/enum-check-box/enum-check-box.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/components/enum-combo-box/enum-combo-box.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/components/primary-button/datagrid-pagination-button.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/pages/bovines/IndexBovine.css" asp-append-version="true" />
 
     <style>
+        datagrid-pagination-button
         #ageUnitSelect::after {
             border-right-color: var(--color-white);
             border-bottom-color: var(--color-white);
@@ -160,28 +162,29 @@
     <div class="bovines-records-column">
     <section class="datagrid-wrapper box-shadow-light">
 
-            
-        <table class="datagrid">
-                <thead class="datagrid-header" style="border-top-left-radius: 18px; 
-                                                      border-top-right-radius: 18px; 
-                                                      border: 1px solid var(--color-border);">
+            <button type="button" class="datagrid-pagination-button" id="bovinesPageSize" data-role="direction" aria-label="Direção de ordenação de Nome">
+            <img src="~/assets/icons/page_amount_icon.svg" alt="" />
+            <button-label for ="bovinesPageSize">Mostrar por página</button-label>
+            <select class="datagrid-page-size" id="bovinesPageSize" style="background: var(--color-background-primary);">
+                <option value="10">10</option>
+                <option value="15" selected>15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+            </select>
+        </button>
 
-                <label for="bovinesPageSize">Registros por página</label>
-                <select class="datagrid-page-size" id="bovinesPageSize">
-                    <option value="10">10</option>
-                    <option value="15" selected>15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                </select>
-                   
-                 <tr>
-                        <th data-sort-key="name" style="background-color: #E5ECE7;">
-                         <div class="datagrid-sort-header">
-                             <span>Nome</span>
-                             <button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Nome">
-                                    <img src="~/assets/icons/order_by_ascending.svg" alt="" />
-                                    <img src="~/assets/icons/order_by_descending.svg" alt="" />
-                             </button>
+     
+
+        <table class="datagrid">
+            <thead>
+                <tr>
+                    <th data-sort-key="name">
+                        <div class="datagrid-sort-header">
+                            <span>Nome</span>
+                            <button type="button" class="primary-button datagrid-sort-direction-btn" data-role="direction" aria-label="Direção de ordenação de Nome">
+                                <img src="~/assets/icons/order_by_ascending.svg" alt="" />
+                                <img src="~/assets/icons/order_by_descending.svg" alt="" />
+                            </button>
                          </div>
                          <div class="enum-combo-box-menu datagrid-sort-menu" data-menu="direction">
                              <button class="enum-combo-box-option active" type="button" data-value="asc">Crescente</button>

@@ -6,16 +6,8 @@
     overflow: hidden;
     border: 1px solid var(--color-border);
     background: var(--color-white);
-}
-
-.datagrid-toolbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0;
-    border-bottom: 0;
-    background: transparent;
+    padding-top: 1rem;
+    padding-left: 1rem;
 }
 
 .datagrid-header {
@@ -29,16 +21,12 @@
 }
 
 .datagrid-page-size {
-    border: 1px solid color-mix(in srgb, var(--color-white) 30%, transparent);
+    border: 0px solid;
     border-radius: 8px;
     padding: 0.25rem 0.5rem;
-    background: color-mix(in srgb, var(--color-primary) 75%, var(--color-white));
-    color: var(--color-white);
+    background: var(--color-border);
+    color: var(--color-black);
     font-size: var(--font-size-caption-small);
-}
-
-.datagrid-header-container {
-    background: var(--color-primary);
 }
 
 .datagrid {
@@ -63,9 +51,9 @@
     height: var(--datagrid-body-height, 320px);
 }
 
-.datagrid thead {
-    background: var(--color-primary);
-}
+    .datagrid thead {
+        background: var(--color-background-primary);
+    }
 
 .datagrid th,
 .datagrid td {
@@ -80,12 +68,6 @@
         font-size: var(--font-size-caption-small);
         background: var(--color-white);
     }
-
-.datagrid-toolbar-row th {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--color-white) 35%, transparent);
-}
 
 .datagrid tbody tr {
     position: relative;
