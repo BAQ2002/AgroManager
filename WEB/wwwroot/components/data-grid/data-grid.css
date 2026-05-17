@@ -37,6 +37,16 @@
     font-size: var(--font-size-body-small);
 }
 
+.datagrid-pagination-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    justify-content: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
 .datagrid thead,
 .datagrid tbody tr {
     display: table;
