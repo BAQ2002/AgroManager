@@ -78,6 +78,12 @@
         function updateBodyHeight() {
             const firstRow = rowsElement.querySelector("tr");
             const rowHeight = firstRow?.getBoundingClientRect().height || 44;
+
+            const tableElement = rowsElement.closest("table");
+            const scrollbarWidth = rowsElement.offsetWidth - rowsElement.clientWidth;
+            if (tableElement) {
+                tableElement.style.setProperty("--datagrid-scrollbar-width", `${Math.max(scrollbarWidth, 0)}px`);
+            }
             const rowsPerPage = Number(pageSizeElement?.value || pageSize || config.initialPageSize || 25);
             const safeRowsPerPage = Math.max(rowsPerPage, 1);
             const configuredVisibleRows = Number(config.bodyHeightRows);
