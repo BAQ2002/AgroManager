@@ -197,7 +197,18 @@
     }
 
     function closeSortMenus() {
-        document.querySelectorAll('.datagrid-sort-menu.open').forEach((menu) => menu.classList.remove("open"));
+        document.querySelectorAll('.datagrid-sort-menu.open').forEach((menu) => {
+            menu.classList.remove("open");
+            menu.previousElementSibling
+                ?.querySelector('.datagrid-sort-direction-btn, [data-role="direction"]')
+                ?.setAttribute("aria-expanded", "false");
+        });
+    }
+
+    function positionSortMenu(directionBtn, directionMenu) {
+        directionMenu.style.left = `${directionBtn.offsetLeft}px`;
+        directionMenu.style.top = `${directionBtn.offsetTop + directionBtn.offsetHeight + 1}px`;
+        directionMenu.style.right = "auto";
     }
 
     function wireSortMenus() {
@@ -210,14 +221,19 @@
 
             if (!directionBtn || !directionMenu) return;
 
+            directionBtn.setAttribute("aria-expanded", "false");
+
             directionBtn.addEventListener("click", (event) => {
                 event.stopPropagation();
                 const isOpen = directionMenu.classList.contains("open");
 
-                setActiveSort(header.dataset.sortKey, sortState.key === header.dataset.sortKey ? sortState.direction : "asc");
                 closeSortMenus();
-                directionMenu.classList.toggle("open", !isOpen);
-                applyFilters();
+
+                if (!isOpen) {
+                    positionSortMenu(directionBtn, directionMenu);
+                    directionMenu.classList.add("open");
+                    directionBtn.setAttribute("aria-expanded", "true");
+                }
             });
 
             directionMenu.addEventListener("click", (event) => {
