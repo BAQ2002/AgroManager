@@ -224,7 +224,7 @@
     position: absolute;
     z-index: 20;
     display: none;
-    margin-top: 0.2rem;
+    margin-top: 0;
     min-width: 6rem;
 }
 
@@ -241,5 +241,5 @@ th[data-sort-key] [data-menu="priority"] {
 }
 
 th[data-sort-key] [data-menu="direction"] {
-    right: 0;
+    right: auto;
 }
