@@ -202,7 +202,7 @@
 
     function wireSortMenus() {
         const headers = getSortHeaders();
-        setActiveSort(headers[0]?.dataset.sortKey ?? null, "asc");
+        syncSortDirectionMenus();
 
         headers.forEach((header) => {
             const directionBtn = header.querySelector('.datagrid-sort-direction-btn, [data-role="direction"]');
