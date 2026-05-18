@@ -205,9 +205,14 @@
         });
     }
 
-    function positionSortMenu(directionBtn, directionMenu) {
-        directionMenu.style.left = `${directionBtn.offsetLeft}px`;
-        directionMenu.style.top = `${directionBtn.offsetTop + directionBtn.offsetHeight + 1}px`;
+    function positionSortMenu(header, directionBtn, directionMenu) {
+        const headerRect = header.getBoundingClientRect();
+        const buttonRect = directionBtn.getBoundingClientRect();
+
+        // Alinha o canto esquerdo do dropdown ao canto esquerdo do botão.
+        directionMenu.style.left = `${buttonRect.left - headerRect.left}px`;
+        // Posiciona o topo do dropdown logo abaixo do fim do botão.
+        directionMenu.style.top = `${buttonRect.bottom - headerRect.top + 1}px`;
         directionMenu.style.right = "auto";
     }
 
@@ -230,7 +235,7 @@
                 closeSortMenus();
 
                 if (!isOpen) {
-                    positionSortMenu(directionBtn, directionMenu);
+                    positionSortMenu(header, directionBtn, directionMenu);
                     directionMenu.classList.add("open");
                     directionBtn.setAttribute("aria-expanded", "true");
                 }
