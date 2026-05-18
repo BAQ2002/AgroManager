@@ -3,7 +3,7 @@
     let allBovines = [];
     // Define unidade de idade padrão usada nos filtros e na renderização.
     let currentAgeUnit = "years";
-    let sortState = [];
+    let sortState = { key: null, direction: "asc" };
 
     const grid = window.DataGrid.create({
         rowsSelector: "#rows",
@@ -144,50 +144,75 @@
         grid.setData(sortData(filtered));
     }
 
-    // Ordena os dados filtrados pela sequência fixa das colunas e direção de cada uma.
+    // Ordena os dados filtrados usando somente a coluna ativa no momento.
     function sortData(items) {
+        if (!sortState.key) return [...items];
+
         return [...items].sort((a, b) => {
-            for (const rule of sortState) {
-                const factor = rule.direction === "desc" ? -1 : 1;
-                let left = "";
-                let right = "";
+            const factor = sortState.direction === "desc" ? -1 : 1;
+            const left = getSortableValue(a, sortState.key);
+            const right = getSortableValue(b, sortState.key);
 
-                if (rule.key === "birthDate") {
-                    left = toDate(a.birthDate)?.getTime() ?? Number.MIN_SAFE_INTEGER;
-                    right = toDate(b.birthDate)?.getTime() ?? Number.MIN_SAFE_INTEGER;
-                } else if (rule.key === "age") {
-                    left = getAgeByUnit(a);
-                    right = getAgeByUnit(b);
-                } else {
-                    left = (a[rule.key] ?? "").toString().toLowerCase();
-                    right = (b[rule.key] ?? "").toString().toLowerCase();
-                }
-
-                if (left !== right) {
-                    return left > right ? factor : -factor;
-                }
-            }
-
-            return 0;
+            if (left === right) return 0;
+            return left > right ? factor : -factor;
         });
+    }
+
+    function getSortableValue(item, key) {
+        if (key === "birthDate") {
+            return toDate(item.birthDate)?.getTime() ?? Number.MIN_SAFE_INTEGER;
+        }
+
+        if (key === "age") {
+            const age = getAgeByUnit(item);
+            return age === null || age === undefined || age === "" ? Number.MIN_SAFE_INTEGER : Number(age);
+        }
+
+        return (item[key] ?? "").toString().toLowerCase();
     }
 
     function getSortHeaders() {
         return Array.from(document.querySelectorAll(".datagrid thead th[data-sort-key]"));
     }
 
+    function setActiveSort(key, direction = sortState.direction || "asc") {
+        sortState = { key, direction };
+        syncSortDirectionMenus();
+    }
+
     function syncSortDirectionMenus() {
-        getSortHeaders().forEach((header, index) => {
-            const direction = sortState[index].direction;
+        getSortHeaders().forEach((header) => {
+            const isActiveHeader = header.dataset.sortKey === sortState.key;
+            const direction = isActiveHeader ? sortState.direction : "asc";
+            const directionBtn = header.querySelector('.datagrid-sort-direction-btn, [data-role="direction"]');
+
+            header.classList.toggle("is-sort-active", isActiveHeader);
+            directionBtn?.classList.toggle("is-active", isActiveHeader);
+            directionBtn?.setAttribute("aria-pressed", isActiveHeader.toString());
+
             header.querySelectorAll('[data-menu="direction"] .enum-combo-box-option').forEach((option) => {
-                option.classList.toggle("active", option.dataset.value === direction);
+                option.classList.toggle("active", isActiveHeader && option.dataset.value === direction);
             });
         });
     }
 
+    function closeSortMenus() {
+        document.querySelectorAll('.datagrid-sort-menu.open').forEach((menu) => {
+            menu.classList.remove("open");
+            menu.previousElementSibling
+                ?.querySelector('.datagrid-sort-direction-btn, [data-role="direction"]')
+                ?.setAttribute("aria-expanded", "false");
+        });
+    }
+
+    function positionSortMenu(directionBtn, directionMenu) {
+        directionMenu.style.left = `${directionBtn.offsetLeft}px`;
+        directionMenu.style.top = `${directionBtn.offsetTop + directionBtn.offsetHeight + 1}px`;
+        directionMenu.style.right = "auto";
+    }
+
     function wireSortMenus() {
         const headers = getSortHeaders();
-        sortState = headers.map((header) => ({ key: header.dataset.sortKey, direction: "asc" }));
         syncSortDirectionMenus();
 
         headers.forEach((header) => {
@@ -196,29 +221,32 @@
 
             if (!directionBtn || !directionMenu) return;
 
-            const closeMenus = () => {
-                directionMenu.classList.remove("open");
-            };
+            directionBtn.setAttribute("aria-expanded", "false");
 
             directionBtn.addEventListener("click", (event) => {
                 event.stopPropagation();
-                directionMenu.classList.toggle("open");
+                const isOpen = directionMenu.classList.contains("open");
+
+                closeSortMenus();
+
+                if (!isOpen) {
+                    positionSortMenu(directionBtn, directionMenu);
+                    directionMenu.classList.add("open");
+                    directionBtn.setAttribute("aria-expanded", "true");
+                }
             });
 
             directionMenu.addEventListener("click", (event) => {
                 const option = event.target.closest(".enum-combo-box-option");
                 if (!option) return;
-                const currentIndex = sortState.findIndex((x) => x.key === header.dataset.sortKey);
-                sortState[currentIndex].direction = option.dataset.value;
-                syncSortDirectionMenus();
-                closeMenus();
+
+                setActiveSort(header.dataset.sortKey, option.dataset.value);
+                closeSortMenus();
                 applyFilters();
             });
         });
 
-        document.addEventListener("click", () => {
-            document.querySelectorAll('.datagrid-sort-menu.open').forEach((menu) => menu.classList.remove("open"));
-        });
+        document.addEventListener("click", closeSortMenus);
     }
 
     // Conecta eventos dos filtros e da ação de limpar filtros.

@@ -54,3 +54,8 @@
     flex: 0 0 auto;
 }
  
+.datagrid-onderBy-button.is-active {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
