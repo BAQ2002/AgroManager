@@ -169,6 +169,7 @@
     cursor: not-allowed;
 }
 
+
 .datagrid-page-markers {
     display: inline-flex;
     align-items: center;
@@ -185,10 +186,14 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    color: var(--color-primary);
+    color: var(--color-black);
     font-size: var(--font-size-caption-small);
     font-weight: 600;
     cursor: pointer;
+}
+
+.datagrid-page-marker:hover {
+    background-color: var(--color-primary-soft);
 }
 
 .datagrid-page-marker.is-active {

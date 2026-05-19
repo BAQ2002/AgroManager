@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="~/components/enum-combo-box/enum-combo-box.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/components/primary-button/datagrid-pagination-button.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/components/primary-button/datagrid-onderBy-button.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/components/primary-button/datagrid-generic-button.css" asp-append-version="true" />
+
     <link rel="stylesheet" href="~/css/pages/bovines/IndexBovine.css" asp-append-version="true" />
 
     <style>
@@ -25,21 +27,16 @@
 
 <header class="page-header bovines-page-header">
     <div>
-        <h1 class="page-title">Bovines</h1>
-        <p class="page-subtitle">Lista de bovinos cadastrados no AgroManager.</p>
+        <h1 class="page-title">Registros de Bovinos</h1>
+        <p class="page-subtitle">Listagem dos bovinos cadastrados no AgroManager,
+                                 você pode acessar e editar as informações de cada registro.</p>
 
         <div class="inline-actions">
 
             <a class="primary-button" href="/">
                 <img class="primary-button-svg" src="~/assets/icons/back_icon.svg" alt="" />
                 <button-label>Voltar</button-label>
-            </a>
-
-            <a class="primary-button" href="/bovines/create">
-                <img class="primary-button-svg" src="~/assets/icons/addIcon.svg" alt="" />
-                <button-label>Novo Bovine</button-label>
-            </a>
-
+            </a>        
         </div>
     </div>
 </header>
@@ -163,6 +160,12 @@
     <div class="bovines-records-column">
     <section class="datagrid-wrapper box-shadow-light">
             <div class="datagrid-pagination-actions">
+
+                <a class="datagrid-generic-button" href="/bovines/create">
+                    <img class="primary-button-svg" src="~/assets/icons/addIcon.svg" alt="" />
+                    <button-label>Novo Bovino</button-label>
+                </a>
+
                 <button type="button" class="datagrid-pagination-button" id="bovinesPageSizeButton" data-role="direction" aria-label="Direção de ordenação de Nome">
                     <img src="~/assets/icons/page_amount_icon.svg" alt="" />
                     <button-label for="bovinesPageSize">Mostrar por página</button-label>
