@@ -176,6 +176,12 @@
     }
 
     function setActiveSort(key, direction = sortState.direction || "asc") {
+        if (direction === "none") {
+            sortState = { key: null, direction: "asc" };
+            syncSortDirectionMenus();
+            return;
+        }
+
         sortState = { key, direction };
         syncSortDirectionMenus();
     }
