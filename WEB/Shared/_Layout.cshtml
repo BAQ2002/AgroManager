@@ -59,6 +59,7 @@
                     <span class="sidebar-section-label">Principal</span>
                     <div class="sidebar-links">
                         <a class="sidebar-nav-button @(currentController == "home" ? "is-active" : string.Empty)" href="@Url.Action("Index", "Home")">
+                            <img class="sidebar-icon-svg" src="~/assets/icons/home_icon.svg" alt="" />
                             <span class="sidebar-nav-label">Início</span>
                         </a>
                     </div>
@@ -68,9 +69,11 @@
                     <span class="sidebar-section-label">Gestão de rebanho</span>
                     <div class="sidebar-links">
                         <a class="sidebar-nav-button @(currentController == "bovines" ? "is-active" : string.Empty)" href="@Url.Action("IndexBovine", "Bovines")">
+                            <img class="sidebar-icon-svg" src="~/assets/icons/bovines.svg" alt="" />
                             <span class="sidebar-nav-label">Bovinos</span>
                         </a>
                         <a class="sidebar-nav-button @(currentController == "swines" ? "is-active" : string.Empty)" href="@Url.Action("Index", "Swines")">
+                            <img class="sidebar-icon-svg" src="~/assets/icons/swines.svg" alt="" />
                             <span class="sidebar-nav-label">Suínos</span>
                         </a>
                     </div>
