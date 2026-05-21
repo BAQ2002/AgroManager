@@ -31,7 +31,7 @@
     --color-batches-soft: color-mix(in srgb, var(--color-batches) 12%, var(--color-white));
     /* Brand */
     --color-primary: #296436;
-    --color-primary-soft: #E5E5E5;
+    --color-primary-soft: #D9E3DB;
     /* Feedback */
     --color-danger-soft: #fca5a5;
     --color-link: #0077cc;
@@ -81,6 +81,10 @@
     --container-wide: 110rem; /* 1760px */
     --container-ultra: 118.75rem; /* 1900px */
     --calendar-width: 33.125rem; /* 530px */
+    /* Typography - icon sizes */
+    --svg-size-small: 1rem;
+    --svg-size-medium: 1.5rem;
+    --svg-size-large: 2.8rem;
     /* Typography - font sizes */
     --font-size-root-mobile: 14px;
     --font-size-root-desktop: 16px;
@@ -92,12 +96,11 @@
     --font-size-body-small: 0.9rem;
     --font-size-body-xs: 0.8rem;
     --font-size-caption-large: 0.94rem;
-    --font-size-caption-medium: 0.86rem;
     --font-size-caption-small: 0.85rem;
     --font-size-button-small: 1rem;
     --font-size-option-small: 0.9rem;
     --font-size-floating-label-active: 12px;
     --font-size-calendar-header: 40px;
     --font-size-calendar-month-year: 37%;
-    --font-size-calendar-day: 1.12rem;
+    --font-size-calendar-day: 1rem;
 }

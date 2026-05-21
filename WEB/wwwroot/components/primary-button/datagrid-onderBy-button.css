@@ -1,4 +1,5 @@
-.primary-button {
+﻿.datagrid-onderBy-button {
+    margin-left: auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -6,35 +7,33 @@
     border: 1px solid var(--color-border);
     text-decoration: none;
     color: var(--color-black);
-    background: var(--color-border);
-    outline-color: var(--color-primary);
+    background: var(--color-background-primary);
     border: 1px solid var(--color-border);
-    outline-offset: 0;
     outline: 2px solid transparent;
+    width: 2.2rem;
+    height: 2.2rem;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, outline-color 0.2s ease;
 }
 
-    .primary-button:hover {
+    .datagrid-onderBy-button:hover {
         color: var(--color-black);
-        background: var(--color-border);
+        background: var(--color-primary-soft);
         border: 1px solid var(--color-primary);
-        outline-color: var(--color-primary);
-        outline-offset: -1px;
     }
 
 
 .button-with-icon,
-.primary-button {
+.datagrid-onderBy-button {
     gap: var(--space-050);
     font-size: var(--font-size-body-medium);
     font-weight: 500;
     text-transform: none;
     letter-spacing: normal;
     padding: var(--space-025) var(--space-075);
-    border-radius: var(--radius-pill);
+    border-radius: 0.5rem;
 }
 
-.primary-button-svg {
+.datagrid-onderBy-button-svg {
     width: var(--font-size-body-medium);
     height: var(--font-size-body-medium);
     display: block;
@@ -42,7 +41,7 @@
 }
 
 .button-with-icon svg,
-.primary-button svg {
+.datagrid-onderBy-button svg {
     width: var(--space-125);
     height: var(--space-125);
     fill: none;
@@ -52,4 +51,9 @@
     stroke-linejoin: round;
     display: block;
     flex: 0 0 auto;
+}
+ 
+.datagrid-onderBy-button.is-active {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
 }
