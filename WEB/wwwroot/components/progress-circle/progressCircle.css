@@ -1,0 +1,35 @@
+﻿.progress-circle {
+    --size: 82px;
+    --thickness: 7px;
+    --value: 89;
+    --color: #14b8d4;
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+}
+
+    .progress-circle svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+    }
+
+    .progress-circle .progress {
+        fill: none;
+        stroke: var(--color);
+        stroke-width: var(--thickness);
+        stroke-linecap: round;
+        stroke-dasharray: var(--value) 100;
+        stroke-dashoffset: 0;
+    }
+
+    .progress-circle::before {
+        content: attr(data-label);
+        position: absolute;
+        color: var(--color);
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+    }
