@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MODEL;
 
-namespace INFRA.Repositories.Weight;
+namespace INFRA;
 
 public sealed class SwineWeightRepositoryEF : WeightRepositoryEFBase<SwineWeight> , ISwineWeightRepository
 {

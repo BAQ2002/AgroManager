@@ -13,8 +13,7 @@ namespace MODEL
 
     /// <summary>
     /// Tracks milk measurements for one animal without exposing persistence entities.
-    /// Dates are calendar dates (without a time zone), future dates are rejected, and
-    /// at most one measurement may be registered for an animal on a given date.
+    /// Dates are calendar dates (without a time zone), future dates are rejected.
     /// </summary>
     public interface IMilkTracker
     {

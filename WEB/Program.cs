@@ -1,3 +1,5 @@
+using BLL;
+using BLL.Monitoring.Profile;
 using BLL.Services;
 
 using INFRA;
@@ -38,6 +40,15 @@ builder.Services.AddScoped<IBovineService, BovineService>();
 
 // Repositório EF (INFRA) -> contrato do MODEL
 builder.Services.AddScoped<IAnimalRepository<BovineEntity>, BovineRepositoryEF>();
+
+builder.Services.AddScoped<IBovineWeightRepository, BovineWeightRepositoryEF>();
+builder.Services.AddScoped<ISwineWeightRepository, SwineWeightRepositoryEF>();
+builder.Services.AddScoped<IBovineMilkRepository, BovineMilkRepositoryEF>();
+
+// Monitoring profile composition
+builder.Services.AddScoped<IMonitoringAssemblyStrategy, BovineMonitoringAssemblyStrategy>();
+builder.Services.AddScoped<IMonitoringAssemblyStrategy, SwineMonitoringAssemblyStrategy>();
+builder.Services.AddScoped<IMonitoringProfileFactory, MonitoringProfileFactory>();
 
 
 
