@@ -20,8 +20,13 @@ public class AgroManagerDbContext : DbContext
     // Use os tipos do SEU projeto MODEL (ex.: Animal, Batch, AnimalBatch, MilkRecord, Pasture...)
     public DbSet<BovineEntity> Bovines => Set<BovineEntity>();
     public DbSet<SwineEntity> Swines => Set<SwineEntity>();
-    public DbSet<MilkEntity> MilkRecords => Set<MilkEntity>();
     public DbSet<PastureEntity> Pastures => Set<PastureEntity>();
+
+    #region Milk Entities -------------------------------------------------------- 
+    public DbSet<BovineMilk> BovineMilkRecords => Set<BovineMilk>();
+
+    #endregion--------------------------------------------------------------------------
+
 
     #region Weight Entities -------------------------------------------------------- 
     public DbSet<BovineWeight> BovineWeightRecords => Set<BovineWeight>();

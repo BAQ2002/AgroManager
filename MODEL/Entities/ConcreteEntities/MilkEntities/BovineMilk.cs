@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MODEL
 {
-    public sealed class BovineWeight : WeightEntity
+    /// <summary>
+    /// Milk measurement associated with a bovine.
+    /// </summary>
+    public sealed class BovineMilk : MilkEntity
     {
         private Guid _bovineId;
 
