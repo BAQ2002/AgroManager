@@ -1,6 +1,6 @@
 ﻿using MODEL;
 
-namespace BLL.Monitoring.Profile
+namespace BLL
 {
     /// <summary>
     /// Builds monitoring capabilities for <see cref="BovineEntity"/> animals.
@@ -8,14 +8,19 @@ namespace BLL.Monitoring.Profile
     public sealed class BovineMonitoringAssemblyStrategy : IMonitoringAssemblyStrategy
     {
         private readonly IBovineWeightRepository _weightRepository;
+        private readonly IBovineMilkRepository _milkRepository;
 
         /// <summary>
-        /// Initializes the strategy with the bovine weight persistence adapter.
+        /// Initializes the strategy with the bovine weight and milk persistence adapter.
         /// </summary>
-        /// <param name="weightRepository">Repository used to create bovine-bound trackers.</param>
-        public BovineMonitoringAssemblyStrategy(IBovineWeightRepository weightRepository)
+        /// <param name="weightRepository">Repository used to create bovine-bound weight trackers.</param>
+        /// <param name="milkRepository">Repository used to create bovine-bound milk trackers.</param>
+        public BovineMonitoringAssemblyStrategy(
+            IBovineWeightRepository weightRepository,
+            IBovineMilkRepository milkRepository)
         {
             _weightRepository = weightRepository ?? throw new ArgumentNullException(nameof(weightRepository));
+            _milkRepository = milkRepository ?? throw new ArgumentNullException(nameof(milkRepository));
         }
 
         public Type AnimalType => typeof(BovineEntity);
@@ -29,6 +34,9 @@ namespace BLL.Monitoring.Profile
 
             IBovineWeightTracker tracker = new BovineWeightTracker(bovine.Id, _weightRepository);
             yield return new WeightMonitoringCapability(tracker);
+
+            IMilkTracker milkTracker = new BovineMilkTracker(bovine.Id, _milkRepository);
+            yield return new MilkMonitoringCapability(milkTracker);
         }
     }
 

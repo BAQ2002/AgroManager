@@ -21,4 +21,8 @@ namespace MODEL
         Task<IReadOnlyList<MilkPoint>> GetHistoryAsync(CancellationToken ct = default);
         Task<MilkPoint?> GetLatestAsync(CancellationToken ct = default);
     }
+
+    public interface IBovineMilkTracker : IMilkTracker
+    {
+    }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Monitoring.Milk
+namespace BLL
 {
     /// <summary>
     /// Persistence-backed milk tracker bound only to an opaque animal identifier.
