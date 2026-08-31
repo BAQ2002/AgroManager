@@ -14,33 +14,41 @@ namespace BLL.Monitoring.Milk
         where TMilk : MilkEntity
     {
         private readonly Guid _animalId;
-        private readonly IMilkRepository<TMilk> _repository;
 
-        public MilkTracker(Guid animalId, IMilkRepository<TMilk> repository)
+        public MilkTracker(Guid animalId)
         {
             if (animalId == Guid.Empty)
                 throw new ArgumentException("An animal identifier is required.", nameof(animalId));
 
             _animalId = animalId;
-
-            
-
-
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
 
         protected abstract Task<IReadOnlyList<TMilk>> ReadEntriesAsync(Guid animalId, CancellationToken ct = default);
 
 
-        public Task<IReadOnlyList<MilkPoint>> GetHistoryAsync(CancellationToken ct = default)
+        public async Task<IReadOnlyList<MilkPoint>> GetHistoryAsync(CancellationToken ct = default)
         {
-            throw new NotImplementedException();
+            IReadOnlyList<TMilk> entries = await ReadEntriesAsync(_animalId, ct).ConfigureAwait(false);
+
+            return entries
+                .OrderBy(entry => entry.OccurrenceDate)
+                .ThenBy(entry => entry.CreatedAt)
+                .ThenBy(entry => entry.Id)
+                .Select(entry => new MilkPoint(entry.OccurrenceDate, entry.Liters))
+                .ToList();
         }
 
-        public Task<MilkPoint?> GetLatestAsync(CancellationToken ct = default)
+        public async Task<MilkPoint?> GetLatestAsync(CancellationToken ct = default)
         {
-            throw new NotImplementedException();
+            IReadOnlyList<TMilk> entries = await ReadEntriesAsync(_animalId, ct).ConfigureAwait(false);
+            TMilk? latest = entries
+                .OrderByDescending(entry => entry.OccurrenceDate)
+                .ThenByDescending(entry => entry.CreatedAt)
+                .FirstOrDefault();
+
+            return latest is null
+                ? null: new MilkPoint(latest.OccurrenceDate, latest.Liters);
         }
     }
 }

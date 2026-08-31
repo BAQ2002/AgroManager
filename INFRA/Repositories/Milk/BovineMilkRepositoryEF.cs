@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace INFRA.Repositories.Milk
 {
-    internal class BovineMilkRepositoryEF : MilkRepositoryEFBase<BovineMilk>, IBovineMilkRepository
+    public sealed class BovineMilkRepositoryEF : MilkRepositoryEFBase<BovineMilk>, IBovineMilkRepository
     {
         public BovineMilkRepositoryEF(IDbContextFactory<AgroManagerDbContext> factory) : base(factory){}
 
@@ -17,8 +17,5 @@ namespace INFRA.Repositories.Milk
 
         protected override IQueryable<BovineMilk> FilterByAnimalId(IQueryable<BovineMilk> query, Guid animalId)
             => query.Where(x => x.BovineId == animalId);
-
-    }
-
-    
+    } 
 }

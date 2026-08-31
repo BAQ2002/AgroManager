@@ -41,7 +41,7 @@ namespace INFRA
             return await GetSet(db).AsNoTracking().SingleOrDefaultAsync(m => m.Id == id, ct);
         }
 
-        public async Task<IReadOnlyList<TMilk?>> GetByAnimalIdAsync(Guid animalId, CancellationToken ct)
+        public async Task<IReadOnlyList<TMilk?>> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default)
         {
             await using var db = await _factory.CreateDbContextAsync(ct);
             return await FilterByAnimalId(GetSet(db).AsNoTracking(), animalId)

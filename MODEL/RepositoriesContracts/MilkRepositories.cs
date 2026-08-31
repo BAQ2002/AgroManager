@@ -14,7 +14,7 @@ namespace MODEL
         Task AddAsync(TMilk entity, CancellationToken ct = default);
         Task DeleteAsync(TMilk entity, CancellationToken ct = default);
         Task<TMilk?> GetByIdAsync(Guid id, CancellationToken ct = default);
-        Task<IReadOnlyList<TMilk?>> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
+        Task<IReadOnlyList<TMilk>> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
     }
 
     public interface IBovineMilkRepository : IMilkRepository<BovineMilk>
