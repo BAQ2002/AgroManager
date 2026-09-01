@@ -45,7 +45,8 @@ public abstract class MilkRepositoryEFBase<TMilk> : IMilkRepository<TMilk>
     {
         await using var db = await _factory.CreateDbContextAsync(ct);
         return await FilterByAnimalId(GetSet(db).AsNoTracking(), animalId)
-            .OrderByDescending(x => x.OccurrenceDate)
+            .OrderByDescending(x => x.OccurredAt)
+            .ThenByDescending(x => x.Id)
             .ToListAsync(ct);
     }
 }

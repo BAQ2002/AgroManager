@@ -16,7 +16,12 @@ namespace MODEL
         public Guid BovineId
         {
             get => _bovineId;
-            set { _bovineId = value; }
+            set {
+                if (value == Guid.Empty)
+                    throw new ArgumentException("A bovine identifier is required.", nameof(value));
+                
+                _bovineId = value; 
+            }
         }
     }
 }

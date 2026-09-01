@@ -17,7 +17,8 @@ namespace INFRA.Persistences
                 .HasColumnType("uuid")
                 .ValueGeneratedNever();
 
-            entityBuilder.HasIndex(x => new { x.BovineId, x.OccurrenceDate });
+            entityBuilder.HasIndex(x => new { x.BovineId, x.OccurredAt })
+                .IsUnique();
 
             entityBuilder.HasOne<BovineEntity>()
                 .WithMany()

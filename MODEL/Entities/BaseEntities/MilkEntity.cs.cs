@@ -12,13 +12,13 @@ namespace MODEL
     /// </summary>
     public abstract class MilkEntity : BaseEntity
     {
-        private DateOnly _occurrenceDate;
+        private DateTimeOffset _occurredAt;
         private float _liters;
 
-        public DateOnly OccurrenceDate
+        public DateTimeOffset OccurredAt
         {
-            get => _occurrenceDate;
-            set { _occurrenceDate = value; }
+            get => _occurredAt;
+            set { _occurredAt = value; }
         }
         public float Liters
         {

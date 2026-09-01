@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 namespace MODEL
 {
     /// <summary>
-    /// Immutable milk measurement for a calendar day.
+    /// Immutable representation of one milking at an unambiguous instant.
     /// </summary>
-    public sealed record MilkPoint(DateOnly Date, float Liters);
+    public sealed record MilkPoint(DateTimeOffset OccurredAt, float Liters);
 
     /// <summary>
     /// Tracks milk measurements for one animal without exposing persistence entities.
-    /// Dates are calendar dates (without a time zone), future dates are rejected.
+    /// History contains every individual milking. Operational dates must be calculated
+    /// by callers with the farm's explicitly configured time zone.
     /// </summary>
     public interface IMilkTracker
     {

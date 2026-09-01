@@ -32,10 +32,9 @@ namespace BLL
             IReadOnlyList<TMilk> entries = await ReadEntriesAsync(_animalId, ct).ConfigureAwait(false);
 
             return entries
-                .OrderBy(entry => entry.OccurrenceDate)
-                .ThenBy(entry => entry.CreatedAt)
+                .OrderBy(entry => entry.OccurredAt)
                 .ThenBy(entry => entry.Id)
-                .Select(entry => new MilkPoint(entry.OccurrenceDate, entry.Liters))
+                .Select(entry => new MilkPoint(entry.OccurredAt, entry.Liters))
                 .ToList();
         }
 
@@ -43,12 +42,12 @@ namespace BLL
         {
             IReadOnlyList<TMilk> entries = await ReadEntriesAsync(_animalId, ct).ConfigureAwait(false);
             TMilk? latest = entries
-                .OrderByDescending(entry => entry.OccurrenceDate)
-                .ThenByDescending(entry => entry.CreatedAt)
+                .OrderByDescending(entry => entry.OccurredAt)
+                .ThenByDescending(entry => entry.Id)
                 .FirstOrDefault();
 
             return latest is null
-                ? null: new MilkPoint(latest.OccurrenceDate, latest.Liters);
+                ? null : new MilkPoint(latest.OccurredAt, latest.Liters);
         }
     }
 }
