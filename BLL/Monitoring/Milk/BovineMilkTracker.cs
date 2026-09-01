@@ -10,7 +10,7 @@ namespace BLL
     /// <summary>
     /// Bovine-specific milk tracker backed by <see cref="IBovineMilkRepository"/>.
     /// </summary>
-    public sealed class BovineMilkTracker : MilkTracker<BovineMilk>, IBovineMilkTracker
+    public sealed class BovineMilkTracker : MilkTrackerBase<BovineMilk>, IBovineMilkTracker
     {
         private readonly IBovineMilkRepository _repository;
 

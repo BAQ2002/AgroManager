@@ -10,12 +10,12 @@ namespace BLL
     /// <summary>
     /// Persistence-backed milk tracker bound only to an opaque animal identifier.
     /// </summary>
-    public abstract class MilkTracker<TMilk> : IMilkTracker
+    public abstract class MilkTrackerBase<TMilk> : IMilkTracker
         where TMilk : MilkEntity
     {
         private readonly Guid _animalId;
 
-        public MilkTracker(Guid animalId)
+        protected MilkTrackerBase(Guid animalId)
         {
             if (animalId == Guid.Empty)
                 throw new ArgumentException("An animal identifier is required.", nameof(animalId));
