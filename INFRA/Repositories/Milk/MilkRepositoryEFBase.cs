@@ -28,6 +28,13 @@ public abstract class MilkRepositoryEFBase<TMilk> : IMilkRepository<TMilk>
         await db.SaveChangesAsync(ct);
     }
 
+    public async Task UpdateAsync(TMilk entity, CancellationToken ct = default)
+    {
+        await using var db = await _factory.CreateDbContextAsync(ct);
+        GetSet(db).Update(entity);
+        await db.SaveChangesAsync(ct);
+    }
+
     public async Task DeleteAsync(TMilk entity, CancellationToken ct = default)
     {
         await using var db = await _factory.CreateDbContextAsync(ct);

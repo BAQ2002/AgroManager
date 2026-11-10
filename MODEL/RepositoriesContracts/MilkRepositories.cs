@@ -12,6 +12,7 @@ namespace MODEL
 
     {
         Task AddAsync(TMilk entity, CancellationToken ct = default);
+        Task UpdateAsync(TMilk entity, CancellationToken ct = default);
         Task DeleteAsync(TMilk entity, CancellationToken ct = default);
         Task<TMilk?> GetByIdAsync(Guid id, CancellationToken ct = default);
         Task<IReadOnlyList<TMilk?>> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);
