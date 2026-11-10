@@ -44,6 +44,8 @@ namespace BLL
             IReadOnlyList<TWeight> entries = await ReadEntriesAsync(_animalId, ct).ConfigureAwait(false);
             return entries
                 .OrderBy(w => w.OccurrenceDate)
+                .ThenBy(w => w.CreatedAt)
+                .ThenBy(w => w.Id)
                 .Select(w => new WeightPoint(w.OccurrenceDate, w.Weight))
                 .ToList();
         }
@@ -58,6 +60,8 @@ namespace BLL
             IReadOnlyList<TWeight> entries = await ReadEntriesAsync(_animalId, ct).ConfigureAwait(false);
             TWeight? latest = entries
                 .OrderByDescending(w => w.OccurrenceDate)
+                .ThenByDescending(w => w.CreatedAt)
+                .ThenByDescending(w => w.Id)
                 .FirstOrDefault();
 
             return latest is null ? null : new WeightPoint(latest.OccurrenceDate, latest.Weight);

@@ -21,4 +21,17 @@ namespace MODEL
         public IWeightTracker Tracker { get; }
     }
 
+    /// <summary>
+    /// Capability wrapper that exposes milk tracking features for an animal profile.
+    /// </summary>
+    public sealed class MilkMonitoringCapability : IMonitoringCapability
+    {
+        public MilkMonitoringCapability(IMilkTracker tracker)
+        {
+            Tracker = tracker ?? throw new ArgumentNullException(nameof(tracker));
+        }
+
+        public IMilkTracker Tracker { get; }
+    }
+
 }

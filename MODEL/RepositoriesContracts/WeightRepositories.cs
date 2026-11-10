@@ -10,6 +10,7 @@ namespace MODEL
         where TWeight : WeightEntity
     {
         Task AddAsync(TWeight entity, CancellationToken ct = default);
+        Task UpdateAsync(TWeight entity, CancellationToken ct = default);
         Task DeleteAsync(TWeight entity, CancellationToken ct = default);
         Task<TWeight?> GetByIdAsync(Guid id, CancellationToken ct = default);
         Task<IReadOnlyList<TWeight>> GetByAnimalIdAsync(Guid animalId, CancellationToken ct = default);

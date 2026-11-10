@@ -22,8 +22,8 @@ namespace MODEL
             get => _weight;
             set
             {
-                if (value <= 0)
-                    throw new ArgumentOutOfRangeException(nameof(value), "Weight must be greater than zero.");
+                if (!float.IsFinite(value) || value <= 0)
+                    throw new ArgumentOutOfRangeException(nameof(value), "Weight must be finite and greater than zero.");
 
                 _weight = value;
             }

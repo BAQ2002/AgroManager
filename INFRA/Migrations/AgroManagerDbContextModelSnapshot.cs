@@ -139,6 +139,35 @@ namespace INFRA.Migrations
                     b.UseTpcMappingStrategy();
                 });
 
+            modelBuilder.Entity("MODEL.BovineMilk", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("BovineId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<float>("Liters")
+                        .HasColumnType("real");
+
+                    b.Property<DateTimeOffset>("OccurredAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BovineId", "OccurredAt")
+                        .IsUnique();
+
+                    b.ToTable("BovineRecordsMilk", (string)null);
+                });
+
             modelBuilder.Entity("MODEL.BovineWeight", b =>
                 {
                     b.Property<Guid>("Id")
@@ -164,34 +193,7 @@ namespace INFRA.Migrations
 
                     b.HasIndex("BovineId", "OccurrenceDate");
 
-                    b.ToTable("BovineWeightRecords", (string)null);
-                });
-
-            modelBuilder.Entity("MODEL.MilkEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("BovineId")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<float>("Liters")
-                        .HasColumnType("real");
-
-                    b.Property<DateOnly>("OccurrenceDate")
-                        .HasColumnType("date");
-
-                    b.Property<DateTimeOffset?>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BovineId");
-
-                    b.ToTable("MilkRecords", (string)null);
+                    b.ToTable("BovineRecordsWeight", (string)null);
                 });
 
             modelBuilder.Entity("MODEL.ParentageEntity", b =>
@@ -366,7 +368,7 @@ namespace INFRA.Migrations
                     b.ToTable("SwineParentages", (string)null);
                 });
 
-            modelBuilder.Entity("MODEL.BovineWeight", b =>
+            modelBuilder.Entity("MODEL.BovineMilk", b =>
                 {
                     b.HasOne("MODEL.BovineEntity", null)
                         .WithMany()
@@ -375,7 +377,7 @@ namespace INFRA.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MODEL.MilkEntity", b =>
+            modelBuilder.Entity("MODEL.BovineWeight", b =>
                 {
                     b.HasOne("MODEL.BovineEntity", null)
                         .WithMany()

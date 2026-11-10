@@ -8,6 +8,12 @@ namespace MODEL
 {
     public sealed class BovineWeight : WeightEntity
     {
-        public Guid BovineId { get; set; }
+        private Guid _bovineId;
+
+        public Guid BovineId
+        {
+            get => _bovineId;
+            set { _bovineId = value; }
+        }
     }
 }

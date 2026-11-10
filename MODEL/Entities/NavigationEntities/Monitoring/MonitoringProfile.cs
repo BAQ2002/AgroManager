@@ -15,7 +15,16 @@ namespace MODEL
         Type AnimalType { get; }
 
         bool TryGetCapability<TCapability>(out TCapability? capability) where TCapability : class, IMonitoringCapability;
+
+        /// <summary>
+        /// Gets the weight capability; throws <see cref="InvalidOperationException"/> when unavailable.
+        /// </summary>
         WeightMonitoringCapability? Weight { get; }
+
+        /// <summary>
+        /// Gets the milk capability; throws <see cref="InvalidOperationException"/> when unavailable.
+        /// </summary>
+        MilkMonitoringCapability? Milk { get; }
     }
 
     /// <summary>
@@ -48,10 +57,17 @@ namespace MODEL
             return false;
         }
 
+        /// <inheritdoc />
         public WeightMonitoringCapability? Weight
             => TryGetCapability<WeightMonitoringCapability>(out var capability)
                 ? capability
                 : throw new InvalidOperationException($"Weight capability is not available for animal type '{AnimalType.Name}' and id '{AnimalId}'.");
+
+        /// <inheritdoc />
+        public MilkMonitoringCapability? Milk
+            => TryGetCapability<MilkMonitoringCapability>(out var capability)
+                ? capability
+                : throw new InvalidOperationException($"Milk capability is not available for animal type '{AnimalType.Name}' and id '{AnimalId}'.");
     }
 
     /// <summary>
