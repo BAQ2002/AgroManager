@@ -154,17 +154,18 @@ namespace INFRA.Migrations
                     b.Property<float>("Liters")
                         .HasColumnType("real");
 
-                    b.Property<DateOnly>("OccurrenceDate")
-                        .HasColumnType("date");
+                    b.Property<DateTimeOffset>("OccurredAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTimeOffset?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BovineId", "OccurrenceDate");
+                    b.HasIndex("BovineId", "OccurredAt")
+                        .IsUnique();
 
-                    b.ToTable("BovineMilkRecords", (string)null);
+                    b.ToTable("BovineRecordsMilk", (string)null);
                 });
 
             modelBuilder.Entity("MODEL.BovineWeight", b =>
@@ -192,7 +193,7 @@ namespace INFRA.Migrations
 
                     b.HasIndex("BovineId", "OccurrenceDate");
 
-                    b.ToTable("BovineWeightRecords", (string)null);
+                    b.ToTable("BovineRecordsWeight", (string)null);
                 });
 
             modelBuilder.Entity("MODEL.ParentageEntity", b =>

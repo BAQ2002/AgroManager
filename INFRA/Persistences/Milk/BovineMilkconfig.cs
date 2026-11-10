@@ -11,7 +11,7 @@ namespace INFRA.Persistences
     {
         public void Configure(EntityTypeBuilder<BovineMilk> entityBuilder)
         {
-            entityBuilder.ToTable("BovineMilkRecords");
+            entityBuilder.ToTable("BovineRecordsMilk");
 
             entityBuilder.Property(x => x.BovineId)
                 .HasColumnType("uuid")
