@@ -20,6 +20,13 @@ public abstract class WeightRepositoryEFBase<TWeight> : IWeightRepository<TWeigh
         await db.SaveChangesAsync(ct);
     }
 
+    public async Task UpdateAsync(TWeight entity, CancellationToken ct = default)
+    {
+        await using var db = await _factory.CreateDbContextAsync(ct);
+        GetSet(db).Update(entity);
+        await db.SaveChangesAsync(ct);
+    }
+
     public async Task DeleteAsync(TWeight entity, CancellationToken ct = default)
     {
         await using var db = await _factory.CreateDbContextAsync(ct);
@@ -38,6 +45,8 @@ public abstract class WeightRepositoryEFBase<TWeight> : IWeightRepository<TWeigh
         await using var db = await _factory.CreateDbContextAsync(ct);
         return await FilterByAnimalId(GetSet(db).AsNoTracking(), animalId)
             .OrderByDescending(x => x.OccurrenceDate)
+            .ThenByDescending(x => x.CreatedAt)
+            .ThenByDescending(x => x.Id)
             .ToListAsync(ct);
     }
 }
